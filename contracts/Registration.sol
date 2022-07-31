@@ -1,35 +1,15 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8.0 <0.9.0;
+
+import "./EgitimBilgileri.sol";
+
 contract Registration{
   address YOK;
   address TOBB;
   address CB;
+    EgitimBilgileri egitimBilgileri;
 
-  enum Title { DR, AS_PROF, PROF,MD }
 
-   struct University
-    {
-      bool status;
-      bytes32 name;
-      bytes32 country;
-    }
-  struct Academician
-    {
-      bool status;
-      bytes32 university;
-      bytes32 department;
-      Title title; 
-      bytes32 name;
-      bytes32 surname;
-    }
-   struct  Student
-    {
-      bool status;
-      bytes32 university;
-      bytes32 department;
-      bytes32 name;
-      bytes32 surname;
-    }
    struct Company
     {
       bool status;
@@ -59,23 +39,23 @@ contract Registration{
     struct  Person
     {
       bool status;
-      mapping(address=>University)  universities;
-      bytes32 department;
-      bytes32 name;
-      bytes32 surname;
+      EgitimBilgileri.EducationInfo[] educations;
     }
+        
 
-    mapping(address=>University) public universities;
-    mapping(address=>Academician) public academicians;
+
+
+ 
+ 
     mapping(address=>Company) public  companies;
     mapping(address=>Course) public  courses;
     mapping(address=>PublicInstitution) public publicInstitutions;
     mapping(address=>NGO) public ngos;
-    mapping(address=>Student) public students;
+    mapping(address=>Person) public people;
 
-    event UniversityRegisteredLog(address _universityAddress,bytes32  _name, bytes32 _country);
-    event StudentRegisteredLog(address _studentAddress,bytes32  _name,bytes32  _surname,bytes32  _department,bytes32  _university);
-    event AcademicianRegisteredLog(address _academicianAddress,bytes32  _name,bytes32  _surname,bytes32  _department,bytes32  _university,Title _title);
+
+    event PersonRegisteredLog(address _personAddress);
+ 
     event CompanyRegisteredLog(address _companyAddress,bytes32  _name, uint _identityNumber,bytes32  _country);
     event PublicInstitutionRegisteredLog(address _institutionAddress,bytes32  _name,bytes32  _country);
     event NGORegisteredLog(address _ngoAddress,bytes32  _name,bytes32  _country);
@@ -107,7 +87,7 @@ contract Registration{
       _;
     }    
     modifier onlyUniversity{
-      require(universities[msg.sender].status,
+      require(egitimBilgileri.isUniversity(msg.sender),
       "Sadece Universite bu islemi yapabilir."
       );
       _;
@@ -119,7 +99,7 @@ contract Registration{
       _;
     } 
      modifier Only_Uni_Comp_Publ{
-      require(universities[msg.sender].status||companies[msg.sender].status||publicInstitutions[msg.sender].status,
+      require(egitimBilgileri.isUniversity(msg.sender)||companies[msg.sender].status||publicInstitutions[msg.sender].status,
       "Bu islemi sadece Kurs yapabilir."
       );
       _;
@@ -129,69 +109,52 @@ contract Registration{
       "Bu islemi sadece kontrat sahibi yapabilir");
       _;
    }
-     function isStudent(address _address) public view returns(bool){
-        return students[_address].status;
+     function isPerson(address _address) public view returns(bool){
+        return people[_address].status;
     }
-      function isAcademician(address _address) public view returns(bool){
-        return academicians[_address].status;
-    }
+
       function isCompany(address _address) public view returns(bool){
         return companies[_address].status;
     }
       function isPublicInstitution(address _address) public view returns(bool){
         return publicInstitutions[_address].status;
     }
-      function isUniversity(address _address) public view returns(bool){
-        return universities[_address].status;
-    }
+
       function isCourse(address _address) public view returns(bool){
         return courses[_address].status;
     }
        function isNGO(address _address) public view returns(bool){
         return ngos[_address].status;
     }
- function registerUniversity(address _universityAddress,bytes32 _name, bytes32 _country) 
+ function registerUniversity(address _universityAddress,bytes32 _name, uint8 _country) 
   public onlyYOK{
-        require(!universities[_universityAddress].status,
+        require(!egitimBilgileri.isUniversity(_universityAddress),
             "University exists already"
             );
-            
-        universities[_universityAddress].status=true;
-        universities[_universityAddress].name=_name;
-        universities[_universityAddress].country=_country;
+        egitimBilgileri.addUniversite(_universityAddress,_name,_country);
 
-        emit UniversityRegisteredLog( _universityAddress, _name, _country);
-       
     }
-  function registerStudent(address _studentAddress, bytes32 _name, bytes32 _surname, bytes32 _department, bytes32 _university) 
+  function registerStudent(address _studentAddress,EgitimBilgileri.EducationInfo memory _egitimBilgileri) 
   public onlyUniversity{
-        require(!students[_studentAddress].status,
+        require(!people[_studentAddress].status,
             "Student exists already"
             );
             
-        students[_studentAddress].status=true;
-        students[_studentAddress].name=_name;
-        students[_studentAddress].surname=_surname;
-        students[_studentAddress].university=_university;
-        students[_studentAddress].department=_department;
+        people[_studentAddress].status=true;
+        people[_studentAddress].educations.push(_egitimBilgileri) ;
 
-        emit StudentRegisteredLog( _studentAddress,  _name,  _surname,  _department,  _university);
+        emit PersonRegisteredLog( _studentAddress);
     }
 
-     function registerAcademician(address _academicianAddress, bytes32 _name, bytes32 _surname, bytes32 _department, bytes32 _university, Title _title) 
+     function registerAcademician(address _academicianAddress,address _universityAddress, bytes32 _name, bytes32 _surname,uint16 _bolum, EgitimBilgileri.Unvan _unvan) 
   public onlyUniversity{
-        require(!academicians[_academicianAddress].status,
+        require(!egitimBilgileri.isAcademician(_academicianAddress),
             "Academician exists already"
             );
             
-        academicians[_academicianAddress].status=true;
-        academicians[_academicianAddress].title=_title;
-        academicians[_academicianAddress].name=_name;
-        academicians[_academicianAddress].surname=_surname;
-        academicians[_academicianAddress].university=_university;
-        academicians[_academicianAddress].department=_department;
+         egitimBilgileri.addAcademician( _academicianAddress, _universityAddress,  _name,  _surname, _bolum,  _unvan);
 
-        emit AcademicianRegisteredLog( _academicianAddress,  _name,  _surname,  _department,  _university, _title);
+      
     }
   function registerCompany(address _companyAddress,bytes32 _name, uint _identityNumber,bytes32 _country) 
   public onlyTOBB{
