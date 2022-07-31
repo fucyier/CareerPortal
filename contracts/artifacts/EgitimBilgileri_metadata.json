@@ -1,0 +1,286 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_academicianAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_universityAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "_name",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "_surname",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint16",
+						"name": "_bolum",
+						"type": "uint16"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum EgitimBilgileri.Unvan",
+						"name": "_unvan",
+						"type": "uint8"
+					}
+				],
+				"name": "AcademicianRegisteredLog",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_universityAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "_name",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "_country",
+						"type": "uint8"
+					}
+				],
+				"name": "UniversityRegisteredLog",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "academicians",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "address",
+						"name": "universite",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "bolum",
+						"type": "uint16"
+					},
+					{
+						"internalType": "enum EgitimBilgileri.Unvan",
+						"name": "unvan",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "surname",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_academicianAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_universityAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_surname",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint16",
+						"name": "_bolum",
+						"type": "uint16"
+					},
+					{
+						"internalType": "enum EgitimBilgileri.Unvan",
+						"name": "_unvan",
+						"type": "uint8"
+					}
+				],
+				"name": "addAcademician",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_universityAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_isim",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
+					}
+				],
+				"name": "addUniversite",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isAcademician",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isUniversity",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "universities",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "isim",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/EgitimBilgileri.sol": "EgitimBilgileri"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/EgitimBilgileri.sol": {
+			"keccak256": "0xefdb34f9cc1ba3a830699ee65bcea0f328c8adb8edccfec7bdc0d4d58b0faf3c",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://5d3d18ea23bfee879a3f42dfd9f97651acb199318a4b05fbe0016f745341fbe5",
+				"dweb:/ipfs/QmUYKHzD3N4pj2VJHoaC1LzVGufNXet9FYjuKPW9sDHb4D"
+			]
+		}
+	},
+	"version": 1
+}
