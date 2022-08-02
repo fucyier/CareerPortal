@@ -18,7 +18,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/EgitimBilgileri.sol": "EgitimBilgileri"
+			"contracts/YabanciDilBilgileri.sol": "YabanciDilBilgileri"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -38,6 +38,22 @@
 			"urls": [
 				"bzz-raw://9fce0a9c8b2e959a2cf9b840e71bd4ec1dbae8a35a72bbd444f7052a189dcdf8",
 				"dweb:/ipfs/Qmb4CnnECr6wSSnftMmSJqLc2KRdwTAZ4J1EabFDuAHje3"
+			]
+		},
+		"contracts/Registration.sol": {
+			"keccak256": "0x400a61e0e64c7a8137aafccb5dae38fc4836e7827ef86235a6dfd6b9a84409b5",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://389a8eebde6b31b8f89dadb1491f1209a07180d7587a6fc67c93cfd47a28f325",
+				"dweb:/ipfs/QmV2t2bgJ2UcRMW13ybqqdksZnHQuoUihgW45G9J21KBud"
+			]
+		},
+		"contracts/YabanciDilBilgileri.sol": {
+			"keccak256": "0xb29779fc70e0010691ee99c17a6540586b1cd27c8bb5a0a81cf3ba17760c4626",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://de9141adaacd9499a584cb99f8a8be310cc2486f5095c3615014b0a01c5f17fb",
+				"dweb:/ipfs/QmYfcQwAYp1NJtoMd7TyeuXQoaaZiUjdD4tfhesbF5i6q2"
 			]
 		}
 	},

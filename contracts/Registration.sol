@@ -87,7 +87,7 @@ contract Registration{
     event PublicInstitutionRegisteredLog(address _institutionAddress,bytes32  _name,bytes32  _country);
     event NGORegisteredLog(address _ngoAddress,bytes32  _name,bytes32  _country);
     event CourseRegisteredLog(address _courseAddress,bytes32  _name,bytes32  _country);
-  event YabanciDilEklendiLog(address _onaylayanKurumTipi,address _onayKurum, uint _basTarih, uint _bitTarih,EgitimBilgileri.OgretimTipi _ogretimTipi,uint32 _ogretimDili);
+  event YabanciDilEklendiLog(OnaylayanKurum _onaylayanKurumTipi,address _onayKurum, uint _basTarih, uint _bitTarih,EgitimBilgileri.OgretimTipi _ogretimTipi,uint32 _ogretimDili);
     constructor (address _yok, address _tobb, address _cb){
         YOK=_yok;
         TOBB=_tobb;
@@ -114,7 +114,7 @@ contract Registration{
       _;
     }    
     modifier onlyUniversity{
-      require(universities[msg.sender].status,
+      require(universities[msg.sender].durum,
       "Sadece Universite bu islemi yapabilir."
       );
       _;
@@ -126,7 +126,7 @@ contract Registration{
       _;
     } 
      modifier Only_Uni_Comp_Publ{
-      require(universities[msg.sender].status||companies[msg.sender].status||publicInstitutions[msg.sender].status,
+      require(universities[msg.sender].durum||companies[msg.sender].status||publicInstitutions[msg.sender].status,
       "Bu islemi sadece Kurs yapabilir."
       );
       _;
@@ -154,11 +154,11 @@ contract Registration{
         return ngos[_address].status;
     }
  function registerUniversity(address _universityAddress,bytes32 _name, uint8 _country)  public onlyYOK{
-        require(!universities[_universityAddress].status,
+        require(!universities[_universityAddress].durum,
             "Universite zaten mevcut"
             );
-        universities[_universityAddress]=Universite(true,_isim, _ulke);
-  emit UniversityRegisteredLog( _universityAddress, _isim, _ulke);
+        universities[_universityAddress]=Universite(true,_name, _country);
+  emit UniversityRegisteredLog( _universityAddress, _name, _country);
     }
   function registerStudent(address _studentAddress,EgitimBilgileri.EducationInfo memory _egitimBilgileri)   public onlyUniversity{
         require(!people[_studentAddress].status,
@@ -179,8 +179,8 @@ contract Registration{
 
         emit YabanciDilEklendiLog(_ydBilgi.onayKurumTipi, _ydBilgi.onayKurum,  _ydBilgi.basTarih,  _ydBilgi.bitTarih, _ydBilgi.ogretimTipi, _ydBilgi.ogretimDili);
     }
-     function registerAcademician(address _academicianAddress,address _universityAddress, bytes32 _name, bytes32 _surname,uint16 _bolum, EgitimBilgileri.Unvan _unvan)   public onlyUniversity{
-        require(!academicians[_academicianAddress].status,
+     function registerAcademician(address _academicianAddress,address _universityAddress, bytes32 _name, bytes32 _surname,uint16 _bolum, Unvan _unvan)   public onlyUniversity{
+        require(!academicians[_academicianAddress].durum,
             "Academician exists already"
             );
 

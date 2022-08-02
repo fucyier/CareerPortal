@@ -32,6 +32,49 @@
 					{
 						"indexed": false,
 						"internalType": "address",
+						"name": "_academicianAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_universityAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "_name",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "_surname",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint16",
+						"name": "_bolum",
+						"type": "uint16"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum Registration.Unvan",
+						"name": "_unvan",
+						"type": "uint8"
+					}
+				],
+				"name": "AcademicianRegisteredLog",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
 						"name": "_companyAddress",
 						"type": "address"
 					},
@@ -144,6 +187,168 @@
 				],
 				"name": "PublicInstitutionRegisteredLog",
 				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_universityAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "_name",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "_country",
+						"type": "uint8"
+					}
+				],
+				"name": "UniversityRegisteredLog",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "enum Registration.OnaylayanKurum",
+						"name": "_onaylayanKurumTipi",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_onayKurum",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_basTarih",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_bitTarih",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum EgitimBilgileri.OgretimTipi",
+						"name": "_ogretimTipi",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint32",
+						"name": "_ogretimDili",
+						"type": "uint32"
+					}
+				],
+				"name": "YabanciDilEklendiLog",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "academicians",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "address",
+						"name": "universite",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "bolum",
+						"type": "uint16"
+					},
+					{
+						"internalType": "enum Registration.Unvan",
+						"name": "unvan",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "surname",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_studentAddress",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "enum Registration.OnaylayanKurum",
+								"name": "onayKurumTipi",
+								"type": "uint8"
+							},
+							{
+								"internalType": "address",
+								"name": "onayKurum",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "basTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "bitTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "enum EgitimBilgileri.OgretimTipi",
+								"name": "ogretimTipi",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint32",
+								"name": "ogretimDili",
+								"type": "uint32"
+							}
+						],
+						"internalType": "struct YabanciDilBilgileri.YabanciDil",
+						"name": "_ydBilgi",
+						"type": "tuple"
+					}
+				],
+				"name": "addYabanciDil",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			},
 			{
 				"inputs": [
@@ -408,7 +613,7 @@
 						"type": "uint16"
 					},
 					{
-						"internalType": "enum EgitimBilgileri.Unvan",
+						"internalType": "enum Registration.Unvan",
 						"name": "_unvan",
 						"type": "uint8"
 					}
@@ -622,6 +827,35 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "universities",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "isim",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -652,19 +886,27 @@
 	},
 	"sources": {
 		"contracts/EgitimBilgileri.sol": {
-			"keccak256": "0xefdb34f9cc1ba3a830699ee65bcea0f328c8adb8edccfec7bdc0d4d58b0faf3c",
+			"keccak256": "0x70f4f23917c661bb422cf6e9f99dd7e9e29886179e3fcf83587ed20efe434342",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://5d3d18ea23bfee879a3f42dfd9f97651acb199318a4b05fbe0016f745341fbe5",
-				"dweb:/ipfs/QmUYKHzD3N4pj2VJHoaC1LzVGufNXet9FYjuKPW9sDHb4D"
+				"bzz-raw://9fce0a9c8b2e959a2cf9b840e71bd4ec1dbae8a35a72bbd444f7052a189dcdf8",
+				"dweb:/ipfs/Qmb4CnnECr6wSSnftMmSJqLc2KRdwTAZ4J1EabFDuAHje3"
 			]
 		},
 		"contracts/Registration.sol": {
-			"keccak256": "0x4877e6521228f73da255d8f427c3bcab5e58f2c0e690c671ddf47756b55cae60",
+			"keccak256": "0x400a61e0e64c7a8137aafccb5dae38fc4836e7827ef86235a6dfd6b9a84409b5",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://6dd4a6de41adaa7c05454f2d472f37cbbd1e59a186654f79d47600f9342fe5c1",
-				"dweb:/ipfs/QmQYh9XVF64TinrdPubDFcrGdMgEsUsP27LftYwx2H7YEi"
+				"bzz-raw://389a8eebde6b31b8f89dadb1491f1209a07180d7587a6fc67c93cfd47a28f325",
+				"dweb:/ipfs/QmV2t2bgJ2UcRMW13ybqqdksZnHQuoUihgW45G9J21KBud"
+			]
+		},
+		"contracts/YabanciDilBilgileri.sol": {
+			"keccak256": "0xb29779fc70e0010691ee99c17a6540586b1cd27c8bb5a0a81cf3ba17760c4626",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://de9141adaacd9499a584cb99f8a8be310cc2486f5095c3615014b0a01c5f17fb",
+				"dweb:/ipfs/QmYfcQwAYp1NJtoMd7TyeuXQoaaZiUjdD4tfhesbF5i6q2"
 			]
 		}
 	},

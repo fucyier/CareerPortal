@@ -32,26 +32,7 @@ contract EgitimBilgileri{
              IkinciOgretim,
              UzaktanOgretim }
 
-        struct Universite
-        {
-        bool durum;
-        bytes32 isim;
-        uint8 ulke;
-        }
-
-        struct Akademisyen
-        {
-        bool durum;
-        address universite;
-        uint16 bolum;
-        Unvan unvan; 
-        bytes32 name;
-        bytes32 surname;
-        }
-
-        enum Unvan { DR, AS_PROF, PROF,MD } 
-
-
+      /*
      
       function isUniversity(address _address) public view returns(bool){
         return universities[_address].durum;
@@ -70,4 +51,5 @@ contract EgitimBilgileri{
         academicians[_universityAddress] = Akademisyen(true,_universityAddress,_bolum,_unvan,_name, _surname);
            emit AcademicianRegisteredLog( _academicianAddress,_universityAddress,  _name,  _surname,  _bolum, _unvan);
     }
+    */
 }
