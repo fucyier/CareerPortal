@@ -1,0 +1,240 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "academicians",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "address",
+						"name": "universite",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "bolum",
+						"type": "uint16"
+					},
+					{
+						"internalType": "enum Modifiers.Unvan",
+						"name": "unvan",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "surname",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "companies",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "country",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "identityNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "courses",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "country",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "ngos",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "country",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "publicInstitutions",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "country",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "universities",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "isim",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Modifiers.sol": "Modifiers"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Modifiers.sol": {
+			"keccak256": "0x04c4581cf7750f31eb50231ea3df8e81b9df4e9a6b7f624f72eef4afd8238e40",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://0cab1b504f02c6cb50170fdd1e17985bbeb16ee749547a1df4c9cb44091df98c",
+				"dweb:/ipfs/QmchVZGvq3TdbRvLSMpDq3JrUJqRH7VAF6pZii52kcdV9x"
+			]
+		}
+	},
+	"version": 1
+}

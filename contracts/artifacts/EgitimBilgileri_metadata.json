@@ -4,7 +4,510 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_universite",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "basTarih",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "bitTarih",
+						"type": "uint256"
+					}
+				],
+				"name": "EgitimBilgiEklendiLog",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "academicians",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "address",
+						"name": "universite",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "bolum",
+						"type": "uint16"
+					},
+					{
+						"internalType": "enum BaseContract.Unvan",
+						"name": "unvan",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "surname",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_personAddress",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "enum EgitimBilgileri.EgitimDurumu",
+								"name": "egitimDurumu",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "basTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "bitTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "diplomaNotu",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "diplomaBelge",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "transcriptBelge",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "address",
+								"name": "universite",
+								"type": "address"
+							},
+							{
+								"internalType": "uint16",
+								"name": "fakulte",
+								"type": "uint16"
+							},
+							{
+								"internalType": "uint16",
+								"name": "bolum",
+								"type": "uint16"
+							},
+							{
+								"internalType": "enum EgitimBilgileri.OgretimTipi",
+								"name": "ogretimTipi",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint32",
+								"name": "ogretimDili",
+								"type": "uint32"
+							}
+						],
+						"internalType": "struct EgitimBilgileri.EgitimBilgi",
+						"name": "_egitimBilgi",
+						"type": "tuple"
+					}
+				],
+				"name": "addEgitimBilgi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "companies",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "country",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "identityNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "courses",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "country",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "egitimBilgileri",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum EgitimBilgileri.EgitimDurumu",
+						"name": "egitimDurumu",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "basTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bitTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "diplomaNotu",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "diplomaBelge",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "transcriptBelge",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "universite",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "fakulte",
+						"type": "uint16"
+					},
+					{
+						"internalType": "uint16",
+						"name": "bolum",
+						"type": "uint16"
+					},
+					{
+						"internalType": "enum EgitimBilgileri.OgretimTipi",
+						"name": "ogretimTipi",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint32",
+						"name": "ogretimDili",
+						"type": "uint32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "id",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "ngos",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "country",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "people",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "publicInstitutions",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "country",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "universities",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "isim",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_personAddress",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "enum EgitimBilgileri.EgitimDurumu",
+								"name": "egitimDurumu",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "basTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "bitTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "diplomaNotu",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "diplomaBelge",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "transcriptBelge",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "address",
+								"name": "universite",
+								"type": "address"
+							},
+							{
+								"internalType": "uint16",
+								"name": "fakulte",
+								"type": "uint16"
+							},
+							{
+								"internalType": "uint16",
+								"name": "bolum",
+								"type": "uint16"
+							},
+							{
+								"internalType": "enum EgitimBilgileri.OgretimTipi",
+								"name": "ogretimTipi",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint32",
+								"name": "ogretimDili",
+								"type": "uint32"
+							}
+						],
+						"internalType": "struct EgitimBilgileri.EgitimBilgi",
+						"name": "_egitimBilgi",
+						"type": "tuple"
+					}
+				],
+				"name": "updateEgitimBilgi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -32,12 +535,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/EgitimBilgileri.sol": {
-			"keccak256": "0x70f4f23917c661bb422cf6e9f99dd7e9e29886179e3fcf83587ed20efe434342",
+		"contracts/BaseContract.sol": {
+			"keccak256": "0xc481e56b5ae051f667584cb441f711f61a45eb76869235c17037a558b85dcd0b",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://9fce0a9c8b2e959a2cf9b840e71bd4ec1dbae8a35a72bbd444f7052a189dcdf8",
-				"dweb:/ipfs/Qmb4CnnECr6wSSnftMmSJqLc2KRdwTAZ4J1EabFDuAHje3"
+				"bzz-raw://d854cb1cde1e6bfa08c9c32fbd328e9ab98b0064ecb7dab50c350238a4cdbc3b",
+				"dweb:/ipfs/QmV5Fr3voQdF8mTSq35fYFjUydsUMVoQM3zcCrhaPhVpHC"
+			]
+		},
+		"contracts/EgitimBilgileri.sol": {
+			"keccak256": "0xea6d43c280c5f4075ee9794b2fe62171403268946eccc1acc696320230c94311",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://8e8562a426b64f9e4f7990497647475ba24cec80a49f80343105e2dd10fc026d",
+				"dweb:/ipfs/QmeCnjS9ezH68oWpQQGp4KCF41ZUzqjgfut8opbhycvFRp"
 			]
 		}
 	},

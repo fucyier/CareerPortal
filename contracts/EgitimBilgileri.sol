@@ -1,10 +1,13 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8.0 <0.9.0;
-contract EgitimBilgileri{
+//pragma experimental ABIEncoderV2;
+import "./BaseContract.sol";
+contract EgitimBilgileri is BaseContract{
+  uint public id;
 
 
-
-    struct EducationInfo {
+    struct EgitimBilgi {
+          uint id;
          EgitimDurumu egitimDurumu;
          uint basTarih;
          uint bitTarih;
@@ -16,8 +19,8 @@ contract EgitimBilgileri{
          uint16 bolum;
          OgretimTipi ogretimTipi;
          uint32 ogretimDili;
-         uint8 ulke;
-         uint32 sehir;
+         //uint8 ulke;
+         //uint32 sehir;
         }
        
          enum EgitimDurumu { 
@@ -32,24 +35,50 @@ contract EgitimBilgileri{
              IkinciOgretim,
              UzaktanOgretim }
 
-      /*
-     
-      function isUniversity(address _address) public view returns(bool){
-        return universities[_address].durum;
-    }
-     
-      function isAcademician(address _address) public view returns(bool){
-        return academicians[_address].durum;
-    }
+               mapping(address=>mapping(uint=>EgitimBilgi)) public egitimBilgileri;
       
-      function addUniversite (address _universityAddress, bytes32 _isim, uint8 _ulke) public {
-        universities[_universityAddress] = Universite(true,_isim, _ulke);
-            emit UniversityRegisteredLog( _universityAddress, _isim, _ulke);
-    }
+      
+        event EgitimBilgiEklendiLog(uint id,address _universite,uint basTarih, uint bitTarih);
 
-      function addAcademician (address _academicianAddress,address _universityAddress, bytes32 _name, bytes32 _surname,uint16 _bolum, Unvan _unvan) public {
-        academicians[_universityAddress] = Akademisyen(true,_universityAddress,_bolum,_unvan,_name, _surname);
-           emit AcademicianRegisteredLog( _academicianAddress,_universityAddress,  _name,  _surname,  _bolum, _unvan);
+         function addEgitimBilgi(address _personAddress, EgitimBilgi memory _egitimBilgi)  public onlyUniversity{
+             require(people[_personAddress].status,"Student not exists");
+             uint yeniId=id++;
+             egitimBilgileri[_personAddress][yeniId].egitimDurumu=_egitimBilgi.egitimDurumu;
+             egitimBilgileri[_personAddress][yeniId].basTarih=_egitimBilgi.basTarih;
+             egitimBilgileri[_personAddress][yeniId].bitTarih=_egitimBilgi.bitTarih;
+             egitimBilgileri[_personAddress][yeniId].diplomaNotu=_egitimBilgi.diplomaNotu;
+             egitimBilgileri[_personAddress][yeniId].diplomaBelge=_egitimBilgi.diplomaBelge;
+             egitimBilgileri[_personAddress][yeniId].transcriptBelge=_egitimBilgi.transcriptBelge;
+             egitimBilgileri[_personAddress][yeniId].universite=_egitimBilgi.universite;
+             egitimBilgileri[_personAddress][yeniId].fakulte=_egitimBilgi.fakulte;
+             egitimBilgileri[_personAddress][yeniId].bolum=_egitimBilgi.bolum;
+             egitimBilgileri[_personAddress][yeniId].ogretimTipi=_egitimBilgi.ogretimTipi;
+             egitimBilgileri[_personAddress][yeniId].ogretimDili=_egitimBilgi.ogretimDili;
+           //  egitimBilgileri[_personAddress][yeniId].ulke=_egitimBilgi.ulke;
+            // egitimBilgileri[_personAddress][yeniId].sehir=_egitimBilgi.sehir;
+           
+             emit EgitimBilgiEklendiLog( yeniId, _egitimBilgi.universite,_egitimBilgi.basTarih, _egitimBilgi.bitTarih);
     }
-    */
+       function updateEgitimBilgi(address _personAddress, EgitimBilgi memory _egitimBilgi)  public onlyUniversity returns(uint){
+             require(people[_personAddress].status,"Student not exists");
+             
+             egitimBilgileri[_personAddress][_egitimBilgi.id].egitimDurumu=_egitimBilgi.egitimDurumu;
+             egitimBilgileri[_personAddress][_egitimBilgi.id].basTarih=_egitimBilgi.basTarih;
+             egitimBilgileri[_personAddress][_egitimBilgi.id].bitTarih=_egitimBilgi.bitTarih;
+             egitimBilgileri[_personAddress][_egitimBilgi.id].diplomaNotu=_egitimBilgi.diplomaNotu;
+             egitimBilgileri[_personAddress][_egitimBilgi.id].diplomaBelge=_egitimBilgi.diplomaBelge;
+             egitimBilgileri[_personAddress][_egitimBilgi.id].transcriptBelge=_egitimBilgi.transcriptBelge;
+             egitimBilgileri[_personAddress][_egitimBilgi.id].universite=_egitimBilgi.universite;
+             egitimBilgileri[_personAddress][_egitimBilgi.id].fakulte=_egitimBilgi.fakulte;
+             egitimBilgileri[_personAddress][_egitimBilgi.id].bolum=_egitimBilgi.bolum;
+             egitimBilgileri[_personAddress][_egitimBilgi.id].ogretimTipi=_egitimBilgi.ogretimTipi;
+             egitimBilgileri[_personAddress][_egitimBilgi.id].ogretimDili=_egitimBilgi.ogretimDili;
+           //  egitimBilgileri[_personAddress][_egitimBilgi.id].ulke=_egitimBilgi.ulke;
+           //  egitimBilgileri[_personAddress][_egitimBilgi.id].sehir=_egitimBilgi.sehir;
+           
+             emit EgitimBilgiEklendiLog( _egitimBilgi.id, _egitimBilgi.universite,_egitimBilgi.basTarih, _egitimBilgi.bitTarih);
+             return    _egitimBilgi.id;
+
+    }
+     
 }

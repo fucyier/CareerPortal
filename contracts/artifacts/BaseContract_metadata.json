@@ -1,0 +1,259 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "academicians",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "address",
+						"name": "universite",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "bolum",
+						"type": "uint16"
+					},
+					{
+						"internalType": "enum BaseContract.Unvan",
+						"name": "unvan",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "surname",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "companies",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "country",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "identityNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "courses",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "country",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "ngos",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "country",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "people",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "publicInstitutions",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "status",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "name",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "country",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "universities",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "isim",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/BaseContract.sol": "BaseContract"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/BaseContract.sol": {
+			"keccak256": "0xc481e56b5ae051f667584cb441f711f61a45eb76869235c17037a558b85dcd0b",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://d854cb1cde1e6bfa08c9c32fbd328e9ab98b0064ecb7dab50c350238a4cdbc3b",
+				"dweb:/ipfs/QmV5Fr3voQdF8mTSq35fYFjUydsUMVoQM3zcCrhaPhVpHC"
+			]
+		}
+	},
+	"version": 1
+}
