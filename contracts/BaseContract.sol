@@ -4,15 +4,15 @@ contract BaseContract{
      address YOK;
   address TOBB;
   address CB;
-struct  Person
+  struct  Kisi
     {
-      bool status;
+      bool durum;
     
     }
    struct Universite
         {
         bool durum;
-        bytes32 isim;
+        string isim;
         uint8 ulke;
         }
 
@@ -22,8 +22,8 @@ struct  Person
         address universite;
         uint16 bolum;
         Unvan unvan; 
-        bytes32 name;
-        bytes32 surname;
+        string ad;
+        string soyad;
         }
 
         enum Unvan { DR, AS_PROF, PROF,MD }    
@@ -33,85 +33,97 @@ struct  Person
              Kamu,
              STK,
              SertifikaMerkezi }
-     struct Company
+     struct Firma
     {
-      bool status;
-      bytes32 country;
-      uint identityNumber;
-      bytes32 name;
+      bool durum;
+      uint8 ulke;
+      uint vergiNo;
+      string isim;
     }
-     struct PublicInstitution
+     struct KamuKurumu
     {
-      bool status;
-      bytes32 name;
-      bytes32 country;
+      bool durum;
+      string isim;
+      uint8 ulke;
     }
-      struct NGO
+      struct STK
     {
-      bool status;
-      bytes32 name;
-      bytes32 country;
+      bool durum;
+      string isim;
+      uint8 ulke;
     }
-    struct Course
+      struct SertifikaMerkezi
     {
-      bool status;
-      bytes32 name;
-      bytes32 country;
+      bool durum;
+      string isim;
+      uint8 ulke;
     }
-      modifier onlyYOK{
+    struct Kurs
+    {
+      bool durum;
+      string isim;
+      uint8 ulke;
+    }
+      modifier sadeceYOK{
       require(msg.sender == YOK,
       "Sadece YOK bu islemi yapabilir."
       );
       _;
      }    
     
-      modifier onlyTOBB{
+      modifier sadeceTOBB{
       require(msg.sender == TOBB,
       "Sadece TOBB bu islemi yapabilir."
       );
       _;
      }
 
-      modifier onlyCB{
+      modifier sadeceCB{
       require(msg.sender == CB,
       "Sadece CB bu islemi yapabilir."
       );
       _;
     }    
 
-      modifier onlyUniversity{
-      require(universities[msg.sender].durum,
+      modifier sadeceUniversite{
+      require(universiteler[msg.sender].durum,
       "Sadece Universite bu islemi yapabilir."
       );
       _;
     } 
 
-      modifier onlyCourse{
-      require(courses[msg.sender].status,
+      modifier sadeceKurs{
+      require(kurslar[msg.sender].durum,
       "Bu islemi sadece Kurs yapabilir."
+      );
+      _;
+    } 
+        modifier onlyCourse{
+      require(sertifikaMerkezleri[msg.sender].durum,
+      "Bu islemi sadece Sertifika Merkezleri yapabilir."
       );
       _;
     } 
 
-      modifier Only_Uni_Comp_Publ{
-      require(universities[msg.sender].durum||companies[msg.sender].status||publicInstitutions[msg.sender].status,
+      modifier sadece_Uni_Firma_Kamu{
+      require(universiteler[msg.sender].durum||firmalar[msg.sender].durum||kamuKurumlari[msg.sender].durum,
       "Bu islemi sadece Kurs yapabilir."
       );
       _;
     } 
-      modifier onlyOwner {
+      modifier onlyKontratSahibi {
       require(msg.sender == address(this),
       "Bu islemi sadece kontrat sahibi yapabilir"
       );
       _;
     }
 
-
-    mapping(address=>Person) public people;
-    mapping(address=>Universite) public universities;
-    mapping(address=>Akademisyen) public academicians;
-    mapping(address=>Company) public  companies;
-    mapping(address=>Course) public  courses;
-    mapping(address=>PublicInstitution) public publicInstitutions;
-    mapping(address=>NGO) public ngos;
+    mapping(address=>Kisi) public kisiler;
+    mapping(address=>Universite) public universiteler;
+    mapping(address=>Akademisyen) public akademisyenler;
+    mapping(address=>Firma) public  firmalar;
+    mapping(address=>Kurs) public  kurslar;
+    mapping(address=>KamuKurumu) public kamuKurumlari;
+    mapping(address=>STK) public stklar;
+    mapping(address=>SertifikaMerkezi) public sertifikaMerkezleri;
 }

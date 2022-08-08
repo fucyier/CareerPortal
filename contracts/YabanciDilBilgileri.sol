@@ -23,8 +23,8 @@ contract YabanciDilBilgileri is BaseContract{
 
         event YabanciDilEklendiLog(OnaylayanKurum _onaylayanKurumTipi,address _onayKurum, uint _basTarih, uint _bitTarih,EgitimBilgileri.OgretimTipi _ogretimTipi,uint32 _ogretimDili);
 
-         function addYabanciDil(address _studentAddress, YabanciDil memory _ydBilgi)  public Only_Uni_Comp_Publ{
-             require(people[_studentAddress].status,"Student not exists");
+         function addYabanciDil(address _studentAddress, YabanciDil memory _ydBilgi)  public sadece_Uni_Firma_Kamu{
+             require(kisiler[_studentAddress].durum,"Student not exists");
              uint yeniId=id++;
              yabanciDiller[_studentAddress][yeniId].onayKurumTipi=_ydBilgi.onayKurumTipi;
              yabanciDiller[_studentAddress][yeniId].onayKurum=_ydBilgi.onayKurum;
@@ -35,8 +35,8 @@ contract YabanciDilBilgileri is BaseContract{
            
              emit YabanciDilEklendiLog(_ydBilgi.onayKurumTipi, _ydBilgi.onayKurum,  _ydBilgi.basTarih,  _ydBilgi.bitTarih, _ydBilgi.ogretimTipi, _ydBilgi.ogretimDili);
     }
-       function updateYabanciDil(address _studentAddress, YabanciDil memory _ydBilgi)  public Only_Uni_Comp_Publ returns(uint){
-             require(people[_studentAddress].status,"Student not exists");
+       function updateYabanciDil(address _studentAddress, YabanciDil memory _ydBilgi)  public sadece_Uni_Firma_Kamu returns(uint){
+             require(kisiler[_studentAddress].durum,"Student not exists");
              
              yabanciDiller[_studentAddress][_ydBilgi.id].onayKurumTipi=_ydBilgi.onayKurumTipi;
              yabanciDiller[_studentAddress][_ydBilgi.id].onayKurum=_ydBilgi.onayKurum;

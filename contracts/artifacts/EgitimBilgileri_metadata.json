@@ -40,50 +40,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "academicians",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "address",
-						"name": "universite",
-						"type": "address"
-					},
-					{
-						"internalType": "uint16",
-						"name": "bolum",
-						"type": "uint16"
-					},
-					{
-						"internalType": "enum BaseContract.Unvan",
-						"name": "unvan",
-						"type": "uint8"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "name",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "surname",
-						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "_personAddress",
 						"type": "address"
 					},
@@ -168,46 +124,27 @@
 						"type": "address"
 					}
 				],
-				"name": "companies",
+				"name": "akademisyenler",
 				"outputs": [
 					{
 						"internalType": "bool",
-						"name": "status",
+						"name": "durum",
 						"type": "bool"
 					},
-					{
-						"internalType": "bytes32",
-						"name": "country",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "uint256",
-						"name": "identityNumber",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "name",
-						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
 					{
 						"internalType": "address",
-						"name": "",
+						"name": "universite",
 						"type": "address"
-					}
-				],
-				"name": "courses",
-				"outputs": [
+					},
 					{
-						"internalType": "bool",
-						"name": "status",
-						"type": "bool"
+						"internalType": "uint16",
+						"name": "bolum",
+						"type": "uint16"
+					},
+					{
+						"internalType": "enum BaseContract.Unvan",
+						"name": "unvan",
+						"type": "uint8"
 					},
 					{
 						"internalType": "bytes32",
@@ -216,7 +153,7 @@
 					},
 					{
 						"internalType": "bytes32",
-						"name": "country",
+						"name": "surname",
 						"type": "bytes32"
 					}
 				],
@@ -303,6 +240,40 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "firmalar",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "ulke",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "vergiNo",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "isim",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "id",
 				"outputs": [
@@ -323,21 +294,21 @@
 						"type": "address"
 					}
 				],
-				"name": "ngos",
+				"name": "kamuKurumlari",
 				"outputs": [
 					{
 						"internalType": "bool",
-						"name": "status",
+						"name": "durum",
 						"type": "bool"
 					},
 					{
 						"internalType": "bytes32",
-						"name": "name",
+						"name": "isim",
 						"type": "bytes32"
 					},
 					{
 						"internalType": "bytes32",
-						"name": "country",
+						"name": "ulke",
 						"type": "bytes32"
 					}
 				],
@@ -352,11 +323,11 @@
 						"type": "address"
 					}
 				],
-				"name": "people",
+				"name": "kisiler",
 				"outputs": [
 					{
 						"internalType": "bool",
-						"name": "status",
+						"name": "durum",
 						"type": "bool"
 					}
 				],
@@ -371,21 +342,21 @@
 						"type": "address"
 					}
 				],
-				"name": "publicInstitutions",
+				"name": "kurslar",
 				"outputs": [
 					{
 						"internalType": "bool",
-						"name": "status",
+						"name": "durum",
 						"type": "bool"
 					},
 					{
 						"internalType": "bytes32",
-						"name": "name",
+						"name": "isim",
 						"type": "bytes32"
 					},
 					{
 						"internalType": "bytes32",
-						"name": "country",
+						"name": "ulke",
 						"type": "bytes32"
 					}
 				],
@@ -400,7 +371,65 @@
 						"type": "address"
 					}
 				],
-				"name": "universities",
+				"name": "sertifikaMerkezleri",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "isim",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "ulke",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "stklar",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "isim",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "ulke",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "universiteler",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -536,19 +565,19 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0xc481e56b5ae051f667584cb441f711f61a45eb76869235c17037a558b85dcd0b",
+			"keccak256": "0x75335210ef7d63347121cca51079f1e2ae725649bbc100242843beb57f98e7ca",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://d854cb1cde1e6bfa08c9c32fbd328e9ab98b0064ecb7dab50c350238a4cdbc3b",
-				"dweb:/ipfs/QmV5Fr3voQdF8mTSq35fYFjUydsUMVoQM3zcCrhaPhVpHC"
+				"bzz-raw://6369651e2036f09ad6059f5a08f00a5a45611c183fe7e6a5f3c13b9adbb9c479",
+				"dweb:/ipfs/QmW45suy3xVJj5RMpndvvfYpSZCkEr7HXmcT5nU78uxKjT"
 			]
 		},
 		"contracts/EgitimBilgileri.sol": {
-			"keccak256": "0xea6d43c280c5f4075ee9794b2fe62171403268946eccc1acc696320230c94311",
+			"keccak256": "0x6ce67827336ae41fbd2a929ef8fd4b3566b069aa2c65658eedbfbe5e98a027bd",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://8e8562a426b64f9e4f7990497647475ba24cec80a49f80343105e2dd10fc026d",
-				"dweb:/ipfs/QmeCnjS9ezH68oWpQQGp4KCF41ZUzqjgfut8opbhycvFRp"
+				"bzz-raw://d5183b0ffdb7ff763c5af8b9aa0b240994ed3a7f3ea5a4bda98d80659f9c4df7",
+				"dweb:/ipfs/QmNN9xm1aRFUP7XLX8VmT1WfF2tEJCMhwMScQYAgtTZ3o8"
 			]
 		}
 	},

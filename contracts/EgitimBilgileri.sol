@@ -40,8 +40,8 @@ contract EgitimBilgileri is BaseContract{
       
         event EgitimBilgiEklendiLog(uint id,address _universite,uint basTarih, uint bitTarih);
 
-         function addEgitimBilgi(address _personAddress, EgitimBilgi memory _egitimBilgi)  public onlyUniversity{
-             require(people[_personAddress].status,"Student not exists");
+         function addEgitimBilgi(address _personAddress, EgitimBilgi memory _egitimBilgi)  public sadeceUniversite{
+             require(kisiler[_personAddress].durum,"Student not exists");
              uint yeniId=id++;
              egitimBilgileri[_personAddress][yeniId].egitimDurumu=_egitimBilgi.egitimDurumu;
              egitimBilgileri[_personAddress][yeniId].basTarih=_egitimBilgi.basTarih;
@@ -59,8 +59,8 @@ contract EgitimBilgileri is BaseContract{
            
              emit EgitimBilgiEklendiLog( yeniId, _egitimBilgi.universite,_egitimBilgi.basTarih, _egitimBilgi.bitTarih);
     }
-       function updateEgitimBilgi(address _personAddress, EgitimBilgi memory _egitimBilgi)  public onlyUniversity returns(uint){
-             require(people[_personAddress].status,"Student not exists");
+       function updateEgitimBilgi(address _personAddress, EgitimBilgi memory _egitimBilgi)  public sadeceUniversite returns(uint){
+             require(kisiler[_personAddress].durum,"Student not exists");
              
              egitimBilgileri[_personAddress][_egitimBilgi.id].egitimDurumu=_egitimBilgi.egitimDurumu;
              egitimBilgileri[_personAddress][_egitimBilgi.id].basTarih=_egitimBilgi.basTarih;
