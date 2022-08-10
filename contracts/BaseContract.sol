@@ -27,12 +27,15 @@ contract BaseContract{
         }
 
         enum Unvan { DR, AS_PROF, PROF,MD }    
+         enum Seviye { Temel, Orta, Iyi, Ileri }    
   enum OnaylayanKurum { 
              Universite, 
              Firma, 
              Kamu,
              STK,
-             SertifikaMerkezi }
+             SertifikaMerkezi,
+             Kurs 
+             }
      struct Firma
     {
       bool durum;
@@ -63,6 +66,12 @@ contract BaseContract{
       bool durum;
       string isim;
       uint8 ulke;
+    }
+
+     struct YabanciDil
+    {
+      uint32 id;
+      string isim;
     }
       modifier sadeceYOK{
       require(msg.sender == YOK,
@@ -126,4 +135,6 @@ contract BaseContract{
     mapping(address=>KamuKurumu) public kamuKurumlari;
     mapping(address=>STK) public stklar;
     mapping(address=>SertifikaMerkezi) public sertifikaMerkezleri;
+
+     mapping(uint32=>YabanciDil) public diller;
 }

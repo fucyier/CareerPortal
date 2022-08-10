@@ -10,42 +10,36 @@
 				"inputs": [
 					{
 						"indexed": false,
-						"internalType": "enum BaseContract.OnaylayanKurum",
-						"name": "_onaylayanKurumTipi",
-						"type": "uint8"
+						"internalType": "uint256",
+						"name": "referansId",
+						"type": "uint256"
 					},
 					{
 						"indexed": false,
 						"internalType": "address",
-						"name": "_onayKurum",
+						"name": "_kisiAddress",
 						"type": "address"
 					},
 					{
 						"indexed": false,
-						"internalType": "uint256",
-						"name": "_basTarih",
-						"type": "uint256"
+						"internalType": "address",
+						"name": "_referansAdres",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "onayRed",
+						"type": "bool"
 					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "_bitTarih",
+						"name": "zaman",
 						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"internalType": "enum EgitimBilgileri.OgretimTipi",
-						"name": "_ogretimTipi",
-						"type": "uint8"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint32",
-						"name": "_dilId",
-						"type": "uint32"
 					}
 				],
-				"name": "YabanciDilEklendiLog",
+				"name": "ReferansOnayRedLog",
 				"type": "event"
 			},
 			{
@@ -53,42 +47,30 @@
 				"inputs": [
 					{
 						"indexed": false,
-						"internalType": "enum BaseContract.OnaylayanKurum",
-						"name": "_onaylayanKurumTipi",
-						"type": "uint8"
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
 					},
 					{
 						"indexed": false,
 						"internalType": "address",
-						"name": "_onayKurum",
+						"name": "_kisiAdres",
 						"type": "address"
 					},
 					{
 						"indexed": false,
-						"internalType": "uint256",
-						"name": "_basTarih",
-						"type": "uint256"
+						"internalType": "address",
+						"name": "_referansAdres",
+						"type": "address"
 					},
 					{
 						"indexed": false,
-						"internalType": "uint256",
-						"name": "_bitTarih",
-						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"internalType": "enum EgitimBilgileri.OgretimTipi",
-						"name": "_ogretimTipi",
+						"internalType": "enum ReferansBilgileri.ReferansDurum",
+						"name": "_durum",
 						"type": "uint8"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint32",
-						"name": "_dilId",
-						"type": "uint32"
 					}
 				],
-				"name": "YabanciDilGuncellendiLog",
+				"name": "ReferansTalepEtLog",
 				"type": "event"
 			},
 			{
@@ -163,61 +145,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_kisiAddress",
-						"type": "address"
-					},
-					{
-						"components": [
-							{
-								"internalType": "uint256",
-								"name": "id",
-								"type": "uint256"
-							},
-							{
-								"internalType": "enum BaseContract.OnaylayanKurum",
-								"name": "onayKurumTipi",
-								"type": "uint8"
-							},
-							{
-								"internalType": "address",
-								"name": "onayKurum",
-								"type": "address"
-							},
-							{
-								"internalType": "uint256",
-								"name": "basTarih",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "bitTarih",
-								"type": "uint256"
-							},
-							{
-								"internalType": "enum EgitimBilgileri.OgretimTipi",
-								"name": "ogretimTipi",
-								"type": "uint8"
-							},
-							{
-								"internalType": "uint32",
-								"name": "dilId",
-								"type": "uint32"
-							}
-						],
-						"internalType": "struct YabanciDilBilgileri.YabanciDilBilgi",
-						"name": "_ydBilgi",
-						"type": "tuple"
-					}
-				],
-				"name": "ekleYabanciDilBilgi",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -246,67 +173,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_kisiAddress",
-						"type": "address"
-					},
-					{
-						"components": [
-							{
-								"internalType": "uint256",
-								"name": "id",
-								"type": "uint256"
-							},
-							{
-								"internalType": "enum BaseContract.OnaylayanKurum",
-								"name": "onayKurumTipi",
-								"type": "uint8"
-							},
-							{
-								"internalType": "address",
-								"name": "onayKurum",
-								"type": "address"
-							},
-							{
-								"internalType": "uint256",
-								"name": "basTarih",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "bitTarih",
-								"type": "uint256"
-							},
-							{
-								"internalType": "enum EgitimBilgileri.OgretimTipi",
-								"name": "ogretimTipi",
-								"type": "uint8"
-							},
-							{
-								"internalType": "uint32",
-								"name": "dilId",
-								"type": "uint32"
-							}
-						],
-						"internalType": "struct YabanciDilBilgileri.YabanciDilBilgi",
-						"name": "_ydBilgi",
-						"type": "tuple"
-					}
-				],
-				"name": "guncelleYabanciDilBilgi",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -402,6 +268,83 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "referansId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "accepted",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "aciklama",
+						"type": "string"
+					}
+				],
+				"name": "onayRedReferans",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "referansBilgiListesi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "referansAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "onayRedTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "aciklama",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "pozisyon",
+						"type": "string"
+					},
+					{
+						"internalType": "enum ReferansBilgileri.ReferansDurum",
+						"name": "durum",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
@@ -461,6 +404,56 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "referansAdres",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "onayRedTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "aciklama",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "pozisyon",
+								"type": "string"
+							},
+							{
+								"internalType": "enum ReferansBilgileri.ReferansDurum",
+								"name": "durum",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct ReferansBilgileri.ReferansBilgi",
+						"name": "_referansBilgi",
+						"type": "tuple"
+					}
+				],
+				"name": "talepEtReferans",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -485,60 +478,6 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "yabanciDilBilgiListesi",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "id",
-						"type": "uint256"
-					},
-					{
-						"internalType": "enum BaseContract.OnaylayanKurum",
-						"name": "onayKurumTipi",
-						"type": "uint8"
-					},
-					{
-						"internalType": "address",
-						"name": "onayKurum",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "basTarih",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "bitTarih",
-						"type": "uint256"
-					},
-					{
-						"internalType": "enum EgitimBilgileri.OgretimTipi",
-						"name": "ogretimTipi",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint32",
-						"name": "dilId",
-						"type": "uint32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -554,7 +493,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/YabanciDilBilgileri.sol": "YabanciDilBilgileri"
+			"contracts/ReferansBilgileri.sol": "ReferansBilgileri"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -569,27 +508,19 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0x704502b432e4a8b565da42261fe0e4e66a4387c0f661f1fb882d1bf92f4fd7ad",
+			"keccak256": "0xb22056aa0f1cd655b1a0a5bbb38c91144a4e3ae02b529087e9ef66bb829f75ee",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://5d5e65e29c74632bf08d2bc4208304e4050f79b36e9e902089e7f0fe9bd972a3",
-				"dweb:/ipfs/Qmew9HxZiTiJjzDJcmRx36gYUtYJJMQAip1YcL5U5Rz9zp"
+				"bzz-raw://be320e7543f7e0ad84082ee1f8801cc00769b8935e62e2e396f55515755503dd",
+				"dweb:/ipfs/QmeazjCiMwQQsD4d313E532oTTAn42MDJMXeBpHtoTRMRC"
 			]
 		},
-		"contracts/EgitimBilgileri.sol": {
-			"keccak256": "0xfa01a05fddb2f318e8b9caedd142788cd8ef0a6bc10a7a57914f0f54aaa2a0d7",
+		"contracts/ReferansBilgileri.sol": {
+			"keccak256": "0x41930bacbc037982c052b665d42ad6c8621b9cca0d5d8e79b96bf3c9fd8a6b62",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://0a4b8f4b6743cb693036aa2727ab6f51f7e134c43ff8a345ef12d53e139a510e",
-				"dweb:/ipfs/QmRDQiPV7EPTVpTAkdFNVUg1jMB9iTDtiBiHLyGzCavVng"
-			]
-		},
-		"contracts/YabanciDilBilgileri.sol": {
-			"keccak256": "0xfe01349e1a61c09cd03649153218654c1c3e74ae78628ed86a3895b1d7b03211",
-			"license": "GPL-3.0",
-			"urls": [
-				"bzz-raw://d24350698a03763c77d62c38be3ce34707646e544fe879755302d6c2b13e72c9",
-				"dweb:/ipfs/QmZZV544DPmtHgJo53kqHbY3np7rfAwE1Ctcb3KMy3Hj7S"
+				"bzz-raw://f00a85c22103280abbc92c088155055730f735c8b25512e741320a76f2c210b2",
+				"dweb:/ipfs/QmXfTpxGAGjE4RzxCSkWLy48JcibjeQKkk4ob4J2JYbixL"
 			]
 		}
 	},

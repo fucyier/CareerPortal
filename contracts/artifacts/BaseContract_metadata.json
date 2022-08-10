@@ -52,6 +52,30 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"name": "diller",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "id",
+						"type": "uint32"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
@@ -276,11 +300,11 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0xb892d66c94bb713a81d2babbb39994b960254773648e1db2bba64919b98a1a49",
+			"keccak256": "0xb22056aa0f1cd655b1a0a5bbb38c91144a4e3ae02b529087e9ef66bb829f75ee",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://76e6e7727e123b6a3c417f4cf57d22a7ced0a86e7b4780f17707b170caa773a6",
-				"dweb:/ipfs/QmYtHen1MMYqNFmQAaXBXed4GPxwpT1cVtAkD1YHAebH1L"
+				"bzz-raw://be320e7543f7e0ad84082ee1f8801cc00769b8935e62e2e396f55515755503dd",
+				"dweb:/ipfs/QmeazjCiMwQQsD4d313E532oTTAn42MDJMXeBpHtoTRMRC"
 			]
 		}
 	},

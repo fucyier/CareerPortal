@@ -37,84 +37,35 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
 				"inputs": [
 					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
 						"internalType": "address",
-						"name": "_personAddress",
+						"name": "_universite",
 						"type": "address"
 					},
 					{
-						"components": [
-							{
-								"internalType": "uint256",
-								"name": "id",
-								"type": "uint256"
-							},
-							{
-								"internalType": "enum EgitimBilgileri.EgitimDurumu",
-								"name": "egitimDurumu",
-								"type": "uint8"
-							},
-							{
-								"internalType": "uint256",
-								"name": "basTarih",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "bitTarih",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint8",
-								"name": "diplomaNotu",
-								"type": "uint8"
-							},
-							{
-								"internalType": "bytes32",
-								"name": "diplomaBelge",
-								"type": "bytes32"
-							},
-							{
-								"internalType": "bytes32",
-								"name": "transcriptBelge",
-								"type": "bytes32"
-							},
-							{
-								"internalType": "address",
-								"name": "universite",
-								"type": "address"
-							},
-							{
-								"internalType": "uint16",
-								"name": "fakulte",
-								"type": "uint16"
-							},
-							{
-								"internalType": "uint16",
-								"name": "bolum",
-								"type": "uint16"
-							},
-							{
-								"internalType": "enum EgitimBilgileri.OgretimTipi",
-								"name": "ogretimTipi",
-								"type": "uint8"
-							},
-							{
-								"internalType": "uint32",
-								"name": "ogretimDili",
-								"type": "uint32"
-							}
-						],
-						"internalType": "struct EgitimBilgileri.EgitimBilgi",
-						"name": "_egitimBilgi",
-						"type": "tuple"
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "basTarih",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "bitTarih",
+						"type": "uint256"
 					}
 				],
-				"name": "addEgitimBilgi",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
+				"name": "EgitimBilgiGuncellendiLog",
+				"type": "event"
 			},
 			{
 				"inputs": [
@@ -147,14 +98,14 @@
 						"type": "uint8"
 					},
 					{
-						"internalType": "bytes32",
-						"name": "name",
-						"type": "bytes32"
+						"internalType": "string",
+						"name": "ad",
+						"type": "string"
 					},
 					{
-						"internalType": "bytes32",
-						"name": "surname",
-						"type": "bytes32"
+						"internalType": "string",
+						"name": "soyad",
+						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -243,218 +194,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "firmalar",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "ulke",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "uint256",
-						"name": "vergiNo",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "isim",
-						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "id",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "kamuKurumlari",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "isim",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "ulke",
-						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "kisiler",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "kurslar",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "isim",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "ulke",
-						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "sertifikaMerkezleri",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "isim",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "ulke",
-						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "stklar",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "isim",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "ulke",
-						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "universiteler",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "isim",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_personAddress",
+						"name": "_kisiAddress",
 						"type": "address"
 					},
 					{
@@ -525,7 +265,121 @@
 						"type": "tuple"
 					}
 				],
-				"name": "updateEgitimBilgi",
+				"name": "ekleEgitimBilgi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "firmalar",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "vergiNo",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "enum EgitimBilgileri.EgitimDurumu",
+								"name": "egitimDurumu",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "basTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "bitTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "diplomaNotu",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "diplomaBelge",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "transcriptBelge",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "address",
+								"name": "universite",
+								"type": "address"
+							},
+							{
+								"internalType": "uint16",
+								"name": "fakulte",
+								"type": "uint16"
+							},
+							{
+								"internalType": "uint16",
+								"name": "bolum",
+								"type": "uint16"
+							},
+							{
+								"internalType": "enum EgitimBilgileri.OgretimTipi",
+								"name": "ogretimTipi",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint32",
+								"name": "ogretimDili",
+								"type": "uint32"
+							}
+						],
+						"internalType": "struct EgitimBilgileri.EgitimBilgi",
+						"name": "_egitimBilgi",
+						"type": "tuple"
+					}
+				],
+				"name": "guncelleEgitimBilgi",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -534,6 +388,183 @@
 					}
 				],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "id",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "kamuKurumlari",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "kisiler",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "kurslar",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "sertifikaMerkezleri",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "stklar",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "universiteler",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -565,19 +596,19 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0x75335210ef7d63347121cca51079f1e2ae725649bbc100242843beb57f98e7ca",
+			"keccak256": "0xb892d66c94bb713a81d2babbb39994b960254773648e1db2bba64919b98a1a49",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://6369651e2036f09ad6059f5a08f00a5a45611c183fe7e6a5f3c13b9adbb9c479",
-				"dweb:/ipfs/QmW45suy3xVJj5RMpndvvfYpSZCkEr7HXmcT5nU78uxKjT"
+				"bzz-raw://76e6e7727e123b6a3c417f4cf57d22a7ced0a86e7b4780f17707b170caa773a6",
+				"dweb:/ipfs/QmYtHen1MMYqNFmQAaXBXed4GPxwpT1cVtAkD1YHAebH1L"
 			]
 		},
 		"contracts/EgitimBilgileri.sol": {
-			"keccak256": "0x6ce67827336ae41fbd2a929ef8fd4b3566b069aa2c65658eedbfbe5e98a027bd",
+			"keccak256": "0xfa01a05fddb2f318e8b9caedd142788cd8ef0a6bc10a7a57914f0f54aaa2a0d7",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://d5183b0ffdb7ff763c5af8b9aa0b240994ed3a7f3ea5a4bda98d80659f9c4df7",
-				"dweb:/ipfs/QmNN9xm1aRFUP7XLX8VmT1WfF2tEJCMhwMScQYAgtTZ3o8"
+				"bzz-raw://0a4b8f4b6743cb693036aa2727ab6f51f7e134c43ff8a345ef12d53e139a510e",
+				"dweb:/ipfs/QmRDQiPV7EPTVpTAkdFNVUg1jMB9iTDtiBiHLyGzCavVng"
 			]
 		}
 	},

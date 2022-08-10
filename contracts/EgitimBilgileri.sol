@@ -39,44 +39,45 @@ contract EgitimBilgileri is BaseContract{
       
       
         event EgitimBilgiEklendiLog(uint id,address _universite,uint basTarih, uint bitTarih);
+          event EgitimBilgiGuncellendiLog(uint id,address _universite,uint basTarih, uint bitTarih);
 
-         function addEgitimBilgi(address _personAddress, EgitimBilgi memory _egitimBilgi)  public sadeceUniversite{
-             require(kisiler[_personAddress].durum,"Student not exists");
+         function ekleEgitimBilgi(address _kisiAddress, EgitimBilgi memory _egitimBilgi)  public sadeceUniversite{
+             require(kisiler[_kisiAddress].durum,"Student not exists");
              uint yeniId=id++;
-             egitimBilgileri[_personAddress][yeniId].egitimDurumu=_egitimBilgi.egitimDurumu;
-             egitimBilgileri[_personAddress][yeniId].basTarih=_egitimBilgi.basTarih;
-             egitimBilgileri[_personAddress][yeniId].bitTarih=_egitimBilgi.bitTarih;
-             egitimBilgileri[_personAddress][yeniId].diplomaNotu=_egitimBilgi.diplomaNotu;
-             egitimBilgileri[_personAddress][yeniId].diplomaBelge=_egitimBilgi.diplomaBelge;
-             egitimBilgileri[_personAddress][yeniId].transcriptBelge=_egitimBilgi.transcriptBelge;
-             egitimBilgileri[_personAddress][yeniId].universite=_egitimBilgi.universite;
-             egitimBilgileri[_personAddress][yeniId].fakulte=_egitimBilgi.fakulte;
-             egitimBilgileri[_personAddress][yeniId].bolum=_egitimBilgi.bolum;
-             egitimBilgileri[_personAddress][yeniId].ogretimTipi=_egitimBilgi.ogretimTipi;
-             egitimBilgileri[_personAddress][yeniId].ogretimDili=_egitimBilgi.ogretimDili;
+             egitimBilgileri[_kisiAddress][yeniId].egitimDurumu=_egitimBilgi.egitimDurumu;
+             egitimBilgileri[_kisiAddress][yeniId].basTarih=_egitimBilgi.basTarih;
+             egitimBilgileri[_kisiAddress][yeniId].bitTarih=_egitimBilgi.bitTarih;
+             egitimBilgileri[_kisiAddress][yeniId].diplomaNotu=_egitimBilgi.diplomaNotu;
+             egitimBilgileri[_kisiAddress][yeniId].diplomaBelge=_egitimBilgi.diplomaBelge;
+             egitimBilgileri[_kisiAddress][yeniId].transcriptBelge=_egitimBilgi.transcriptBelge;
+             egitimBilgileri[_kisiAddress][yeniId].universite=_egitimBilgi.universite;
+             egitimBilgileri[_kisiAddress][yeniId].fakulte=_egitimBilgi.fakulte;
+             egitimBilgileri[_kisiAddress][yeniId].bolum=_egitimBilgi.bolum;
+             egitimBilgileri[_kisiAddress][yeniId].ogretimTipi=_egitimBilgi.ogretimTipi;
+             egitimBilgileri[_kisiAddress][yeniId].ogretimDili=_egitimBilgi.ogretimDili;
            //  egitimBilgileri[_personAddress][yeniId].ulke=_egitimBilgi.ulke;
             // egitimBilgileri[_personAddress][yeniId].sehir=_egitimBilgi.sehir;
            
              emit EgitimBilgiEklendiLog( yeniId, _egitimBilgi.universite,_egitimBilgi.basTarih, _egitimBilgi.bitTarih);
     }
-       function updateEgitimBilgi(address _personAddress, EgitimBilgi memory _egitimBilgi)  public sadeceUniversite returns(uint){
-             require(kisiler[_personAddress].durum,"Student not exists");
+       function guncelleEgitimBilgi(address _kisiAddress, EgitimBilgi memory _egitimBilgi)  public sadeceUniversite returns(uint){
+             require(kisiler[_kisiAddress].durum,"Student not exists");
              
-             egitimBilgileri[_personAddress][_egitimBilgi.id].egitimDurumu=_egitimBilgi.egitimDurumu;
-             egitimBilgileri[_personAddress][_egitimBilgi.id].basTarih=_egitimBilgi.basTarih;
-             egitimBilgileri[_personAddress][_egitimBilgi.id].bitTarih=_egitimBilgi.bitTarih;
-             egitimBilgileri[_personAddress][_egitimBilgi.id].diplomaNotu=_egitimBilgi.diplomaNotu;
-             egitimBilgileri[_personAddress][_egitimBilgi.id].diplomaBelge=_egitimBilgi.diplomaBelge;
-             egitimBilgileri[_personAddress][_egitimBilgi.id].transcriptBelge=_egitimBilgi.transcriptBelge;
-             egitimBilgileri[_personAddress][_egitimBilgi.id].universite=_egitimBilgi.universite;
-             egitimBilgileri[_personAddress][_egitimBilgi.id].fakulte=_egitimBilgi.fakulte;
-             egitimBilgileri[_personAddress][_egitimBilgi.id].bolum=_egitimBilgi.bolum;
-             egitimBilgileri[_personAddress][_egitimBilgi.id].ogretimTipi=_egitimBilgi.ogretimTipi;
-             egitimBilgileri[_personAddress][_egitimBilgi.id].ogretimDili=_egitimBilgi.ogretimDili;
+             egitimBilgileri[_kisiAddress][_egitimBilgi.id].egitimDurumu=_egitimBilgi.egitimDurumu;
+             egitimBilgileri[_kisiAddress][_egitimBilgi.id].basTarih=_egitimBilgi.basTarih;
+             egitimBilgileri[_kisiAddress][_egitimBilgi.id].bitTarih=_egitimBilgi.bitTarih;
+             egitimBilgileri[_kisiAddress][_egitimBilgi.id].diplomaNotu=_egitimBilgi.diplomaNotu;
+             egitimBilgileri[_kisiAddress][_egitimBilgi.id].diplomaBelge=_egitimBilgi.diplomaBelge;
+             egitimBilgileri[_kisiAddress][_egitimBilgi.id].transcriptBelge=_egitimBilgi.transcriptBelge;
+             egitimBilgileri[_kisiAddress][_egitimBilgi.id].universite=_egitimBilgi.universite;
+             egitimBilgileri[_kisiAddress][_egitimBilgi.id].fakulte=_egitimBilgi.fakulte;
+             egitimBilgileri[_kisiAddress][_egitimBilgi.id].bolum=_egitimBilgi.bolum;
+             egitimBilgileri[_kisiAddress][_egitimBilgi.id].ogretimTipi=_egitimBilgi.ogretimTipi;
+             egitimBilgileri[_kisiAddress][_egitimBilgi.id].ogretimDili=_egitimBilgi.ogretimDili;
            //  egitimBilgileri[_personAddress][_egitimBilgi.id].ulke=_egitimBilgi.ulke;
            //  egitimBilgileri[_personAddress][_egitimBilgi.id].sehir=_egitimBilgi.sehir;
            
-             emit EgitimBilgiEklendiLog( _egitimBilgi.id, _egitimBilgi.universite,_egitimBilgi.basTarih, _egitimBilgi.bitTarih);
+             emit EgitimBilgiGuncellendiLog( _egitimBilgi.id, _egitimBilgi.universite,_egitimBilgi.basTarih, _egitimBilgi.bitTarih);
              return    _egitimBilgi.id;
 
     }
