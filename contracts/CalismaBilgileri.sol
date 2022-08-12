@@ -2,44 +2,32 @@
 pragma solidity >=0.8.0 <0.9.0;
 //pragma experimental ABIEncoderV2;
 import "./BaseContract.sol";
-contract EgitimBilgileri is BaseContract{
+contract CalismaBilgileri is BaseContract{
   uint public id;
 
-
-    struct EgitimBilgi {
-          uint id;
-         EgitimDurumu egitimDurumu;
+    struct CalismaBilgi {
+         uint id;
+         address kurumAdres;
+         uint32 pozisyon;
+         uint8 sektor;
+         CalismaTipi calismaTipi;
+         string isAciklama;
          uint basTarih;
          uint bitTarih;
-         uint8 diplomaNotu;
-         string diplomaBelge;
-         string transcriptBelge;
-         address universite;
-         uint16 fakulte;
-         uint16 bolum;
-         OgretimTipi ogretimTipi;
-         uint32 ogretimDili;
-         //uint8 ulke;
-         //uint32 sehir;
+         uint8 ulke;
+         uint32 sehir;
         }
        
-         enum EgitimDurumu { 
-             Lisans, 
-             OnLisans, 
-             YuksekLisans,
-             Doktora }
+         enum CalismaTipi { 
+             YariZamanli, 
+             TamZamanli, 
+             Stajyer}
 
-         enum OgretimTipi { 
-             OrgunOgretim, 
-             AcikOgretim, 
-             IkinciOgretim,
-             UzaktanOgretim }
-
-        mapping(address=>mapping(uint=>EgitimBilgi)) public egitimBilgileri;
+        mapping(address=>mapping(uint=>CalismaBilgi)) public calismaBilgileri;
       
       
-        event EgitimBilgiEklendiLog(uint id,address _universite,uint basTarih, uint bitTarih);
-          event EgitimBilgiGuncellendiLog(uint id,address _universite,uint basTarih, uint bitTarih);
+        event CalismaBilgiEklendiLog(uint id, address _universite, uint basTarih, uint bitTarih);
+          event EgitimBilgiGuncellendiLog(uint id, address _universite, uint basTarih, uint bitTarih);
 
          function ekleEgitimBilgi(address _kisiAddress, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, uint8 diplomaNotu, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, uint16 bolum, OgretimTipi ogretimTipi, uint32 ogretimDili)  internal sadeceUniversite{
              require(kisiler[_kisiAddress].durum,"Student not exists");

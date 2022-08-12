@@ -6,10 +6,6 @@ import "./BaseContract.sol";
 
 contract KisiselBilgisi is BaseContract{
 
-   
-
-
-
     struct KisiselBilgi {
          string ad;
          string soyad;

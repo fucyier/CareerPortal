@@ -114,6 +114,30 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"name": "diller",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "id",
+						"type": "uint32"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
@@ -152,14 +176,14 @@
 						"type": "uint8"
 					},
 					{
-						"internalType": "bytes32",
+						"internalType": "string",
 						"name": "diplomaBelge",
-						"type": "bytes32"
+						"type": "string"
 					},
 					{
-						"internalType": "bytes32",
+						"internalType": "string",
 						"name": "transcriptBelge",
-						"type": "bytes32"
+						"type": "string"
 					},
 					{
 						"internalType": "address",
@@ -194,86 +218,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_kisiAddress",
-						"type": "address"
-					},
-					{
-						"components": [
-							{
-								"internalType": "uint256",
-								"name": "id",
-								"type": "uint256"
-							},
-							{
-								"internalType": "enum EgitimBilgileri.EgitimDurumu",
-								"name": "egitimDurumu",
-								"type": "uint8"
-							},
-							{
-								"internalType": "uint256",
-								"name": "basTarih",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "bitTarih",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint8",
-								"name": "diplomaNotu",
-								"type": "uint8"
-							},
-							{
-								"internalType": "bytes32",
-								"name": "diplomaBelge",
-								"type": "bytes32"
-							},
-							{
-								"internalType": "bytes32",
-								"name": "transcriptBelge",
-								"type": "bytes32"
-							},
-							{
-								"internalType": "address",
-								"name": "universite",
-								"type": "address"
-							},
-							{
-								"internalType": "uint16",
-								"name": "fakulte",
-								"type": "uint16"
-							},
-							{
-								"internalType": "uint16",
-								"name": "bolum",
-								"type": "uint16"
-							},
-							{
-								"internalType": "enum EgitimBilgileri.OgretimTipi",
-								"name": "ogretimTipi",
-								"type": "uint8"
-							},
-							{
-								"internalType": "uint32",
-								"name": "ogretimDili",
-								"type": "uint32"
-							}
-						],
-						"internalType": "struct EgitimBilgileri.EgitimBilgi",
-						"name": "_egitimBilgi",
-						"type": "tuple"
-					}
-				],
-				"name": "ekleEgitimBilgi",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -302,92 +246,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_kisiAddress",
-						"type": "address"
-					},
-					{
-						"components": [
-							{
-								"internalType": "uint256",
-								"name": "id",
-								"type": "uint256"
-							},
-							{
-								"internalType": "enum EgitimBilgileri.EgitimDurumu",
-								"name": "egitimDurumu",
-								"type": "uint8"
-							},
-							{
-								"internalType": "uint256",
-								"name": "basTarih",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint256",
-								"name": "bitTarih",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint8",
-								"name": "diplomaNotu",
-								"type": "uint8"
-							},
-							{
-								"internalType": "bytes32",
-								"name": "diplomaBelge",
-								"type": "bytes32"
-							},
-							{
-								"internalType": "bytes32",
-								"name": "transcriptBelge",
-								"type": "bytes32"
-							},
-							{
-								"internalType": "address",
-								"name": "universite",
-								"type": "address"
-							},
-							{
-								"internalType": "uint16",
-								"name": "fakulte",
-								"type": "uint16"
-							},
-							{
-								"internalType": "uint16",
-								"name": "bolum",
-								"type": "uint16"
-							},
-							{
-								"internalType": "enum EgitimBilgileri.OgretimTipi",
-								"name": "ogretimTipi",
-								"type": "uint8"
-							},
-							{
-								"internalType": "uint32",
-								"name": "ogretimDili",
-								"type": "uint32"
-							}
-						],
-						"internalType": "struct EgitimBilgileri.EgitimBilgi",
-						"name": "_egitimBilgi",
-						"type": "tuple"
-					}
-				],
-				"name": "guncelleEgitimBilgi",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -596,19 +454,19 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0xb892d66c94bb713a81d2babbb39994b960254773648e1db2bba64919b98a1a49",
+			"keccak256": "0xd56ac7344097d6a23fb425fde2ea7e4745db413cfa29d677f6f868038c59a359",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://76e6e7727e123b6a3c417f4cf57d22a7ced0a86e7b4780f17707b170caa773a6",
-				"dweb:/ipfs/QmYtHen1MMYqNFmQAaXBXed4GPxwpT1cVtAkD1YHAebH1L"
+				"bzz-raw://072c98f212fde2b8b95158d4d9fdba8c07587d36991f9107c52d2cd5958dbcd8",
+				"dweb:/ipfs/QmWy1AyZPmaGkrk25LP5wZGR6AduiePiBZcEzDK8ZXZ7Mp"
 			]
 		},
 		"contracts/EgitimBilgileri.sol": {
-			"keccak256": "0xfa01a05fddb2f318e8b9caedd142788cd8ef0a6bc10a7a57914f0f54aaa2a0d7",
+			"keccak256": "0xe0a9c4ceadc482e70fbe0f056e24e8b1a2294f0678ec1c883ba10bc2b1630ba0",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://0a4b8f4b6743cb693036aa2727ab6f51f7e134c43ff8a345ef12d53e139a510e",
-				"dweb:/ipfs/QmRDQiPV7EPTVpTAkdFNVUg1jMB9iTDtiBiHLyGzCavVng"
+				"bzz-raw://b12b1af7e3e129b0fd8a49dc563c462f1f0ac847ee7865dc046ea5fc22bf3bad",
+				"dweb:/ipfs/QmWJBZsMyfXMPAF32BSE5B9d9kTmY5aqdgE8n5xXzsi4qo"
 			]
 		}
 	},

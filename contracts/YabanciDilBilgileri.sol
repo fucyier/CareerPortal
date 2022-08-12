@@ -27,7 +27,7 @@ contract YabanciDilBilgileri is BaseContract{
         event YabanciDilEklendiLog(OnaylayanKurum _onaylayanKurumTipi,address _onayKurum, uint _basTarih, uint _bitTarih,EgitimBilgileri.OgretimTipi _ogretimTipi,uint32 _dilId);
         event YabanciDilGuncellendiLog(OnaylayanKurum _onaylayanKurumTipi,address _onayKurum, uint _basTarih, uint _bitTarih,EgitimBilgileri.OgretimTipi _ogretimTipi,uint32 _dilId);
 
-         function ekleYabanciDilBilgi(address _kisiAddress, YabanciDilBilgi memory _ydBilgi)  public sadece_Uni_Firma_Kamu{
+         function ekleYabanciDilBilgi(address _kisiAddress, OnaylayanKurum onayKurumTipi, address onayKurum, uint basTarih, uint bitTarih, EgitimBilgileri.OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye)  public sadece_Uni_Firma_Kamu{
              require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
              uint yeniId=id++;
              yabanciDilBilgiListesi[_kisiAddress][yeniId].onayKurumTipi=_ydBilgi.onayKurumTipi;

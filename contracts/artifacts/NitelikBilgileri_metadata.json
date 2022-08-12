@@ -11,29 +11,23 @@
 					{
 						"indexed": false,
 						"internalType": "address",
-						"name": "_kursAdres",
+						"name": "_onayKurumAdres",
 						"type": "address"
 					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "_basTarih",
+						"name": "_tarih",
 						"type": "uint256"
 					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "_bitTarih",
+						"name": "_nitelikKodu",
 						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint8",
-						"name": "_sure",
-						"type": "uint8"
 					}
 				],
-				"name": "KursEklendiLog",
+				"name": "NitelikEklendiLog",
 				"type": "event"
 			},
 			{
@@ -42,29 +36,23 @@
 					{
 						"indexed": false,
 						"internalType": "address",
-						"name": "_kursAdres",
+						"name": "_onayKurumAdres",
 						"type": "address"
 					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "_basTarih",
+						"name": "_tarih",
 						"type": "uint256"
 					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "_bitTarih",
+						"name": "_nitelikKodu",
 						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint8",
-						"name": "_sure",
-						"type": "uint8"
 					}
 				],
-				"name": "KursGuncellendiLog",
+				"name": "NitelikGuncellendiLog",
 				"type": "event"
 			},
 			{
@@ -143,32 +131,37 @@
 						"type": "address"
 					},
 					{
+						"internalType": "enum BaseContract.OnaylayanKurum",
+						"name": "onayKurumTipi",
+						"type": "uint8"
+					},
+					{
 						"internalType": "address",
-						"name": "kursAdres",
+						"name": "onayKurumAdres",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "basTarih",
+						"name": "onayTarih",
 						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
-						"name": "bitTarih",
+						"name": "nitelikKodu",
 						"type": "uint256"
 					},
 					{
-						"internalType": "uint8",
-						"name": "sure",
-						"type": "uint8"
+						"internalType": "string",
+						"name": "aciklama",
+						"type": "string"
 					},
 					{
-						"internalType": "string",
-						"name": "egitimAdi",
-						"type": "string"
+						"internalType": "enum BaseContract.Seviye",
+						"name": "seviye",
+						"type": "uint8"
 					}
 				],
-				"name": "ekleKursBilgi",
+				"name": "ekleNitelikBilgi",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -216,36 +209,41 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "_kursBilgiId",
+						"name": "nitelikBilgiId",
 						"type": "uint256"
 					},
 					{
+						"internalType": "enum BaseContract.OnaylayanKurum",
+						"name": "onayKurumTipi",
+						"type": "uint8"
+					},
+					{
 						"internalType": "address",
-						"name": "kursAdres",
+						"name": "onayKurumAdres",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "basTarih",
+						"name": "onayTarih",
 						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
-						"name": "bitTarih",
+						"name": "nitelikKodu",
 						"type": "uint256"
 					},
 					{
-						"internalType": "uint8",
-						"name": "sure",
-						"type": "uint8"
+						"internalType": "string",
+						"name": "aciklama",
+						"type": "string"
 					},
 					{
-						"internalType": "string",
-						"name": "egitimAdi",
-						"type": "string"
+						"internalType": "enum BaseContract.Seviye",
+						"name": "seviye",
+						"type": "uint8"
 					}
 				],
-				"name": "guncelleKursBilgi",
+				"name": "guncelleNitelikBilgi",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -323,55 +321,6 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "kursBilgiListesi",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "id",
-						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "kursAdres",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "basTarih",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "bitTarih",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint8",
-						"name": "sure",
-						"type": "uint8"
-					},
-					{
-						"internalType": "string",
-						"name": "egitimAdi",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
 					}
 				],
 				"name": "kurslar",
@@ -389,6 +338,60 @@
 					{
 						"internalType": "uint8",
 						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "nitelikBilgiListesi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum BaseContract.OnaylayanKurum",
+						"name": "onayKurumTipi",
+						"type": "uint8"
+					},
+					{
+						"internalType": "address",
+						"name": "onayKurumAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "onayTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nitelikKodu",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "aciklama",
+						"type": "string"
+					},
+					{
+						"internalType": "enum BaseContract.Seviye",
+						"name": "seviye",
 						"type": "uint8"
 					}
 				],
@@ -496,7 +499,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/KursBilgileri.sol": "KursBilgileri"
+			"contracts/NitelikBilgileri.sol": "NitelikBilgileri"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -518,12 +521,12 @@
 				"dweb:/ipfs/QmWy1AyZPmaGkrk25LP5wZGR6AduiePiBZcEzDK8ZXZ7Mp"
 			]
 		},
-		"contracts/KursBilgileri.sol": {
-			"keccak256": "0x45b991a4e5b70b511fc2e83d430ab20f0d1c0ff84e24aa55ba4abcc64eb4da7f",
+		"contracts/NitelikBilgileri.sol": {
+			"keccak256": "0xc8485403925892c03c4d75b9116c25acee6b6b607c7e716ae05f0fcae924e1ce",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://459d3b5798d3325dc02f38ed4c2c88bb0f33e43661bae08801ceeb646ec93e8d",
-				"dweb:/ipfs/Qmf6HzZrxnng8PjsDhZthYPgjpw3bRSaEjqroV6Xz4zCsK"
+				"bzz-raw://6d54d2df1cb2239ad4a2de662ee22f0f60076363f85bc1a89c1cb41eefb97456",
+				"dweb:/ipfs/QmWsb1i7ZKQaMTk4VHE5QnWswF1orjR3qA8o6KAGK8nVqn"
 			]
 		}
 	},

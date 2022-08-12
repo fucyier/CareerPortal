@@ -12,7 +12,7 @@ contract NitelikBilgileri is BaseContract{
          OnaylayanKurum onayKurumTipi;
          address onayKurumAdres;
          uint onayTarih;
-         string nitelikAdi;
+         uint nitelikKodu;
          string aciklama;
          Seviye seviye;
         }
@@ -20,33 +20,33 @@ contract NitelikBilgileri is BaseContract{
 
 
 
-        event NitelikEklendiLog(address _onayKurumAdres,uint _tarih, string _nitelikAdi);
-        event NitelikGuncellendiLog(address _onayKurumAdres,uint _tarih, string _nitelikAdi);
+        event NitelikEklendiLog(address _onayKurumAdres,uint _tarih, uint _nitelikKodu);
+        event NitelikGuncellendiLog(address _onayKurumAdres,uint _tarih, uint _nitelikKodu);
 
-         function ekleNitelikBilgi(address _kisiAddress, NitelikBilgi memory _nitelikBilgi)  public sadece_Uni_Firma_Kamu{
+         function ekleNitelikBilgi(address _kisiAddress,  OnaylayanKurum onayKurumTipi, address onayKurumAdres, uint onayTarih, uint nitelikKodu, string memory aciklama, Seviye seviye)  public sadece_Uni_Firma_Kamu{
              require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
              uint yeniId=id++;
-             nitelikBilgiListesi[_kisiAddress][yeniId].onayKurumTipi=_nitelikBilgi.onayKurumTipi;
-             nitelikBilgiListesi[_kisiAddress][yeniId].onayKurumAdres=_nitelikBilgi.onayKurumAdres;
-             nitelikBilgiListesi[_kisiAddress][yeniId].onayTarih=_nitelikBilgi.onayTarih;
-             nitelikBilgiListesi[_kisiAddress][yeniId].nitelikAdi=_nitelikBilgi.nitelikAdi;
-             nitelikBilgiListesi[_kisiAddress][yeniId].aciklama=_nitelikBilgi.aciklama;
-             nitelikBilgiListesi[_kisiAddress][yeniId].seviye=_nitelikBilgi.seviye;
+             nitelikBilgiListesi[_kisiAddress][yeniId].onayKurumTipi=onayKurumTipi;
+             nitelikBilgiListesi[_kisiAddress][yeniId].onayKurumAdres=onayKurumAdres;
+             nitelikBilgiListesi[_kisiAddress][yeniId].onayTarih=onayTarih;
+             nitelikBilgiListesi[_kisiAddress][yeniId].nitelikKodu=nitelikKodu;
+             nitelikBilgiListesi[_kisiAddress][yeniId].aciklama=aciklama;
+             nitelikBilgiListesi[_kisiAddress][yeniId].seviye=seviye;
            
-            emit NitelikEklendiLog(_nitelikBilgi.onayKurumAdres, _nitelikBilgi.tarih, _nitelikBilgi.nitelikAdi);
+            emit NitelikEklendiLog(onayKurumAdres, onayTarih, nitelikKodu);
         }
-          function guncelleNitelikBilgi(address _kisiAddress, NitelikBilgi memory _nitelikBilgi)  public sadece_Uni_Firma_Kamu returns(uint){
+          function guncelleNitelikBilgi(address _kisiAddress,uint nitelikBilgiId, OnaylayanKurum onayKurumTipi, address onayKurumAdres, uint onayTarih, uint nitelikKodu, string memory aciklama, Seviye seviye)  public sadece_Uni_Firma_Kamu returns(uint){
                 require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
                 
-             nitelikBilgiListesi[_kisiAddress][_nitelikBilgi.id].kursAdres=_nitelikBilgi.kursAdres;
-             nitelikBilgiListesi[_kisiAddress][_nitelikBilgi.id].basTarih=_nitelikBilgi.basTarih;
-             nitelikBilgiListesi[_kisiAddress][_nitelikBilgi.id].bitTarih=_nitelikBilgi.bitTarih;
-             nitelikBilgiListesi[_kisiAddress][_nitelikBilgi.id].sure=_nitelikBilgi.sure;
-             nitelikBilgiListesi[_kisiAddress][_nitelikBilgi.id].egitimAdi=_nitelikBilgi.egitimAdi;
-             nitelikBilgiListesi[_kisiAddress][_nitelikBilgi.id].seviye=_nitelikBilgi.seviye;
+             nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayKurumTipi=onayKurumTipi;
+             nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayKurumAdres=onayKurumAdres;
+             nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayTarih=onayTarih;
+             nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].nitelikKodu=nitelikKodu;
+             nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].aciklama=aciklama;
+             nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].seviye=seviye;
 
-             emit NitelikGuncellendiLog(_nitelikBilgi.onayKurumAdres, _nitelikBilgi.tarih, _nitelikBilgi.nitelikAdi);
-                return    _nitelikBilgi.id;
+             emit NitelikGuncellendiLog(onayKurumAdres, onayTarih, nitelikKodu);
+                return    nitelikBilgiId;
 
         }
 
