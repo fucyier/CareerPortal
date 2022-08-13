@@ -110,7 +110,7 @@ contract BaseContract{
       );
       _;
     } 
-        modifier onlyCourse{
+        modifier onlySertifikaMerkezi{
       require(sertifikaMerkezleri[msg.sender].durum,
       "Bu islemi sadece Sertifika Merkezleri yapabilir."
       );

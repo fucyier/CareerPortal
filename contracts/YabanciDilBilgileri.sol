@@ -30,29 +30,29 @@ contract YabanciDilBilgileri is BaseContract{
          function ekleYabanciDilBilgi(address _kisiAddress, OnaylayanKurum onayKurumTipi, address onayKurum, uint basTarih, uint bitTarih, EgitimBilgileri.OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye)  public sadece_Uni_Firma_Kamu{
              require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
              uint yeniId=id++;
-             yabanciDilBilgiListesi[_kisiAddress][yeniId].onayKurumTipi=_ydBilgi.onayKurumTipi;
-             yabanciDilBilgiListesi[_kisiAddress][yeniId].onayKurum=_ydBilgi.onayKurum;
-             yabanciDilBilgiListesi[_kisiAddress][yeniId].basTarih=_ydBilgi.basTarih;
-             yabanciDilBilgiListesi[_kisiAddress][yeniId].bitTarih=_ydBilgi.bitTarih;
-             yabanciDilBilgiListesi[_kisiAddress][yeniId].ogretimTipi=_ydBilgi.ogretimTipi;
-             yabanciDilBilgiListesi[_kisiAddress][yeniId].dilId=_ydBilgi.dilId;
-               yabanciDilBilgiListesi[_kisiAddress][yeniId].dilId=_ydBilgi.seviye;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].onayKurumTipi=onayKurumTipi;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].onayKurum=onayKurum;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].basTarih=basTarih;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].bitTarih=bitTarih;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].ogretimTipi=ogretimTipi;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].dilId=dilId;
+               yabanciDilBilgiListesi[_kisiAddress][yeniId].seviye=seviye;
            
-             emit YabanciDilEklendiLog(_ydBilgi.onayKurumTipi, _ydBilgi.onayKurum,  _ydBilgi.basTarih,  _ydBilgi.bitTarih, _ydBilgi.ogretimTipi, _ydBilgi.dilId);
+             emit YabanciDilEklendiLog(onayKurumTipi, onayKurum,  basTarih,  bitTarih, ogretimTipi, dilId);
         }
-          function guncelleYabanciDilBilgi(address _kisiAddress, YabanciDilBilgi memory _ydBilgi)  public sadece_Uni_Firma_Kamu returns(uint){
+          function guncelleYabanciDilBilgi(address _kisiAddress,uint ydBilgiId, OnaylayanKurum onayKurumTipi, address onayKurum, uint basTarih, uint bitTarih, EgitimBilgileri.OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye)  public sadece_Uni_Firma_Kamu returns(uint){
                 require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
                 
-                yabanciDilBilgiListesi[_kisiAddress][_ydBilgi.id].onayKurumTipi=_ydBilgi.onayKurumTipi;
-                yabanciDilBilgiListesi[_kisiAddress][_ydBilgi.id].onayKurum=_ydBilgi.onayKurum;
-                yabanciDilBilgiListesi[_kisiAddress][_ydBilgi.id].basTarih=_ydBilgi.basTarih;
-                yabanciDilBilgiListesi[_kisiAddress][_ydBilgi.id].bitTarih=_ydBilgi.bitTarih;
-                yabanciDilBilgiListesi[_kisiAddress][_ydBilgi.id].ogretimTipi=_ydBilgi.ogretimTipi;
-                yabanciDilBilgiListesi[_kisiAddress][_ydBilgi.id].dilId=_ydBilgi.dilId;
-                yabanciDilBilgiListesi[_kisiAddress][_ydBilgi.id].seviye=_ydBilgi.seviye;
+                yabanciDilBilgiListesi[_kisiAddress][ydBilgiId].onayKurumTipi=onayKurumTipi;
+                yabanciDilBilgiListesi[_kisiAddress][ydBilgiId].onayKurum=onayKurum;
+                yabanciDilBilgiListesi[_kisiAddress][ydBilgiId].basTarih=basTarih;
+                yabanciDilBilgiListesi[_kisiAddress][ydBilgiId].bitTarih=bitTarih;
+                yabanciDilBilgiListesi[_kisiAddress][ydBilgiId].ogretimTipi=ogretimTipi;
+                yabanciDilBilgiListesi[_kisiAddress][ydBilgiId].dilId=dilId;
+                yabanciDilBilgiListesi[_kisiAddress][ydBilgiId].seviye=seviye;
 
-                emit YabanciDilGuncellendiLog(_ydBilgi.onayKurumTipi, _ydBilgi.onayKurum,  _ydBilgi.basTarih,  _ydBilgi.bitTarih, _ydBilgi.ogretimTipi, _ydBilgi.dilId);
-                return    _ydBilgi.id;
+                emit YabanciDilGuncellendiLog(onayKurumTipi, onayKurum,  basTarih,  bitTarih, ogretimTipi, dilId);
+                return    ydBilgiId;
 
         }
 

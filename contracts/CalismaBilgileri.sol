@@ -21,52 +21,45 @@ contract CalismaBilgileri is BaseContract{
          enum CalismaTipi { 
              YariZamanli, 
              TamZamanli, 
-             Stajyer}
+             Stajyer
+             }
 
         mapping(address=>mapping(uint=>CalismaBilgi)) public calismaBilgileri;
       
-      
-        event CalismaBilgiEklendiLog(uint id, address _universite, uint basTarih, uint bitTarih);
-          event EgitimBilgiGuncellendiLog(uint id, address _universite, uint basTarih, uint bitTarih);
+       
+        event CalismaBilgiEklendiLog(address _kisiAdres, address _kurumAdres, uint _pozisyon, uint _sektor);
+        event CalismaBilgiGuncellendiLog(address _kisiAdres, address _kurumAdres, uint _pozisyon, uint _sektor);
 
-         function ekleEgitimBilgi(address _kisiAddress, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, uint8 diplomaNotu, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, uint16 bolum, OgretimTipi ogretimTipi, uint32 ogretimDili)  internal sadeceUniversite{
+         function ekleCalismaBilgi(address _kisiAddress, address kurumAdres, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public sadece_Uni_Firma_Kamu{
              require(kisiler[_kisiAddress].durum,"Student not exists");
              uint yeniId=id++;
-             egitimBilgileri[_kisiAddress][yeniId].egitimDurumu=egitimDurumu;
-             egitimBilgileri[_kisiAddress][yeniId].basTarih=basTarih;
-             egitimBilgileri[_kisiAddress][yeniId].bitTarih=bitTarih;
-             egitimBilgileri[_kisiAddress][yeniId].diplomaNotu=diplomaNotu;
-             egitimBilgileri[_kisiAddress][yeniId].diplomaBelge=diplomaBelge;
-             egitimBilgileri[_kisiAddress][yeniId].transcriptBelge=transcriptBelge;
-             egitimBilgileri[_kisiAddress][yeniId].universite=universite;
-             egitimBilgileri[_kisiAddress][yeniId].fakulte=fakulte;
-             egitimBilgileri[_kisiAddress][yeniId].bolum=bolum;
-             egitimBilgileri[_kisiAddress][yeniId].ogretimTipi=ogretimTipi;
-             egitimBilgileri[_kisiAddress][yeniId].ogretimDili=ogretimDili;
-           //  egitimBilgileri[_personAddress][yeniId].ulke=_egitimBilgi.ulke;
-            // egitimBilgileri[_personAddress][yeniId].sehir=_egitimBilgi.sehir;
+             calismaBilgileri[_kisiAddress][yeniId].kurumAdres=kurumAdres;
+             calismaBilgileri[_kisiAddress][yeniId].pozisyon=pozisyon;
+             calismaBilgileri[_kisiAddress][yeniId].sektor=sektor;
+             calismaBilgileri[_kisiAddress][yeniId].calismaTipi=calismaTipi;
+             calismaBilgileri[_kisiAddress][yeniId].isAciklama=isAciklama;
+             calismaBilgileri[_kisiAddress][yeniId].basTarih=basTarih;
+             calismaBilgileri[_kisiAddress][yeniId].bitTarih=bitTarih;
+             calismaBilgileri[_kisiAddress][yeniId].ulke=ulke;
+             calismaBilgileri[_kisiAddress][yeniId].sehir=sektor;
            
-             emit EgitimBilgiEklendiLog( yeniId, universite,basTarih, bitTarih);
+             emit CalismaBilgiEklendiLog( _kisiAddress, kurumAdres,pozisyon, sektor);
     }
-       function guncelleEgitimBilgi(address _kisiAddress, uint _egitimBilgiId, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, uint8 diplomaNotu, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, uint16 bolum, OgretimTipi ogretimTipi, uint32 ogretimDili)  internal sadeceUniversite returns(uint){
+       function guncelleCalismaBilgi(address _kisiAddress, uint _calismaBilgiId, address kurumAdres, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public sadece_Uni_Firma_Kamu returns(uint){
              require(kisiler[_kisiAddress].durum,"Student not exists");
              
-             egitimBilgileri[_kisiAddress][_egitimBilgiId].egitimDurumu=egitimDurumu;
-             egitimBilgileri[_kisiAddress][_egitimBilgiId].basTarih=basTarih;
-             egitimBilgileri[_kisiAddress][_egitimBilgiId].bitTarih=bitTarih;
-             egitimBilgileri[_kisiAddress][_egitimBilgiId].diplomaNotu=diplomaNotu;
-             egitimBilgileri[_kisiAddress][_egitimBilgiId].diplomaBelge=diplomaBelge;
-             egitimBilgileri[_kisiAddress][_egitimBilgiId].transcriptBelge=transcriptBelge;
-             egitimBilgileri[_kisiAddress][_egitimBilgiId].universite=universite;
-             egitimBilgileri[_kisiAddress][_egitimBilgiId].fakulte=fakulte;
-             egitimBilgileri[_kisiAddress][_egitimBilgiId].bolum=bolum;
-             egitimBilgileri[_kisiAddress][_egitimBilgiId].ogretimTipi=ogretimTipi;
-             egitimBilgileri[_kisiAddress][_egitimBilgiId].ogretimDili=ogretimDili;
-           //  egitimBilgileri[_personAddress][_egitimBilgi.id].ulke=_egitimBilgi.ulke;
-           //  egitimBilgileri[_personAddress][_egitimBilgi.id].sehir=_egitimBilgi.sehir;
+             calismaBilgileri[_kisiAddress][_calismaBilgiId].kurumAdres=kurumAdres;
+             calismaBilgileri[_kisiAddress][_calismaBilgiId].pozisyon=pozisyon;
+             calismaBilgileri[_kisiAddress][_calismaBilgiId].sektor=sektor;
+             calismaBilgileri[_kisiAddress][_calismaBilgiId].calismaTipi=calismaTipi;
+             calismaBilgileri[_kisiAddress][_calismaBilgiId].isAciklama=isAciklama;
+             calismaBilgileri[_kisiAddress][_calismaBilgiId].basTarih=basTarih;
+             calismaBilgileri[_kisiAddress][_calismaBilgiId].bitTarih=bitTarih;
+             calismaBilgileri[_kisiAddress][_calismaBilgiId].ulke=ulke;
+             calismaBilgileri[_kisiAddress][_calismaBilgiId].sehir=sektor;
            
-             emit EgitimBilgiGuncellendiLog( _egitimBilgiId, universite, basTarih, bitTarih);
-             return _egitimBilgiId;
+             emit CalismaBilgiGuncellendiLog( _kisiAddress, kurumAdres, pozisyon, sektor);
+             return _calismaBilgiId;
 
     }
      
