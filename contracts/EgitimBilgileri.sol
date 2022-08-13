@@ -3,8 +3,7 @@ pragma solidity >=0.8.0 <0.9.0;
 //pragma experimental ABIEncoderV2;
 import "./BaseContract.sol";
 contract EgitimBilgileri is BaseContract{
-  uint public id;
-
+    uint public id;
 
     struct EgitimBilgi {
           uint id;
