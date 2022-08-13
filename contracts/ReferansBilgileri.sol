@@ -40,7 +40,7 @@ contract ReferansBilgileri is BaseContract{
         }
        
        
-       function onayRedReferans(uint referansId,address _kisiAddress, bool accepted,string memory aciklama)  public {
+       function onayRedReferans(address _kisiAddress, uint referansId, bool accepted,string memory aciklama)  public {
              require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
              require(kisiler[msg.sender].durum,"Referans Kisi mevcut degil");
           

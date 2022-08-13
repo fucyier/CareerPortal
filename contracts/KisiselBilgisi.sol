@@ -11,7 +11,7 @@ contract KisiselBilgisi is BaseContract{
          string soyad;
          uint8 ulkeId;
          uint32 sehirId;
-        string telefon;
+         string telefon;
          Cinsiyet cinsiyet;
          AskerlikDurum askerlikDurum;
          uint8 uyrukId;
@@ -28,16 +28,7 @@ contract KisiselBilgisi is BaseContract{
          function ekleKisiselBilgi(address _kisiAddress, string memory ad, string memory soyad, uint8 ulkeId, uint32 sehirId, string memory telefon, Cinsiyet cinsiyet, AskerlikDurum askerlikDurum, uint8 uyrukId, EhliyetDurum ehliyetDurum, uint16 dogumYil)  public {
              require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
      
-             kisiselBilgisi[_kisiAddress]=KisiselBilgi(ad,
-                                                        soyad,
-                                                        ulkeId,
-                                                        sehirId,
-                                                        telefon,
-                                                        cinsiyet,
-                                                        askerlikDurum,
-                                                        uyrukId,
-                                                        ehliyetDurum,
-                                                       dogumYil);
+             kisiselBilgisi[_kisiAddress]=KisiselBilgi(ad, soyad, ulkeId, sehirId, telefon, cinsiyet, askerlikDurum, uyrukId, ehliyetDurum, dogumYil);
          
            
              emit KisiselBilgiEklendiLog(_kisiAddress,ad, soyad, dogumYil);
@@ -45,16 +36,7 @@ contract KisiselBilgisi is BaseContract{
           function guncelleKisiselBilgi(address _kisiAddress,  string memory ad, string memory soyad, uint8 ulkeId, uint32 sehirId, string memory telefon, Cinsiyet cinsiyet, AskerlikDurum askerlikDurum, uint8 uyrukId, EhliyetDurum ehliyetDurum, uint16 dogumYil)  public  returns(address){
                 require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
                 
-                  kisiselBilgisi[_kisiAddress]=KisiselBilgi(ad,
-                                                        soyad,
-                                                        ulkeId,
-                                                        sehirId,
-                                                        telefon,
-                                                        cinsiyet,
-                                                        askerlikDurum,
-                                                        uyrukId,
-                                                        ehliyetDurum,
-                                                        dogumYil);
+                  kisiselBilgisi[_kisiAddress]=KisiselBilgi(ad, soyad, ulkeId, sehirId, telefon, cinsiyet, askerlikDurum, uyrukId, ehliyetDurum, dogumYil);
 
                 emit KisiselBilgiGuncellendiLog(_kisiAddress,ad, soyad, dogumYil);
                 return    _kisiAddress;
