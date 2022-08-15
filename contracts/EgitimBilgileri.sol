@@ -10,7 +10,7 @@ contract EgitimBilgileri is BaseContract{
          EgitimDurumu egitimDurumu;
          uint basTarih;
          uint bitTarih;
-         uint8 diplomaNotu;
+         //uint8 diplomaNotu;
          string diplomaBelge;
          string transcriptBelge;
          address universite;
@@ -18,6 +18,7 @@ contract EgitimBilgileri is BaseContract{
          uint16 bolum;
          OgretimTipi ogretimTipi;
          uint32 ogretimDili;
+         Onay onayBilgi;
          //uint8 ulke;
          //uint32 sehir;
         }
@@ -40,13 +41,14 @@ contract EgitimBilgileri is BaseContract{
         event EgitimBilgiEklendiLog(uint id,address _universite,uint basTarih, uint bitTarih);
           event EgitimBilgiGuncellendiLog(uint id,address _universite,uint basTarih, uint bitTarih);
 
-         function ekleEgitimBilgi(address _kisiAddress, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, uint8 diplomaNotu, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, uint16 bolum, OgretimTipi ogretimTipi, uint32 ogretimDili)  internal sadeceUniversite{
+         function ekleEgitimBilgi(address _kisiAddress, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, 
+         uint16 bolum, OgretimTipi ogretimTipi, uint32 ogretimDili )  internal sadeceUniversite{
              require(kisiler[_kisiAddress].durum,"Student not exists");
              uint yeniId=id++;
              egitimBilgileri[_kisiAddress][yeniId].egitimDurumu=egitimDurumu;
              egitimBilgileri[_kisiAddress][yeniId].basTarih=basTarih;
              egitimBilgileri[_kisiAddress][yeniId].bitTarih=bitTarih;
-             egitimBilgileri[_kisiAddress][yeniId].diplomaNotu=diplomaNotu;
+            // egitimBilgileri[_kisiAddress][yeniId].diplomaNotu=diplomaNotu;
              egitimBilgileri[_kisiAddress][yeniId].diplomaBelge=diplomaBelge;
              egitimBilgileri[_kisiAddress][yeniId].transcriptBelge=transcriptBelge;
              egitimBilgileri[_kisiAddress][yeniId].universite=universite;
@@ -54,18 +56,22 @@ contract EgitimBilgileri is BaseContract{
              egitimBilgileri[_kisiAddress][yeniId].bolum=bolum;
              egitimBilgileri[_kisiAddress][yeniId].ogretimTipi=ogretimTipi;
              egitimBilgileri[_kisiAddress][yeniId].ogretimDili=ogretimDili;
-           //  egitimBilgileri[_personAddress][yeniId].ulke=_egitimBilgi.ulke;
+             egitimBilgileri[_kisiAddress][yeniId].onayBilgi.zaman=block.timestamp;
+             egitimBilgileri[_kisiAddress][yeniId].onayBilgi.adres=msg.sender;
+               egitimBilgileri[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.Onaylandi;
+            // egitimBilgileri[_personAddress][yeniId].ulke=_egitimBilgi.ulke;
             // egitimBilgileri[_personAddress][yeniId].sehir=_egitimBilgi.sehir;
            
              emit EgitimBilgiEklendiLog( yeniId, universite,basTarih, bitTarih);
     }
-       function guncelleEgitimBilgi(address _kisiAddress, uint _egitimBilgiId, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, uint8 diplomaNotu, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, uint16 bolum, OgretimTipi ogretimTipi, uint32 ogretimDili)  internal sadeceUniversite returns(uint){
+       function guncelleEgitimBilgi(address _kisiAddress, uint _egitimBilgiId, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, 
+       address universite, uint16 fakulte, uint16 bolum, OgretimTipi ogretimTipi, uint32 ogretimDili)  internal sadeceUniversite returns(uint){
              require(kisiler[_kisiAddress].durum,"Student not exists");
              
              egitimBilgileri[_kisiAddress][_egitimBilgiId].egitimDurumu=egitimDurumu;
              egitimBilgileri[_kisiAddress][_egitimBilgiId].basTarih=basTarih;
              egitimBilgileri[_kisiAddress][_egitimBilgiId].bitTarih=bitTarih;
-             egitimBilgileri[_kisiAddress][_egitimBilgiId].diplomaNotu=diplomaNotu;
+            // egitimBilgileri[_kisiAddress][_egitimBilgiId].diplomaNotu=diplomaNotu;
              egitimBilgileri[_kisiAddress][_egitimBilgiId].diplomaBelge=diplomaBelge;
              egitimBilgileri[_kisiAddress][_egitimBilgiId].transcriptBelge=transcriptBelge;
              egitimBilgileri[_kisiAddress][_egitimBilgiId].universite=universite;
@@ -73,6 +79,9 @@ contract EgitimBilgileri is BaseContract{
              egitimBilgileri[_kisiAddress][_egitimBilgiId].bolum=bolum;
              egitimBilgileri[_kisiAddress][_egitimBilgiId].ogretimTipi=ogretimTipi;
              egitimBilgileri[_kisiAddress][_egitimBilgiId].ogretimDili=ogretimDili;
+              egitimBilgileri[_kisiAddress][_egitimBilgiId].onayBilgi.zaman=block.timestamp;
+             egitimBilgileri[_kisiAddress][_egitimBilgiId].onayBilgi.adres=msg.sender;
+              egitimBilgileri[_kisiAddress][_egitimBilgiId].onayBilgi.durum=OnayDurum.Onaylandi;
            //  egitimBilgileri[_personAddress][_egitimBilgi.id].ulke=_egitimBilgi.ulke;
            //  egitimBilgileri[_personAddress][_egitimBilgi.id].sehir=_egitimBilgi.sehir;
            

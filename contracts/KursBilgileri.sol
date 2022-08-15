@@ -13,6 +13,7 @@ contract KursBilgileri is BaseContract{
          uint bitTarih;
          uint8 sure;
          string egitimAdi;
+         Onay onayBilgi;
         }
         mapping(address=>mapping(uint=>KursBilgi)) public kursBilgiListesi;
 
@@ -29,8 +30,9 @@ contract KursBilgileri is BaseContract{
              kursBilgiListesi[_kisiAddress][yeniId].bitTarih=bitTarih;
              kursBilgiListesi[_kisiAddress][yeniId].sure=sure;
              kursBilgiListesi[_kisiAddress][yeniId].egitimAdi=egitimAdi;
-            
-           
+             kursBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.Onaylandi;
+             kursBilgiListesi[_kisiAddress][yeniId].onayBilgi.zaman=block.timestamp;
+             kursBilgiListesi[_kisiAddress][yeniId].onayBilgi.adres=msg.sender;
             emit KursEklendiLog(kursAdres, basTarih, bitTarih, sure);
         }
           function guncelleKursBilgi(address _kisiAddress, uint _kursBilgiId, address kursAdres, uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public sadeceKurs returns(uint){
@@ -41,7 +43,11 @@ contract KursBilgileri is BaseContract{
              kursBilgiListesi[_kisiAddress][_kursBilgiId].bitTarih=bitTarih;
              kursBilgiListesi[_kisiAddress][_kursBilgiId].sure=sure;
              kursBilgiListesi[_kisiAddress][_kursBilgiId].egitimAdi=egitimAdi;
-              
+       
+             kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.durum=OnayDurum.Onaylandi;
+             kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.zaman=block.timestamp;
+             kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.adres=msg.sender;
+
               emit KursGuncellendiLog(kursAdres, basTarih, bitTarih, sure);
                 return    _kursBilgiId;
 

@@ -9,6 +9,17 @@ contract BaseContract{
       bool durum;
     
     }
+
+    struct Onay{
+      uint zaman;
+      address adres;
+      OnayDurum durum;
+    }
+     enum OnayDurum {
+        OnayBekliyor,
+        Onaylandi,
+        Reddedildi
+        } 
    struct Universite
         {
         bool durum;

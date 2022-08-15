@@ -361,6 +361,28 @@
 						"internalType": "string",
 						"name": "egitimAdi",
 						"type": "string"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "zaman",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "adres",
+								"type": "address"
+							},
+							{
+								"internalType": "enum BaseContract.OnayDurum",
+								"name": "durum",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct BaseContract.Onay",
+						"name": "onayBilgi",
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "view",
@@ -511,19 +533,19 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0xd56ac7344097d6a23fb425fde2ea7e4745db413cfa29d677f6f868038c59a359",
+			"keccak256": "0xc319e9725d79a42d3d0551cc74f03843a6926d58e794ab18accc181579098939",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://072c98f212fde2b8b95158d4d9fdba8c07587d36991f9107c52d2cd5958dbcd8",
-				"dweb:/ipfs/QmWy1AyZPmaGkrk25LP5wZGR6AduiePiBZcEzDK8ZXZ7Mp"
+				"bzz-raw://7b8186f5d54a05f8b9b5f708ea3dd235fe61e12c6acb4a9889f8ac4e2a876679",
+				"dweb:/ipfs/QmNozHR2u4j6CSQosi6v23LaAHjSR3jEp16YcnwLPc3o16"
 			]
 		},
 		"contracts/KursBilgileri.sol": {
-			"keccak256": "0x45b991a4e5b70b511fc2e83d430ab20f0d1c0ff84e24aa55ba4abcc64eb4da7f",
+			"keccak256": "0xb511e216e8ae12752531c4908f67499ee5a92e92fd12ff02090c6d3241d64324",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://459d3b5798d3325dc02f38ed4c2c88bb0f33e43661bae08801ceeb646ec93e8d",
-				"dweb:/ipfs/Qmf6HzZrxnng8PjsDhZthYPgjpw3bRSaEjqroV6Xz4zCsK"
+				"bzz-raw://5d9f372f39066602510c736f60c0bb6866205ef8b46cd31be5f12d0e79ba0489",
+				"dweb:/ipfs/QmRZNZwiWLC1FHfhXUWH11d4k6WXn9AjvFB7BQjKxknPyf"
 			]
 		}
 	},

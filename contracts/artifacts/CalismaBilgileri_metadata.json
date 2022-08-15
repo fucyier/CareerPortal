@@ -175,6 +175,28 @@
 						"internalType": "uint32",
 						"name": "sehir",
 						"type": "uint32"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "zaman",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "adres",
+								"type": "address"
+							},
+							{
+								"internalType": "enum BaseContract.OnayDurum",
+								"name": "durum",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct BaseContract.Onay",
+						"name": "onayBilgi",
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "view",
@@ -571,19 +593,19 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0x3a89caffe9bdee9f4b6705e3506b64d532c1cae2b8ab85847762fbaa073f6fe0",
+			"keccak256": "0xc319e9725d79a42d3d0551cc74f03843a6926d58e794ab18accc181579098939",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://01003d57c94e533f6d552396b27c144e8e1cfebe084df352501d545718dacd6f",
-				"dweb:/ipfs/QmTW4LMoAAwzdtpi7JP6GtMigAMBPxBNjUJd87H1FwNwzy"
+				"bzz-raw://7b8186f5d54a05f8b9b5f708ea3dd235fe61e12c6acb4a9889f8ac4e2a876679",
+				"dweb:/ipfs/QmNozHR2u4j6CSQosi6v23LaAHjSR3jEp16YcnwLPc3o16"
 			]
 		},
 		"contracts/CalismaBilgileri.sol": {
-			"keccak256": "0xd3936a4612404875cee823fcdfee0b1525c853d317d08d3a8ed9e58a29a2c168",
+			"keccak256": "0x1126a42ade7cbd478c23d146801c32da15cb94c28466f0b2cea19844ef9dfe85",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://fe4ff20643af52a588829245033b2a150d26373b9fc4dc27e2b36d352f74e95d",
-				"dweb:/ipfs/QmdRybg6LWaudDNLmHW48xjV6RBEqgqHgQDY1Ar7XhxADT"
+				"bzz-raw://137f3f7f8c8f05909ff0d6005ed737732c499f5f06356a1637e9e27a8b7bbef5",
+				"dweb:/ipfs/Qme7qfTguJ1FqYRmvrc6MBLWHjqeNtXG3QfzCGe3M97CAS"
 			]
 		}
 	},

@@ -16,6 +16,7 @@ contract CalismaBilgileri is BaseContract{
          uint bitTarih;
          uint8 ulke;
          uint32 sehir;
+         Onay onayBilgi; 
         }
        
          enum CalismaTipi { 
@@ -41,7 +42,10 @@ contract CalismaBilgileri is BaseContract{
              calismaBilgileri[_kisiAddress][yeniId].basTarih=basTarih;
              calismaBilgileri[_kisiAddress][yeniId].bitTarih=bitTarih;
              calismaBilgileri[_kisiAddress][yeniId].ulke=ulke;
-             calismaBilgileri[_kisiAddress][yeniId].sehir=sektor;
+             calismaBilgileri[_kisiAddress][yeniId].sehir=sehir;
+             calismaBilgileri[_kisiAddress][yeniId].onayBilgi.zaman=block.timestamp;
+             calismaBilgileri[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.Onaylandi;
+             calismaBilgileri[_kisiAddress][yeniId].onayBilgi.adres=msg.sender;
            
              emit CalismaBilgiEklendiLog( _kisiAddress, kurumAdres,pozisyon, sektor);
     }
@@ -56,7 +60,10 @@ contract CalismaBilgileri is BaseContract{
              calismaBilgileri[_kisiAddress][_calismaBilgiId].basTarih=basTarih;
              calismaBilgileri[_kisiAddress][_calismaBilgiId].bitTarih=bitTarih;
              calismaBilgileri[_kisiAddress][_calismaBilgiId].ulke=ulke;
-             calismaBilgileri[_kisiAddress][_calismaBilgiId].sehir=sektor;
+             calismaBilgileri[_kisiAddress][_calismaBilgiId].sehir=sehir;
+             calismaBilgileri[_kisiAddress][_calismaBilgiId].onayBilgi.zaman=block.timestamp;
+             calismaBilgileri[_kisiAddress][_calismaBilgiId].onayBilgi.durum=OnayDurum.Onaylandi;
+             calismaBilgileri[_kisiAddress][_calismaBilgiId].onayBilgi.adres=msg.sender;
            
              emit CalismaBilgiGuncellendiLog( _kisiAddress, kurumAdres, pozisyon, sektor);
              return _calismaBilgiId;

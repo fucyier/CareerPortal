@@ -15,6 +15,7 @@ contract NitelikBilgileri is BaseContract{
          uint nitelikKodu;
          string aciklama;
          Seviye seviye;
+         Onay onayBilgi;
         }
         mapping(address=>mapping(uint=>NitelikBilgi)) public nitelikBilgiListesi;
 
@@ -32,6 +33,9 @@ contract NitelikBilgileri is BaseContract{
              nitelikBilgiListesi[_kisiAddress][yeniId].nitelikKodu=nitelikKodu;
              nitelikBilgiListesi[_kisiAddress][yeniId].aciklama=aciklama;
              nitelikBilgiListesi[_kisiAddress][yeniId].seviye=seviye;
+             nitelikBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.Onaylandi;
+               nitelikBilgiListesi[_kisiAddress][yeniId].onayBilgi.adres=msg.sender;
+                 nitelikBilgiListesi[_kisiAddress][yeniId].onayBilgi.zaman=block.timestamp;
            
             emit NitelikEklendiLog(onayKurumAdres, onayTarih, nitelikKodu);
         }
@@ -44,7 +48,9 @@ contract NitelikBilgileri is BaseContract{
              nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].nitelikKodu=nitelikKodu;
              nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].aciklama=aciklama;
              nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].seviye=seviye;
-
+             nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.durum=OnayDurum.Onaylandi;
+            nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.adres=msg.sender;
+                 nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.zaman=block.timestamp;
              emit NitelikGuncellendiLog(onayKurumAdres, onayTarih, nitelikKodu);
                 return    nitelikBilgiId;
 

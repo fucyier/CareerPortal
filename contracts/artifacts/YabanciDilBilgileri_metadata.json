@@ -16,12 +16,6 @@
 					},
 					{
 						"indexed": false,
-						"internalType": "address",
-						"name": "_onayKurum",
-						"type": "address"
-					},
-					{
-						"indexed": false,
 						"internalType": "uint256",
 						"name": "_basTarih",
 						"type": "uint256"
@@ -56,12 +50,6 @@
 						"internalType": "enum BaseContract.OnaylayanKurum",
 						"name": "_onaylayanKurumTipi",
 						"type": "uint8"
-					},
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "_onayKurum",
-						"type": "address"
 					},
 					{
 						"indexed": false,
@@ -172,11 +160,6 @@
 						"type": "uint8"
 					},
 					{
-						"internalType": "address",
-						"name": "onayKurum",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
 						"name": "basTarih",
 						"type": "uint256"
@@ -257,11 +240,6 @@
 						"internalType": "enum BaseContract.OnaylayanKurum",
 						"name": "onayKurumTipi",
 						"type": "uint8"
-					},
-					{
-						"internalType": "address",
-						"name": "onayKurum",
-						"type": "address"
 					},
 					{
 						"internalType": "uint256",
@@ -503,11 +481,6 @@
 						"type": "uint8"
 					},
 					{
-						"internalType": "address",
-						"name": "onayKurum",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
 						"name": "basTarih",
 						"type": "uint256"
@@ -531,6 +504,28 @@
 						"internalType": "enum BaseContract.Seviye",
 						"name": "seviye",
 						"type": "uint8"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "zaman",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "adres",
+								"type": "address"
+							},
+							{
+								"internalType": "enum BaseContract.OnayDurum",
+								"name": "durum",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct BaseContract.Onay",
+						"name": "onayBilgi",
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "view",
@@ -565,27 +560,27 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0x3a89caffe9bdee9f4b6705e3506b64d532c1cae2b8ab85847762fbaa073f6fe0",
+			"keccak256": "0xc319e9725d79a42d3d0551cc74f03843a6926d58e794ab18accc181579098939",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://01003d57c94e533f6d552396b27c144e8e1cfebe084df352501d545718dacd6f",
-				"dweb:/ipfs/QmTW4LMoAAwzdtpi7JP6GtMigAMBPxBNjUJd87H1FwNwzy"
+				"bzz-raw://7b8186f5d54a05f8b9b5f708ea3dd235fe61e12c6acb4a9889f8ac4e2a876679",
+				"dweb:/ipfs/QmNozHR2u4j6CSQosi6v23LaAHjSR3jEp16YcnwLPc3o16"
 			]
 		},
 		"contracts/EgitimBilgileri.sol": {
-			"keccak256": "0xe0a9c4ceadc482e70fbe0f056e24e8b1a2294f0678ec1c883ba10bc2b1630ba0",
+			"keccak256": "0x9844e404b2a2d321f0aec3959deba1ab0f1d76af52fdd0c3f452f98c4bb34878",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://b12b1af7e3e129b0fd8a49dc563c462f1f0ac847ee7865dc046ea5fc22bf3bad",
-				"dweb:/ipfs/QmWJBZsMyfXMPAF32BSE5B9d9kTmY5aqdgE8n5xXzsi4qo"
+				"bzz-raw://4137eee93f1ee9c3628104d7da1c21d99843af2781b23fd76061c388f09c9100",
+				"dweb:/ipfs/QmXd5u4NJijGkdG2qXBk1iX1MoWNFoXoQyfrAQQnGhke7b"
 			]
 		},
 		"contracts/YabanciDilBilgileri.sol": {
-			"keccak256": "0x36b23ff5aa1ff29bd8cd38de0e46930b737c90f0e273f61a481fed8d6a8954d7",
+			"keccak256": "0x9af82d25c454dcfa9305ff047d593c84474d91ac2b995f4015aff925492ebfb2",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://767eebaa7f781259f23209740cf133fbfebd1eca2e1fc7c2d182e64c25187eb8",
-				"dweb:/ipfs/QmULKdP6rYZPcuLddxh45Fi4jY4hKtSY57WpJyNTma3N3b"
+				"bzz-raw://166a5f7d8f66512fb67c03d10930b529c258ec1c7387e54794a2869175df6f09",
+				"dweb:/ipfs/QmRgM35k3MaFYnP3QFowPU4PGKcBFuizB6YXi5FbuncFNT"
 			]
 		}
 	},

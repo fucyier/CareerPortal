@@ -65,7 +65,7 @@
 					},
 					{
 						"indexed": false,
-						"internalType": "enum ReferansBilgileri.ReferansDurum",
+						"internalType": "enum BaseContract.OnayDurum",
 						"name": "_durum",
 						"type": "uint8"
 					}
@@ -268,14 +268,14 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "referansId",
-						"type": "uint256"
-					},
-					{
 						"internalType": "address",
 						"name": "_kisiAddress",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "referansId",
+						"type": "uint256"
 					},
 					{
 						"internalType": "bool",
@@ -319,11 +319,6 @@
 						"type": "address"
 					},
 					{
-						"internalType": "uint256",
-						"name": "onayRedTarih",
-						"type": "uint256"
-					},
-					{
 						"internalType": "string",
 						"name": "aciklama",
 						"type": "string"
@@ -334,9 +329,26 @@
 						"type": "string"
 					},
 					{
-						"internalType": "enum ReferansBilgileri.ReferansDurum",
-						"name": "durum",
-						"type": "uint8"
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "zaman",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "adres",
+								"type": "address"
+							},
+							{
+								"internalType": "enum BaseContract.OnayDurum",
+								"name": "durum",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct BaseContract.Onay",
+						"name": "onayBilgi",
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "view",
@@ -408,41 +420,14 @@
 						"type": "address"
 					},
 					{
-						"components": [
-							{
-								"internalType": "uint256",
-								"name": "id",
-								"type": "uint256"
-							},
-							{
-								"internalType": "address",
-								"name": "referansAdres",
-								"type": "address"
-							},
-							{
-								"internalType": "uint256",
-								"name": "onayRedTarih",
-								"type": "uint256"
-							},
-							{
-								"internalType": "string",
-								"name": "aciklama",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "pozisyon",
-								"type": "string"
-							},
-							{
-								"internalType": "enum ReferansBilgileri.ReferansDurum",
-								"name": "durum",
-								"type": "uint8"
-							}
-						],
-						"internalType": "struct ReferansBilgileri.ReferansBilgi",
-						"name": "_referansBilgi",
-						"type": "tuple"
+						"internalType": "address",
+						"name": "referansAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "pozisyon",
+						"type": "string"
 					}
 				],
 				"name": "talepEtReferans",
@@ -508,19 +493,19 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0xb22056aa0f1cd655b1a0a5bbb38c91144a4e3ae02b529087e9ef66bb829f75ee",
+			"keccak256": "0xc319e9725d79a42d3d0551cc74f03843a6926d58e794ab18accc181579098939",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://be320e7543f7e0ad84082ee1f8801cc00769b8935e62e2e396f55515755503dd",
-				"dweb:/ipfs/QmeazjCiMwQQsD4d313E532oTTAn42MDJMXeBpHtoTRMRC"
+				"bzz-raw://7b8186f5d54a05f8b9b5f708ea3dd235fe61e12c6acb4a9889f8ac4e2a876679",
+				"dweb:/ipfs/QmNozHR2u4j6CSQosi6v23LaAHjSR3jEp16YcnwLPc3o16"
 			]
 		},
 		"contracts/ReferansBilgileri.sol": {
-			"keccak256": "0x41930bacbc037982c052b665d42ad6c8621b9cca0d5d8e79b96bf3c9fd8a6b62",
+			"keccak256": "0xc417403fe9408b87caf30368383af4b4b57dbcb7ea71d49e1bcad6fb9b2d0e88",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://f00a85c22103280abbc92c088155055730f735c8b25512e741320a76f2c210b2",
-				"dweb:/ipfs/QmXfTpxGAGjE4RzxCSkWLy48JcibjeQKkk4ob4J2JYbixL"
+				"bzz-raw://20c9174d154c2e1f1dd7e1afdf7ff22f4fd68aeb560453f7b8ffd23adde216ed",
+				"dweb:/ipfs/QmXmo8obC2vTopFp6u7dEgEpdTNNJoTLDjx1eVgXpwhu7t"
 			]
 		}
 	},
