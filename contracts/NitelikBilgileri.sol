@@ -10,14 +10,12 @@ contract NitelikBilgileri is BaseContract{
     struct NitelikBilgi {
          uint id;
          address talepEdilenKurum;
-         uint onayTarih;
          uint nitelikKodu;
          string aciklama;
          Seviye seviye;
          Onay onayBilgi;
         }
         mapping(address=>mapping(uint=>NitelikBilgi)) public nitelikBilgiListesi;
-
 
 
         event NitelikEklendiLog(address _onayKurumAdres,uint _tarih, uint _nitelikKodu);
