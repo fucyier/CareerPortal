@@ -131,21 +131,6 @@
 						"type": "address"
 					},
 					{
-						"internalType": "enum BaseContract.OnaylayanKurum",
-						"name": "onayKurumTipi",
-						"type": "uint8"
-					},
-					{
-						"internalType": "address",
-						"name": "onayKurumAdres",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "onayTarih",
-						"type": "uint256"
-					},
-					{
 						"internalType": "uint256",
 						"name": "nitelikKodu",
 						"type": "uint256"
@@ -210,21 +195,6 @@
 					{
 						"internalType": "uint256",
 						"name": "nitelikBilgiId",
-						"type": "uint256"
-					},
-					{
-						"internalType": "enum BaseContract.OnaylayanKurum",
-						"name": "onayKurumTipi",
-						"type": "uint8"
-					},
-					{
-						"internalType": "address",
-						"name": "onayKurumAdres",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "onayTarih",
 						"type": "uint256"
 					},
 					{
@@ -365,13 +335,8 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "enum BaseContract.OnaylayanKurum",
-						"name": "onayKurumTipi",
-						"type": "uint8"
-					},
-					{
 						"internalType": "address",
-						"name": "onayKurumAdres",
+						"name": "talepEdilenKurum",
 						"type": "address"
 					},
 					{
@@ -544,11 +509,11 @@
 			]
 		},
 		"contracts/NitelikBilgileri.sol": {
-			"keccak256": "0x4c56662b5d3448f346d6a9d7480a4084f2d66bd6237eaeaa24fb3897f72d670d",
+			"keccak256": "0x05eebc27939e84a5f25bf326ddb4ae42a73f0478977e0f6e832b9b42ff397dca",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://156eeddbcfe6688ded9f0b36816a1e0179f4623f4866f2e5f3201339cd3b2f47",
-				"dweb:/ipfs/QmYUEnspTN2xYN1L27m1gf29EE3NrGPpPQUxTTcXuxwmzs"
+				"bzz-raw://a2d2c2e8a45bd7e4ffcc1bbbf0d1c5f37914292d74776924e948c42abd412422",
+				"dweb:/ipfs/QmNsvAANU9eGUMqt8drdwyTiZh7c2ykYk6xpGvcyqgnygT"
 			]
 		}
 	},
