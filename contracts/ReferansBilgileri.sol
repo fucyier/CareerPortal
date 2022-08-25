@@ -28,9 +28,8 @@ contract ReferansBilgileri is BaseContract{
              require(kisiler[referansAdres].durum,"Referans Kisi mevcut degil");
              uint yeniId=id++;
              referansBilgiListesi[_kisiAddress][yeniId].referansAdres=referansAdres;
-
              referansBilgiListesi[_kisiAddress][yeniId].pozisyon=pozisyon;
-               referansBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
+             referansBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
            
            
             emit ReferansTalepEtLog(yeniId,_kisiAddress, referansAdres, OnayDurum.OnayBekliyor);
