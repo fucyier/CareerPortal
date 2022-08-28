@@ -28,13 +28,13 @@ contract CalismaBilgileri is BaseContract{
         mapping(address=>mapping(uint=>CalismaBilgi)) public calismaBilgileri;
       
        
-        event CalismaBilgiEklendiLog(address _kisiAdres, address _kurumAdres, uint _pozisyon, uint _sektor);
-        event CalismaBilgiGuncellendiLog(address _kisiAdres, address _kurumAdres, uint _pozisyon, uint _sektor);
+        event CalismaBilgiEklendiLog(address _kisiAdres, uint8 _ulke, uint _pozisyon, uint _sektor);
+        event CalismaBilgiGuncellendiLog(address _kisiAdres, uint8 _ulke, uint _pozisyon, uint _sektor);
 
-         function ekleCalismaBilgi(address _kisiAddress, address kurumAdres, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public sadece_Uni_Firma_Kamu{
+         function ekleCalismaBilgi(address _kisiAddress, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public sadece_Uni_Firma_Kamu{
              require(kisiler[_kisiAddress].durum,"Student not exists");
              uint yeniId=id++;
-             calismaBilgileri[_kisiAddress][yeniId].kurumAdres=kurumAdres;
+            
              calismaBilgileri[_kisiAddress][yeniId].pozisyon=pozisyon;
              calismaBilgileri[_kisiAddress][yeniId].sektor=sektor;
              calismaBilgileri[_kisiAddress][yeniId].calismaTipi=calismaTipi;
@@ -47,12 +47,11 @@ contract CalismaBilgileri is BaseContract{
              calismaBilgileri[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.Onaylandi;
              calismaBilgileri[_kisiAddress][yeniId].onayBilgi.adres=msg.sender;
            
-             emit CalismaBilgiEklendiLog( _kisiAddress, kurumAdres,pozisyon, sektor);
+             emit CalismaBilgiEklendiLog( _kisiAddress, ulke,pozisyon, sektor);
     }
-       function guncelleCalismaBilgi(address _kisiAddress, uint _calismaBilgiId, address kurumAdres, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public sadece_Uni_Firma_Kamu returns(uint){
+       function guncelleCalismaBilgi(address _kisiAddress, uint _calismaBilgiId, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public sadece_Uni_Firma_Kamu returns(uint){
              require(kisiler[_kisiAddress].durum,"Student not exists");
              
-             calismaBilgileri[_kisiAddress][_calismaBilgiId].kurumAdres=kurumAdres;
              calismaBilgileri[_kisiAddress][_calismaBilgiId].pozisyon=pozisyon;
              calismaBilgileri[_kisiAddress][_calismaBilgiId].sektor=sektor;
              calismaBilgileri[_kisiAddress][_calismaBilgiId].calismaTipi=calismaTipi;
@@ -65,7 +64,7 @@ contract CalismaBilgileri is BaseContract{
              calismaBilgileri[_kisiAddress][_calismaBilgiId].onayBilgi.durum=OnayDurum.Onaylandi;
              calismaBilgileri[_kisiAddress][_calismaBilgiId].onayBilgi.adres=msg.sender;
            
-             emit CalismaBilgiGuncellendiLog( _kisiAddress, kurumAdres, pozisyon, sektor);
+             emit CalismaBilgiGuncellendiLog( _kisiAddress, ulke, pozisyon, sektor);
              return _calismaBilgiId;
 
     }

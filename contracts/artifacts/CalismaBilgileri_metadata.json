@@ -16,9 +16,9 @@
 					},
 					{
 						"indexed": false,
-						"internalType": "address",
-						"name": "_kurumAdres",
-						"type": "address"
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
 					},
 					{
 						"indexed": false,
@@ -47,9 +47,9 @@
 					},
 					{
 						"indexed": false,
-						"internalType": "address",
-						"name": "_kurumAdres",
-						"type": "address"
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
 					},
 					{
 						"indexed": false,
@@ -234,11 +234,6 @@
 						"type": "address"
 					},
 					{
-						"internalType": "address",
-						"name": "kurumAdres",
-						"type": "address"
-					},
-					{
 						"internalType": "uint32",
 						"name": "pozisyon",
 						"type": "uint32"
@@ -329,11 +324,6 @@
 						"internalType": "uint256",
 						"name": "_calismaBilgiId",
 						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "kurumAdres",
-						"type": "address"
 					},
 					{
 						"internalType": "uint32",
@@ -601,11 +591,11 @@
 			]
 		},
 		"contracts/CalismaBilgileri.sol": {
-			"keccak256": "0x1126a42ade7cbd478c23d146801c32da15cb94c28466f0b2cea19844ef9dfe85",
+			"keccak256": "0xdc42e1788d5e4d8f8011669e6af1bf920d3974caf3c35ef904a1c4b61413473a",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://137f3f7f8c8f05909ff0d6005ed737732c499f5f06356a1637e9e27a8b7bbef5",
-				"dweb:/ipfs/Qme7qfTguJ1FqYRmvrc6MBLWHjqeNtXG3QfzCGe3M97CAS"
+				"bzz-raw://e71d3b039b981b04d8edf71190b562ba00686a03387515429415d41c7315cb74",
+				"dweb:/ipfs/QmZFnzLoupzBiHZyQBbWxwuN5YF8kbH35DcxTuDefTZ17o"
 			]
 		}
 	},
