@@ -7,7 +7,7 @@ contract CalismaBilgileri is BaseContract{
 
     struct CalismaBilgi {
          uint id;
-         address kurumAdres;
+         address talepEdilenKurum;
          uint32 pozisyon;
          uint8 sektor;
          CalismaTipi calismaTipi;
@@ -30,6 +30,7 @@ contract CalismaBilgileri is BaseContract{
        
         event CalismaBilgiEklendiLog(address _kisiAdres, uint8 _ulke, uint _pozisyon, uint _sektor);
         event CalismaBilgiGuncellendiLog(address _kisiAdres, uint8 _ulke, uint _pozisyon, uint _sektor);
+            event CalismaBilgiTalepEdildiLog(address _talepEdilenKurum, uint8 _ulke, uint _pozisyon, uint _sektor);
 
          function ekleCalismaBilgi(address _kisiAddress, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public sadece_Uni_Firma_Kamu{
              require(kisiler[_kisiAddress].durum,"Student not exists");
@@ -67,6 +68,24 @@ contract CalismaBilgileri is BaseContract{
              emit CalismaBilgiGuncellendiLog( _kisiAddress, ulke, pozisyon, sektor);
              return _calismaBilgiId;
 
+    }
+       function talepEtCalismaBilgi(address _talepEdilenKurum, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public sadeceKisi{
+             require(kisiler[msg.sender].durum,"Student not exists");
+             uint yeniId=id++;
+
+             calismaBilgileri[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
+             calismaBilgileri[msg.sender][yeniId].pozisyon=pozisyon;
+             calismaBilgileri[msg.sender][yeniId].sektor=sektor;
+             calismaBilgileri[msg.sender][yeniId].calismaTipi=calismaTipi;
+             calismaBilgileri[msg.sender][yeniId].isAciklama=isAciklama;
+             calismaBilgileri[msg.sender][yeniId].basTarih=basTarih;
+             calismaBilgileri[msg.sender][yeniId].bitTarih=bitTarih;
+             calismaBilgileri[msg.sender][yeniId].ulke=ulke;
+             calismaBilgileri[msg.sender][yeniId].sehir=sehir;
+             calismaBilgileri[msg.sender][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
+
+           
+             emit CalismaBilgiTalepEdildiLog( _talepEdilenKurum, ulke,pozisyon, sektor);
     }
      
 }

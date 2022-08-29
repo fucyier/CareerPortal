@@ -20,6 +20,7 @@ contract NitelikBilgileri is BaseContract{
 
         event NitelikEklendiLog(address _onayKurumAdres,uint _tarih, uint _nitelikKodu);
         event NitelikGuncellendiLog(address _onayKurumAdres,uint _tarih, uint _nitelikKodu);
+         event NitelikTalepEdildiLog(address _talepEdilenKurum,uint _tarih, uint _nitelikKodu);
 
          function ekleNitelikBilgi(address _kisiAddress, uint nitelikKodu, string memory aciklama, Seviye seviye)  public sadece_Uni_Firma_Kamu{
              require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
@@ -49,6 +50,17 @@ contract NitelikBilgileri is BaseContract{
 
         }
 
+  function talepEtNitelikBilgi(address _talepEdilenKurum, uint nitelikKodu, string memory aciklama, Seviye seviye)  public sadeceKisi{
+             require(kisiler[msg.sender].durum,"Kisi mevcut degil");
+             uint yeniId=id++;
 
+             nitelikBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
+             nitelikBilgiListesi[msg.sender][yeniId].nitelikKodu=nitelikKodu;
+             nitelikBilgiListesi[msg.sender][yeniId].aciklama=aciklama;
+             nitelikBilgiListesi[msg.sender][yeniId].seviye=seviye;
+             nitelikBilgiListesi[msg.sender][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
+           
+            emit NitelikEklendiLog(msg.sender, block.timestamp, nitelikKodu);
+        }
 
 }

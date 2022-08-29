@@ -56,6 +56,31 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_talepEdilenKurum",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_tarih",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_nitelikKodu",
+						"type": "uint256"
+					}
+				],
+				"name": "NitelikTalepEdildiLog",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -341,11 +366,6 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "onayTarih",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
 						"name": "nitelikKodu",
 						"type": "uint256"
 					},
@@ -447,6 +467,34 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_talepEdilenKurum",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nitelikKodu",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "aciklama",
+						"type": "string"
+					},
+					{
+						"internalType": "enum BaseContract.Seviye",
+						"name": "seviye",
+						"type": "uint8"
+					}
+				],
+				"name": "talepEtNitelikBilgi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -501,19 +549,19 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0xc319e9725d79a42d3d0551cc74f03843a6926d58e794ab18accc181579098939",
+			"keccak256": "0x4539d1ef5051b90d2cb192eeb8ef094fac4fc654789723c0cc731ecabd430949",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://7b8186f5d54a05f8b9b5f708ea3dd235fe61e12c6acb4a9889f8ac4e2a876679",
-				"dweb:/ipfs/QmNozHR2u4j6CSQosi6v23LaAHjSR3jEp16YcnwLPc3o16"
+				"bzz-raw://3067e4e545d7088362aaf75942e9e5a23c999b40c983d95958131c23c4dd3e5e",
+				"dweb:/ipfs/QmchYubsxsF4QoNAcWbuxY2rvZn8ivzY9hhZN9ctYD6Nzu"
 			]
 		},
 		"contracts/NitelikBilgileri.sol": {
-			"keccak256": "0x05eebc27939e84a5f25bf326ddb4ae42a73f0478977e0f6e832b9b42ff397dca",
+			"keccak256": "0xba645bc9cd89195d93f1412b015f1f929ca902c61c0f36eccef5694c471bffe9",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://a2d2c2e8a45bd7e4ffcc1bbbf0d1c5f37914292d74776924e948c42abd412422",
-				"dweb:/ipfs/QmNsvAANU9eGUMqt8drdwyTiZh7c2ykYk6xpGvcyqgnygT"
+				"bzz-raw://ef868d890c0d2715fc9b898d15130d42a594b570fe45a9c690cb744d2b5f9d9a",
+				"dweb:/ipfs/QmaAHPeQijDApJViPYtiPjeVzP79GaMHVAZR1LNWnaLRCo"
 			]
 		}
 	},

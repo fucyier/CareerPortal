@@ -11,7 +11,7 @@
 					{
 						"indexed": false,
 						"internalType": "address",
-						"name": "_kursAdres",
+						"name": "_kisiAddress",
 						"type": "address"
 					},
 					{
@@ -42,7 +42,7 @@
 					{
 						"indexed": false,
 						"internalType": "address",
-						"name": "_kursAdres",
+						"name": "_kisiAddress",
 						"type": "address"
 					},
 					{
@@ -65,6 +65,37 @@
 					}
 				],
 				"name": "KursGuncellendiLog",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_talepEdilenKurum",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_basTarih",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_bitTarih",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "_sure",
+						"type": "uint8"
+					}
+				],
+				"name": "KursTalepEdildiLog",
 				"type": "event"
 			},
 			{
@@ -143,11 +174,6 @@
 						"type": "address"
 					},
 					{
-						"internalType": "address",
-						"name": "kursAdres",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
 						"name": "basTarih",
 						"type": "uint256"
@@ -218,11 +244,6 @@
 						"internalType": "uint256",
 						"name": "_kursBilgiId",
 						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "kursAdres",
-						"type": "address"
 					},
 					{
 						"internalType": "uint256",
@@ -339,7 +360,7 @@
 					},
 					{
 						"internalType": "address",
-						"name": "kursAdres",
+						"name": "talepEdilenKurum",
 						"type": "address"
 					},
 					{
@@ -479,6 +500,39 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_talepEdilenKurum",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "basTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bitTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "sure",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "egitimAdi",
+						"type": "string"
+					}
+				],
+				"name": "talepEtKursBilgi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -533,19 +587,19 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0xc319e9725d79a42d3d0551cc74f03843a6926d58e794ab18accc181579098939",
+			"keccak256": "0x4539d1ef5051b90d2cb192eeb8ef094fac4fc654789723c0cc731ecabd430949",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://7b8186f5d54a05f8b9b5f708ea3dd235fe61e12c6acb4a9889f8ac4e2a876679",
-				"dweb:/ipfs/QmNozHR2u4j6CSQosi6v23LaAHjSR3jEp16YcnwLPc3o16"
+				"bzz-raw://3067e4e545d7088362aaf75942e9e5a23c999b40c983d95958131c23c4dd3e5e",
+				"dweb:/ipfs/QmchYubsxsF4QoNAcWbuxY2rvZn8ivzY9hhZN9ctYD6Nzu"
 			]
 		},
 		"contracts/KursBilgileri.sol": {
-			"keccak256": "0xb511e216e8ae12752531c4908f67499ee5a92e92fd12ff02090c6d3241d64324",
+			"keccak256": "0xd66fda3c39ebe7c711c952f4a5020e346a120573a1e3a9d2c720a7256d1f391a",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://5d9f372f39066602510c736f60c0bb6866205ef8b46cd31be5f12d0e79ba0489",
-				"dweb:/ipfs/QmRZNZwiWLC1FHfhXUWH11d4k6WXn9AjvFB7BQjKxknPyf"
+				"bzz-raw://62bc41765917d9330f80f15cfe77aeca4f0ed625083911a3146cc04b3416732e",
+				"dweb:/ipfs/QmNqd4kPxCeMwbhQS1MDKQ3hjBArMvsoFw68uGjDEKaNR5"
 			]
 		}
 	},

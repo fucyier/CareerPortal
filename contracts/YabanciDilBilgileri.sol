@@ -9,6 +9,7 @@ contract YabanciDilBilgileri is BaseContract{
    
     struct YabanciDilBilgi {
          uint id;
+           address talepEdilenKurum;
          OnaylayanKurum onayKurumTipi;
          uint basTarih;
          uint bitTarih;
@@ -22,6 +23,7 @@ contract YabanciDilBilgileri is BaseContract{
 
         event YabanciDilEklendiLog(OnaylayanKurum _onaylayanKurumTipi,uint _basTarih, uint _bitTarih ,EgitimBilgileri.OgretimTipi _ogretimTipi,uint32 _dilId);
         event YabanciDilGuncellendiLog(OnaylayanKurum _onaylayanKurumTipi,uint _basTarih, uint _bitTarih,EgitimBilgileri.OgretimTipi _ogretimTipi,uint32 _dilId);
+          event YabanciDilTalepEdildiLog(address _talepEdilenKurum,uint _basTarih, uint _bitTarih,EgitimBilgileri.OgretimTipi _ogretimTipi,uint32 _dilId);
 
          function ekleYabanciDilBilgi(address _kisiAddress, OnaylayanKurum onayKurumTipi, uint basTarih, uint bitTarih, EgitimBilgileri.OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye)  public sadece_Uni_Firma_Kamu{
              require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
@@ -56,6 +58,21 @@ contract YabanciDilBilgileri is BaseContract{
 
         }
 
+    function talepEtYabanciDilBilgi(address _talepEdilenKurum, uint basTarih, uint bitTarih, EgitimBilgileri.OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye)  public sadeceKisi{
+             require(kisiler[msg.sender].durum,"Kisi mevcut degil");
+             uint yeniId=id++;
 
+             yabanciDilBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
+             yabanciDilBilgiListesi[msg.sender][yeniId].basTarih=basTarih;
+             yabanciDilBilgiListesi[msg.sender][yeniId].bitTarih=bitTarih;
+             yabanciDilBilgiListesi[msg.sender][yeniId].ogretimTipi=ogretimTipi;
+             yabanciDilBilgiListesi[msg.sender][yeniId].dilId=dilId;
+             yabanciDilBilgiListesi[msg.sender][yeniId].seviye=seviye;
+             yabanciDilBilgiListesi[msg.sender][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
+             yabanciDilBilgiListesi[msg.sender][yeniId].onayBilgi.zaman=block.timestamp;
+             yabanciDilBilgiListesi[msg.sender][yeniId].onayBilgi.adres=msg.sender;
+           
+             emit YabanciDilTalepEdildiLog(_talepEdilenKurum,  basTarih,  bitTarih, ogretimTipi, dilId);
+        }
 
 }

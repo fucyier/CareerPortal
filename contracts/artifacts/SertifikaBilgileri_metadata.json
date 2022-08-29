@@ -10,30 +10,24 @@
 				"inputs": [
 					{
 						"indexed": false,
-						"internalType": "address",
-						"name": "_kisiAdres",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint8",
-						"name": "_ulke",
-						"type": "uint8"
-					},
-					{
-						"indexed": false,
 						"internalType": "uint256",
-						"name": "_pozisyon",
+						"name": "_id",
 						"type": "uint256"
 					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "_sektor",
+						"name": "_alinanTarih",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_gecerlilikSuresi",
 						"type": "uint256"
 					}
 				],
-				"name": "CalismaBilgiEklendiLog",
+				"name": "SertifikaEklendiLog",
 				"type": "event"
 			},
 			{
@@ -41,30 +35,24 @@
 				"inputs": [
 					{
 						"indexed": false,
-						"internalType": "address",
-						"name": "_kisiAdres",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint8",
-						"name": "_ulke",
-						"type": "uint8"
-					},
-					{
-						"indexed": false,
 						"internalType": "uint256",
-						"name": "_pozisyon",
+						"name": "_sertifikaBilgiId",
 						"type": "uint256"
 					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "_sektor",
+						"name": "_alinanTarih",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_gecerlilikSuresi",
 						"type": "uint256"
 					}
 				],
-				"name": "CalismaBilgiGuncellendiLog",
+				"name": "SertifikaGuncellendiLog",
 				"type": "event"
 			},
 			{
@@ -72,30 +60,24 @@
 				"inputs": [
 					{
 						"indexed": false,
-						"internalType": "address",
-						"name": "_talepEdilenKurum",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint8",
-						"name": "_ulke",
-						"type": "uint8"
-					},
-					{
-						"indexed": false,
 						"internalType": "uint256",
-						"name": "_pozisyon",
+						"name": "_sertifikaBilgiId",
 						"type": "uint256"
 					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "_sektor",
+						"name": "_alinanTarih",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_gecerlilikSuresi",
 						"type": "uint256"
 					}
 				],
-				"name": "CalismaBilgiTalepEdildiLog",
+				"name": "SertifikaTalepEdildiLog",
 				"type": "event"
 			},
 			{
@@ -145,97 +127,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "calismaBilgileri",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "id",
-						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "talepEdilenKurum",
-						"type": "address"
-					},
-					{
-						"internalType": "uint32",
-						"name": "pozisyon",
-						"type": "uint32"
-					},
-					{
-						"internalType": "uint8",
-						"name": "sektor",
-						"type": "uint8"
-					},
-					{
-						"internalType": "enum CalismaBilgileri.CalismaTipi",
-						"name": "calismaTipi",
-						"type": "uint8"
-					},
-					{
-						"internalType": "string",
-						"name": "isAciklama",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "basTarih",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "bitTarih",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint32",
-						"name": "sehir",
-						"type": "uint32"
-					},
-					{
-						"components": [
-							{
-								"internalType": "uint256",
-								"name": "zaman",
-								"type": "uint256"
-							},
-							{
-								"internalType": "address",
-								"name": "adres",
-								"type": "address"
-							},
-							{
-								"internalType": "enum BaseContract.OnayDurum",
-								"name": "durum",
-								"type": "uint8"
-							}
-						],
-						"internalType": "struct BaseContract.Onay",
-						"name": "onayBilgi",
-						"type": "tuple"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "uint32",
 						"name": "",
 						"type": "uint32"
@@ -265,47 +156,22 @@
 						"type": "address"
 					},
 					{
-						"internalType": "uint32",
-						"name": "pozisyon",
-						"type": "uint32"
+						"internalType": "uint256",
+						"name": "_alinanTarih",
+						"type": "uint256"
 					},
 					{
 						"internalType": "uint8",
-						"name": "sektor",
-						"type": "uint8"
-					},
-					{
-						"internalType": "enum CalismaBilgileri.CalismaTipi",
-						"name": "calismaTipi",
+						"name": "_gecerlilikSuresi",
 						"type": "uint8"
 					},
 					{
 						"internalType": "string",
-						"name": "isAciklama",
+						"name": "_sertifikaAdi",
 						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "basTarih",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "bitTarih",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint32",
-						"name": "sehir",
-						"type": "uint32"
 					}
 				],
-				"name": "ekleCalismaBilgi",
+				"name": "ekleSertifikaBilgi",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -353,51 +219,26 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "_calismaBilgiId",
+						"name": "_sertifikaBilgiId",
 						"type": "uint256"
 					},
 					{
-						"internalType": "uint32",
-						"name": "pozisyon",
-						"type": "uint32"
+						"internalType": "uint256",
+						"name": "_alinanTarih",
+						"type": "uint256"
 					},
 					{
 						"internalType": "uint8",
-						"name": "sektor",
-						"type": "uint8"
-					},
-					{
-						"internalType": "enum CalismaBilgileri.CalismaTipi",
-						"name": "calismaTipi",
+						"name": "_gecerlilikSuresi",
 						"type": "uint8"
 					},
 					{
 						"internalType": "string",
-						"name": "isAciklama",
+						"name": "_sertifikaAdi",
 						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "basTarih",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "bitTarih",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint32",
-						"name": "sehir",
-						"type": "uint32"
 					}
 				],
-				"name": "guncelleCalismaBilgi",
+				"name": "guncelleKursBilgi",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -504,6 +345,72 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "sertifikaBilgiListesi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "talepEdilenKurum",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "alinanTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "gecerlilikSuresi",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "sertifikaAdi",
+						"type": "string"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "zaman",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "adres",
+								"type": "address"
+							},
+							{
+								"internalType": "enum BaseContract.OnayDurum",
+								"name": "durum",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct BaseContract.Onay",
+						"name": "onayBilgi",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"name": "sertifikaMerkezleri",
@@ -564,47 +471,22 @@
 						"type": "address"
 					},
 					{
-						"internalType": "uint32",
-						"name": "pozisyon",
-						"type": "uint32"
+						"internalType": "uint256",
+						"name": "_alinanTarih",
+						"type": "uint256"
 					},
 					{
 						"internalType": "uint8",
-						"name": "sektor",
-						"type": "uint8"
-					},
-					{
-						"internalType": "enum CalismaBilgileri.CalismaTipi",
-						"name": "calismaTipi",
+						"name": "_gecerlilikSuresi",
 						"type": "uint8"
 					},
 					{
 						"internalType": "string",
-						"name": "isAciklama",
+						"name": "_sertifikaAdi",
 						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "basTarih",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "bitTarih",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint32",
-						"name": "sehir",
-						"type": "uint32"
 					}
 				],
-				"name": "talepEtCalismaBilgi",
+				"name": "talepEtSertifikaBilgi",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -652,7 +534,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/CalismaBilgileri.sol": "CalismaBilgileri"
+			"contracts/SertifikaBilgisi.sol": "SertifikaBilgileri"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -674,12 +556,12 @@
 				"dweb:/ipfs/QmchYubsxsF4QoNAcWbuxY2rvZn8ivzY9hhZN9ctYD6Nzu"
 			]
 		},
-		"contracts/CalismaBilgileri.sol": {
-			"keccak256": "0xf11afa5ab2cfc02c2a4b07455248aa6942af0a740b25596cd335e2f406235666",
+		"contracts/SertifikaBilgisi.sol": {
+			"keccak256": "0x178c01910f248df984179085b021cc5260f9f7eb2474ab35a2741f3d127cab37",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://6cab150da508a9d18fdac49a0c1bcfc22ef51d339e70093fb371ebba0279939d",
-				"dweb:/ipfs/QmdFB93SasKVHpQUugz52Z4CzZPocVVPCBiPWnQ61rM5pX"
+				"bzz-raw://fe9d5fc0f581a6e5e21b391622c6502438a8ec9348b808e81a513128d679cc97",
+				"dweb:/ipfs/QmbF7WhVKyhGdotRNBCVPZoXTCWrsZF8wjV5p9iZLQVkn2"
 			]
 		}
 	},

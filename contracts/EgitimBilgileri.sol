@@ -7,6 +7,7 @@ contract EgitimBilgileri is BaseContract{
 
     struct EgitimBilgi {
           uint id;
+                address talepEdilenKurum;
          EgitimDurumu egitimDurumu;
          uint basTarih;
          uint bitTarih;
@@ -17,7 +18,7 @@ contract EgitimBilgileri is BaseContract{
          uint16 fakulte;
          uint16 bolum;
          OgretimTipi ogretimTipi;
-         uint32 ogretimDili;
+     //    uint32 ogretimDili;
          Onay onayBilgi;
          //uint8 ulke;
          //uint32 sehir;
@@ -40,9 +41,10 @@ contract EgitimBilgileri is BaseContract{
       
         event EgitimBilgiEklendiLog(uint id,address _universite,uint basTarih, uint bitTarih);
           event EgitimBilgiGuncellendiLog(uint id,address _universite,uint basTarih, uint bitTarih);
+            event EgitimBilgiTalepEdildiLog(uint id,address _universite,uint basTarih, uint bitTarih);
 
          function ekleEgitimBilgi(address _kisiAddress, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, 
-         uint16 bolum, OgretimTipi ogretimTipi, uint32 ogretimDili )  internal sadeceUniversite{
+         uint16 bolum, OgretimTipi ogretimTipi)  internal sadeceUniversite{
              require(kisiler[_kisiAddress].durum,"Student not exists");
              uint yeniId=id++;
              egitimBilgileri[_kisiAddress][yeniId].egitimDurumu=egitimDurumu;
@@ -55,7 +57,7 @@ contract EgitimBilgileri is BaseContract{
              egitimBilgileri[_kisiAddress][yeniId].fakulte=fakulte;
              egitimBilgileri[_kisiAddress][yeniId].bolum=bolum;
              egitimBilgileri[_kisiAddress][yeniId].ogretimTipi=ogretimTipi;
-             egitimBilgileri[_kisiAddress][yeniId].ogretimDili=ogretimDili;
+            // egitimBilgileri[_kisiAddress][yeniId].ogretimDili=ogretimDili;
              egitimBilgileri[_kisiAddress][yeniId].onayBilgi.zaman=block.timestamp;
              egitimBilgileri[_kisiAddress][yeniId].onayBilgi.adres=msg.sender;
                egitimBilgileri[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.Onaylandi;
@@ -65,7 +67,7 @@ contract EgitimBilgileri is BaseContract{
              emit EgitimBilgiEklendiLog( yeniId, universite,basTarih, bitTarih);
     }
        function guncelleEgitimBilgi(address _kisiAddress, uint _egitimBilgiId, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, 
-       address universite, uint16 fakulte, uint16 bolum, OgretimTipi ogretimTipi, uint32 ogretimDili)  internal sadeceUniversite returns(uint){
+       address universite, uint16 fakulte, uint16 bolum, OgretimTipi ogretimTipi)  internal sadeceUniversite returns(uint){
              require(kisiler[_kisiAddress].durum,"Student not exists");
              
              egitimBilgileri[_kisiAddress][_egitimBilgiId].egitimDurumu=egitimDurumu;
@@ -78,7 +80,7 @@ contract EgitimBilgileri is BaseContract{
              egitimBilgileri[_kisiAddress][_egitimBilgiId].fakulte=fakulte;
              egitimBilgileri[_kisiAddress][_egitimBilgiId].bolum=bolum;
              egitimBilgileri[_kisiAddress][_egitimBilgiId].ogretimTipi=ogretimTipi;
-             egitimBilgileri[_kisiAddress][_egitimBilgiId].ogretimDili=ogretimDili;
+           //  egitimBilgileri[_kisiAddress][_egitimBilgiId].ogretimDili=ogretimDili;
               egitimBilgileri[_kisiAddress][_egitimBilgiId].onayBilgi.zaman=block.timestamp;
              egitimBilgileri[_kisiAddress][_egitimBilgiId].onayBilgi.adres=msg.sender;
               egitimBilgileri[_kisiAddress][_egitimBilgiId].onayBilgi.durum=OnayDurum.Onaylandi;
@@ -88,6 +90,28 @@ contract EgitimBilgileri is BaseContract{
              emit EgitimBilgiGuncellendiLog( _egitimBilgiId, universite, basTarih, bitTarih);
              return _egitimBilgiId;
 
+    }
+
+      function talepEtEgitimBilgi(address _talepEdilenKurum, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, 
+         uint16 bolum, OgretimTipi ogretimTipi )  internal sadeceKisi{
+             require(kisiler[msg.sender].durum,"Student not exists");
+             uint yeniId=id++;
+
+               egitimBilgileri[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
+             egitimBilgileri[msg.sender][yeniId].egitimDurumu=egitimDurumu;
+             egitimBilgileri[msg.sender][yeniId].basTarih=basTarih;
+             egitimBilgileri[msg.sender][yeniId].bitTarih=bitTarih;
+             egitimBilgileri[msg.sender][yeniId].diplomaBelge=diplomaBelge;
+             egitimBilgileri[msg.sender][yeniId].transcriptBelge=transcriptBelge;
+             egitimBilgileri[msg.sender][yeniId].universite=universite;
+             egitimBilgileri[msg.sender][yeniId].fakulte=fakulte;
+             egitimBilgileri[msg.sender][yeniId].bolum=bolum;
+             egitimBilgileri[msg.sender][yeniId].ogretimTipi=ogretimTipi;
+          //   egitimBilgileri[msg.sender][yeniId].ogretimDili=ogretimDili;
+             egitimBilgileri[msg.sender][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
+
+           
+             emit EgitimBilgiEklendiLog( yeniId, universite,basTarih, bitTarih);
     }
      
 }

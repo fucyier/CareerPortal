@@ -8,7 +8,7 @@ contract KursBilgileri is BaseContract{
 
     struct KursBilgi {
          uint id;
-         address kursAdres;
+         address talepEdilenKurum;
          uint basTarih;
          uint bitTarih;
          uint8 sure;
@@ -19,13 +19,14 @@ contract KursBilgileri is BaseContract{
 
 
 
-        event KursEklendiLog(address _kursAdres,uint _basTarih, uint _bitTarih,uint8  _sure);
-        event KursGuncellendiLog(address _kursAdres,uint _basTarih, uint _bitTarih,uint8  _sure);
+        event KursEklendiLog(address _kisiAddress,uint _basTarih, uint _bitTarih,uint8  _sure);
+        event KursGuncellendiLog(address _kisiAddress,uint _basTarih, uint _bitTarih,uint8  _sure);
+          event KursTalepEdildiLog(address _talepEdilenKurum,uint _basTarih, uint _bitTarih,uint8  _sure);
 
-         function ekleKursBilgi(address _kisiAddress, address kursAdres, uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public sadeceKurs{
+         function ekleKursBilgi(address _kisiAddress,  uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public sadeceKurs{
              require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
              uint yeniId=id++;
-             kursBilgiListesi[_kisiAddress][yeniId].kursAdres=kursAdres;
+
              kursBilgiListesi[_kisiAddress][yeniId].basTarih=basTarih;
              kursBilgiListesi[_kisiAddress][yeniId].bitTarih=bitTarih;
              kursBilgiListesi[_kisiAddress][yeniId].sure=sure;
@@ -33,12 +34,12 @@ contract KursBilgileri is BaseContract{
              kursBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.Onaylandi;
              kursBilgiListesi[_kisiAddress][yeniId].onayBilgi.zaman=block.timestamp;
              kursBilgiListesi[_kisiAddress][yeniId].onayBilgi.adres=msg.sender;
-            emit KursEklendiLog(kursAdres, basTarih, bitTarih, sure);
+            emit KursEklendiLog(_kisiAddress, basTarih, bitTarih, sure);
         }
-          function guncelleKursBilgi(address _kisiAddress, uint _kursBilgiId, address kursAdres, uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public sadeceKurs returns(uint){
+          function guncelleKursBilgi(address _kisiAddress, uint _kursBilgiId, uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public sadeceKurs returns(uint){
                 require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
                 
-             kursBilgiListesi[_kisiAddress][_kursBilgiId].kursAdres=kursAdres;
+
              kursBilgiListesi[_kisiAddress][_kursBilgiId].basTarih=basTarih;
              kursBilgiListesi[_kisiAddress][_kursBilgiId].bitTarih=bitTarih;
              kursBilgiListesi[_kisiAddress][_kursBilgiId].sure=sure;
@@ -48,11 +49,22 @@ contract KursBilgileri is BaseContract{
              kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.zaman=block.timestamp;
              kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.adres=msg.sender;
 
-              emit KursGuncellendiLog(kursAdres, basTarih, bitTarih, sure);
+              emit KursGuncellendiLog(_kisiAddress, basTarih, bitTarih, sure);
                 return    _kursBilgiId;
 
         }
+  function talepEtKursBilgi(address _talepEdilenKurum,  uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public sadeceKisi{
+             require(kisiler[msg.sender].durum,"Kisi mevcut degil");
+             uint yeniId=id++;
+             kursBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
+             kursBilgiListesi[msg.sender][yeniId].basTarih=basTarih;
+             kursBilgiListesi[msg.sender][yeniId].bitTarih=bitTarih;
+             kursBilgiListesi[msg.sender][yeniId].sure=sure;
+             kursBilgiListesi[msg.sender][yeniId].egitimAdi=egitimAdi;
+             kursBilgiListesi[msg.sender][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
 
+            emit KursEklendiLog(_talepEdilenKurum, basTarih, bitTarih, sure);
+        }
 
 
 }

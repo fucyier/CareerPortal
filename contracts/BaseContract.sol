@@ -108,6 +108,12 @@ contract BaseContract{
       _;
     }    
 
+      modifier sadeceKisi{
+      require(kisiler[msg.sender].durum,
+      "Bu islemi sadece Kisi yapabilir."
+      );
+      _;
+    } 
       modifier sadeceUniversite{
       require(universiteler[msg.sender].durum,
       "Sadece Universite bu islemi yapabilir."
@@ -121,7 +127,7 @@ contract BaseContract{
       );
       _;
     } 
-        modifier onlySertifikaMerkezi{
+        modifier sadeceSertifikaMerkezi{
       require(sertifikaMerkezleri[msg.sender].durum,
       "Bu islemi sadece Sertifika Merkezleri yapabilir."
       );
@@ -149,6 +155,5 @@ contract BaseContract{
     mapping(address=>KamuKurumu) public kamuKurumlari;
     mapping(address=>STK) public stklar;
     mapping(address=>SertifikaMerkezi) public sertifikaMerkezleri;
-
      mapping(uint32=>YabanciDil) public diller;
 }
