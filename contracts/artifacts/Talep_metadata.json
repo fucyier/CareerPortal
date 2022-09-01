@@ -282,6 +282,244 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_talepEdilenKurum",
+						"type": "address"
+					},
+					{
+						"internalType": "uint32",
+						"name": "pozisyon",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "sektor",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum BaseContract.CalismaTipi",
+						"name": "calismaTipi",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "isAciklama",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "basTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bitTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint32",
+						"name": "sehir",
+						"type": "uint32"
+					}
+				],
+				"name": "talepEtCalismaBilgi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_talepEdilenKurum",
+						"type": "address"
+					},
+					{
+						"internalType": "enum BaseContract.EgitimDurumu",
+						"name": "egitimDurumu",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "basTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bitTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "diplomaBelge",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "transcriptBelge",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "universite",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "fakulte",
+						"type": "uint16"
+					},
+					{
+						"internalType": "uint16",
+						"name": "bolum",
+						"type": "uint16"
+					},
+					{
+						"internalType": "enum BaseContract.OgretimTipi",
+						"name": "ogretimTipi",
+						"type": "uint8"
+					}
+				],
+				"name": "talepEtEgitimBilgi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_talepEdilenKurum",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "basTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bitTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "sure",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "egitimAdi",
+						"type": "string"
+					}
+				],
+				"name": "talepEtKursBilgi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_talepEdilenKurum",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "nitelikKodu",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "aciklama",
+						"type": "string"
+					},
+					{
+						"internalType": "enum BaseContract.Seviye",
+						"name": "seviye",
+						"type": "uint8"
+					}
+				],
+				"name": "talepEtNitelikBilgi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_talepEdilenKurum",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_alinanTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_gecerlilikSuresi",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "_sertifikaAdi",
+						"type": "string"
+					}
+				],
+				"name": "talepEtSertifikaBilgi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_talepEdilenKurum",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "basTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bitTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum BaseContract.OgretimTipi",
+						"name": "ogretimTipi",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint32",
+						"name": "dilId",
+						"type": "uint32"
+					},
+					{
+						"internalType": "enum BaseContract.Seviye",
+						"name": "seviye",
+						"type": "uint8"
+					}
+				],
+				"name": "talepEtYabanciDilBilgi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -336,27 +574,27 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0x4539d1ef5051b90d2cb192eeb8ef094fac4fc654789723c0cc731ecabd430949",
+			"keccak256": "0x59a60230021dd75e51a9bff15b4420d5c24d6f05aa625a2fc9a1cd3ec95a6beb",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://3067e4e545d7088362aaf75942e9e5a23c999b40c983d95958131c23c4dd3e5e",
-				"dweb:/ipfs/QmchYubsxsF4QoNAcWbuxY2rvZn8ivzY9hhZN9ctYD6Nzu"
+				"bzz-raw://642150ef9b0072756435104c811796f8e58c5382c40afc3e5d75b565c3a638e7",
+				"dweb:/ipfs/QmRjMtTLA5LtD5mM78kBC5uVxfLtDBVd5xRcNiuYy2Vgum"
 			]
 		},
 		"contracts/CalismaBilgileri.sol": {
-			"keccak256": "0xf11afa5ab2cfc02c2a4b07455248aa6942af0a740b25596cd335e2f406235666",
+			"keccak256": "0x9fa6c0d10ec9fc99ec154a60a4bbd7410408ca2e68b32d5b63d1efe6539817da",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://6cab150da508a9d18fdac49a0c1bcfc22ef51d339e70093fb371ebba0279939d",
-				"dweb:/ipfs/QmdFB93SasKVHpQUugz52Z4CzZPocVVPCBiPWnQ61rM5pX"
+				"bzz-raw://d7ca7570befee7c6127f44fa8c64beec3cd3f086c15831a401e8b901ffbc3c2f",
+				"dweb:/ipfs/QmeFD4uHTg1RX12AbnWac2dJX3pkB6rESsUJmPuePpAyqJ"
 			]
 		},
 		"contracts/EgitimBilgileri.sol": {
-			"keccak256": "0x1015d3b94de2209130ac42af50097a27f284835b8f818c10fb7116889edffc23",
+			"keccak256": "0x97412cfaeff093ec015fd1fceb1e9684567ef60a3ac72b7db228e84c9ae52f81",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://e824ba2ffdf9b567c3a551b2fa010243fd228528cd19aac8a2ae26d592de8f6e",
-				"dweb:/ipfs/QmbD2HSCKDsyz1933xQbFL1RhMYfqU7YU8TqbiPpa35qte"
+				"bzz-raw://6dc43e3af96f814f9f5392b913e6130620c508b99f711aabb61355cc68a905e4",
+				"dweb:/ipfs/QmNcvpButSq347ZVtVVvN26h1nEcSPkXpA2kitdDpexxuB"
 			]
 		},
 		"contracts/KursBilgileri.sol": {
@@ -384,11 +622,11 @@
 			]
 		},
 		"contracts/Talep.sol": {
-			"keccak256": "0x8fad32c81931e9ad5e05602992d851d7639534d30ef608ebf0405f5ceb525cba",
+			"keccak256": "0x2529ea265ae2687d70e35ca07feaed71f7e4ff2f0384b7b4145800629f07ec0b",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://d9de2249860d6cccfbc702099472614ff6766f8339e38b91f4e871942b9ac752",
-				"dweb:/ipfs/QmVgmDh8HeY28sSbY3Wfwqz3N31BpKACM42jQcdtczstqk"
+				"bzz-raw://b529c78979f01ba903da032327852c7dbee1c53d12ec90826de7f2f31a5cab9d",
+				"dweb:/ipfs/QmcibuXiBJR6P134wktGQvciN4cbP2oBDkycfHNx8ZeqsJ"
 			]
 		},
 		"contracts/YabanciDilBilgileri.sol": {

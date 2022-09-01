@@ -19,12 +19,7 @@ contract CalismaBilgileri is BaseContract{
          Onay onayBilgi; 
         }
        
-         enum CalismaTipi { 
-             YariZamanli, 
-             TamZamanli, 
-             Stajyer
-             }
-
+      
         mapping(address=>mapping(uint=>CalismaBilgi)) public calismaBilgileri;
       
        

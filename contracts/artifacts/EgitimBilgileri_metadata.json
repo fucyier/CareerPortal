@@ -192,7 +192,7 @@
 						"type": "address"
 					},
 					{
-						"internalType": "enum EgitimBilgileri.EgitimDurumu",
+						"internalType": "enum BaseContract.EgitimDurumu",
 						"name": "egitimDurumu",
 						"type": "uint8"
 					},
@@ -232,7 +232,7 @@
 						"type": "uint16"
 					},
 					{
-						"internalType": "enum EgitimBilgileri.OgretimTipi",
+						"internalType": "enum BaseContract.OgretimTipi",
 						"name": "ogretimTipi",
 						"type": "uint8"
 					},
@@ -448,6 +448,64 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_talepEdilenKurum",
+						"type": "address"
+					},
+					{
+						"internalType": "enum BaseContract.EgitimDurumu",
+						"name": "egitimDurumu",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "basTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bitTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "diplomaBelge",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "transcriptBelge",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "universite",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "fakulte",
+						"type": "uint16"
+					},
+					{
+						"internalType": "uint16",
+						"name": "bolum",
+						"type": "uint16"
+					},
+					{
+						"internalType": "enum BaseContract.OgretimTipi",
+						"name": "ogretimTipi",
+						"type": "uint8"
+					}
+				],
+				"name": "talepEtEgitimBilgi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -502,19 +560,19 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0x4539d1ef5051b90d2cb192eeb8ef094fac4fc654789723c0cc731ecabd430949",
+			"keccak256": "0x59a60230021dd75e51a9bff15b4420d5c24d6f05aa625a2fc9a1cd3ec95a6beb",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://3067e4e545d7088362aaf75942e9e5a23c999b40c983d95958131c23c4dd3e5e",
-				"dweb:/ipfs/QmchYubsxsF4QoNAcWbuxY2rvZn8ivzY9hhZN9ctYD6Nzu"
+				"bzz-raw://642150ef9b0072756435104c811796f8e58c5382c40afc3e5d75b565c3a638e7",
+				"dweb:/ipfs/QmRjMtTLA5LtD5mM78kBC5uVxfLtDBVd5xRcNiuYy2Vgum"
 			]
 		},
 		"contracts/EgitimBilgileri.sol": {
-			"keccak256": "0x1015d3b94de2209130ac42af50097a27f284835b8f818c10fb7116889edffc23",
+			"keccak256": "0x97412cfaeff093ec015fd1fceb1e9684567ef60a3ac72b7db228e84c9ae52f81",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://e824ba2ffdf9b567c3a551b2fa010243fd228528cd19aac8a2ae26d592de8f6e",
-				"dweb:/ipfs/QmbD2HSCKDsyz1933xQbFL1RhMYfqU7YU8TqbiPpa35qte"
+				"bzz-raw://6dc43e3af96f814f9f5392b913e6130620c508b99f711aabb61355cc68a905e4",
+				"dweb:/ipfs/QmNcvpButSq347ZVtVVvN26h1nEcSPkXpA2kitdDpexxuB"
 			]
 		}
 	},

@@ -9,6 +9,23 @@ contract BaseContract{
       bool durum;
     
     }
+   enum EgitimDurumu { 
+             Lisans, 
+             OnLisans, 
+             YuksekLisans,
+             Doktora }
+
+         enum OgretimTipi { 
+             OrgunOgretim, 
+             AcikOgretim, 
+             IkinciOgretim,
+             UzaktanOgretim }
+             
+                enum CalismaTipi { 
+             YariZamanli, 
+             TamZamanli, 
+             Stajyer
+             }
 
     struct Onay{
       uint zaman;

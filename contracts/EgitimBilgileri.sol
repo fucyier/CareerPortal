@@ -24,17 +24,7 @@ contract EgitimBilgileri is BaseContract{
          //uint32 sehir;
         }
        
-         enum EgitimDurumu { 
-             Lisans, 
-             OnLisans, 
-             YuksekLisans,
-             Doktora }
-
-         enum OgretimTipi { 
-             OrgunOgretim, 
-             AcikOgretim, 
-             IkinciOgretim,
-             UzaktanOgretim }
+      
 
         mapping(address=>mapping(uint=>EgitimBilgi)) public egitimBilgileri;
       
@@ -93,7 +83,7 @@ contract EgitimBilgileri is BaseContract{
     }
 
       function talepEtEgitimBilgi(address _talepEdilenKurum, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, 
-         uint16 bolum, OgretimTipi ogretimTipi )  internal sadeceKisi{
+         uint16 bolum, OgretimTipi ogretimTipi )  external   sadeceKisi{
              require(kisiler[msg.sender].durum,"Student not exists");
              uint yeniId=id++;
 
