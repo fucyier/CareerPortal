@@ -1,0 +1,404 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_egitimKontrati",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_calismaKontrati",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_yabanciDilKontrati",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_kursKontrati",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_nitelikKontrati",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_sertifikaKontrati",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "akademisyenler",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "address",
+						"name": "universite",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "bolum",
+						"type": "uint16"
+					},
+					{
+						"internalType": "enum BaseContract.Unvan",
+						"name": "unvan",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "ad",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "soyad",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"name": "diller",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "id",
+						"type": "uint32"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "firmalar",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "vergiNo",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "kamuKurumlari",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "kisiler",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "kurslar",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "sertifikaMerkezleri",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "stklar",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "universiteler",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Talep.sol": "Talep"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/BaseContract.sol": {
+			"keccak256": "0x4539d1ef5051b90d2cb192eeb8ef094fac4fc654789723c0cc731ecabd430949",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://3067e4e545d7088362aaf75942e9e5a23c999b40c983d95958131c23c4dd3e5e",
+				"dweb:/ipfs/QmchYubsxsF4QoNAcWbuxY2rvZn8ivzY9hhZN9ctYD6Nzu"
+			]
+		},
+		"contracts/CalismaBilgileri.sol": {
+			"keccak256": "0xf11afa5ab2cfc02c2a4b07455248aa6942af0a740b25596cd335e2f406235666",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://6cab150da508a9d18fdac49a0c1bcfc22ef51d339e70093fb371ebba0279939d",
+				"dweb:/ipfs/QmdFB93SasKVHpQUugz52Z4CzZPocVVPCBiPWnQ61rM5pX"
+			]
+		},
+		"contracts/EgitimBilgileri.sol": {
+			"keccak256": "0x1015d3b94de2209130ac42af50097a27f284835b8f818c10fb7116889edffc23",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://e824ba2ffdf9b567c3a551b2fa010243fd228528cd19aac8a2ae26d592de8f6e",
+				"dweb:/ipfs/QmbD2HSCKDsyz1933xQbFL1RhMYfqU7YU8TqbiPpa35qte"
+			]
+		},
+		"contracts/KursBilgileri.sol": {
+			"keccak256": "0xd66fda3c39ebe7c711c952f4a5020e346a120573a1e3a9d2c720a7256d1f391a",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://62bc41765917d9330f80f15cfe77aeca4f0ed625083911a3146cc04b3416732e",
+				"dweb:/ipfs/QmNqd4kPxCeMwbhQS1MDKQ3hjBArMvsoFw68uGjDEKaNR5"
+			]
+		},
+		"contracts/NitelikBilgileri.sol": {
+			"keccak256": "0xba645bc9cd89195d93f1412b015f1f929ca902c61c0f36eccef5694c471bffe9",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://ef868d890c0d2715fc9b898d15130d42a594b570fe45a9c690cb744d2b5f9d9a",
+				"dweb:/ipfs/QmaAHPeQijDApJViPYtiPjeVzP79GaMHVAZR1LNWnaLRCo"
+			]
+		},
+		"contracts/SertifikaBilgileri.sol": {
+			"keccak256": "0x178c01910f248df984179085b021cc5260f9f7eb2474ab35a2741f3d127cab37",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://fe9d5fc0f581a6e5e21b391622c6502438a8ec9348b808e81a513128d679cc97",
+				"dweb:/ipfs/QmbF7WhVKyhGdotRNBCVPZoXTCWrsZF8wjV5p9iZLQVkn2"
+			]
+		},
+		"contracts/Talep.sol": {
+			"keccak256": "0x8fad32c81931e9ad5e05602992d851d7639534d30ef608ebf0405f5ceb525cba",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://d9de2249860d6cccfbc702099472614ff6766f8339e38b91f4e871942b9ac752",
+				"dweb:/ipfs/QmVgmDh8HeY28sSbY3Wfwqz3N31BpKACM42jQcdtczstqk"
+			]
+		},
+		"contracts/YabanciDilBilgileri.sol": {
+			"keccak256": "0xd54c7594e5a4fde5d24303e540fa0b5385ff504fd58769922df31da4ae167d0a",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://5bf8b4ed1d962b666c3af4c3ce35932c15cc64e5a94e501375e0998a81486524",
+				"dweb:/ipfs/QmWpcCFTW5VkBxNiZfvvmmpWfPS74RFh6Xx2dtFu84uLCQ"
+			]
+		}
+	},
+	"version": 1
+}

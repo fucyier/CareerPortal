@@ -534,7 +534,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/SertifikaBilgisi.sol": "SertifikaBilgileri"
+			"contracts/SertifikaBilgileri.sol": "SertifikaBilgileri"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -556,7 +556,7 @@
 				"dweb:/ipfs/QmchYubsxsF4QoNAcWbuxY2rvZn8ivzY9hhZN9ctYD6Nzu"
 			]
 		},
-		"contracts/SertifikaBilgisi.sol": {
+		"contracts/SertifikaBilgileri.sol": {
 			"keccak256": "0x178c01910f248df984179085b021cc5260f9f7eb2474ab35a2741f3d127cab37",
 			"license": "GPL-3.0",
 			"urls": [
