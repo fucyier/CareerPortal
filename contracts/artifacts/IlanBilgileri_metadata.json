@@ -1,0 +1,591 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_talepEdenKurum",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint32",
+						"name": "_pozisyon",
+						"type": "uint32"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "_sektor",
+						"type": "uint8"
+					}
+				],
+				"name": "IlanBilgiEklendiLog",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_talepEdenKurum",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint32",
+						"name": "_pozisyon",
+						"type": "uint32"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "_sektor",
+						"type": "uint8"
+					}
+				],
+				"name": "IlanBilgiGuncellendiLog",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "akademisyenler",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "address",
+						"name": "universite",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "bolum",
+						"type": "uint16"
+					},
+					{
+						"internalType": "enum BaseContract.Unvan",
+						"name": "unvan",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "ad",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "soyad",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"name": "diller",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "id",
+						"type": "uint32"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_talepEdenKurum",
+						"type": "address"
+					},
+					{
+						"internalType": "uint32",
+						"name": "_pozisyon",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_sektor",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum BaseContract.CalismaTipi",
+						"name": "_calismaTipi",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "_arananOzellikler",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_isTanimi",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_ilanBasTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_ilanBitTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint32",
+						"name": "_sehir",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_tecrubeYili",
+						"type": "uint8"
+					}
+				],
+				"name": "ekleIlanBilgi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "firmalar",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "vergiNo",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ilanId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_talepEdenKurum",
+						"type": "address"
+					},
+					{
+						"internalType": "uint32",
+						"name": "_pozisyon",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_sektor",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum BaseContract.CalismaTipi",
+						"name": "_calismaTipi",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "_arananOzellikler",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_isTanimi",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_ilanBasTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_ilanBitTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint32",
+						"name": "_sehir",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_tecrubeYili",
+						"type": "uint8"
+					}
+				],
+				"name": "guncelleIlanBilgi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "id",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "ilanBilgileri",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "talepEdenKurum",
+						"type": "address"
+					},
+					{
+						"internalType": "uint32",
+						"name": "pozisyon",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "sektor",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum BaseContract.CalismaTipi",
+						"name": "calismaTipi",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "arananOzellikler",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "isTanimi",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ilanBasTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ilanBitTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "tecrubeYili",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint32",
+						"name": "sehir",
+						"type": "uint32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "kamuKurumlari",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "kisiler",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "kurslar",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "sertifikaMerkezleri",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "stklar",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "universiteler",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/IlanBilgileri.sol": "IlanBilgileri"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/BaseContract.sol": {
+			"keccak256": "0x59a60230021dd75e51a9bff15b4420d5c24d6f05aa625a2fc9a1cd3ec95a6beb",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://642150ef9b0072756435104c811796f8e58c5382c40afc3e5d75b565c3a638e7",
+				"dweb:/ipfs/QmRjMtTLA5LtD5mM78kBC5uVxfLtDBVd5xRcNiuYy2Vgum"
+			]
+		},
+		"contracts/IlanBilgileri.sol": {
+			"keccak256": "0x89b18e48a85af48213dda2419ea44e4ad0e47ea5aa1cb3428d9c4eee33f26f84",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://a9cd358dd0ea5f1865683821007a6feb167f649d9f44eca95c5fd0f11b3bee51",
+				"dweb:/ipfs/QmRaZ5GXqs575dxN2Pr5MehkBKDWQsNvcspa9t6VftZHmg"
+			]
+		}
+	},
+	"version": 1
+}
