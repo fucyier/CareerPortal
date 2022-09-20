@@ -138,11 +138,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_talepEdenKurum",
-						"type": "address"
-					},
-					{
 						"internalType": "uint32",
 						"name": "_pozisyon",
 						"type": "uint32"
@@ -176,6 +171,11 @@
 						"internalType": "uint256",
 						"name": "_ilanBitTarih",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
 					},
 					{
 						"internalType": "uint32",
@@ -235,11 +235,6 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "address",
-						"name": "_talepEdenKurum",
-						"type": "address"
-					},
-					{
 						"internalType": "uint32",
 						"name": "_pozisyon",
 						"type": "uint32"
@@ -273,6 +268,11 @@
 						"internalType": "uint256",
 						"name": "_ilanBitTarih",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
 					},
 					{
 						"internalType": "uint32",
@@ -320,11 +320,6 @@
 				"name": "ilanBilgileri",
 				"outputs": [
 					{
-						"internalType": "uint256",
-						"name": "id",
-						"type": "uint256"
-					},
-					{
 						"internalType": "address",
 						"name": "talepEdenKurum",
 						"type": "address"
@@ -367,6 +362,11 @@
 					{
 						"internalType": "uint8",
 						"name": "tecrubeYili",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
 						"type": "uint8"
 					},
 					{
@@ -579,11 +579,11 @@
 			]
 		},
 		"contracts/IlanBilgileri.sol": {
-			"keccak256": "0x89b18e48a85af48213dda2419ea44e4ad0e47ea5aa1cb3428d9c4eee33f26f84",
+			"keccak256": "0xc4a67f2129335478e44ddb16dc65851679d95caeaf21c8feb397504748e911b0",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://a9cd358dd0ea5f1865683821007a6feb167f649d9f44eca95c5fd0f11b3bee51",
-				"dweb:/ipfs/QmRaZ5GXqs575dxN2Pr5MehkBKDWQsNvcspa9t6VftZHmg"
+				"bzz-raw://b4fcd5cb943a8fb7ae24af29f6bf987b7bc4a09aabcb184a5b5d9de8b6fa1bc3",
+				"dweb:/ipfs/QmTujbGDtDJcxuw7KxqZ3MYcnRH3Dvx1Y7WByB2ewX3tR2"
 			]
 		}
 	},
