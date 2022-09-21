@@ -7,7 +7,7 @@ import "./BaseContract.sol";
 contract IlanBilgileri is BaseContract{
 
         uint public id;
-
+        uint public basvuruId;
         struct IlanBilgi {
          address talepEdenKurum;
          uint32 pozisyon;
@@ -23,10 +23,11 @@ contract IlanBilgileri is BaseContract{
         }
        
         mapping(uint=>IlanBilgi) public ilanBilgileri;
+        mapping(uint=>mapping(address=>Kisi)) public ilanBasvuruListesi;
 
         event IlanBilgiEklendiLog(uint _id, address _talepEdenKurum, uint32 _pozisyon, uint8 _sektor);
         event IlanBilgiGuncellendiLog(uint _id, address _talepEdenKurum, uint32 _pozisyon, uint8 _sektor);
-        
+        event IlanBasvuruLog(uint _ilanId,address _basvuranKisi );
 
   function ekleIlanBilgi( uint32 _pozisyon, uint8 _sektor, CalismaTipi _calismaTipi, string memory _arananOzellikler, string memory _isTanimi, uint _ilanBasTarih, uint _ilanBitTarih, 
                         uint8 _ulke, uint32 _sehir, uint8 _tecrubeYili)  public sadece_Uni_Firma_Kamu{
@@ -69,7 +70,16 @@ contract IlanBilgileri is BaseContract{
 
     }
 
+ function basvurIlan(uint _ilanId)  public sadeceKisi returns(uint){
+            require(ilanBasvuruListesi[_ilanId][msg.sender].durum,"Ayni ilana daha once basvurulmus");
+             //  uint _basvuruId=basvuruId++;
+             ilanBasvuruListesi[_ilanId][msg.sender].durum=true;
+            
+           
+             emit IlanBasvuruLog( _ilanId,msg.sender );
+             return _ilanId;
 
+    }
 
     
 }

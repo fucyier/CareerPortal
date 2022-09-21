@@ -11,6 +11,25 @@
 					{
 						"indexed": false,
 						"internalType": "uint256",
+						"name": "_ilanId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_basvuranKisi",
+						"type": "address"
+					}
+				],
+				"name": "IlanBasvuruLog",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
 						"name": "_id",
 						"type": "uint256"
 					},
@@ -106,6 +125,38 @@
 						"internalType": "string",
 						"name": "soyad",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ilanId",
+						"type": "uint256"
+					}
+				],
+				"name": "basvurIlan",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "basvuruId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -304,6 +355,30 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "ilanBasvuruListesi",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "durum",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -579,11 +654,11 @@
 			]
 		},
 		"contracts/IlanBilgileri.sol": {
-			"keccak256": "0xc4a67f2129335478e44ddb16dc65851679d95caeaf21c8feb397504748e911b0",
+			"keccak256": "0x2adeb3c75ced923df17660df992b1c7598e77a716322b5c753a9caa058d57854",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://b4fcd5cb943a8fb7ae24af29f6bf987b7bc4a09aabcb184a5b5d9de8b6fa1bc3",
-				"dweb:/ipfs/QmTujbGDtDJcxuw7KxqZ3MYcnRH3Dvx1Y7WByB2ewX3tR2"
+				"bzz-raw://420689d5cc7d6921d1b8593f6123e8827e1f8f6e823be3faf0b10a2cfbc28d49",
+				"dweb:/ipfs/QmR7eobiWQ1Ns1oLko7B6N4PEyixNu89i6CUC7hVWyprW1"
 			]
 		}
 	},
