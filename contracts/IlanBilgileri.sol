@@ -52,8 +52,7 @@ contract IlanBilgileri is BaseContract{
        function guncelleIlanBilgi(uint _ilanId, uint32 _pozisyon, uint8 _sektor, CalismaTipi _calismaTipi, string memory _arananOzellikler, string memory _isTanimi, uint _ilanBasTarih, uint _ilanBitTarih, 
                         uint8 _ulke,uint32 _sehir, uint8 _tecrubeYili)  public sadece_Uni_Firma_Kamu returns(uint){
             require(kamuKurumlari[msg.sender].durum||firmalar[msg.sender].durum,"Ilan acan kurum kayitli degil");
-             
-             ilanBilgileri[_ilanId].talepEdenKurum=msg.sender;
+             require(ilanBilgileri[_ilanId].talepEdenKurum==msg.sender,"Ilan acan guncelleme islemi yapabilir");
              ilanBilgileri[_ilanId].pozisyon=_pozisyon;
              ilanBilgileri[_ilanId].sektor=_sektor;
              ilanBilgileri[_ilanId].calismaTipi=_calismaTipi;
