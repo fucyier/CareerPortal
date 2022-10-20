@@ -1,9 +1,15 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8.0 <0.9.0;
 contract BaseContract{
-     address YOK;
+     address public YOK;
   address TOBB;
   address CB;
+
+function getYOK() public view returns   (address)
+{
+return YOK;
+}
+
   struct  Kisi
     {
       bool durum;
@@ -153,7 +159,7 @@ contract BaseContract{
 
       modifier sadece_Uni_Firma_Kamu{
       require(universiteler[msg.sender].durum||firmalar[msg.sender].durum||kamuKurumlari[msg.sender].durum,
-      "Bu islemi sadece Kurs yapabilir."
+      "Bu islemi Universiteler Kamu veya Ozel Kurumlar yapabilir."
       );
       _;
     } 
@@ -164,6 +170,38 @@ contract BaseContract{
       _;
     }
 
+      function isYOK(address _address) public view returns(bool){
+        return YOK==_address;
+    }
+      function isTOBB(address _address) public view returns(bool){
+        return TOBB==_address;
+    }
+          function isCB(address _address) public view returns(bool){
+        return CB==_address;
+    }
+
+      function isUniversite(address _address) public view returns(bool){
+        return universiteler[_address].durum;
+    }
+      function isKisi(address _address) public view returns(bool){
+        return kisiler[_address].durum;
+    }
+          function isKamuKurumu(address _address) public view returns(bool){
+        return kamuKurumlari[_address].durum;
+    }
+      function isFirma(address _address) public view returns(bool){
+        return firmalar[_address].durum;
+    }
+          function isKurs(address _address) public view returns(bool){
+        return kurslar[_address].durum;
+    }
+      function isSTK(address _address) public view returns(bool){
+        return stklar[_address].durum;
+    }
+          function isSertifikaMerkezi(address _address) public view returns(bool){
+        return sertifikaMerkezleri[_address].durum;
+    }
+
     mapping(address=>Kisi) public kisiler;
     mapping(address=>Universite) public universiteler;
     mapping(address=>Akademisyen) public akademisyenler;
@@ -172,5 +210,23 @@ contract BaseContract{
     mapping(address=>KamuKurumu) public kamuKurumlari;
     mapping(address=>STK) public stklar;
     mapping(address=>SertifikaMerkezi) public sertifikaMerkezleri;
-     mapping(uint32=>YabanciDil) public diller;
+    mapping(uint32=>YabanciDil) public diller;
+
+
+     function ekleUniversite(address _universiteAdres,string memory _isim, uint8 _ulke)  public  {
+        require(!isUniversite(_universiteAdres),
+            "Universite Zaten Mevcut"
+            );
+          
+         universiteler[_universiteAdres].durum=true;
+        universiteler[_universiteAdres].isim=_isim;
+        universiteler[_universiteAdres].ulke=_ulke;
+
+       
+    }
+    function paydasTanimla(address _yok, address _tobb, address _cb)  public  {
+      YOK=_yok;
+      TOBB=_tobb;
+      CB=_cb;
+    }
 }

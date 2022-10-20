@@ -3,6 +3,7 @@ pragma solidity >=0.8.0 <0.9.0;
 //pragma experimental ABIEncoderV2;
 import "./BaseContract.sol";
 contract EgitimBilgileri is BaseContract{
+     BaseContract baseContract;
     uint public id;
 
     struct EgitimBilgi {
@@ -33,9 +34,16 @@ contract EgitimBilgileri is BaseContract{
           event EgitimBilgiGuncellendiLog(uint id,address _universite,uint basTarih, uint bitTarih);
             event EgitimBilgiTalepEdildiLog(uint id,address _universite,uint basTarih, uint bitTarih);
 
+
+  constructor(address baseAddress)  {
+        baseContract=BaseContract(baseAddress);
+      
+    }
+
+
          function ekleEgitimBilgi(address _kisiAddress, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, 
-         uint16 bolum, OgretimTipi ogretimTipi)  internal sadeceUniversite{
-             require(kisiler[_kisiAddress].durum,"Student not exists");
+         uint16 bolum, OgretimTipi ogretimTipi)  external  sadeceUniversite{
+             require(baseContract.isKisi(_kisiAddress),"Kisi bulunamadi");
              uint yeniId=id++;
              egitimBilgileri[_kisiAddress][yeniId].egitimDurumu=egitimDurumu;
              egitimBilgileri[_kisiAddress][yeniId].basTarih=basTarih;
@@ -57,8 +65,8 @@ contract EgitimBilgileri is BaseContract{
              emit EgitimBilgiEklendiLog( yeniId, universite,basTarih, bitTarih);
     }
        function guncelleEgitimBilgi(address _kisiAddress, uint _egitimBilgiId, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, 
-       address universite, uint16 fakulte, uint16 bolum, OgretimTipi ogretimTipi)  internal sadeceUniversite returns(uint){
-             require(kisiler[_kisiAddress].durum,"Student not exists");
+       address universite, uint16 fakulte, uint16 bolum, OgretimTipi ogretimTipi)  external  sadeceUniversite returns(uint){
+             require(baseContract.isKisi(_kisiAddress),"Student not exists");
              
              egitimBilgileri[_kisiAddress][_egitimBilgiId].egitimDurumu=egitimDurumu;
              egitimBilgileri[_kisiAddress][_egitimBilgiId].basTarih=basTarih;
@@ -84,7 +92,7 @@ contract EgitimBilgileri is BaseContract{
 
       function talepEtEgitimBilgi(address _talepEdilenKurum, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, 
          uint16 bolum, OgretimTipi ogretimTipi )  external   sadeceKisi{
-             require(kisiler[msg.sender].durum,"Student not exists");
+             require(baseContract.isKisi(msg.sender),"Student not exists");
              uint yeniId=id++;
 
                egitimBilgileri[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
@@ -102,6 +110,10 @@ contract EgitimBilgileri is BaseContract{
 
            
              emit EgitimBilgiEklendiLog( yeniId, universite,basTarih, bitTarih);
+    }
+
+    function getEgitimBilgileri(address _kisiAdres,uint yeniId) public view  returns (EgitimBilgi memory){
+       return egitimBilgileri[_kisiAdres][yeniId];
     }
      
 }

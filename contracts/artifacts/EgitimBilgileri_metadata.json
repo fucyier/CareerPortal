@@ -266,6 +266,64 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "enum BaseContract.EgitimDurumu",
+						"name": "egitimDurumu",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "basTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bitTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "diplomaBelge",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "transcriptBelge",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "universite",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "fakulte",
+						"type": "uint16"
+					},
+					{
+						"internalType": "uint16",
+						"name": "bolum",
+						"type": "uint16"
+					},
+					{
+						"internalType": "enum BaseContract.OgretimTipi",
+						"name": "ogretimTipi",
+						"type": "uint8"
+					}
+				],
+				"name": "ekleEgitimBilgi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -294,6 +352,178 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "yeniId",
+						"type": "uint256"
+					}
+				],
+				"name": "getEgitimBilgileri",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "talepEdilenKurum",
+								"type": "address"
+							},
+							{
+								"internalType": "enum BaseContract.EgitimDurumu",
+								"name": "egitimDurumu",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "basTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "bitTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "diplomaBelge",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "transcriptBelge",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "universite",
+								"type": "address"
+							},
+							{
+								"internalType": "uint16",
+								"name": "fakulte",
+								"type": "uint16"
+							},
+							{
+								"internalType": "uint16",
+								"name": "bolum",
+								"type": "uint16"
+							},
+							{
+								"internalType": "enum BaseContract.OgretimTipi",
+								"name": "ogretimTipi",
+								"type": "uint8"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "zaman",
+										"type": "uint256"
+									},
+									{
+										"internalType": "address",
+										"name": "adres",
+										"type": "address"
+									},
+									{
+										"internalType": "enum BaseContract.OnayDurum",
+										"name": "durum",
+										"type": "uint8"
+									}
+								],
+								"internalType": "struct BaseContract.Onay",
+								"name": "onayBilgi",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct EgitimBilgileri.EgitimBilgi",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_egitimBilgiId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum BaseContract.EgitimDurumu",
+						"name": "egitimDurumu",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "basTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bitTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "diplomaBelge",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "transcriptBelge",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "universite",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "fakulte",
+						"type": "uint16"
+					},
+					{
+						"internalType": "uint16",
+						"name": "bolum",
+						"type": "uint16"
+					},
+					{
+						"internalType": "enum BaseContract.OgretimTipi",
+						"name": "ogretimTipi",
+						"type": "uint8"
+					}
+				],
+				"name": "guncelleEgitimBilgi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -560,19 +790,19 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0x59a60230021dd75e51a9bff15b4420d5c24d6f05aa625a2fc9a1cd3ec95a6beb",
+			"keccak256": "0x334db4cbfb51721d6c084a42333abf47582a480299a58276343c162f7b39d64c",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://642150ef9b0072756435104c811796f8e58c5382c40afc3e5d75b565c3a638e7",
-				"dweb:/ipfs/QmRjMtTLA5LtD5mM78kBC5uVxfLtDBVd5xRcNiuYy2Vgum"
+				"bzz-raw://7b5f7f8673b7117c96465b935421584291d353705b67a65193b5871d8bc35e85",
+				"dweb:/ipfs/QmeETeurE78AxdUGgondzpWtgiGhk8h7KGTYw7nZT32GC3"
 			]
 		},
 		"contracts/EgitimBilgileri.sol": {
-			"keccak256": "0x97412cfaeff093ec015fd1fceb1e9684567ef60a3ac72b7db228e84c9ae52f81",
+			"keccak256": "0x9f85ec5dc70ce64eb8a37e865b6a69a14a62ae30c0bf91310fa24230e9b1c936",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://6dc43e3af96f814f9f5392b913e6130620c508b99f711aabb61355cc68a905e4",
-				"dweb:/ipfs/QmNcvpButSq347ZVtVVvN26h1nEcSPkXpA2kitdDpexxuB"
+				"bzz-raw://661884731263d44178e130e64d9d65191d6ce0af6aa7c329386d52191643a6f0",
+				"dweb:/ipfs/QmXNhVJEpQV1aFCxQ8mPqytR7J2XHXphvPeWzJWCSEcziS"
 			]
 		}
 	},

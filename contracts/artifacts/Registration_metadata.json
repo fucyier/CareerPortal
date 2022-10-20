@@ -9,6 +9,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_baseContract",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
 						"name": "_yok",
 						"type": "address"
 					},
@@ -25,49 +30,6 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "_akademisyenAdres",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "_universiteAdres",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "_ad",
-						"type": "string"
-					},
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "_soyad",
-						"type": "string"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint16",
-						"name": "_bolum",
-						"type": "uint16"
-					},
-					{
-						"indexed": false,
-						"internalType": "enum BaseContract.Unvan",
-						"name": "_unvan",
-						"type": "uint8"
-					}
-				],
-				"name": "AkademisyenEkleLog",
-				"type": "event"
 			},
 			{
 				"anonymous": false,
@@ -131,6 +93,19 @@
 					{
 						"indexed": false,
 						"internalType": "address",
+						"name": "_kisiAdres",
+						"type": "address"
+					}
+				],
+				"name": "KisiLog",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
 						"name": "_kursAdres",
 						"type": "address"
 					},
@@ -148,19 +123,6 @@
 					}
 				],
 				"name": "KursEkleLog",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "_personAddress",
-						"type": "address"
-					}
-				],
-				"name": "PersonRegisteredLog",
 				"type": "event"
 			},
 			{
@@ -239,205 +201,16 @@
 				"type": "event"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "getYOK",
+				"outputs": [
 					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
 				],
-				"name": "akademisyenler",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "address",
-						"name": "universite",
-						"type": "address"
-					},
-					{
-						"internalType": "uint16",
-						"name": "bolum",
-						"type": "uint16"
-					},
-					{
-						"internalType": "enum BaseContract.Unvan",
-						"name": "unvan",
-						"type": "uint8"
-					},
-					{
-						"internalType": "string",
-						"name": "ad",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "soyad",
-						"type": "string"
-					}
-				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_akademisyenAdres",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "_universiteAdres",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "_ad",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_soyad",
-						"type": "string"
-					},
-					{
-						"internalType": "uint16",
-						"name": "_bolum",
-						"type": "uint16"
-					},
-					{
-						"internalType": "enum BaseContract.Unvan",
-						"name": "_unvan",
-						"type": "uint8"
-					}
-				],
-				"name": "ekleAkademisyen",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_firmaAdres",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "_isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_vergiNo",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint8",
-						"name": "_ulke",
-						"type": "uint8"
-					}
-				],
-				"name": "ekleFirma",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_kamuKurumuAdres",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "_isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "_ulke",
-						"type": "uint8"
-					}
-				],
-				"name": "ekleKamuKurumu",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_kursAdres",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "_isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "_ulke",
-						"type": "uint8"
-					}
-				],
-				"name": "ekleKurs",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_stkAdres",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "_isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "_ulke",
-						"type": "uint8"
-					}
-				],
-				"name": "ekleSTK",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_smAdres",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "_isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "_ulke",
-						"type": "uint8"
-					}
-				],
-				"name": "ekleSertifikaMerkezi",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -458,207 +231,9 @@
 						"type": "uint8"
 					}
 				],
-				"name": "ekleUniversite",
+				"name": "kaydetUniversite",
 				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "firmalar",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint256",
-						"name": "vergiNo",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "isim",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "kamuKurumlari",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "string",
-						"name": "isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "kisiler",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "kurslar",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "string",
-						"name": "isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "sertifikaMerkezleri",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "string",
-						"name": "isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "stklar",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "string",
-						"name": "isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "universiteler",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "string",
-						"name": "isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -690,19 +265,19 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0xb892d66c94bb713a81d2babbb39994b960254773648e1db2bba64919b98a1a49",
+			"keccak256": "0x0c99da24d46c15bef0f89c4968cff1a59b99dbdd086056b71db0e746f21d8ed6",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://76e6e7727e123b6a3c417f4cf57d22a7ced0a86e7b4780f17707b170caa773a6",
-				"dweb:/ipfs/QmYtHen1MMYqNFmQAaXBXed4GPxwpT1cVtAkD1YHAebH1L"
+				"bzz-raw://16c797dd743bd3f8dd3e928172fd9301edb06f8739fee02301f9ffc0c7793133",
+				"dweb:/ipfs/QmZyPXfe1YrCH2SEnn9FiDJzYRGj6JNidz7KvEWzCvS9dm"
 			]
 		},
 		"contracts/Registration.sol": {
-			"keccak256": "0xa72c01d79fbcb271ad8d0e619235e5c5bdf5b0880d306c27d0760465247dbf99",
+			"keccak256": "0x0071b93d7d7a7185c8a56e9b8058c6961a206ac910cd04e91a3b4105e1334c69",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://8ffc1e595d5919ca7d7e70b931596faaf38810bcf3a49160510280820f46a33e",
-				"dweb:/ipfs/Qmam8taEsgw8DSxtsupwdk9Pbs4qKUF6C43D1rNJ7PrJ2K"
+				"bzz-raw://da6c5795d4c60a64643645b197d93b9eb255b74127b90d87fde0ae3e306dd68e",
+				"dweb:/ipfs/QmdqVMzdDtf4z6TbHwS43xfcmgunY9BZkMtcxeQJfsZDD9"
 			]
 		}
 	},

@@ -6,6 +6,19 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"name": "YOK",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -77,6 +90,29 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_universiteAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
+					}
+				],
+				"name": "ekleUniversite",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -102,6 +138,209 @@
 						"internalType": "string",
 						"name": "isim",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getYOK",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isCB",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isFirma",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isKamuKurumu",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isKisi",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isKurs",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isSTK",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isSertifikaMerkezi",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isTOBB",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isUniversite",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isYOK",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -182,6 +421,29 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_yok",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_tobb",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_cb",
+						"type": "address"
+					}
+				],
+				"name": "paydasTanimla",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -300,11 +562,11 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0x6bb4469b91721acafd5bca162e60cae04d18332e2f4e981246570e2bc3abae19",
+			"keccak256": "0x0c99da24d46c15bef0f89c4968cff1a59b99dbdd086056b71db0e746f21d8ed6",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://01f55d4d309123140086cdbda78089b36660848003a29cc022ae2b992aa0f530",
-				"dweb:/ipfs/QmbEj2srEZnZQxQeK7eqK4ibQqVGMsPhkbqGmVeYAg4Ps9"
+				"bzz-raw://16c797dd743bd3f8dd3e928172fd9301edb06f8739fee02301f9ffc0c7793133",
+				"dweb:/ipfs/QmZyPXfe1YrCH2SEnn9FiDJzYRGj6JNidz7KvEWzCvS9dm"
 			]
 		}
 	},
