@@ -23,22 +23,68 @@ BaseContract baseContract;
       );
       _;
     }
- function kaydetUniversite(address _universiteAdres,string memory _isim, uint8 _ulke)  public sadeceYOK{
+        modifier sadeceTOBB{
+      require(baseContract.isTOBB(msg.sender),
+     "Sadece TOBB bu islemi yapabilir."
+      );
+      _;
+    }
+
+      modifier sadeceCB{
+      require(baseContract.isCB(msg.sender),
+      "Sadece CB bu islemi yapabilir."
+      );
+      _;
+    }    
+
+      modifier sadeceKisi{
+      require(baseContract.isKisi(msg.sender),
+      "Bu islemi sadece Kisi yapabilir."
+      );
+      _;
+    } 
+      modifier sadeceUniversite{
+      require(baseContract.isUniversite(msg.sender),
+      "Sadece Universite bu islemi yapabilir."
+      );
+      _;
+    } 
+
+      modifier sadeceKurs{
+      require(baseContract.isKurs(msg.sender),
+      "Bu islemi sadece Kurs yapabilir."
+      );
+      _;
+    } 
+        modifier sadeceSertifikaMerkezi{
+      require(baseContract.isSertifikaMerkezi(msg.sender),
+      "Bu islemi sadece Sertifika Merkezleri yapabilir."
+      );
+      _;
+    } 
+
+      modifier sadece_Uni_Firma_Kamu{
+      require(baseContract.isUniversite(msg.sender)||baseContract.isFirma(msg.sender)||baseContract.isKamuKurumu(msg.sender),
+      "Bu islemi Universiteler Kamu veya Ozel Kurumlar yapabilir."
+      );
+      _;
+    } 
+      modifier onlyKontratSahibi {
+      require(msg.sender == address(this),
+      "Bu islemi sadece kontrat sahibi yapabilir"
+      );
+      _;
+    }
+ function ekleUniversite(address _universiteAdres,string memory _isim, uint8 _ulke)  public sadeceYOK{
      baseContract.ekleUniversite(_universiteAdres, _isim, _ulke);
      emit UniversiteKayitLog( _universiteAdres, _isim, _ulke);
     }
 
-     function getYOK()  public   view returns(address) {
-     return baseContract.getYOK();
-    }
-/*
-     function ekleKisi(address _kisiAdres)  public{
-        require(!!baseContract.isKisi(_kisiAdres),
-            "Kisi Zaten Mevcut"
-            );
-      
-        kisiler[_kisiAdres].durum=true;
 
+
+     function ekleKisi(address _kisiAdres)  public{
+      
+        baseContract.ekleKisi(_kisiAdres);
         emit KisiLog(_kisiAdres);
     }
 
@@ -48,68 +94,42 @@ BaseContract baseContract;
         require(!baseContract.isFirma(_firmaAdres),
             "Firma Zaten Mevcut"
             );
-            
-        firmalar[_firmaAdres].durum=true;
-        firmalar[_firmaAdres].isim=_isim;
-        firmalar[_firmaAdres].ulke=_ulke;
-        firmalar[_firmaAdres].vergiNo=_vergiNo;
+         baseContract.ekleFirma(_firmaAdres, _isim, _vergiNo, _ulke);
 
         emit FirmaEkleLog( _firmaAdres,  _isim,  _vergiNo,  _ulke);
        
     }
      function ekleKamuKurumu(address _kamuKurumuAdres,string memory _isim, uint8 _ulke) 
      public sadeceCB{
-        require(!baseContract.isKamuKurumu(_kamuKurumuAdres),
-            "Kamu Kurmu Zaten Mevcut"
-            );
-            
-        kamuKurumlari[_kamuKurumuAdres].durum=true;
-        kamuKurumlari[_kamuKurumuAdres].isim=_isim;
-        kamuKurumlari[_kamuKurumuAdres].ulke=_ulke;
+       baseContract.ekleKamuKurumu(_kamuKurumuAdres, _isim, _ulke);
 
         emit KamuKurumuEkleLog( _kamuKurumuAdres,  _isim, _ulke);
        
     }
      function ekleKurs(address _kursAdres,string memory _isim, uint8 _ulke) 
      public sadece_Uni_Firma_Kamu{
-        require(!baseContract.isKurs(_kursAdres),
-            "Kurs Merkezi Zaten Mevcut"
-            );
-            
-        kurslar[_kursAdres].durum=true;
-        kurslar[_kursAdres].isim=_isim;
-        kurslar[_kursAdres].ulke=_ulke;
+      
+       baseContract.ekleKurs(_kursAdres, _isim, _ulke);
         
         emit KursEkleLog( _kursAdres,  _isim, _ulke);
        
     }
      function ekleSTK(address _stkAdres,string memory _isim, uint8 _ulke) 
      public sadeceCB{
-        require(!baseContract.isSTK(_stkAdres),
-            "Sivil Toplum Kurulusu Zaten Mevcut"
-            );
+      
             
-        stklar[_stkAdres].durum=true;
-        stklar[_stkAdres].isim=_isim;
-        stklar[_stkAdres].ulke=_ulke;
+       baseContract.ekleSTK(_stkAdres, _isim, _ulke);
         
         emit STKEkleLog( _stkAdres,  _isim, _ulke);
        
     }
      function ekleSertifikaMerkezi(address _smAdres,string memory _isim, uint8 _ulke) 
      public sadeceTOBB{
-        require(baseContract.isSertifikaMerkezi(_smAdres),
-            "Sertifika Merkezi Zaten Mevcut"
-            );
-            
-        //sertifikaMerkezleri[_smAdres]=SertifikaMerkezi(true,_isim,_ulke);
-        sertifikaMerkezleri[_smAdres].durum=true;
-        sertifikaMerkezleri[_smAdres].isim=_isim;
-        sertifikaMerkezleri[_smAdres].ulke=_ulke;
+       baseContract.ekleSertifikaMerkezi(_smAdres, _isim, _ulke);
         
         emit SertifikaMerkeziEkleLog( _smAdres,  _isim, _ulke);
        
     }
-    */
+    
 }
 

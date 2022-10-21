@@ -201,16 +201,136 @@
 				"type": "event"
 			},
 			{
-				"inputs": [],
-				"name": "getYOK",
-				"outputs": [
+				"inputs": [
 					{
 						"internalType": "address",
-						"name": "",
+						"name": "_firmaAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_vergiNo",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
+					}
+				],
+				"name": "ekleFirma",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kamuKurumuAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
+					}
+				],
+				"name": "ekleKamuKurumu",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAdres",
 						"type": "address"
 					}
 				],
-				"stateMutability": "view",
+				"name": "ekleKisi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kursAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
+					}
+				],
+				"name": "ekleKurs",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_stkAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
+					}
+				],
+				"name": "ekleSTK",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_smAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
+					}
+				],
+				"name": "ekleSertifikaMerkezi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -231,7 +351,7 @@
 						"type": "uint8"
 					}
 				],
-				"name": "kaydetUniversite",
+				"name": "ekleUniversite",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -265,19 +385,19 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0x0c99da24d46c15bef0f89c4968cff1a59b99dbdd086056b71db0e746f21d8ed6",
+			"keccak256": "0x32e7eae0e33cd79a14a405c66397f5e66cb78e41f6f9ff8aacc878b110f20bbe",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://16c797dd743bd3f8dd3e928172fd9301edb06f8739fee02301f9ffc0c7793133",
-				"dweb:/ipfs/QmZyPXfe1YrCH2SEnn9FiDJzYRGj6JNidz7KvEWzCvS9dm"
+				"bzz-raw://9171106970b07fb07f67096d8d7778082115537cec356d10bf811c017a67febc",
+				"dweb:/ipfs/Qma5DS9QE3NSkCZXNqe2VVLMYb6YzXwyQ7GksRgvFCGjmV"
 			]
 		},
 		"contracts/Registration.sol": {
-			"keccak256": "0x0071b93d7d7a7185c8a56e9b8058c6961a206ac910cd04e91a3b4105e1334c69",
+			"keccak256": "0x5c701807df00f6692e8c0f4a0f927a01c800f5feba66065745f241192db59aff",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://da6c5795d4c60a64643645b197d93b9eb255b74127b90d87fde0ae3e306dd68e",
-				"dweb:/ipfs/QmdqVMzdDtf4z6TbHwS43xfcmgunY9BZkMtcxeQJfsZDD9"
+				"bzz-raw://ec3c54cf35f53bfee340acd9c913a1db81387cc3bc6aa64d638c134f089cd0b1",
+				"dweb:/ipfs/QmTziJbHsRwKzZkGX6ffzUE1S6Bw7tSBa3S7TV5nrecgMi"
 			]
 		}
 	},

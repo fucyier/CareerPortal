@@ -224,6 +224,81 @@ return YOK;
 
        
     }
+     function ekleKisi(address _kisiAdres)  public{
+        require(!isKisi(_kisiAdres),
+            "Kisi Zaten Mevcut"
+            );
+      
+        kisiler[_kisiAdres].durum=true;
+
+      
+    }
+
+
+  function ekleFirma(address _firmaAdres,string memory _isim, uint _vergiNo,uint8 _ulke) 
+  public {
+        require(!isFirma(_firmaAdres),
+            "Firma Zaten Mevcut"
+            );
+            
+        firmalar[_firmaAdres].durum=true;
+        firmalar[_firmaAdres].isim=_isim;
+        firmalar[_firmaAdres].ulke=_ulke;
+        firmalar[_firmaAdres].vergiNo=_vergiNo;
+
+       
+    }
+     function ekleKamuKurumu(address _kamuKurumuAdres,string memory _isim, uint8 _ulke) 
+     public {
+        require(!isKamuKurumu(_kamuKurumuAdres),
+            "Kamu Kurmu Zaten Mevcut"
+            );
+            
+        kamuKurumlari[_kamuKurumuAdres].durum=true;
+        kamuKurumlari[_kamuKurumuAdres].isim=_isim;
+        kamuKurumlari[_kamuKurumuAdres].ulke=_ulke;
+
+       
+       
+    }
+     function ekleKurs(address _kursAdres,string memory _isim, uint8 _ulke) 
+     public {
+        require(!isKurs(_kursAdres),
+            "Kurs Merkezi Zaten Mevcut"
+            );
+            
+        kurslar[_kursAdres].durum=true;
+        kurslar[_kursAdres].isim=_isim;
+        kurslar[_kursAdres].ulke=_ulke;
+        
+       
+    }
+     function ekleSTK(address _stkAdres,string memory _isim, uint8 _ulke) 
+     public {
+        require(!isSTK(_stkAdres),
+            "Sivil Toplum Kurulusu Zaten Mevcut"
+            );
+            
+        stklar[_stkAdres].durum=true;
+        stklar[_stkAdres].isim=_isim;
+        stklar[_stkAdres].ulke=_ulke;
+        
+       
+    }
+     function ekleSertifikaMerkezi(address _smAdres,string memory _isim, uint8 _ulke) 
+     public {
+        require(!isSertifikaMerkezi(_smAdres),
+            "Sertifika Merkezi Zaten Mevcut"
+            );
+            
+        //sertifikaMerkezleri[_smAdres]=SertifikaMerkezi(true,_isim,_ulke);
+        sertifikaMerkezleri[_smAdres].durum=true;
+        sertifikaMerkezleri[_smAdres].isim=_isim;
+        sertifikaMerkezleri[_smAdres].ulke=_ulke;
+        
+     
+       
+    }
     function paydasTanimla(address _yok, address _tobb, address _cb)  public  {
       YOK=_yok;
       TOBB=_tobb;

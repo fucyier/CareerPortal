@@ -39,10 +39,20 @@ contract EgitimBilgileri is BaseContract{
         baseContract=BaseContract(baseAddress);
       
     }
-
-
+ modifier _sadeceUniversite{
+      require(baseContract.isUniversite(msg.sender),
+      "Sadece Universite bu islemi yapabilir."
+      );
+      _;
+    } 
+      modifier _sadeceKisi{
+      require(baseContract.isKisi(msg.sender),
+      "Bu islemi sadece Kisi yapabilir."
+      );
+      _;
+    } 
          function ekleEgitimBilgi(address _kisiAddress, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, 
-         uint16 bolum, OgretimTipi ogretimTipi)  external  sadeceUniversite{
+         uint16 bolum, OgretimTipi ogretimTipi)  external  _sadeceUniversite{
              require(baseContract.isKisi(_kisiAddress),"Kisi bulunamadi");
              uint yeniId=id++;
              egitimBilgileri[_kisiAddress][yeniId].egitimDurumu=egitimDurumu;
@@ -65,7 +75,7 @@ contract EgitimBilgileri is BaseContract{
              emit EgitimBilgiEklendiLog( yeniId, universite,basTarih, bitTarih);
     }
        function guncelleEgitimBilgi(address _kisiAddress, uint _egitimBilgiId, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, 
-       address universite, uint16 fakulte, uint16 bolum, OgretimTipi ogretimTipi)  external  sadeceUniversite returns(uint){
+       address universite, uint16 fakulte, uint16 bolum, OgretimTipi ogretimTipi)  external  _sadeceUniversite returns(uint){
              require(baseContract.isKisi(_kisiAddress),"Student not exists");
              
              egitimBilgileri[_kisiAddress][_egitimBilgiId].egitimDurumu=egitimDurumu;
@@ -91,7 +101,7 @@ contract EgitimBilgileri is BaseContract{
     }
 
       function talepEtEgitimBilgi(address _talepEdilenKurum, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, 
-         uint16 bolum, OgretimTipi ogretimTipi )  external   sadeceKisi{
+         uint16 bolum, OgretimTipi ogretimTipi )  external   _sadeceKisi{
              require(baseContract.isKisi(msg.sender),"Student not exists");
              uint yeniId=id++;
 
