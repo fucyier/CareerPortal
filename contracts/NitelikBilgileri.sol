@@ -6,6 +6,7 @@ import "./BaseContract.sol";
 
 contract NitelikBilgileri is BaseContract{
   uint public id;
+BaseContract baseContract;
 
     struct NitelikBilgi {
          uint id;
@@ -22,8 +23,25 @@ contract NitelikBilgileri is BaseContract{
         event NitelikGuncellendiLog(address _onayKurumAdres,uint _tarih, uint _nitelikKodu);
          event NitelikTalepEdildiLog(address _talepEdilenKurum,uint _tarih, uint _nitelikKodu);
 
-         function ekleNitelikBilgi(address _kisiAddress, uint nitelikKodu, string memory aciklama, Seviye seviye)  public sadece_Uni_Firma_Kamu{
-             require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
+constructor(address baseAddress)  {
+        baseContract=BaseContract(baseAddress);
+      
+    }
+     modifier _yetkiliPaydas{
+      require(baseContract.isKurs(msg.sender)||baseContract.isKamuKurumu(msg.sender)||baseContract.isFirma(msg.sender)||baseContract.isSertifikaMerkezi(msg.sender),
+      "Sadece yetkili paydas bu islemi yapabilir."
+      );
+      _;
+    } 
+      modifier _sadeceKisi{
+      require(baseContract.isKisi(msg.sender),
+      "Bu islemi sadece Kisi yapabilir."
+      );
+      _;
+      }
+
+         function ekleNitelikBilgi(address _kisiAddress, uint nitelikKodu, string memory aciklama, Seviye seviye)  public _yetkiliPaydas{
+             require(baseContract.isKisi(_kisiAddress),"Kisi bulunamadi");
              uint yeniId=id++;
 
              nitelikBilgiListesi[_kisiAddress][yeniId].nitelikKodu=nitelikKodu;
@@ -35,8 +53,8 @@ contract NitelikBilgileri is BaseContract{
            
             emit NitelikEklendiLog(msg.sender, block.timestamp, nitelikKodu);
         }
-          function guncelleNitelikBilgi(address _kisiAddress,uint nitelikBilgiId, uint nitelikKodu, string memory aciklama, Seviye seviye)  public sadece_Uni_Firma_Kamu returns(uint){
-                require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
+          function guncelleNitelikBilgi(address _kisiAddress,uint nitelikBilgiId, uint nitelikKodu, string memory aciklama, Seviye seviye)  public _yetkiliPaydas returns(uint){
+                require(baseContract.isKisi(_kisiAddress),"Kisi bulunamadi");
 
              nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].nitelikKodu=nitelikKodu;
              nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].aciklama=aciklama;
@@ -50,8 +68,8 @@ contract NitelikBilgileri is BaseContract{
 
         }
 
-  function talepEtNitelikBilgi(address _talepEdilenKurum, uint nitelikKodu, string memory aciklama, Seviye seviye)  public sadeceKisi{
-             require(kisiler[msg.sender].durum,"Kisi mevcut degil");
+  function talepEtNitelikBilgi(address _talepEdilenKurum, uint nitelikKodu, string memory aciklama, Seviye seviye)  public _sadeceKisi{
+             require(baseContract.isKisi(msg.sender),"Student not exists");
              uint yeniId=id++;
 
              nitelikBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;

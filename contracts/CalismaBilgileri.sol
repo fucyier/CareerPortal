@@ -4,7 +4,7 @@ pragma solidity >=0.8.0 <0.9.0;
 import "./BaseContract.sol";
 contract CalismaBilgileri is BaseContract{
   uint public id;
-
+     BaseContract baseContract;
     struct CalismaBilgi {
          uint id;
          address talepEdilenKurum;
@@ -26,9 +26,24 @@ contract CalismaBilgileri is BaseContract{
         event CalismaBilgiEklendiLog(address _kisiAdres, uint8 _ulke, uint _pozisyon, uint _sektor);
         event CalismaBilgiGuncellendiLog(address _kisiAdres, uint8 _ulke, uint _pozisyon, uint _sektor);
             event CalismaBilgiTalepEdildiLog(address _talepEdilenKurum, uint8 _ulke, uint _pozisyon, uint _sektor);
-
-         function ekleCalismaBilgi(address _kisiAddress, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public sadece_Uni_Firma_Kamu{
-             require(kisiler[_kisiAddress].durum,"Student not exists");
+  constructor(address baseAddress)  {
+        baseContract=BaseContract(baseAddress);
+      
+    }
+     modifier _yetkiliPaydas{
+      require(baseContract.isUniversite(msg.sender)||baseContract.isFirma(msg.sender)||baseContract.isKamuKurumu(msg.sender),
+      "Sadece yetkili paydas bu islemi yapabilir."
+      );
+      _;
+    } 
+      modifier _sadeceKisi{
+      require(baseContract.isKisi(msg.sender),
+      "Bu islemi sadece Kisi yapabilir."
+      );
+      _;
+    } 
+         function ekleCalismaBilgi(address _kisiAddress, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public _yetkiliPaydas{
+             require(baseContract.isKisi(_kisiAddress),"Kisi bulunamadi");
              uint yeniId=id++;
             
              calismaBilgileri[_kisiAddress][yeniId].pozisyon=pozisyon;
@@ -45,8 +60,8 @@ contract CalismaBilgileri is BaseContract{
            
              emit CalismaBilgiEklendiLog( _kisiAddress, ulke,pozisyon, sektor);
     }
-       function guncelleCalismaBilgi(address _kisiAddress, uint _calismaBilgiId, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public sadece_Uni_Firma_Kamu returns(uint){
-             require(kisiler[_kisiAddress].durum,"Student not exists");
+       function guncelleCalismaBilgi(address _kisiAddress, uint _calismaBilgiId, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public _yetkiliPaydas returns(uint){
+             require(baseContract.isKisi(_kisiAddress),"Kisi bulunamadi");
              
              calismaBilgileri[_kisiAddress][_calismaBilgiId].pozisyon=pozisyon;
              calismaBilgileri[_kisiAddress][_calismaBilgiId].sektor=sektor;
@@ -64,8 +79,8 @@ contract CalismaBilgileri is BaseContract{
              return _calismaBilgiId;
 
     }
-       function talepEtCalismaBilgi(address _talepEdilenKurum, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public sadeceKisi{
-             require(kisiler[msg.sender].durum,"Student not exists");
+       function talepEtCalismaBilgi(address _talepEdilenKurum, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public _sadeceKisi{
+            require(baseContract.isKisi(msg.sender),"Student not exists");
              uint yeniId=id++;
 
              calismaBilgileri[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;

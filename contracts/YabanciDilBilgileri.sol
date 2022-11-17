@@ -2,18 +2,19 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 import "./BaseContract.sol";
-import "./EgitimBilgileri.sol";
+
 
 contract YabanciDilBilgileri is BaseContract{
   uint public id;
-   
+     BaseContract baseContract;
+
     struct YabanciDilBilgi {
          uint id;
            address talepEdilenKurum;
          OnaylayanKurum onayKurumTipi;
          uint basTarih;
          uint bitTarih;
-         EgitimBilgileri.OgretimTipi ogretimTipi;
+         OgretimTipi ogretimTipi;
          uint32 dilId;
          Seviye seviye;
          Onay onayBilgi;
@@ -21,12 +22,28 @@ contract YabanciDilBilgileri is BaseContract{
         mapping(address=>mapping(uint=>YabanciDilBilgi)) public yabanciDilBilgiListesi;
 
 
-        event YabanciDilEklendiLog(OnaylayanKurum _onaylayanKurumTipi,uint _basTarih, uint _bitTarih ,EgitimBilgileri.OgretimTipi _ogretimTipi,uint32 _dilId);
-        event YabanciDilGuncellendiLog(OnaylayanKurum _onaylayanKurumTipi,uint _basTarih, uint _bitTarih,EgitimBilgileri.OgretimTipi _ogretimTipi,uint32 _dilId);
-          event YabanciDilTalepEdildiLog(address _talepEdilenKurum,uint _basTarih, uint _bitTarih,EgitimBilgileri.OgretimTipi _ogretimTipi,uint32 _dilId);
+        event YabanciDilEklendiLog(OnaylayanKurum _onaylayanKurumTipi,uint _basTarih, uint _bitTarih ,OgretimTipi _ogretimTipi,uint32 _dilId);
+        event YabanciDilGuncellendiLog(OnaylayanKurum _onaylayanKurumTipi,uint _basTarih, uint _bitTarih,OgretimTipi _ogretimTipi,uint32 _dilId);
+          event YabanciDilTalepEdildiLog(address _talepEdilenKurum,uint _basTarih, uint _bitTarih,OgretimTipi _ogretimTipi,uint32 _dilId);
 
-         function ekleYabanciDilBilgi(address _kisiAddress, OnaylayanKurum onayKurumTipi, uint basTarih, uint bitTarih, EgitimBilgileri.OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye)  public sadece_Uni_Firma_Kamu{
-             require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
+  constructor(address baseAddress)  {
+        baseContract=BaseContract(baseAddress);
+  }
+
+   modifier _yetkiliPaydas{
+      require(baseContract.isUniversite(msg.sender)||baseContract.isFirma(msg.sender)||baseContract.isKamuKurumu(msg.sender)||baseContract.isKurs(msg.sender),
+      "Sadece yetkili paydas bu islemi yapabilir."
+      );
+      _;
+    } 
+      modifier _sadeceKisi{
+      require(baseContract.isKisi(msg.sender),
+      "Bu islemi sadece Kisi yapabilir."
+      );
+      _;
+    } 
+         function ekleYabanciDilBilgi(address _kisiAddress, OnaylayanKurum onayKurumTipi, uint basTarih, uint bitTarih,OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye)  public _yetkiliPaydas{
+              require(baseContract.isKisi(_kisiAddress),"Kisi bulunamadi");
              uint yeniId=id++;
              yabanciDilBilgiListesi[_kisiAddress][yeniId].onayKurumTipi=onayKurumTipi;
              yabanciDilBilgiListesi[_kisiAddress][yeniId].basTarih=basTarih;
@@ -40,8 +57,8 @@ contract YabanciDilBilgileri is BaseContract{
            
              emit YabanciDilEklendiLog(onayKurumTipi,  basTarih,  bitTarih, ogretimTipi, dilId);
         }
-          function guncelleYabanciDilBilgi(address _kisiAddress,uint ydBilgiId, OnaylayanKurum onayKurumTipi, uint basTarih, uint bitTarih, EgitimBilgileri.OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye)  public sadece_Uni_Firma_Kamu returns(uint){
-                require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
+          function guncelleYabanciDilBilgi(address _kisiAddress,uint ydBilgiId, OnaylayanKurum onayKurumTipi, uint basTarih, uint bitTarih, OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye)  public _yetkiliPaydas returns(uint){
+                require(baseContract.isKisi(_kisiAddress),"Kisi bulunamadi");
                 
                 yabanciDilBilgiListesi[_kisiAddress][ydBilgiId].onayKurumTipi=onayKurumTipi;
                 yabanciDilBilgiListesi[_kisiAddress][ydBilgiId].basTarih=basTarih;
@@ -58,8 +75,8 @@ contract YabanciDilBilgileri is BaseContract{
 
         }
 
-    function talepEtYabanciDilBilgi(address _talepEdilenKurum, uint basTarih, uint bitTarih, EgitimBilgileri.OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye)  public sadeceKisi{
-             require(kisiler[msg.sender].durum,"Kisi mevcut degil");
+    function talepEtYabanciDilBilgi(address _talepEdilenKurum, uint basTarih, uint bitTarih, OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye)  public _sadeceKisi{
+           require(baseContract.isKisi(msg.sender),"Student not exists");
              uint yeniId=id++;
 
              yabanciDilBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;

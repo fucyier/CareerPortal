@@ -6,7 +6,7 @@ import "./BaseContract.sol";
 
 contract ReferansBilgileri is BaseContract{
   uint public id;
-
+BaseContract baseContract;
     struct ReferansBilgi {
          uint id;
          address referansAdres;
@@ -23,9 +23,22 @@ contract ReferansBilgileri is BaseContract{
         event ReferansTalepEtLog(uint id, address _kisiAdres, address _referansAdres,OnayDurum _durum);
         event ReferansOnayRedLog(uint referansId,address _kisiAddress,address _referansAdres,bool onayRed,uint zaman);
 
-         function talepEtReferans(address _kisiAddress, address referansAdres, string memory pozisyon)  public {
-             require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
-             require(kisiler[referansAdres].durum,"Referans Kisi mevcut degil");
+constructor(address baseAddress)  {
+        baseContract=BaseContract(baseAddress);
+      
+    }
+
+      modifier _sadeceKisi{
+      require(baseContract.isKisi(msg.sender),
+      "Bu islemi sadece Kisi yapabilir."
+      );
+      _;
+      }
+
+         function talepEtReferans(address _kisiAddress, address referansAdres, string memory pozisyon)  public _sadeceKisi{
+              require(baseContract.isKisi(_kisiAddress),"Kisi bulunamadi");
+
+            require(baseContract.isKisi(referansAdres),"Referans Kisi mevcut degil");
              uint yeniId=id++;
              referansBilgiListesi[_kisiAddress][yeniId].referansAdres=referansAdres;
              referansBilgiListesi[_kisiAddress][yeniId].pozisyon=pozisyon;
@@ -36,10 +49,10 @@ contract ReferansBilgileri is BaseContract{
         }
        
        
-       function onayRedReferans(address _kisiAddress, uint referansId, bool accepted,string memory aciklama)  public {
-             require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
-             require(kisiler[msg.sender].durum,"Referans Kisi mevcut degil");
-          
+       function onayRedReferans(address _kisiAddress, uint referansId, bool accepted,string memory aciklama)  public _sadeceKisi{
+              require(baseContract.isKisi(_kisiAddress),"Kisi bulunamadi");
+
+            require(baseContract.isKisi(msg.sender),"Referans Kisi mevcut degil");
             
         require(referansBilgiListesi[_kisiAddress][referansId].referansAdres==msg.sender,
         "Yalnizca kendinize atanan belgeye onay/red verebilirsiniz"

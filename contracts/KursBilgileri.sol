@@ -5,7 +5,7 @@ import "./BaseContract.sol";
 
 contract KursBilgileri is BaseContract{
   uint public id;
-
+BaseContract baseContract;
     struct KursBilgi {
          uint id;
          address talepEdilenKurum;
@@ -22,9 +22,24 @@ contract KursBilgileri is BaseContract{
         event KursEklendiLog(address _kisiAddress,uint _basTarih, uint _bitTarih,uint8  _sure);
         event KursGuncellendiLog(address _kisiAddress,uint _basTarih, uint _bitTarih,uint8  _sure);
           event KursTalepEdildiLog(address _talepEdilenKurum,uint _basTarih, uint _bitTarih,uint8  _sure);
-
-         function ekleKursBilgi(address _kisiAddress,  uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public sadeceKurs{
-             require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
+constructor(address baseAddress)  {
+        baseContract=BaseContract(baseAddress);
+      
+    }
+     modifier _yetkiliPaydas{
+      require(baseContract.isKurs(msg.sender),
+      "Sadece yetkili paydas bu islemi yapabilir."
+      );
+      _;
+    } 
+      modifier _sadeceKisi{
+      require(baseContract.isKisi(msg.sender),
+      "Bu islemi sadece Kisi yapabilir."
+      );
+      _;
+      }
+         function ekleKursBilgi(address _kisiAddress,  uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public _yetkiliPaydas{
+              require(baseContract.isKisi(_kisiAddress),"Kisi bulunamadi");
              uint yeniId=id++;
 
              kursBilgiListesi[_kisiAddress][yeniId].basTarih=basTarih;
@@ -36,8 +51,8 @@ contract KursBilgileri is BaseContract{
              kursBilgiListesi[_kisiAddress][yeniId].onayBilgi.adres=msg.sender;
             emit KursEklendiLog(_kisiAddress, basTarih, bitTarih, sure);
         }
-          function guncelleKursBilgi(address _kisiAddress, uint _kursBilgiId, uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public sadeceKurs returns(uint){
-                require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
+          function guncelleKursBilgi(address _kisiAddress, uint _kursBilgiId, uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public _yetkiliPaydas returns(uint){
+               require(baseContract.isKisi(_kisiAddress),"Kisi bulunamadi");
                 
 
              kursBilgiListesi[_kisiAddress][_kursBilgiId].basTarih=basTarih;
@@ -53,8 +68,8 @@ contract KursBilgileri is BaseContract{
                 return    _kursBilgiId;
 
         }
-  function talepEtKursBilgi(address _talepEdilenKurum,  uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public sadeceKisi{
-             require(kisiler[msg.sender].durum,"Kisi mevcut degil");
+  function talepEtKursBilgi(address _talepEdilenKurum,  uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public _sadeceKisi{
+              require(baseContract.isKisi(msg.sender),"Student not exists");
              uint yeniId=id++;
              kursBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
              kursBilgiListesi[msg.sender][yeniId].basTarih=basTarih;
