@@ -5,7 +5,7 @@ import "./BaseContract.sol";
 
 contract SertifikaBilgileri is BaseContract{
   uint public id;
-
+  BaseContract baseContract;
     struct SertifikaBilgi {
          uint id;
          address talepEdilenKurum;
@@ -21,9 +21,24 @@ contract SertifikaBilgileri is BaseContract{
         event SertifikaEklendiLog(uint _id, uint _alinanTarih, uint _gecerlilikSuresi);
         event SertifikaGuncellendiLog(uint _sertifikaBilgiId, uint _alinanTarih, uint _gecerlilikSuresi);
         event SertifikaTalepEdildiLog(uint _sertifikaBilgiId, uint _alinanTarih, uint _gecerlilikSuresi);
-
-         function ekleSertifikaBilgi(address _kisiAddress, uint _alinanTarih, uint8 _gecerlilikSuresi, string memory _sertifikaAdi) public sadeceSertifikaMerkezi{
-             require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
+ constructor(address baseAddress)  {
+        baseContract=BaseContract(baseAddress);
+      
+    }
+     modifier _yetkiliPaydas{
+      require(baseContract.isSertifikaMerkezi(msg.sender),
+      "Sadece yetkili paydas bu islemi yapabilir."
+      );
+      _;
+    } 
+      modifier _sadeceKisi{
+      require(baseContract.isKisi(msg.sender),
+      "Bu islemi sadece Kisi yapabilir."
+      );
+      _;
+    } 
+         function ekleSertifikaBilgi(address _kisiAddress, uint _alinanTarih, uint8 _gecerlilikSuresi, string memory _sertifikaAdi) public _yetkiliPaydas{
+            require(baseContract.isKisi(_kisiAddress),"Kisi bulunamadi");
             
              uint yeniId=id++;
              sertifikaBilgiListesi[_kisiAddress][yeniId].alinanTarih=_alinanTarih;
@@ -35,9 +50,9 @@ contract SertifikaBilgileri is BaseContract{
 
              emit SertifikaEklendiLog(yeniId, _alinanTarih, _gecerlilikSuresi);
         }
-          function guncelleKursBilgi(address _kisiAddress, uint _sertifikaBilgiId, uint _alinanTarih, uint8 _gecerlilikSuresi, string memory _sertifikaAdi) public sadeceSertifikaMerkezi returns(uint){
+          function guncelleSertifikaBilgi(address _kisiAddress, uint _sertifikaBilgiId, uint _alinanTarih, uint8 _gecerlilikSuresi, string memory _sertifikaAdi) public _yetkiliPaydas returns(uint){
             
-             require(kisiler[_kisiAddress].durum,"Kisi mevcut degil");
+            require(baseContract.isKisi(_kisiAddress),"Kisi bulunamadi");
                 
              sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].alinanTarih=_alinanTarih;
              sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].gecerlilikSuresi=_gecerlilikSuresi;
@@ -52,8 +67,8 @@ contract SertifikaBilgileri is BaseContract{
 
         }
         
-         function talepEtSertifikaBilgi(address _talepEdilenKurum, uint _alinanTarih, uint8 _gecerlilikSuresi, string memory _sertifikaAdi) public sadeceKisi{
-             require(kisiler[msg.sender].durum,"Kisi mevcut degil");
+         function talepEtSertifikaBilgi(address _talepEdilenKurum, uint _alinanTarih, uint8 _gecerlilikSuresi, string memory _sertifikaAdi) public _sadeceKisi{
+             require(baseContract.isKisi(msg.sender),"Kisi mevcut degil");
             
              uint yeniId=id++;
              sertifikaBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
