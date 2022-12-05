@@ -6,6 +6,7 @@ import "./BaseContract.sol";
 
 contract IlanBilgileri is BaseContract{
 
+BaseContract baseContract;
         uint public id;
         uint public basvuruId;
         struct IlanBilgi {
@@ -29,9 +30,26 @@ contract IlanBilgileri is BaseContract{
         event IlanBilgiGuncellendiLog(uint _id, address _talepEdenKurum, uint32 _pozisyon, uint8 _sektor);
         event IlanBasvuruLog(uint _ilanId,address _basvuranKisi );
 
+
+constructor(address baseAddress)  {
+        baseContract=BaseContract(baseAddress);
+      
+    }
+     modifier _yetkiliPaydas{
+      require(baseContract.isKamuKurumu(msg.sender)||baseContract.isFirma(msg.sender),
+      "Sadece yetkili paydas bu islemi yapabilir."
+      );
+      _;
+    } 
+      modifier _sadeceKisi{
+      require(baseContract.isKisi(msg.sender),
+      "Bu islemi sadece Kisi yapabilir."
+      );
+      _;
+      }
   function ekleIlanBilgi( uint32 _pozisyon, uint8 _sektor, CalismaTipi _calismaTipi, string memory _arananOzellikler, string memory _isTanimi, uint _ilanBasTarih, uint _ilanBitTarih, 
-                        uint8 _ulke, uint32 _sehir, uint8 _tecrubeYili)  public sadece_Uni_Firma_Kamu{
-             require(kamuKurumlari[msg.sender].durum||firmalar[msg.sender].durum,"Ilan acan kurum kayitli degil");
+                        uint8 _ulke, uint32 _sehir, uint8 _tecrubeYili)  public _yetkiliPaydas{
+            require(baseContract.isKamuKurumu(msg.sender)||baseContract.isFirma(msg.sender),"Ilan acan kurum kayitli degil");
              uint yeniId=id++;
             
              ilanBilgileri[yeniId].talepEdenKurum=msg.sender;
@@ -50,8 +68,8 @@ contract IlanBilgileri is BaseContract{
              emit IlanBilgiEklendiLog( yeniId,msg.sender, _pozisyon,_sektor );
     }
        function guncelleIlanBilgi(uint _ilanId, uint32 _pozisyon, uint8 _sektor, CalismaTipi _calismaTipi, string memory _arananOzellikler, string memory _isTanimi, uint _ilanBasTarih, uint _ilanBitTarih, 
-                        uint8 _ulke,uint32 _sehir, uint8 _tecrubeYili)  public sadece_Uni_Firma_Kamu returns(uint){
-            require(kamuKurumlari[msg.sender].durum||firmalar[msg.sender].durum,"Ilan acan kurum kayitli degil");
+                        uint8 _ulke,uint32 _sehir, uint8 _tecrubeYili)  public _yetkiliPaydas returns(uint){
+           require(baseContract.isKamuKurumu(msg.sender)||baseContract.isFirma(msg.sender),"Ilan acan kurum kayitli degil");
              require(ilanBilgileri[_ilanId].talepEdenKurum==msg.sender,"Ilan acan guncelleme islemi yapabilir");
              ilanBilgileri[_ilanId].pozisyon=_pozisyon;
              ilanBilgileri[_ilanId].sektor=_sektor;
@@ -69,7 +87,7 @@ contract IlanBilgileri is BaseContract{
 
     }
 
- function basvurIlan(uint _ilanId)  public sadeceKisi returns(uint){
+ function basvurIlan(uint _ilanId)  public _sadeceKisi returns(uint){
             require(ilanBasvuruListesi[_ilanId][msg.sender].durum,"Ayni ilana daha once basvurulmus");
              //  uint _basvuruId=basvuruId++;
              ilanBasvuruListesi[_ilanId][msg.sender].durum=true;
