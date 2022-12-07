@@ -966,6 +966,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
 						"name": "_talepEdilenKurum",
 						"type": "address"
 					},
@@ -1081,11 +1086,11 @@
 			]
 		},
 		"contracts/CalismaBilgileri.sol": {
-			"keccak256": "0x71b8f8c131565c8df8190db75b005c597c0f6eb010b3446b7561ea3da64aefcb",
+			"keccak256": "0x60b30f4909a3d10abdfb964fc730877aa45f8cc4fcbf24256c509cc5b3a08572",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://c25646b0a2a0211ecdfe9a1608ad5b09fd48af02d47d24378964085a8133ab46",
-				"dweb:/ipfs/QmQEYVRaqFyy1CKgF572WbRpNU7aHXUkC41YR6iNz8WP2r"
+				"bzz-raw://e97d9bc79d73fd2ddd002af1cffe4550999863bdb96521344cb4f22a7c9bafe4",
+				"dweb:/ipfs/QmW29SvE1u9Hh7HRW6SXg6KFkzM7zwaCXawApv2D767tQH"
 			]
 		}
 	},

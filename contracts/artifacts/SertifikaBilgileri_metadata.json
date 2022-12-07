@@ -873,6 +873,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
 						"name": "_talepEdilenKurum",
 						"type": "address"
 					},
@@ -963,11 +968,11 @@
 			]
 		},
 		"contracts/SertifikaBilgileri.sol": {
-			"keccak256": "0xa6637144423c65cc0067b679d565a1900c26ed6b2d77c894c5c4c5e39e74663c",
+			"keccak256": "0x9262111640ddd89a9ac71ad4456a1e335cc4512348c0029016fd4eb42479633a",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://1bf9f59c829143b306e9361788c68bd79bc20888d99b270577a91bd7814c7e86",
-				"dweb:/ipfs/QmZ52Xrmm3cJgBAp5tmEHhtSpo4vfhcf4RWe7tZThxA67Y"
+				"bzz-raw://5b7e0b2114277292e519755b4bab91e5fdd3d5b62404426d4a453b6cab315c74",
+				"dweb:/ipfs/QmRsnWdAv3sp3A6QVhRhLnP3oQsVcvTqkN1Nvkg5uXXxpi"
 			]
 		}
 	},

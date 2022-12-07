@@ -9,6 +9,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_baseKontrati",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
 						"name": "_egitimKontrati",
 						"type": "address"
 					},
@@ -40,6 +45,19 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "YOK",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			},
 			{
 				"inputs": [
@@ -113,6 +131,162 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_firmaAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_vergiNo",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
+					}
+				],
+				"name": "ekleFirma",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kamuKurumuAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
+					}
+				],
+				"name": "ekleKamuKurumu",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAdres",
+						"type": "address"
+					}
+				],
+				"name": "ekleKisi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kursAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
+					}
+				],
+				"name": "ekleKurs",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_stkAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
+					}
+				],
+				"name": "ekleSTK",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_smAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
+					}
+				],
+				"name": "ekleSertifikaMerkezi",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_universiteAdres",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_isim",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_ulke",
+						"type": "uint8"
+					}
+				],
+				"name": "ekleUniversite",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -138,6 +312,209 @@
 						"internalType": "string",
 						"name": "isim",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getYOK",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isCB",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isFirma",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isKamuKurumu",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isKisi",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isKurs",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isSTK",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isSertifikaMerkezi",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isTOBB",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isUniversite",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
+				"name": "isYOK",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -218,6 +595,29 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_yok",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_tobb",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_cb",
+						"type": "address"
+					}
+				],
+				"name": "paydasTanimla",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -574,67 +974,67 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0x59a60230021dd75e51a9bff15b4420d5c24d6f05aa625a2fc9a1cd3ec95a6beb",
+			"keccak256": "0x32e7eae0e33cd79a14a405c66397f5e66cb78e41f6f9ff8aacc878b110f20bbe",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://642150ef9b0072756435104c811796f8e58c5382c40afc3e5d75b565c3a638e7",
-				"dweb:/ipfs/QmRjMtTLA5LtD5mM78kBC5uVxfLtDBVd5xRcNiuYy2Vgum"
+				"bzz-raw://9171106970b07fb07f67096d8d7778082115537cec356d10bf811c017a67febc",
+				"dweb:/ipfs/Qma5DS9QE3NSkCZXNqe2VVLMYb6YzXwyQ7GksRgvFCGjmV"
 			]
 		},
 		"contracts/CalismaBilgileri.sol": {
-			"keccak256": "0x9fa6c0d10ec9fc99ec154a60a4bbd7410408ca2e68b32d5b63d1efe6539817da",
+			"keccak256": "0x71b8f8c131565c8df8190db75b005c597c0f6eb010b3446b7561ea3da64aefcb",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://d7ca7570befee7c6127f44fa8c64beec3cd3f086c15831a401e8b901ffbc3c2f",
-				"dweb:/ipfs/QmeFD4uHTg1RX12AbnWac2dJX3pkB6rESsUJmPuePpAyqJ"
+				"bzz-raw://c25646b0a2a0211ecdfe9a1608ad5b09fd48af02d47d24378964085a8133ab46",
+				"dweb:/ipfs/QmQEYVRaqFyy1CKgF572WbRpNU7aHXUkC41YR6iNz8WP2r"
 			]
 		},
 		"contracts/EgitimBilgileri.sol": {
-			"keccak256": "0x97412cfaeff093ec015fd1fceb1e9684567ef60a3ac72b7db228e84c9ae52f81",
+			"keccak256": "0x0d4b50c9e2542eb2b3c0e5861a6d4718cac9af0305b5503dbac6f375c8cbc658",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://6dc43e3af96f814f9f5392b913e6130620c508b99f711aabb61355cc68a905e4",
-				"dweb:/ipfs/QmNcvpButSq347ZVtVVvN26h1nEcSPkXpA2kitdDpexxuB"
+				"bzz-raw://882c496fa076c4e5d7b8e3490ae502a0452d5fbbb58cf7c01b3ec5e4927ab3ed",
+				"dweb:/ipfs/QmYzEAMU3euNSk77kAqVrNXQAJMhwdc7Rg6qyJ22XUL7Qw"
 			]
 		},
 		"contracts/KursBilgileri.sol": {
-			"keccak256": "0xd66fda3c39ebe7c711c952f4a5020e346a120573a1e3a9d2c720a7256d1f391a",
+			"keccak256": "0x007e805aea92542cbd297748805e4b7a5ba7251245b297bbf8dd0dad18ccb205",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://62bc41765917d9330f80f15cfe77aeca4f0ed625083911a3146cc04b3416732e",
-				"dweb:/ipfs/QmNqd4kPxCeMwbhQS1MDKQ3hjBArMvsoFw68uGjDEKaNR5"
+				"bzz-raw://827f743ffc0a2f1f370c142e07e9df33b6f323603ea5a1de6028b1bca434512d",
+				"dweb:/ipfs/QmQwRA8u5DKXJXTqwk4HP8BSpwvaJmnjLMc5LEhFYZNqRF"
 			]
 		},
 		"contracts/NitelikBilgileri.sol": {
-			"keccak256": "0xba645bc9cd89195d93f1412b015f1f929ca902c61c0f36eccef5694c471bffe9",
+			"keccak256": "0xf5405fccf6852fb3f8e6cdb2333798a5c137e992828064c3ca00216c0b8656a3",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://ef868d890c0d2715fc9b898d15130d42a594b570fe45a9c690cb744d2b5f9d9a",
-				"dweb:/ipfs/QmaAHPeQijDApJViPYtiPjeVzP79GaMHVAZR1LNWnaLRCo"
+				"bzz-raw://48ab0692c6e0149eae0767330c8ce36e3755cf9ae4b21634bde08fd6fe3bb729",
+				"dweb:/ipfs/QmUYRfi43VJDJdiEZnmDZAaw6BACizQtEfm116LjhGEcg2"
 			]
 		},
 		"contracts/SertifikaBilgileri.sol": {
-			"keccak256": "0x178c01910f248df984179085b021cc5260f9f7eb2474ab35a2741f3d127cab37",
+			"keccak256": "0xa6637144423c65cc0067b679d565a1900c26ed6b2d77c894c5c4c5e39e74663c",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://fe9d5fc0f581a6e5e21b391622c6502438a8ec9348b808e81a513128d679cc97",
-				"dweb:/ipfs/QmbF7WhVKyhGdotRNBCVPZoXTCWrsZF8wjV5p9iZLQVkn2"
+				"bzz-raw://1bf9f59c829143b306e9361788c68bd79bc20888d99b270577a91bd7814c7e86",
+				"dweb:/ipfs/QmZ52Xrmm3cJgBAp5tmEHhtSpo4vfhcf4RWe7tZThxA67Y"
 			]
 		},
 		"contracts/Talep.sol": {
-			"keccak256": "0x2529ea265ae2687d70e35ca07feaed71f7e4ff2f0384b7b4145800629f07ec0b",
+			"keccak256": "0xb7f229b63cf340f6087d5af29e29d3eecdd23d16ce943fcfbb2d552a9816daf9",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://b529c78979f01ba903da032327852c7dbee1c53d12ec90826de7f2f31a5cab9d",
-				"dweb:/ipfs/QmcibuXiBJR6P134wktGQvciN4cbP2oBDkycfHNx8ZeqsJ"
+				"bzz-raw://2e09754feba1185f4a6ccaa86c95908441e537b4316cc467bdf11682781eff1d",
+				"dweb:/ipfs/QmTCZQtYej2taxD3Xjt3vQU7qWfdbSu91yVp1rGY8QDHkQ"
 			]
 		},
 		"contracts/YabanciDilBilgileri.sol": {
-			"keccak256": "0xd54c7594e5a4fde5d24303e540fa0b5385ff504fd58769922df31da4ae167d0a",
+			"keccak256": "0x1a17ce7e75197874e074383f6c62a54f4fa76a61a28331510beb4630e51ec159",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://5bf8b4ed1d962b666c3af4c3ce35932c15cc64e5a94e501375e0998a81486524",
-				"dweb:/ipfs/QmWpcCFTW5VkBxNiZfvvmmpWfPS74RFh6Xx2dtFu84uLCQ"
+				"bzz-raw://d97ace6f021153e2608e565603563df31d8b8bd7721e7591d985f3b1a25fe621",
+				"dweb:/ipfs/QmPRYxDajHBjwucST1AwbtoJEha9RMXVVoC38u38ztkEUg"
 			]
 		}
 	},

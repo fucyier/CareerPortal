@@ -873,6 +873,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
 						"name": "_talepEdilenKurum",
 						"type": "address"
 					},
@@ -963,11 +968,11 @@
 			]
 		},
 		"contracts/NitelikBilgileri.sol": {
-			"keccak256": "0xf5405fccf6852fb3f8e6cdb2333798a5c137e992828064c3ca00216c0b8656a3",
+			"keccak256": "0xc4ad4073b9f46ea7ccd709741b4cced4fb05a7d231e62f1f2a675fe58821c885",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://48ab0692c6e0149eae0767330c8ce36e3755cf9ae4b21634bde08fd6fe3bb729",
-				"dweb:/ipfs/QmUYRfi43VJDJdiEZnmDZAaw6BACizQtEfm116LjhGEcg2"
+				"bzz-raw://ffa2997b5bf7441932593ba008acc5fed280657dfb7cec9a89680abe2a789dcd",
+				"dweb:/ipfs/QmSxKexSR8gsdiFbmW7KjhjnHzQTEvGh7Gsg2jW5mPqn1Q"
 			]
 		}
 	},

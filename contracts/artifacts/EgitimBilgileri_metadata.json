@@ -1084,6 +1084,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
 						"name": "_talepEdilenKurum",
 						"type": "address"
 					},
@@ -1204,11 +1209,11 @@
 			]
 		},
 		"contracts/EgitimBilgileri.sol": {
-			"keccak256": "0x0d4b50c9e2542eb2b3c0e5861a6d4718cac9af0305b5503dbac6f375c8cbc658",
+			"keccak256": "0xbd2f036a35dd88940c8cfb31622a1a870f5db471e3e6c88c35cd0b7d1d3a8847",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://882c496fa076c4e5d7b8e3490ae502a0452d5fbbb58cf7c01b3ec5e4927ab3ed",
-				"dweb:/ipfs/QmYzEAMU3euNSk77kAqVrNXQAJMhwdc7Rg6qyJ22XUL7Qw"
+				"bzz-raw://dd1c911a8155353fdab0a4e655fdbdabc740175662c629be1df513248cdb36aa",
+				"dweb:/ipfs/QmQyd9q9E9B97GGEVYvUndbrcsxC4cpxzv5QR3jwnU6LhA"
 			]
 		}
 	},

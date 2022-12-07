@@ -75,8 +75,8 @@ contract YabanciDilBilgileri is BaseContract{
 
         }
 
-    function talepEtYabanciDilBilgi(address _talepEdilenKurum, uint basTarih, uint bitTarih, OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye)  public _sadeceKisi{
-           require(baseContract.isKisi(msg.sender),"Student not exists");
+    function talepEtYabanciDilBilgi(address _kisiAddress,address _talepEdilenKurum, uint basTarih, uint bitTarih, OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye)  public {
+           require(baseContract.isKisi( _kisiAddress),"Student not exists");
              uint yeniId=id++;
 
              yabanciDilBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;

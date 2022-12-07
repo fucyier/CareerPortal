@@ -68,8 +68,8 @@ constructor(address baseAddress)  {
 
         }
 
-  function talepEtNitelikBilgi(address _talepEdilenKurum, uint nitelikKodu, string memory aciklama, Seviye seviye)  public _sadeceKisi{
-             require(baseContract.isKisi(msg.sender),"Student not exists");
+  function talepEtNitelikBilgi(address _kisiAddress,address _talepEdilenKurum, uint nitelikKodu, string memory aciklama, Seviye seviye)  public {
+             require(baseContract.isKisi(_kisiAddress),"Student not exists");
              uint yeniId=id++;
 
              nitelikBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;

@@ -67,8 +67,8 @@ contract SertifikaBilgileri is BaseContract{
 
         }
         
-         function talepEtSertifikaBilgi(address _talepEdilenKurum, uint _alinanTarih, uint8 _gecerlilikSuresi, string memory _sertifikaAdi) public _sadeceKisi{
-             require(baseContract.isKisi(msg.sender),"Kisi mevcut degil");
+         function talepEtSertifikaBilgi(address _kisiAddress,address _talepEdilenKurum, uint _alinanTarih, uint8 _gecerlilikSuresi, string memory _sertifikaAdi) public {
+             require(baseContract.isKisi( _kisiAddress),"Kisi mevcut degil");
             
              uint yeniId=id++;
              sertifikaBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;

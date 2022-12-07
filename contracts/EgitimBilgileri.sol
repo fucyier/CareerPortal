@@ -100,9 +100,9 @@ contract EgitimBilgileri is BaseContract{
 
     }
 
-      function talepEtEgitimBilgi(address _talepEdilenKurum, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, 
-         uint16 bolum, OgretimTipi ogretimTipi )  external   _sadeceKisi{
-             require(baseContract.isKisi(msg.sender),"Student not exists");
+      function talepEtEgitimBilgi(address _kisiAddress,address _talepEdilenKurum, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte, 
+         uint16 bolum, OgretimTipi ogretimTipi )  external   {
+             require(baseContract.isKisi( _kisiAddress),"Student not exists");
              uint yeniId=id++;
 
                egitimBilgileri[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;

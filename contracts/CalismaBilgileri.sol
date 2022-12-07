@@ -79,8 +79,8 @@ contract CalismaBilgileri is BaseContract{
              return _calismaBilgiId;
 
     }
-       function talepEtCalismaBilgi(address _talepEdilenKurum, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public _sadeceKisi{
-            require(baseContract.isKisi(msg.sender),"Student not exists");
+       function talepEtCalismaBilgi(address _kisiAddress,address _talepEdilenKurum, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir)  public {
+            require(baseContract.isKisi(_kisiAddress),"Student not exists");
              uint yeniId=id++;
 
              calismaBilgileri[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;

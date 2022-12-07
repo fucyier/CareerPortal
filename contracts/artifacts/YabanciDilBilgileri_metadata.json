@@ -873,6 +873,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
 						"name": "_talepEdilenKurum",
 						"type": "address"
 					},
@@ -1054,11 +1059,11 @@
 			]
 		},
 		"contracts/YabanciDilBilgileri.sol": {
-			"keccak256": "0x1a17ce7e75197874e074383f6c62a54f4fa76a61a28331510beb4630e51ec159",
+			"keccak256": "0x69ac90a9df6281a9a5f6888e4c7cd9364b4e628f96e1f4eb1da1bb0cc792d3f6",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://d97ace6f021153e2608e565603563df31d8b8bd7721e7591d985f3b1a25fe621",
-				"dweb:/ipfs/QmPRYxDajHBjwucST1AwbtoJEha9RMXVVoC38u38ztkEUg"
+				"bzz-raw://e0337ec2ef60c136e76f62904d81570748b1f4ebec3cfb8f4e7d030f14b5f76e",
+				"dweb:/ipfs/QmNYNvyiqmWp23Ze9De5W31bwrmGNuqGyMJX1sxryKpsQX"
 			]
 		}
 	},

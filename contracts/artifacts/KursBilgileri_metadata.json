@@ -906,6 +906,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
 						"name": "_talepEdilenKurum",
 						"type": "address"
 					},
@@ -1001,11 +1006,11 @@
 			]
 		},
 		"contracts/KursBilgileri.sol": {
-			"keccak256": "0x007e805aea92542cbd297748805e4b7a5ba7251245b297bbf8dd0dad18ccb205",
+			"keccak256": "0x1213cd55487c09ad88527a8a9f31e51b4f335c3559d3b8b2e26afc447eb0f34c",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://827f743ffc0a2f1f370c142e07e9df33b6f323603ea5a1de6028b1bca434512d",
-				"dweb:/ipfs/QmQwRA8u5DKXJXTqwk4HP8BSpwvaJmnjLMc5LEhFYZNqRF"
+				"bzz-raw://704042617ba871aa4ddda9909a73daed82b2a7719084f3a5acffae9fb6b17965",
+				"dweb:/ipfs/QmYYXZ51azQKFN26cZ4cRZoUjiW2QvDWr7SEgzepkMy4AD"
 			]
 		}
 	},

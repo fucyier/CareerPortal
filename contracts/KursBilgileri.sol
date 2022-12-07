@@ -68,8 +68,8 @@ constructor(address baseAddress)  {
                 return    _kursBilgiId;
 
         }
-  function talepEtKursBilgi(address _talepEdilenKurum,  uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public _sadeceKisi{
-              require(baseContract.isKisi(msg.sender),"Student not exists");
+  function talepEtKursBilgi(address _kisiAddress,address _talepEdilenKurum,  uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public {
+              require(baseContract.isKisi(_kisiAddress),"Student not exists");
              uint yeniId=id++;
              kursBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
              kursBilgiListesi[msg.sender][yeniId].basTarih=basTarih;
