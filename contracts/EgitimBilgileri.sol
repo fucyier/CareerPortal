@@ -105,18 +105,17 @@ contract EgitimBilgileri is BaseContract{
              require(baseContract.isKisi( _kisiAddress),"Student not exists");
              uint yeniId=id++;
 
-               egitimBilgileri[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
-             egitimBilgileri[msg.sender][yeniId].egitimDurumu=egitimDurumu;
-             egitimBilgileri[msg.sender][yeniId].basTarih=basTarih;
-             egitimBilgileri[msg.sender][yeniId].bitTarih=bitTarih;
-             egitimBilgileri[msg.sender][yeniId].diplomaBelge=diplomaBelge;
-             egitimBilgileri[msg.sender][yeniId].transcriptBelge=transcriptBelge;
-             egitimBilgileri[msg.sender][yeniId].universite=universite;
-             egitimBilgileri[msg.sender][yeniId].fakulte=fakulte;
-             egitimBilgileri[msg.sender][yeniId].bolum=bolum;
-             egitimBilgileri[msg.sender][yeniId].ogretimTipi=ogretimTipi;
-          //   egitimBilgileri[msg.sender][yeniId].ogretimDili=ogretimDili;
-             egitimBilgileri[msg.sender][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
+               egitimBilgileri[_kisiAddress][yeniId].talepEdilenKurum=_talepEdilenKurum;
+             egitimBilgileri[_kisiAddress][yeniId].egitimDurumu=egitimDurumu;
+             egitimBilgileri[_kisiAddress][yeniId].basTarih=basTarih;
+             egitimBilgileri[_kisiAddress][yeniId].bitTarih=bitTarih;
+             egitimBilgileri[_kisiAddress][yeniId].diplomaBelge=diplomaBelge;
+             egitimBilgileri[_kisiAddress][yeniId].transcriptBelge=transcriptBelge;
+             egitimBilgileri[_kisiAddress][yeniId].universite=universite;
+             egitimBilgileri[_kisiAddress][yeniId].fakulte=fakulte;
+             egitimBilgileri[_kisiAddress][yeniId].bolum=bolum;
+             egitimBilgileri[_kisiAddress][yeniId].ogretimTipi=ogretimTipi;
+             egitimBilgileri[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
 
            
              emit EgitimBilgiEklendiLog( yeniId, universite,basTarih, bitTarih);

@@ -71,11 +71,11 @@ contract SertifikaBilgileri is BaseContract{
              require(baseContract.isKisi( _kisiAddress),"Kisi mevcut degil");
             
              uint yeniId=id++;
-             sertifikaBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
-             sertifikaBilgiListesi[msg.sender][yeniId].alinanTarih=_alinanTarih;
-             sertifikaBilgiListesi[msg.sender][yeniId].gecerlilikSuresi=_gecerlilikSuresi;
-             sertifikaBilgiListesi[msg.sender][yeniId].sertifikaAdi=_sertifikaAdi;
-             sertifikaBilgiListesi[msg.sender][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
+             sertifikaBilgiListesi[_kisiAddress][yeniId].talepEdilenKurum=_talepEdilenKurum;
+             sertifikaBilgiListesi[_kisiAddress][yeniId].alinanTarih=_alinanTarih;
+             sertifikaBilgiListesi[_kisiAddress][yeniId].gecerlilikSuresi=_gecerlilikSuresi;
+             sertifikaBilgiListesi[_kisiAddress][yeniId].sertifikaAdi=_sertifikaAdi;
+             sertifikaBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
 
              emit SertifikaTalepEdildiLog(yeniId, _alinanTarih, _gecerlilikSuresi);
         }

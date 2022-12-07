@@ -72,11 +72,11 @@ constructor(address baseAddress)  {
              require(baseContract.isKisi(_kisiAddress),"Student not exists");
              uint yeniId=id++;
 
-             nitelikBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
-             nitelikBilgiListesi[msg.sender][yeniId].nitelikKodu=nitelikKodu;
-             nitelikBilgiListesi[msg.sender][yeniId].aciklama=aciklama;
-             nitelikBilgiListesi[msg.sender][yeniId].seviye=seviye;
-             nitelikBilgiListesi[msg.sender][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
+             nitelikBilgiListesi[_kisiAddress][yeniId].talepEdilenKurum=_talepEdilenKurum;
+             nitelikBilgiListesi[_kisiAddress][yeniId].nitelikKodu=nitelikKodu;
+             nitelikBilgiListesi[_kisiAddress][yeniId].aciklama=aciklama;
+             nitelikBilgiListesi[_kisiAddress][yeniId].seviye=seviye;
+             nitelikBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
            
             emit NitelikEklendiLog(msg.sender, block.timestamp, nitelikKodu);
         }

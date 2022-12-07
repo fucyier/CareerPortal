@@ -71,12 +71,12 @@ constructor(address baseAddress)  {
   function talepEtKursBilgi(address _kisiAddress,address _talepEdilenKurum,  uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public {
               require(baseContract.isKisi(_kisiAddress),"Student not exists");
              uint yeniId=id++;
-             kursBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
-             kursBilgiListesi[msg.sender][yeniId].basTarih=basTarih;
-             kursBilgiListesi[msg.sender][yeniId].bitTarih=bitTarih;
-             kursBilgiListesi[msg.sender][yeniId].sure=sure;
-             kursBilgiListesi[msg.sender][yeniId].egitimAdi=egitimAdi;
-             kursBilgiListesi[msg.sender][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
+             kursBilgiListesi[_kisiAddress][yeniId].talepEdilenKurum=_talepEdilenKurum;
+             kursBilgiListesi[_kisiAddress][yeniId].basTarih=basTarih;
+             kursBilgiListesi[_kisiAddress][yeniId].bitTarih=bitTarih;
+             kursBilgiListesi[_kisiAddress][yeniId].sure=sure;
+             kursBilgiListesi[_kisiAddress][yeniId].egitimAdi=egitimAdi;
+             kursBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
 
             emit KursEklendiLog(_talepEdilenKurum, basTarih, bitTarih, sure);
         }

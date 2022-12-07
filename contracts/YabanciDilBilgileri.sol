@@ -79,15 +79,15 @@ contract YabanciDilBilgileri is BaseContract{
            require(baseContract.isKisi( _kisiAddress),"Student not exists");
              uint yeniId=id++;
 
-             yabanciDilBilgiListesi[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
-             yabanciDilBilgiListesi[msg.sender][yeniId].basTarih=basTarih;
-             yabanciDilBilgiListesi[msg.sender][yeniId].bitTarih=bitTarih;
-             yabanciDilBilgiListesi[msg.sender][yeniId].ogretimTipi=ogretimTipi;
-             yabanciDilBilgiListesi[msg.sender][yeniId].dilId=dilId;
-             yabanciDilBilgiListesi[msg.sender][yeniId].seviye=seviye;
-             yabanciDilBilgiListesi[msg.sender][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
-             yabanciDilBilgiListesi[msg.sender][yeniId].onayBilgi.zaman=block.timestamp;
-             yabanciDilBilgiListesi[msg.sender][yeniId].onayBilgi.adres=msg.sender;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].talepEdilenKurum=_talepEdilenKurum;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].basTarih=basTarih;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].bitTarih=bitTarih;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].ogretimTipi=ogretimTipi;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].dilId=dilId;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].seviye=seviye;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].onayBilgi.zaman=block.timestamp;
+             yabanciDilBilgiListesi[_kisiAddress][yeniId].onayBilgi.adres=msg.sender;
            
              emit YabanciDilTalepEdildiLog(_talepEdilenKurum,  basTarih,  bitTarih, ogretimTipi, dilId);
         }

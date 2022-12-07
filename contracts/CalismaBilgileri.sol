@@ -83,16 +83,16 @@ contract CalismaBilgileri is BaseContract{
             require(baseContract.isKisi(_kisiAddress),"Student not exists");
              uint yeniId=id++;
 
-             calismaBilgileri[msg.sender][yeniId].talepEdilenKurum=_talepEdilenKurum;
-             calismaBilgileri[msg.sender][yeniId].pozisyon=pozisyon;
-             calismaBilgileri[msg.sender][yeniId].sektor=sektor;
-             calismaBilgileri[msg.sender][yeniId].calismaTipi=calismaTipi;
-             calismaBilgileri[msg.sender][yeniId].isAciklama=isAciklama;
-             calismaBilgileri[msg.sender][yeniId].basTarih=basTarih;
-             calismaBilgileri[msg.sender][yeniId].bitTarih=bitTarih;
-             calismaBilgileri[msg.sender][yeniId].ulke=ulke;
-             calismaBilgileri[msg.sender][yeniId].sehir=sehir;
-             calismaBilgileri[msg.sender][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
+             calismaBilgileri[_kisiAddress][yeniId].talepEdilenKurum=_talepEdilenKurum;
+             calismaBilgileri[_kisiAddress][yeniId].pozisyon=pozisyon;
+             calismaBilgileri[_kisiAddress][yeniId].sektor=sektor;
+             calismaBilgileri[_kisiAddress][yeniId].calismaTipi=calismaTipi;
+             calismaBilgileri[_kisiAddress][yeniId].isAciklama=isAciklama;
+             calismaBilgileri[_kisiAddress][yeniId].basTarih=basTarih;
+             calismaBilgileri[_kisiAddress][yeniId].bitTarih=bitTarih;
+             calismaBilgileri[_kisiAddress][yeniId].ulke=ulke;
+             calismaBilgileri[_kisiAddress][yeniId].sehir=sehir;
+             calismaBilgileri[_kisiAddress][yeniId].onayBilgi.durum=OnayDurum.OnayBekliyor;
 
            
              emit CalismaBilgiTalepEdildiLog( _talepEdilenKurum, ulke,pozisyon, sektor);
