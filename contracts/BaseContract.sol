@@ -5,10 +5,11 @@ contract BaseContract{
   address TOBB;
   address CB;
 
-function getYOK() public view returns   (address)
-{
-return YOK;
-}
+    function paydasTanimla(address _yok, address _tobb, address _cb)  public  {
+      YOK=_yok;
+      TOBB=_tobb;
+      CB=_cb;
+    }
 
   struct  Kisi
     {
@@ -210,6 +211,7 @@ return YOK;
     mapping(address=>KamuKurumu) public kamuKurumlari;
     mapping(address=>STK) public stklar;
     mapping(address=>SertifikaMerkezi) public sertifikaMerkezleri;
+    
     mapping(uint32=>YabanciDil) public diller;
 
 
@@ -295,13 +297,7 @@ return YOK;
         sertifikaMerkezleri[_smAdres].durum=true;
         sertifikaMerkezleri[_smAdres].isim=_isim;
         sertifikaMerkezleri[_smAdres].ulke=_ulke;
-        
-     
-       
+
     }
-    function paydasTanimla(address _yok, address _tobb, address _cb)  public  {
-      YOK=_yok;
-      TOBB=_tobb;
-      CB=_cb;
-    }
+
 }

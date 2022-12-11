@@ -1,0 +1,1485 @@
+{
+	"id": "b029b0d5e0de9b974d5490e6d994a09c",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.7",
+	"solcLongVersion": "0.8.7+commit.e28d00a7",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/BaseProperties.sol": {
+				"content": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity >=0.8.0 <0.9.0;\r\nabstract contract BaseProperties{\r\n\r\n  struct  Kisi\r\n    {\r\n      bool durum;\r\n    \r\n    }\r\n   enum EgitimDurumu { \r\n             Lisans, \r\n             OnLisans, \r\n             YuksekLisans,\r\n             Doktora }\r\n\r\n         enum OgretimTipi { \r\n             OrgunOgretim, \r\n             AcikOgretim, \r\n             IkinciOgretim,\r\n             UzaktanOgretim }\r\n             \r\n                enum CalismaTipi { \r\n             YariZamanli, \r\n             TamZamanli, \r\n             Stajyer\r\n             }\r\n\r\n    struct Onay{\r\n      uint zaman;\r\n      address adres;\r\n      OnayDurum durum;\r\n    }\r\n     enum OnayDurum {\r\n        OnayBekliyor,\r\n        Onaylandi,\r\n        Reddedildi\r\n        } \r\n   struct Universite\r\n        {\r\n        bool durum;\r\n        string isim;\r\n        uint8 ulke;\r\n        }\r\n\r\n        struct Akademisyen\r\n        {\r\n        bool durum;\r\n        address universite;\r\n        uint16 bolum;\r\n        Unvan unvan; \r\n        string ad;\r\n        string soyad;\r\n        }\r\n\r\n        enum Unvan { DR, AS_PROF, PROF,MD }    \r\n        enum Seviye { Temel, Orta, Iyi, Ileri }   \r\n        enum Cinsiyet{Erkek,Kadin}\r\n        enum AskerlikDurum{Yapildi,Tecilli,Yapiliyor}\r\n        enum EhliyetDurum{Yok,A,B,C,D,E}\r\n  enum OnaylayanKurum { \r\n             Universite, \r\n             Firma, \r\n             Kamu,\r\n             STK,\r\n             SertifikaMerkezi,\r\n             Kurs \r\n             }\r\n     struct Firma\r\n    {\r\n      bool durum;\r\n      uint8 ulke;\r\n      uint vergiNo;\r\n      string isim;\r\n    }\r\n     struct KamuKurumu\r\n    {\r\n      bool durum;\r\n      string isim;\r\n      uint8 ulke;\r\n    }\r\n      struct STK\r\n    {\r\n      bool durum;\r\n      string isim;\r\n      uint8 ulke;\r\n    }\r\n      struct SertifikaMerkezi\r\n    {\r\n      bool durum;\r\n      string isim;\r\n      uint8 ulke;\r\n    }\r\n    struct Kurs\r\n    {\r\n      bool durum;\r\n      string isim;\r\n      uint8 ulke;\r\n    }\r\n\r\n     struct YabanciDil\r\n    {\r\n      uint32 id;\r\n      string isim;\r\n    }\r\n}"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			}
+		}
+	},
+	"output": {
+		"contracts": {
+			"contracts/BaseProperties.sol": {
+				"BaseProperties": {
+					"abi": [],
+					"devdoc": {
+						"kind": "dev",
+						"methods": {},
+						"version": 1
+					},
+					"evm": {
+						"assembly": "",
+						"bytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"deployedBytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"immutableReferences": {},
+							"linkReferences": {},
+							"object": "",
+							"opcodes": "",
+							"sourceMap": ""
+						},
+						"gasEstimates": null,
+						"legacyAssembly": null,
+						"methodIdentifiers": {}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/BaseProperties.sol\":\"BaseProperties\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/BaseProperties.sol\":{\"keccak256\":\"0x530b99d5b63bd91e668a30b1181af346447a09bab6999ccea72ab09b748e981f\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://9d5c2ca8b7b2840778738c1aa38c06112ab8c0de57cb24907aea94c05b8d96f1\",\"dweb:/ipfs/Qmbw1xtcasYmTzvxN5G8o2ZFUpDYVShoLUWhnRw3qABvuG\"]}},\"version\":1}",
+					"storageLayout": {
+						"storage": [],
+						"types": null
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {},
+						"version": 1
+					}
+				}
+			}
+		},
+		"sources": {
+			"contracts/BaseProperties.sol": {
+				"ast": {
+					"absolutePath": "contracts/BaseProperties.sol",
+					"exportedSymbols": {
+						"BaseProperties": [
+							125
+						]
+					},
+					"id": 126,
+					"license": "GPL-3.0",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								">=",
+								"0.8",
+								".0",
+								"<",
+								"0.9",
+								".0"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "37:31:0"
+						},
+						{
+							"abstract": true,
+							"baseContracts": [],
+							"contractDependencies": [],
+							"contractKind": "contract",
+							"fullyImplemented": true,
+							"id": 125,
+							"linearizedBaseContracts": [
+								125
+							],
+							"name": "BaseProperties",
+							"nameLocation": "88:14:0",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"canonicalName": "BaseProperties.Kisi",
+									"id": 4,
+									"members": [
+										{
+											"constant": false,
+											"id": 3,
+											"mutability": "mutable",
+											"name": "durum",
+											"nameLocation": "141:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 4,
+											"src": "136:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_bool",
+												"typeString": "bool"
+											},
+											"typeName": {
+												"id": 2,
+												"name": "bool",
+												"nodeType": "ElementaryTypeName",
+												"src": "136:4:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bool",
+													"typeString": "bool"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "Kisi",
+									"nameLocation": "117:4:0",
+									"nodeType": "StructDefinition",
+									"scope": 125,
+									"src": "109:51:0",
+									"visibility": "public"
+								},
+								{
+									"canonicalName": "BaseProperties.EgitimDurumu",
+									"id": 9,
+									"members": [
+										{
+											"id": 5,
+											"name": "Lisans",
+											"nameLocation": "200:6:0",
+											"nodeType": "EnumValue",
+											"src": "200:6:0"
+										},
+										{
+											"id": 6,
+											"name": "OnLisans",
+											"nameLocation": "223:8:0",
+											"nodeType": "EnumValue",
+											"src": "223:8:0"
+										},
+										{
+											"id": 7,
+											"name": "YuksekLisans",
+											"nameLocation": "248:12:0",
+											"nodeType": "EnumValue",
+											"src": "248:12:0"
+										},
+										{
+											"id": 8,
+											"name": "Doktora",
+											"nameLocation": "276:7:0",
+											"nodeType": "EnumValue",
+											"src": "276:7:0"
+										}
+									],
+									"name": "EgitimDurumu",
+									"nameLocation": "170:12:0",
+									"nodeType": "EnumDefinition",
+									"src": "165:120:0"
+								},
+								{
+									"canonicalName": "BaseProperties.OgretimTipi",
+									"id": 14,
+									"members": [
+										{
+											"id": 10,
+											"name": "OrgunOgretim",
+											"nameLocation": "332:12:0",
+											"nodeType": "EnumValue",
+											"src": "332:12:0"
+										},
+										{
+											"id": 11,
+											"name": "AcikOgretim",
+											"nameLocation": "361:11:0",
+											"nodeType": "EnumValue",
+											"src": "361:11:0"
+										},
+										{
+											"id": 12,
+											"name": "IkinciOgretim",
+											"nameLocation": "389:13:0",
+											"nodeType": "EnumValue",
+											"src": "389:13:0"
+										},
+										{
+											"id": 13,
+											"name": "UzaktanOgretim",
+											"nameLocation": "418:14:0",
+											"nodeType": "EnumValue",
+											"src": "418:14:0"
+										}
+									],
+									"name": "OgretimTipi",
+									"nameLocation": "303:11:0",
+									"nodeType": "EnumDefinition",
+									"src": "298:136:0"
+								},
+								{
+									"canonicalName": "BaseProperties.CalismaTipi",
+									"id": 18,
+									"members": [
+										{
+											"id": 15,
+											"name": "YariZamanli",
+											"nameLocation": "501:11:0",
+											"nodeType": "EnumValue",
+											"src": "501:11:0"
+										},
+										{
+											"id": 16,
+											"name": "TamZamanli",
+											"nameLocation": "529:10:0",
+											"nodeType": "EnumValue",
+											"src": "529:10:0"
+										},
+										{
+											"id": 17,
+											"name": "Stajyer",
+											"nameLocation": "556:7:0",
+											"nodeType": "EnumValue",
+											"src": "556:7:0"
+										}
+									],
+									"name": "CalismaTipi",
+									"nameLocation": "472:11:0",
+									"nodeType": "EnumDefinition",
+									"src": "467:112:0"
+								},
+								{
+									"canonicalName": "BaseProperties.Onay",
+									"id": 26,
+									"members": [
+										{
+											"constant": false,
+											"id": 20,
+											"mutability": "mutable",
+											"name": "zaman",
+											"nameLocation": "612:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 26,
+											"src": "607:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint256",
+												"typeString": "uint256"
+											},
+											"typeName": {
+												"id": 19,
+												"name": "uint",
+												"nodeType": "ElementaryTypeName",
+												"src": "607:4:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 22,
+											"mutability": "mutable",
+											"name": "adres",
+											"nameLocation": "634:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 26,
+											"src": "626:13:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_address",
+												"typeString": "address"
+											},
+											"typeName": {
+												"id": 21,
+												"name": "address",
+												"nodeType": "ElementaryTypeName",
+												"src": "626:7:0",
+												"stateMutability": "nonpayable",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 25,
+											"mutability": "mutable",
+											"name": "durum",
+											"nameLocation": "658:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 26,
+											"src": "648:15:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_enum$_OnayDurum_$30",
+												"typeString": "enum BaseProperties.OnayDurum"
+											},
+											"typeName": {
+												"id": 24,
+												"nodeType": "UserDefinedTypeName",
+												"pathNode": {
+													"id": 23,
+													"name": "OnayDurum",
+													"nodeType": "IdentifierPath",
+													"referencedDeclaration": 30,
+													"src": "648:9:0"
+												},
+												"referencedDeclaration": 30,
+												"src": "648:9:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_enum$_OnayDurum_$30",
+													"typeString": "enum BaseProperties.OnayDurum"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "Onay",
+									"nameLocation": "594:4:0",
+									"nodeType": "StructDefinition",
+									"scope": 125,
+									"src": "587:84:0",
+									"visibility": "public"
+								},
+								{
+									"canonicalName": "BaseProperties.OnayDurum",
+									"id": 30,
+									"members": [
+										{
+											"id": 27,
+											"name": "OnayBekliyor",
+											"nameLocation": "704:12:0",
+											"nodeType": "EnumValue",
+											"src": "704:12:0"
+										},
+										{
+											"id": 28,
+											"name": "Onaylandi",
+											"nameLocation": "727:9:0",
+											"nodeType": "EnumValue",
+											"src": "727:9:0"
+										},
+										{
+											"id": 29,
+											"name": "Reddedildi",
+											"nameLocation": "747:10:0",
+											"nodeType": "EnumValue",
+											"src": "747:10:0"
+										}
+									],
+									"name": "OnayDurum",
+									"nameLocation": "683:9:0",
+									"nodeType": "EnumDefinition",
+									"src": "678:90:0"
+								},
+								{
+									"canonicalName": "BaseProperties.Universite",
+									"id": 37,
+									"members": [
+										{
+											"constant": false,
+											"id": 32,
+											"mutability": "mutable",
+											"name": "durum",
+											"nameLocation": "817:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 37,
+											"src": "812:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_bool",
+												"typeString": "bool"
+											},
+											"typeName": {
+												"id": 31,
+												"name": "bool",
+												"nodeType": "ElementaryTypeName",
+												"src": "812:4:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bool",
+													"typeString": "bool"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 34,
+											"mutability": "mutable",
+											"name": "isim",
+											"nameLocation": "840:4:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 37,
+											"src": "833:11:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_string_storage_ptr",
+												"typeString": "string"
+											},
+											"typeName": {
+												"id": 33,
+												"name": "string",
+												"nodeType": "ElementaryTypeName",
+												"src": "833:6:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_storage_ptr",
+													"typeString": "string"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 36,
+											"mutability": "mutable",
+											"name": "ulke",
+											"nameLocation": "861:4:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 37,
+											"src": "855:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint8",
+												"typeString": "uint8"
+											},
+											"typeName": {
+												"id": 35,
+												"name": "uint8",
+												"nodeType": "ElementaryTypeName",
+												"src": "855:5:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint8",
+													"typeString": "uint8"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "Universite",
+									"nameLocation": "781:10:0",
+									"nodeType": "StructDefinition",
+									"scope": 125,
+									"src": "774:103:0",
+									"visibility": "public"
+								},
+								{
+									"canonicalName": "BaseProperties.Akademisyen",
+									"id": 51,
+									"members": [
+										{
+											"constant": false,
+											"id": 39,
+											"mutability": "mutable",
+											"name": "durum",
+											"nameLocation": "933:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 51,
+											"src": "928:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_bool",
+												"typeString": "bool"
+											},
+											"typeName": {
+												"id": 38,
+												"name": "bool",
+												"nodeType": "ElementaryTypeName",
+												"src": "928:4:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bool",
+													"typeString": "bool"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 41,
+											"mutability": "mutable",
+											"name": "universite",
+											"nameLocation": "957:10:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 51,
+											"src": "949:18:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_address",
+												"typeString": "address"
+											},
+											"typeName": {
+												"id": 40,
+												"name": "address",
+												"nodeType": "ElementaryTypeName",
+												"src": "949:7:0",
+												"stateMutability": "nonpayable",
+												"typeDescriptions": {
+													"typeIdentifier": "t_address",
+													"typeString": "address"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 43,
+											"mutability": "mutable",
+											"name": "bolum",
+											"nameLocation": "985:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 51,
+											"src": "978:12:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint16",
+												"typeString": "uint16"
+											},
+											"typeName": {
+												"id": 42,
+												"name": "uint16",
+												"nodeType": "ElementaryTypeName",
+												"src": "978:6:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint16",
+													"typeString": "uint16"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 46,
+											"mutability": "mutable",
+											"name": "unvan",
+											"nameLocation": "1007:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 51,
+											"src": "1001:11:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_enum$_Unvan_$56",
+												"typeString": "enum BaseProperties.Unvan"
+											},
+											"typeName": {
+												"id": 45,
+												"nodeType": "UserDefinedTypeName",
+												"pathNode": {
+													"id": 44,
+													"name": "Unvan",
+													"nodeType": "IdentifierPath",
+													"referencedDeclaration": 56,
+													"src": "1001:5:0"
+												},
+												"referencedDeclaration": 56,
+												"src": "1001:5:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_enum$_Unvan_$56",
+													"typeString": "enum BaseProperties.Unvan"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 48,
+											"mutability": "mutable",
+											"name": "ad",
+											"nameLocation": "1031:2:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 51,
+											"src": "1024:9:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_string_storage_ptr",
+												"typeString": "string"
+											},
+											"typeName": {
+												"id": 47,
+												"name": "string",
+												"nodeType": "ElementaryTypeName",
+												"src": "1024:6:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_storage_ptr",
+													"typeString": "string"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 50,
+											"mutability": "mutable",
+											"name": "soyad",
+											"nameLocation": "1051:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 51,
+											"src": "1044:12:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_string_storage_ptr",
+												"typeString": "string"
+											},
+											"typeName": {
+												"id": 49,
+												"name": "string",
+												"nodeType": "ElementaryTypeName",
+												"src": "1044:6:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_storage_ptr",
+													"typeString": "string"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "Akademisyen",
+									"nameLocation": "896:11:0",
+									"nodeType": "StructDefinition",
+									"scope": 125,
+									"src": "889:179:0",
+									"visibility": "public"
+								},
+								{
+									"canonicalName": "BaseProperties.Unvan",
+									"id": 56,
+									"members": [
+										{
+											"id": 52,
+											"name": "DR",
+											"nameLocation": "1093:2:0",
+											"nodeType": "EnumValue",
+											"src": "1093:2:0"
+										},
+										{
+											"id": 53,
+											"name": "AS_PROF",
+											"nameLocation": "1097:7:0",
+											"nodeType": "EnumValue",
+											"src": "1097:7:0"
+										},
+										{
+											"id": 54,
+											"name": "PROF",
+											"nameLocation": "1106:4:0",
+											"nodeType": "EnumValue",
+											"src": "1106:4:0"
+										},
+										{
+											"id": 55,
+											"name": "MD",
+											"nameLocation": "1111:2:0",
+											"nodeType": "EnumValue",
+											"src": "1111:2:0"
+										}
+									],
+									"name": "Unvan",
+									"nameLocation": "1085:5:0",
+									"nodeType": "EnumDefinition",
+									"src": "1080:35:0"
+								},
+								{
+									"canonicalName": "BaseProperties.Seviye",
+									"id": 61,
+									"members": [
+										{
+											"id": 57,
+											"name": "Temel",
+											"nameLocation": "1143:5:0",
+											"nodeType": "EnumValue",
+											"src": "1143:5:0"
+										},
+										{
+											"id": 58,
+											"name": "Orta",
+											"nameLocation": "1150:4:0",
+											"nodeType": "EnumValue",
+											"src": "1150:4:0"
+										},
+										{
+											"id": 59,
+											"name": "Iyi",
+											"nameLocation": "1156:3:0",
+											"nodeType": "EnumValue",
+											"src": "1156:3:0"
+										},
+										{
+											"id": 60,
+											"name": "Ileri",
+											"nameLocation": "1161:5:0",
+											"nodeType": "EnumValue",
+											"src": "1161:5:0"
+										}
+									],
+									"name": "Seviye",
+									"nameLocation": "1134:6:0",
+									"nodeType": "EnumDefinition",
+									"src": "1129:39:0"
+								},
+								{
+									"canonicalName": "BaseProperties.Cinsiyet",
+									"id": 64,
+									"members": [
+										{
+											"id": 62,
+											"name": "Erkek",
+											"nameLocation": "1195:5:0",
+											"nodeType": "EnumValue",
+											"src": "1195:5:0"
+										},
+										{
+											"id": 63,
+											"name": "Kadin",
+											"nameLocation": "1201:5:0",
+											"nodeType": "EnumValue",
+											"src": "1201:5:0"
+										}
+									],
+									"name": "Cinsiyet",
+									"nameLocation": "1186:8:0",
+									"nodeType": "EnumDefinition",
+									"src": "1181:26:0"
+								},
+								{
+									"canonicalName": "BaseProperties.AskerlikDurum",
+									"id": 68,
+									"members": [
+										{
+											"id": 65,
+											"name": "Yapildi",
+											"nameLocation": "1236:7:0",
+											"nodeType": "EnumValue",
+											"src": "1236:7:0"
+										},
+										{
+											"id": 66,
+											"name": "Tecilli",
+											"nameLocation": "1244:7:0",
+											"nodeType": "EnumValue",
+											"src": "1244:7:0"
+										},
+										{
+											"id": 67,
+											"name": "Yapiliyor",
+											"nameLocation": "1252:9:0",
+											"nodeType": "EnumValue",
+											"src": "1252:9:0"
+										}
+									],
+									"name": "AskerlikDurum",
+									"nameLocation": "1222:13:0",
+									"nodeType": "EnumDefinition",
+									"src": "1217:45:0"
+								},
+								{
+									"canonicalName": "BaseProperties.EhliyetDurum",
+									"id": 75,
+									"members": [
+										{
+											"id": 69,
+											"name": "Yok",
+											"nameLocation": "1290:3:0",
+											"nodeType": "EnumValue",
+											"src": "1290:3:0"
+										},
+										{
+											"id": 70,
+											"name": "A",
+											"nameLocation": "1294:1:0",
+											"nodeType": "EnumValue",
+											"src": "1294:1:0"
+										},
+										{
+											"id": 71,
+											"name": "B",
+											"nameLocation": "1296:1:0",
+											"nodeType": "EnumValue",
+											"src": "1296:1:0"
+										},
+										{
+											"id": 72,
+											"name": "C",
+											"nameLocation": "1298:1:0",
+											"nodeType": "EnumValue",
+											"src": "1298:1:0"
+										},
+										{
+											"id": 73,
+											"name": "D",
+											"nameLocation": "1300:1:0",
+											"nodeType": "EnumValue",
+											"src": "1300:1:0"
+										},
+										{
+											"id": 74,
+											"name": "E",
+											"nameLocation": "1302:1:0",
+											"nodeType": "EnumValue",
+											"src": "1302:1:0"
+										}
+									],
+									"name": "EhliyetDurum",
+									"nameLocation": "1277:12:0",
+									"nodeType": "EnumDefinition",
+									"src": "1272:32:0"
+								},
+								{
+									"canonicalName": "BaseProperties.OnaylayanKurum",
+									"id": 82,
+									"members": [
+										{
+											"id": 76,
+											"name": "Universite",
+											"nameLocation": "1345:10:0",
+											"nodeType": "EnumValue",
+											"src": "1345:10:0"
+										},
+										{
+											"id": 77,
+											"name": "Firma",
+											"nameLocation": "1372:5:0",
+											"nodeType": "EnumValue",
+											"src": "1372:5:0"
+										},
+										{
+											"id": 78,
+											"name": "Kamu",
+											"nameLocation": "1394:4:0",
+											"nodeType": "EnumValue",
+											"src": "1394:4:0"
+										},
+										{
+											"id": 79,
+											"name": "STK",
+											"nameLocation": "1414:3:0",
+											"nodeType": "EnumValue",
+											"src": "1414:3:0"
+										},
+										{
+											"id": 80,
+											"name": "SertifikaMerkezi",
+											"nameLocation": "1433:16:0",
+											"nodeType": "EnumValue",
+											"src": "1433:16:0"
+										},
+										{
+											"id": 81,
+											"name": "Kurs",
+											"nameLocation": "1465:4:0",
+											"nodeType": "EnumValue",
+											"src": "1465:4:0"
+										}
+									],
+									"name": "OnaylayanKurum",
+									"nameLocation": "1313:14:0",
+									"nodeType": "EnumDefinition",
+									"src": "1308:178:0"
+								},
+								{
+									"canonicalName": "BaseProperties.Firma",
+									"id": 91,
+									"members": [
+										{
+											"constant": false,
+											"id": 84,
+											"mutability": "mutable",
+											"name": "durum",
+											"nameLocation": "1525:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 91,
+											"src": "1520:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_bool",
+												"typeString": "bool"
+											},
+											"typeName": {
+												"id": 83,
+												"name": "bool",
+												"nodeType": "ElementaryTypeName",
+												"src": "1520:4:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bool",
+													"typeString": "bool"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 86,
+											"mutability": "mutable",
+											"name": "ulke",
+											"nameLocation": "1545:4:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 91,
+											"src": "1539:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint8",
+												"typeString": "uint8"
+											},
+											"typeName": {
+												"id": 85,
+												"name": "uint8",
+												"nodeType": "ElementaryTypeName",
+												"src": "1539:5:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint8",
+													"typeString": "uint8"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 88,
+											"mutability": "mutable",
+											"name": "vergiNo",
+											"nameLocation": "1563:7:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 91,
+											"src": "1558:12:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint256",
+												"typeString": "uint256"
+											},
+											"typeName": {
+												"id": 87,
+												"name": "uint",
+												"nodeType": "ElementaryTypeName",
+												"src": "1558:4:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 90,
+											"mutability": "mutable",
+											"name": "isim",
+											"nameLocation": "1586:4:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 91,
+											"src": "1579:11:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_string_storage_ptr",
+												"typeString": "string"
+											},
+											"typeName": {
+												"id": 89,
+												"name": "string",
+												"nodeType": "ElementaryTypeName",
+												"src": "1579:6:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_storage_ptr",
+													"typeString": "string"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "Firma",
+									"nameLocation": "1500:5:0",
+									"nodeType": "StructDefinition",
+									"scope": 125,
+									"src": "1493:105:0",
+									"visibility": "public"
+								},
+								{
+									"canonicalName": "BaseProperties.KamuKurumu",
+									"id": 98,
+									"members": [
+										{
+											"constant": false,
+											"id": 93,
+											"mutability": "mutable",
+											"name": "durum",
+											"nameLocation": "1642:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 98,
+											"src": "1637:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_bool",
+												"typeString": "bool"
+											},
+											"typeName": {
+												"id": 92,
+												"name": "bool",
+												"nodeType": "ElementaryTypeName",
+												"src": "1637:4:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bool",
+													"typeString": "bool"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 95,
+											"mutability": "mutable",
+											"name": "isim",
+											"nameLocation": "1663:4:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 98,
+											"src": "1656:11:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_string_storage_ptr",
+												"typeString": "string"
+											},
+											"typeName": {
+												"id": 94,
+												"name": "string",
+												"nodeType": "ElementaryTypeName",
+												"src": "1656:6:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_storage_ptr",
+													"typeString": "string"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 97,
+											"mutability": "mutable",
+											"name": "ulke",
+											"nameLocation": "1682:4:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 98,
+											"src": "1676:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint8",
+												"typeString": "uint8"
+											},
+											"typeName": {
+												"id": 96,
+												"name": "uint8",
+												"nodeType": "ElementaryTypeName",
+												"src": "1676:5:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint8",
+													"typeString": "uint8"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "KamuKurumu",
+									"nameLocation": "1612:10:0",
+									"nodeType": "StructDefinition",
+									"scope": 125,
+									"src": "1605:89:0",
+									"visibility": "public"
+								},
+								{
+									"canonicalName": "BaseProperties.STK",
+									"id": 105,
+									"members": [
+										{
+											"constant": false,
+											"id": 100,
+											"mutability": "mutable",
+											"name": "durum",
+											"nameLocation": "1732:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 105,
+											"src": "1727:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_bool",
+												"typeString": "bool"
+											},
+											"typeName": {
+												"id": 99,
+												"name": "bool",
+												"nodeType": "ElementaryTypeName",
+												"src": "1727:4:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bool",
+													"typeString": "bool"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 102,
+											"mutability": "mutable",
+											"name": "isim",
+											"nameLocation": "1753:4:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 105,
+											"src": "1746:11:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_string_storage_ptr",
+												"typeString": "string"
+											},
+											"typeName": {
+												"id": 101,
+												"name": "string",
+												"nodeType": "ElementaryTypeName",
+												"src": "1746:6:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_storage_ptr",
+													"typeString": "string"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 104,
+											"mutability": "mutable",
+											"name": "ulke",
+											"nameLocation": "1772:4:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 105,
+											"src": "1766:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint8",
+												"typeString": "uint8"
+											},
+											"typeName": {
+												"id": 103,
+												"name": "uint8",
+												"nodeType": "ElementaryTypeName",
+												"src": "1766:5:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint8",
+													"typeString": "uint8"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "STK",
+									"nameLocation": "1709:3:0",
+									"nodeType": "StructDefinition",
+									"scope": 125,
+									"src": "1702:82:0",
+									"visibility": "public"
+								},
+								{
+									"canonicalName": "BaseProperties.SertifikaMerkezi",
+									"id": 112,
+									"members": [
+										{
+											"constant": false,
+											"id": 107,
+											"mutability": "mutable",
+											"name": "durum",
+											"nameLocation": "1835:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 112,
+											"src": "1830:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_bool",
+												"typeString": "bool"
+											},
+											"typeName": {
+												"id": 106,
+												"name": "bool",
+												"nodeType": "ElementaryTypeName",
+												"src": "1830:4:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bool",
+													"typeString": "bool"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 109,
+											"mutability": "mutable",
+											"name": "isim",
+											"nameLocation": "1856:4:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 112,
+											"src": "1849:11:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_string_storage_ptr",
+												"typeString": "string"
+											},
+											"typeName": {
+												"id": 108,
+												"name": "string",
+												"nodeType": "ElementaryTypeName",
+												"src": "1849:6:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_storage_ptr",
+													"typeString": "string"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 111,
+											"mutability": "mutable",
+											"name": "ulke",
+											"nameLocation": "1875:4:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 112,
+											"src": "1869:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint8",
+												"typeString": "uint8"
+											},
+											"typeName": {
+												"id": 110,
+												"name": "uint8",
+												"nodeType": "ElementaryTypeName",
+												"src": "1869:5:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint8",
+													"typeString": "uint8"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "SertifikaMerkezi",
+									"nameLocation": "1799:16:0",
+									"nodeType": "StructDefinition",
+									"scope": 125,
+									"src": "1792:95:0",
+									"visibility": "public"
+								},
+								{
+									"canonicalName": "BaseProperties.Kurs",
+									"id": 119,
+									"members": [
+										{
+											"constant": false,
+											"id": 114,
+											"mutability": "mutable",
+											"name": "durum",
+											"nameLocation": "1924:5:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 119,
+											"src": "1919:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_bool",
+												"typeString": "bool"
+											},
+											"typeName": {
+												"id": 113,
+												"name": "bool",
+												"nodeType": "ElementaryTypeName",
+												"src": "1919:4:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bool",
+													"typeString": "bool"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 116,
+											"mutability": "mutable",
+											"name": "isim",
+											"nameLocation": "1945:4:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 119,
+											"src": "1938:11:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_string_storage_ptr",
+												"typeString": "string"
+											},
+											"typeName": {
+												"id": 115,
+												"name": "string",
+												"nodeType": "ElementaryTypeName",
+												"src": "1938:6:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_storage_ptr",
+													"typeString": "string"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 118,
+											"mutability": "mutable",
+											"name": "ulke",
+											"nameLocation": "1964:4:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 119,
+											"src": "1958:10:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint8",
+												"typeString": "uint8"
+											},
+											"typeName": {
+												"id": 117,
+												"name": "uint8",
+												"nodeType": "ElementaryTypeName",
+												"src": "1958:5:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint8",
+													"typeString": "uint8"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "Kurs",
+									"nameLocation": "1900:4:0",
+									"nodeType": "StructDefinition",
+									"scope": 125,
+									"src": "1893:83:0",
+									"visibility": "public"
+								},
+								{
+									"canonicalName": "BaseProperties.YabanciDil",
+									"id": 124,
+									"members": [
+										{
+											"constant": false,
+											"id": 121,
+											"mutability": "mutable",
+											"name": "id",
+											"nameLocation": "2024:2:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 124,
+											"src": "2017:9:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint32",
+												"typeString": "uint32"
+											},
+											"typeName": {
+												"id": 120,
+												"name": "uint32",
+												"nodeType": "ElementaryTypeName",
+												"src": "2017:6:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint32",
+													"typeString": "uint32"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 123,
+											"mutability": "mutable",
+											"name": "isim",
+											"nameLocation": "2042:4:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 124,
+											"src": "2035:11:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_string_storage_ptr",
+												"typeString": "string"
+											},
+											"typeName": {
+												"id": 122,
+												"name": "string",
+												"nodeType": "ElementaryTypeName",
+												"src": "2035:6:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_storage_ptr",
+													"typeString": "string"
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "YabanciDil",
+									"nameLocation": "1992:10:0",
+									"nodeType": "StructDefinition",
+									"scope": 125,
+									"src": "1985:69:0",
+									"visibility": "public"
+								}
+							],
+							"scope": 126,
+							"src": "70:1987:0",
+							"usedErrors": []
+						}
+					],
+					"src": "37:2020:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}
