@@ -8,8 +8,9 @@ import "./KursBilgileri.sol";
 import "./NitelikBilgileri.sol";
 import "./CalismaBilgileri.sol";
 import "./SertifikaBilgileri.sol";
+import "./BaseProperties.sol";
 
-contract Talep is BaseContract{
+contract Talep is BaseProperties{
 
 BaseContract baseContract;
 EgitimBilgileri egitimKontrati;

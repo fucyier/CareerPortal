@@ -6,6 +6,17 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "baseAddress",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -71,74 +82,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "akademisyenler",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "address",
-						"name": "universite",
-						"type": "address"
-					},
-					{
-						"internalType": "uint16",
-						"name": "bolum",
-						"type": "uint16"
-					},
-					{
-						"internalType": "enum BaseContract.Unvan",
-						"name": "unvan",
-						"type": "uint8"
-					},
-					{
-						"internalType": "string",
-						"name": "ad",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "soyad",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint32",
-						"name": "",
-						"type": "uint32"
-					}
-				],
-				"name": "diller",
-				"outputs": [
-					{
-						"internalType": "uint32",
-						"name": "id",
-						"type": "uint32"
-					},
-					{
-						"internalType": "string",
-						"name": "isim",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "_kisiAddress",
 						"type": "address"
 					},
@@ -168,12 +111,12 @@
 						"type": "string"
 					},
 					{
-						"internalType": "enum BaseContract.Cinsiyet",
+						"internalType": "enum BaseProperties.Cinsiyet",
 						"name": "cinsiyet",
 						"type": "uint8"
 					},
 					{
-						"internalType": "enum BaseContract.AskerlikDurum",
+						"internalType": "enum BaseProperties.AskerlikDurum",
 						"name": "askerlikDurum",
 						"type": "uint8"
 					},
@@ -183,7 +126,7 @@
 						"type": "uint8"
 					},
 					{
-						"internalType": "enum BaseContract.EhliyetDurum",
+						"internalType": "enum BaseProperties.EhliyetDurum",
 						"name": "ehliyetDurum",
 						"type": "uint8"
 					},
@@ -202,40 +145,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "firmalar",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					},
-					{
-						"internalType": "uint256",
-						"name": "vergiNo",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "isim",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "_kisiAddress",
 						"type": "address"
 					},
@@ -265,12 +174,12 @@
 						"type": "string"
 					},
 					{
-						"internalType": "enum BaseContract.Cinsiyet",
+						"internalType": "enum BaseProperties.Cinsiyet",
 						"name": "cinsiyet",
 						"type": "uint8"
 					},
 					{
-						"internalType": "enum BaseContract.AskerlikDurum",
+						"internalType": "enum BaseProperties.AskerlikDurum",
 						"name": "askerlikDurum",
 						"type": "uint8"
 					},
@@ -280,7 +189,7 @@
 						"type": "uint8"
 					},
 					{
-						"internalType": "enum BaseContract.EhliyetDurum",
+						"internalType": "enum BaseProperties.EhliyetDurum",
 						"name": "ehliyetDurum",
 						"type": "uint8"
 					},
@@ -299,54 +208,6 @@
 					}
 				],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "kamuKurumlari",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "string",
-						"name": "isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "kisiler",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -385,12 +246,12 @@
 						"type": "string"
 					},
 					{
-						"internalType": "enum BaseContract.Cinsiyet",
+						"internalType": "enum BaseProperties.Cinsiyet",
 						"name": "cinsiyet",
 						"type": "uint8"
 					},
 					{
-						"internalType": "enum BaseContract.AskerlikDurum",
+						"internalType": "enum BaseProperties.AskerlikDurum",
 						"name": "askerlikDurum",
 						"type": "uint8"
 					},
@@ -400,7 +261,7 @@
 						"type": "uint8"
 					},
 					{
-						"internalType": "enum BaseContract.EhliyetDurum",
+						"internalType": "enum BaseProperties.EhliyetDurum",
 						"name": "ehliyetDurum",
 						"type": "uint8"
 					},
@@ -408,122 +269,6 @@
 						"internalType": "uint16",
 						"name": "dogumYil",
 						"type": "uint16"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "kurslar",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "string",
-						"name": "isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "sertifikaMerkezleri",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "string",
-						"name": "isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "stklar",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "string",
-						"name": "isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "universiteler",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "durum",
-						"type": "bool"
-					},
-					{
-						"internalType": "string",
-						"name": "isim",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "ulke",
-						"type": "uint8"
 					}
 				],
 				"stateMutability": "view",
@@ -558,19 +303,27 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0xd56ac7344097d6a23fb425fde2ea7e4745db413cfa29d677f6f868038c59a359",
+			"keccak256": "0xbdff5b8f823e49f14832225670d70e1efb31135376b993306fae37685e9ea5c5",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://072c98f212fde2b8b95158d4d9fdba8c07587d36991f9107c52d2cd5958dbcd8",
-				"dweb:/ipfs/QmWy1AyZPmaGkrk25LP5wZGR6AduiePiBZcEzDK8ZXZ7Mp"
+				"bzz-raw://a4d7646b7ffda133e833d4dca8e5e0499553b5caf30916c49639907772ad2b8a",
+				"dweb:/ipfs/QmUkf6vDyNwhyiYtTvonhQBPZwqDfQoXWh7Pmau7TcJMZK"
+			]
+		},
+		"contracts/BaseProperties.sol": {
+			"keccak256": "0xc8240c9b57b8da09645f4492a48ac4f245c6571ec9dc4e40a3b79adfa84b9fa0",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://e54a15d4a75ad0fb87ce9a99dbf21d32931227c39a27d88f380a557465dbaae6",
+				"dweb:/ipfs/QmX4ANyiSW4wZT7YFJSzoZjo9UapMBSu1MasGKpFqPMBCg"
 			]
 		},
 		"contracts/KisiselBilgisi.sol": {
-			"keccak256": "0xa7823970ec74d0b7750ab8889002b817833adbde34dd759bdbe441431b2a8d7a",
+			"keccak256": "0xd65c4f18a03cc55a6eba02028c8642fb909ae09a3eb913711f1bc52b5788f3ec",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://6d9d6314983d0f71d14518923e3c24ab257db833e97ae64840b3e316cd831eb3",
-				"dweb:/ipfs/QmQYSj4h6SkThrX18hGStbT3W5tEHUSDUQE6eYw225cJWX"
+				"bzz-raw://bd1f76985cc0120f64a04c7d25183e1e2d8b3fad631905c25b2783d85873e993",
+				"dweb:/ipfs/QmdC1UjR7yujhEbq9Hq2niJ1kPoxdNSQzunnrXFWfg2fHt"
 			]
 		}
 	},

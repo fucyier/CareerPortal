@@ -33,11 +33,11 @@
 	},
 	"sources": {
 		"contracts/BaseProperties.sol": {
-			"keccak256": "0x530b99d5b63bd91e668a30b1181af346447a09bab6999ccea72ab09b748e981f",
+			"keccak256": "0xc8240c9b57b8da09645f4492a48ac4f245c6571ec9dc4e40a3b79adfa84b9fa0",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://9d5c2ca8b7b2840778738c1aa38c06112ab8c0de57cb24907aea94c05b8d96f1",
-				"dweb:/ipfs/Qmbw1xtcasYmTzvxN5G8o2ZFUpDYVShoLUWhnRw3qABvuG"
+				"bzz-raw://e54a15d4a75ad0fb87ce9a99dbf21d32931227c39a27d88f380a557465dbaae6",
+				"dweb:/ipfs/QmX4ANyiSW4wZT7YFJSzoZjo9UapMBSu1MasGKpFqPMBCg"
 			]
 		}
 	},

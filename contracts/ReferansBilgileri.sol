@@ -2,9 +2,9 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 import "./BaseContract.sol";
+import "./BaseProperties.sol";
 
-
-contract ReferansBilgileri is BaseContract{
+contract ReferansBilgileri is BaseProperties{
   uint public id;
 BaseContract baseContract;
     struct ReferansBilgi {

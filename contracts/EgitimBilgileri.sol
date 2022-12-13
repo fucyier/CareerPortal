@@ -2,7 +2,8 @@
 pragma solidity >=0.8.0 <0.9.0;
 //pragma experimental ABIEncoderV2;
 import "./BaseContract.sol";
-contract EgitimBilgileri is BaseContract{
+import "./BaseProperties.sol";
+contract EgitimBilgileri is BaseProperties{
      BaseContract baseContract;
     uint public id;
 

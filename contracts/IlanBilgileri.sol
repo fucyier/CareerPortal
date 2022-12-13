@@ -2,9 +2,9 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 import "./BaseContract.sol";
+import "./BaseProperties.sol";
 
-
-contract IlanBilgileri is BaseContract{
+contract IlanBilgileri is BaseProperties{
 
 BaseContract baseContract;
         uint public id;

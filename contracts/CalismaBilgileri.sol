@@ -2,7 +2,8 @@
 pragma solidity >=0.8.0 <0.9.0;
 //pragma experimental ABIEncoderV2;
 import "./BaseContract.sol";
-contract CalismaBilgileri is BaseContract{
+import "./BaseProperties.sol";
+contract CalismaBilgileri is BaseProperties{
   uint public id;
      BaseContract baseContract;
     struct CalismaBilgi {
