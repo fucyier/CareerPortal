@@ -21,8 +21,7 @@ contract NitelikBilgileri is BaseProperties {
 
     mapping(address => mapping(uint => NitelikBilgi)) public nitelikBilgiListesi;
     mapping(address => NitelikBilgi[]) public nitelikBilgiListesi2;
-    address[] public onayBekleyenKisiler  ;
-
+    address[] public onayBekleyenKisiler;
 
 
     event NitelikEklendiLog(address _onayKurumAdres, uint _tarih, uint _nitelikKodu);
@@ -115,12 +114,13 @@ contract NitelikBilgileri is BaseProperties {
         nitelikBilgiListesi[_kisiAddress][yeniId].aciklama = aciklama;
         nitelikBilgiListesi[_kisiAddress][yeniId].seviye = seviye;
         nitelikBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum = OnayDurum.OnayBekliyor;
-  onayBekleyenKisiler.push(_kisiAddress);
+        onayBekleyenKisiler.push(_kisiAddress);
         emit NitelikEklendiLog(msg.sender, block.timestamp, nitelikKodu);
     }
-     function talepEtNitelikBilgi2(address _kisiAddress, address _talepEdilenKurum, uint nitelikKodu, string memory aciklama, Seviye seviye) public {
+/*
+    function talepEtNitelikBilgi2(address _kisiAddress, address _talepEdilenKurum, uint nitelikKodu, string memory aciklama, Seviye seviye) public {
         require(baseContract.isKisi(_kisiAddress), "Student not exists");
-       uint yeniId = id++;
+        uint yeniId = id++;
 
         NitelikBilgi memory nb = NitelikBilgi({
         id : yeniId,
@@ -134,17 +134,50 @@ contract NitelikBilgileri is BaseProperties {
         nitelikBilgiListesi2[_kisiAddress].push(nb);
         onayBekleyenKisiler.push(_kisiAddress);
     }
-
-        function talepOnaylaNitelikBilgi(address _kisiAddress, uint nitelikBilgiId) public _yetkiliPaydas returns (uint){
+*/
+    function talepOnaylaNitelikBilgi(address _kisiAddress, uint nitelikBilgiId) public _yetkiliPaydas returns (uint){
         require(baseContract.isKisi(_kisiAddress), "Kisi bulunamadi");
 
         nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.durum = OnayDurum.Onaylandi;
         nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.adres = msg.sender;
         nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.zaman = block.timestamp;
-         
+        silOnayBekleyenListe(_kisiAddress);
         emit NitelikTalebiOnaylandiLog(msg.sender, block.timestamp);
         return nitelikBilgiId;
 
     }
+
+    function getirOnayBekleyenListe() public view returns (address[] memory){
+        return onayBekleyenKisiler;
+    }
+
+
+    function silOnayBekleyenListe(address _kisiAddress) private  {
+        require(onayBekleyenKisiler.length > 0, "Onay Bekleyen Listesi Bostur");
+        if (onayBekleyenKisiler[onayBekleyenKisiler.length - 1] == _kisiAddress) {
+            onayBekleyenKisiler.pop();
+            return;
+        }
+
+        bool kisiVarMi = false;
+        uint index;
+        
+        for (uint i = 0; i < onayBekleyenKisiler.length - 1; i++) {
+            if (onayBekleyenKisiler[i] == _kisiAddress) {
+                onayBekleyenKisiler[i] = onayBekleyenKisiler[i + 1];
+                kisiVarMi = true;
+                index = i;
+            }
+        }
+        if (kisiVarMi == false) revert("Kisi Onay Bekleyen Listesinde Yoktur.");
+        for (uint i = index; i < onayBekleyenKisiler.length - 1; i++) {
+            onayBekleyenKisiler[i] = onayBekleyenKisiler[i + 1];
+
+        }
+
+        delete onayBekleyenKisiler[onayBekleyenKisiler.length - 1];
+        onayBekleyenKisiler.pop();
+    }
+
 
 }

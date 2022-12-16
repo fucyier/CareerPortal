@@ -168,7 +168,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "getOnayBekleyenler",
+				"name": "getirOnayBekleyenListe",
 				"outputs": [
 					{
 						"internalType": "address[]",
@@ -176,7 +176,7 @@
 						"type": "address[]"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -548,6 +548,19 @@
 						"internalType": "address",
 						"name": "_kisiAddress",
 						"type": "address"
+					}
+				],
+				"name": "silOnayBekleyenListe",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
 					},
 					{
 						"internalType": "address",
@@ -677,11 +690,11 @@
 			]
 		},
 		"contracts/NitelikBilgileri.sol": {
-			"keccak256": "0x851e6813ce0e6d54d79eae9ff70482214ca23819157a634f98b2030d8119783f",
+			"keccak256": "0xbdaea3b1165520105bef015c7513d17a753ccc28183554b5b74f77196a2a0ce8",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://d4ba2c70e8b0c66f09f8d46cef95a32c002fefeae80eb511614d31fae583b791",
-				"dweb:/ipfs/Qmb3Y7zBHxoZ4ft5E5maQakRxSaSx2SGRq2WXVM1yNCZzB"
+				"bzz-raw://7ed6b77c1acfffaae14f23951658cae4ad1043eed936a0822d160cdc194f9050",
+				"dweb:/ipfs/QmQqXNdWtAUwj67JjhCyDySaYmEipy4c6FA1Vki6apyx6Z"
 			]
 		}
 	},
