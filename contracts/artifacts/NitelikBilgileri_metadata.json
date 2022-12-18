@@ -147,23 +147,87 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "nitelikKodu",
+						"name": "_id",
 						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "aciklama",
-						"type": "string"
-					},
-					{
-						"internalType": "enum BaseProperties.Seviye",
-						"name": "seviye",
-						"type": "uint8"
 					}
 				],
-				"name": "ekleNitelikBilgi2",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"name": "getirKisininNitelikBilgisi",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "talepEdilenKurum",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "nitelikKodu",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "aciklama",
+								"type": "string"
+							},
+							{
+								"internalType": "enum BaseProperties.Seviye",
+								"name": "seviye",
+								"type": "uint8"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "zaman",
+										"type": "uint256"
+									},
+									{
+										"internalType": "address",
+										"name": "adres",
+										"type": "address"
+									},
+									{
+										"internalType": "enum BaseProperties.OnayDurum",
+										"name": "durum",
+										"type": "uint8"
+									}
+								],
+								"internalType": "struct BaseProperties.Onay",
+								"name": "onayBilgi",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct NitelikBilgileri.NitelikBilgi",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					}
+				],
+				"name": "getirKisininNitelikIdListe",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -235,157 +299,21 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "key",
-						"type": "address"
-					}
-				],
-				"name": "inspect",
-				"outputs": [
-					{
-						"components": [
-							{
-								"internalType": "uint256",
-								"name": "id",
-								"type": "uint256"
-							},
-							{
-								"internalType": "address",
-								"name": "talepEdilenKurum",
-								"type": "address"
-							},
-							{
-								"internalType": "uint256",
-								"name": "nitelikKodu",
-								"type": "uint256"
-							},
-							{
-								"internalType": "string",
-								"name": "aciklama",
-								"type": "string"
-							},
-							{
-								"internalType": "enum BaseProperties.Seviye",
-								"name": "seviye",
-								"type": "uint8"
-							},
-							{
-								"components": [
-									{
-										"internalType": "uint256",
-										"name": "zaman",
-										"type": "uint256"
-									},
-									{
-										"internalType": "address",
-										"name": "adres",
-										"type": "address"
-									},
-									{
-										"internalType": "enum BaseProperties.OnayDurum",
-										"name": "durum",
-										"type": "uint8"
-									}
-								],
-								"internalType": "struct BaseProperties.Onay",
-								"name": "onayBilgi",
-								"type": "tuple"
-							}
-						],
-						"internalType": "struct NitelikBilgileri.NitelikBilgi[]",
 						"name": "",
-						"type": "tuple[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "key",
-						"type": "address"
-					}
-				],
-				"name": "inspectLength",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "key",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "record",
+						"name": "",
 						"type": "uint256"
 					}
 				],
-				"name": "inspectRecord",
+				"name": "kisiNitelikIdListesi",
 				"outputs": [
 					{
-						"components": [
-							{
-								"internalType": "uint256",
-								"name": "id",
-								"type": "uint256"
-							},
-							{
-								"internalType": "address",
-								"name": "talepEdilenKurum",
-								"type": "address"
-							},
-							{
-								"internalType": "uint256",
-								"name": "nitelikKodu",
-								"type": "uint256"
-							},
-							{
-								"internalType": "string",
-								"name": "aciklama",
-								"type": "string"
-							},
-							{
-								"internalType": "enum BaseProperties.Seviye",
-								"name": "seviye",
-								"type": "uint8"
-							},
-							{
-								"components": [
-									{
-										"internalType": "uint256",
-										"name": "zaman",
-										"type": "uint256"
-									},
-									{
-										"internalType": "address",
-										"name": "adres",
-										"type": "address"
-									},
-									{
-										"internalType": "enum BaseProperties.OnayDurum",
-										"name": "durum",
-										"type": "uint8"
-									}
-								],
-								"internalType": "struct BaseProperties.Onay",
-								"name": "onayBilgi",
-								"type": "tuple"
-							}
-						],
-						"internalType": "struct NitelikBilgileri.NitelikBilgi",
+						"internalType": "uint256",
 						"name": "",
-						"type": "tuple"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -548,19 +476,6 @@
 						"internalType": "address",
 						"name": "_kisiAddress",
 						"type": "address"
-					}
-				],
-				"name": "silOnayBekleyenListe",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_kisiAddress",
-						"type": "address"
 					},
 					{
 						"internalType": "address",
@@ -584,39 +499,6 @@
 					}
 				],
 				"name": "talepEtNitelikBilgi",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_kisiAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "_talepEdilenKurum",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "nitelikKodu",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "aciklama",
-						"type": "string"
-					},
-					{
-						"internalType": "enum BaseProperties.Seviye",
-						"name": "seviye",
-						"type": "uint8"
-					}
-				],
-				"name": "talepEtNitelikBilgi2",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -690,11 +572,11 @@
 			]
 		},
 		"contracts/NitelikBilgileri.sol": {
-			"keccak256": "0xbdaea3b1165520105bef015c7513d17a753ccc28183554b5b74f77196a2a0ce8",
+			"keccak256": "0xe294e29be9a2fb43424d1a8808ae42875c85200072f569802e1f68698693aee5",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://7ed6b77c1acfffaae14f23951658cae4ad1043eed936a0822d160cdc194f9050",
-				"dweb:/ipfs/QmQqXNdWtAUwj67JjhCyDySaYmEipy4c6FA1Vki6apyx6Z"
+				"bzz-raw://8cca861f39ffc7b68a2ad4fccff0745b3b503870b31ea1bdc1c1e3cc591beb9b",
+				"dweb:/ipfs/QmSZVWgpMzhwnf9C8bXgTKWUzEmkz4bXdxLWwo2PeuWDRv"
 			]
 		}
 	},
