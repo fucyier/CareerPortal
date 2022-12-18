@@ -134,6 +134,8 @@ contract NitelikBilgileri is BaseProperties {
     function talepOnaylaNitelikBilgi(address _kisiAddress, uint nitelikBilgiId) public _yetkiliPaydas returns (uint){
         require(baseContract.isKisi(_kisiAddress), "Kisi bulunamadi");
         require(onayBekleyenKisiVeIdMevcutMu(_kisiAddress, nitelikBilgiId), "Kisinin onay bekleyen bir talebi yoktur.");
+          require( nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].talepEdilenKurum==msg.sender, "Kisinin onay bekleyen bir talebi yoktur.");
+        
         nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.durum = OnayDurum.Onaylandi;
         nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.adres = msg.sender;
         nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.zaman = block.timestamp;
