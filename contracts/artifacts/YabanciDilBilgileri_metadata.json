@@ -96,6 +96,25 @@
 					{
 						"indexed": false,
 						"internalType": "address",
+						"name": "_onayKurumAdres",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_tarih",
+						"type": "uint256"
+					}
+				],
+				"name": "YabanciDilTalebiOnaylandiLog",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
 						"name": "_talepEdilenKurum",
 						"type": "address"
 					},
@@ -179,6 +198,126 @@
 					},
 					{
 						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "getirKisininYabanciDilBilgisi",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "talepEdilenKurum",
+								"type": "address"
+							},
+							{
+								"internalType": "enum BaseProperties.OnaylayanKurum",
+								"name": "onayKurumTipi",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "basTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "bitTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "enum BaseProperties.OgretimTipi",
+								"name": "ogretimTipi",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint32",
+								"name": "dilId",
+								"type": "uint32"
+							},
+							{
+								"internalType": "enum BaseProperties.Seviye",
+								"name": "seviye",
+								"type": "uint8"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "zaman",
+										"type": "uint256"
+									},
+									{
+										"internalType": "address",
+										"name": "adres",
+										"type": "address"
+									},
+									{
+										"internalType": "enum BaseProperties.OnayDurum",
+										"name": "durum",
+										"type": "uint8"
+									}
+								],
+								"internalType": "struct BaseProperties.Onay",
+								"name": "onayBilgi",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct YabanciDilBilgileri.YabanciDilBilgi",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					}
+				],
+				"name": "getirKisininYabanciDilIdListe",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getirOnayBekleyenListe",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
 						"name": "ydBilgiId",
 						"type": "uint256"
 					},
@@ -241,6 +380,49 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "kisiYabanciDilIdListesi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "onayBekleyenKisiler",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "_kisiAddress",
 						"type": "address"
 					},
@@ -277,6 +459,30 @@
 				],
 				"name": "talepEtYabanciDilBilgi",
 				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "ydBilgiBilgiId",
+						"type": "uint256"
+					}
+				],
+				"name": "talepOnaylaYabanciDilBilgi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -406,11 +612,11 @@
 			]
 		},
 		"contracts/YabanciDilBilgileri.sol": {
-			"keccak256": "0x6356b51796118c811cfe1213d3cd22e949ae5529890fa5d604b086cd6658e9af",
+			"keccak256": "0x781513147cdc734f869c264f04539ad9181cb1bec381f8ecd5ea73ee9c2c6b6e",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://3b4ab87f2df95f88b9aff638bc8f1bc1295332230df9080abbe57e0a4aebecea",
-				"dweb:/ipfs/QmW1dN3rP6sKh7icAX67FHmzSRyZVnYBeh9C9oaXvZeMgR"
+				"bzz-raw://e9c8bd636f27cd8db8728854fb53c4e3a834387efd86c04deefcfa8d627ed62d",
+				"dweb:/ipfs/QmRi1Kv3D8WyH1ome2J4y39UJoGfEuCwjfVqrbwsTLvCCu"
 			]
 		}
 	},

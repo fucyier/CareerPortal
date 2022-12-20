@@ -110,6 +110,25 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_onayKurumAdres",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_tarih",
+						"type": "uint256"
+					}
+				],
+				"name": "EgitimTalebiOnaylandiLog",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -122,7 +141,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "egitimBilgileri",
+				"name": "egitimBilgiListesi",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -267,16 +286,16 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_kisiAdres",
+						"name": "_kisiAddress",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "yeniId",
+						"name": "_id",
 						"type": "uint256"
 					}
 				],
-				"name": "getEgitimBilgileri",
+				"name": "getirKisininEgitimBilgisi",
 				"outputs": [
 					{
 						"components": [
@@ -372,6 +391,38 @@
 						"internalType": "address",
 						"name": "_kisiAddress",
 						"type": "address"
+					}
+				],
+				"name": "getirKisininEgitimIdListe",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getirOnayBekleyenListe",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
 					},
 					{
 						"internalType": "uint256",
@@ -452,6 +503,49 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "kisiEgitimIdListesi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "onayBekleyenKisiler",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "_kisiAddress",
 						"type": "address"
 					},
@@ -510,6 +604,30 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_egitimBilgiId",
+						"type": "uint256"
+					}
+				],
+				"name": "talepOnaylaEgitimBilgi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -556,11 +674,11 @@
 			]
 		},
 		"contracts/EgitimBilgileri.sol": {
-			"keccak256": "0xce4618b6f64113ce30aeb8390c91bcc7ef6f847849e9bb2777b55a34d81fcd6f",
+			"keccak256": "0xd61a4b2067316377b8f8eda7432d0eb64903e84e2060d9811e784ece05a487b7",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://3e3a3eeb47cc4a142df508dbe8774863561d00fe86a93d945f54dff2e8e37b3a",
-				"dweb:/ipfs/QmXqAgzrTo8XG4wcwZydLaJPdeP4JVce22bmsnmb36abBn"
+				"bzz-raw://1c9ca92f9e91a318ab18366e46962bf09cc99892800587d6b50070233924049d",
+				"dweb:/ipfs/QmVgLkCqVqjy3o9LhRLVRKbNXss5ZQbcKzi2FKTE9MA1En"
 			]
 		}
 	},

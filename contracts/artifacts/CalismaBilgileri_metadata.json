@@ -110,6 +110,25 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_onayKurumAdres",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_tarih",
+						"type": "uint256"
+					}
+				],
+				"name": "CalismaTalebiOnaylandiLog",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -122,7 +141,98 @@
 						"type": "uint256"
 					}
 				],
-				"name": "calismaBilgileri",
+				"name": "calismaBilgiListesi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "talepEdilenKurum",
+						"type": "address"
+					},
+					{
+						"internalType": "uint32",
+						"name": "pozisyon",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "sektor",
+						"type": "uint8"
+					},
+					{
+						"internalType": "enum BaseProperties.CalismaTipi",
+						"name": "calismaTipi",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "isAciklama",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "basTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bitTarih",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "ulke",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint32",
+						"name": "sehir",
+						"type": "uint32"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "zaman",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "adres",
+								"type": "address"
+							},
+							{
+								"internalType": "enum BaseProperties.OnayDurum",
+								"name": "durum",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct BaseProperties.Onay",
+						"name": "onayBilgi",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "calismaBilgiListesi2",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -262,6 +372,136 @@
 					},
 					{
 						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "getirKisininCalismaBilgisi",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "talepEdilenKurum",
+								"type": "address"
+							},
+							{
+								"internalType": "uint32",
+								"name": "pozisyon",
+								"type": "uint32"
+							},
+							{
+								"internalType": "uint8",
+								"name": "sektor",
+								"type": "uint8"
+							},
+							{
+								"internalType": "enum BaseProperties.CalismaTipi",
+								"name": "calismaTipi",
+								"type": "uint8"
+							},
+							{
+								"internalType": "string",
+								"name": "isAciklama",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "basTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "bitTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "ulke",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint32",
+								"name": "sehir",
+								"type": "uint32"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "zaman",
+										"type": "uint256"
+									},
+									{
+										"internalType": "address",
+										"name": "adres",
+										"type": "address"
+									},
+									{
+										"internalType": "enum BaseProperties.OnayDurum",
+										"name": "durum",
+										"type": "uint8"
+									}
+								],
+								"internalType": "struct BaseProperties.Onay",
+								"name": "onayBilgi",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct CalismaBilgileri.CalismaBilgi",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					}
+				],
+				"name": "getirKisininCalismaIdListe",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getirOnayBekleyenListe",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
 						"name": "_calismaBilgiId",
 						"type": "uint256"
 					},
@@ -334,6 +574,49 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "kisiCalismaIdListesi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "onayBekleyenKisiler",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "_kisiAddress",
 						"type": "address"
 					},
@@ -387,6 +670,30 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_calismaBilgiId",
+						"type": "uint256"
+					}
+				],
+				"name": "talepOnaylaCalismaBilgi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -433,11 +740,11 @@
 			]
 		},
 		"contracts/CalismaBilgileri.sol": {
-			"keccak256": "0xacd4f669a907a1943873883b304063b5258de7d999a00b986e11158f8acd393a",
+			"keccak256": "0x8c7a46dcc3a555b73d21a1ccffd386d1d281409f95ff48bbb7720492f5a832a6",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://39dd358792feb54d6b11e8689b15832d66576e510b9ede08f73371ad6027ac5e",
-				"dweb:/ipfs/QmV7Rs7HNkShwHyAAyxefWZYRqSMUkvJqFYrdxU9Z1Kon5"
+				"bzz-raw://37132135152909965533159d265c62a79224ddec7b646042fc3c2049695fba88",
+				"dweb:/ipfs/QmQRyAw9Un2iFzfjK8SDoTCDg7mk3xqvHbxhvXEEoXmyS7"
 			]
 		}
 	},

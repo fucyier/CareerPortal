@@ -27,12 +27,12 @@ contract NitelikBilgileri is BaseProperties {
 
     event NitelikEklendiLog(address _onayKurumAdres, uint _tarih, uint _nitelikKodu);
     event NitelikGuncellendiLog(address _onayKurumAdres, uint _tarih, uint _nitelikKodu);
-    event NitelikTalebiOnaylandiLog(address _onayKurumAdres, uint _tarih);
     event NitelikTalepEdildiLog(address _talepEdilenKurum, uint _tarih, uint _nitelikKodu);
-
+    event NitelikTalebiOnaylandiLog(address _onayKurumAdres, uint _tarih);
+    
     constructor(address baseAddress)  {
         baseContract = BaseContract(baseAddress);
-        id=1;
+        id = 1;
     }
 
     modifier _yetkiliPaydas{
@@ -101,7 +101,7 @@ contract NitelikBilgileri is BaseProperties {
         require(!onayBekliyorMu(_kisiAddress), "Kisinin daha onceden onay bekleyen bir talebi vardir.");
         uint yeniId = id++;
 
-  nitelikBilgiListesi[_kisiAddress][yeniId].id = yeniId;
+        nitelikBilgiListesi[_kisiAddress][yeniId].id = yeniId;
         nitelikBilgiListesi[_kisiAddress][yeniId].talepEdilenKurum = _talepEdilenKurum;
         nitelikBilgiListesi[_kisiAddress][yeniId].nitelikKodu = nitelikKodu;
         nitelikBilgiListesi[_kisiAddress][yeniId].aciklama = aciklama;
@@ -134,8 +134,8 @@ contract NitelikBilgileri is BaseProperties {
     function talepOnaylaNitelikBilgi(address _kisiAddress, uint nitelikBilgiId) public _yetkiliPaydas returns (uint){
         require(baseContract.isKisi(_kisiAddress), "Kisi bulunamadi");
         require(onayBekleyenKisiVeIdMevcutMu(_kisiAddress, nitelikBilgiId), "Kisinin onay bekleyen bir talebi yoktur.");
-          require( nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].talepEdilenKurum==msg.sender, "Sadece Talep edilen kurum onaylayabilir.");
-        
+        require(nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].talepEdilenKurum == msg.sender, "Sadece Talep edilen kurum onaylayabilir.");
+
         nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.durum = OnayDurum.Onaylandi;
         nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.adres = msg.sender;
         nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.zaman = block.timestamp;
@@ -191,17 +191,18 @@ contract NitelikBilgileri is BaseProperties {
     function onayBekliyorMu(address _kisiAddress) private view returns (bool){
         for (uint i = 0; i < onayBekleyenKisiler.length; i++) {
             if (onayBekleyenKisiler[i] == _kisiAddress) {
-             return true;
+                return true;
             }
         }
         return false;
     }
- function onayBekleyenKisiVeIdMevcutMu(address _kisiAddress,uint _nitelikId) private view returns (bool){
+
+    function onayBekleyenKisiVeIdMevcutMu(address _kisiAddress, uint _nitelikId) private view returns (bool){
         for (uint i = 0; i < onayBekleyenKisiler.length; i++) {
             if (onayBekleyenKisiler[i] == _kisiAddress
-            &&nitelikBilgiListesi[_kisiAddress][_nitelikId].id>0
-            &&nitelikBilgiListesi[_kisiAddress][_nitelikId].onayBilgi.durum==OnayDurum.OnayBekliyor) {
-             return true;
+            && nitelikBilgiListesi[_kisiAddress][_nitelikId].id > 0
+                && nitelikBilgiListesi[_kisiAddress][_nitelikId].onayBilgi.durum == OnayDurum.OnayBekliyor) {
+                return true;
             }
         }
         return false;

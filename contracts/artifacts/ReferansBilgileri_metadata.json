@@ -254,11 +254,11 @@
 			]
 		},
 		"contracts/ReferansBilgileri.sol": {
-			"keccak256": "0xeec3c3a94da3141cbc63dc26744b16674a62167f796d869392133a3d5f78917b",
+			"keccak256": "0xce232136ab49de84164ef149e47d8fc7c890297f07a979565492a71099ce49fe",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://db528797d3302c795200682921fe505119c8da68edce1c36147ccbbc62b31724",
-				"dweb:/ipfs/QmXzQ2TQWzGSv1mWGHdyyrHiuJkFGPQc7oPfYUUrDL1XCu"
+				"bzz-raw://1643df98e6dd27c7ea4a3ffed428b04dabde94017d3363f04147d462b226473f",
+				"dweb:/ipfs/QmcAnhkyNAhihprdDTcX5bFjKpMCkT27U84xMe9cbdRkM1"
 			]
 		}
 	},

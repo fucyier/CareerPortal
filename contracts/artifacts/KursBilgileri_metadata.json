@@ -84,6 +84,25 @@
 					{
 						"indexed": false,
 						"internalType": "address",
+						"name": "_onayKurumAdres",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_tarih",
+						"type": "uint256"
+					}
+				],
+				"name": "KursTalebiOnaylandiLog",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
 						"name": "_talepEdilenKurum",
 						"type": "address"
 					},
@@ -151,6 +170,116 @@
 					},
 					{
 						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "getirKisininKursBilgisi",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "talepEdilenKurum",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "basTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "bitTarih",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "sure",
+								"type": "uint8"
+							},
+							{
+								"internalType": "string",
+								"name": "egitimAdi",
+								"type": "string"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint256",
+										"name": "zaman",
+										"type": "uint256"
+									},
+									{
+										"internalType": "address",
+										"name": "adres",
+										"type": "address"
+									},
+									{
+										"internalType": "enum BaseProperties.OnayDurum",
+										"name": "durum",
+										"type": "uint8"
+									}
+								],
+								"internalType": "struct BaseProperties.Onay",
+								"name": "onayBilgi",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct KursBilgileri.KursBilgi",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					}
+				],
+				"name": "getirKisininKursIdListe",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getirOnayBekleyenListe",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
 						"name": "_kursBilgiId",
 						"type": "uint256"
 					},
@@ -189,6 +318,30 @@
 			{
 				"inputs": [],
 				"name": "id",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "kisiKursIdListesi",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -273,6 +426,25 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "onayBekleyenKisiler",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "_kisiAddress",
 						"type": "address"
@@ -305,6 +477,30 @@
 				],
 				"name": "talepEtKursBilgi",
 				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_kisiAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_kursBilgiId",
+						"type": "uint256"
+					}
+				],
+				"name": "talepOnaylaKursBilgi",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
@@ -353,11 +549,11 @@
 			]
 		},
 		"contracts/KursBilgileri.sol": {
-			"keccak256": "0x8a906a723472bd7a0c620066ff807258b5dc9ce03d7b0b1f3b10147d03b0e89f",
+			"keccak256": "0xb0c9db2042d9a5b9cfbdf4bf654a0dcafc64d1f6559e8b94c21bf684680b6301",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://8b29a003a8377193100ae4b8fd7b048ec54f69a6393c702c840dd6e995d90076",
-				"dweb:/ipfs/Qmb3wkdRuRMLtKvgVt2FiqMZCxyA2715hig9yvBZvM1nve"
+				"bzz-raw://dbd36aaa8deaa9b4670332301b8dd128a821753f8893ebc15fdbe1836e669f46",
+				"dweb:/ipfs/QmfGn1uSEfedjpLhj8DxMq2g68yPAWERrKGjF2UW5FGZhj"
 			]
 		}
 	},
