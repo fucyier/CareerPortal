@@ -102,6 +102,11 @@ abstract contract BaseProperties{
       uint32 id;
       string isim;
     }
+     struct Ulke
+    {
+        uint8 id;
+        string isim;
+    }
 
     
 

@@ -469,6 +469,30 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "UlkeArray",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "id",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "_firmaAdres",
 						"type": "address"
@@ -620,6 +644,56 @@
 				"name": "ekleUniversite",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getDilListesi",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint32",
+								"name": "id",
+								"type": "uint32"
+							},
+							{
+								"internalType": "string",
+								"name": "isim",
+								"type": "string"
+							}
+						],
+						"internalType": "struct BaseProperties.YabanciDil[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getUlkeListesi",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint8",
+								"name": "id",
+								"type": "uint8"
+							},
+							{
+								"internalType": "string",
+								"name": "isim",
+								"type": "string"
+							}
+						],
+						"internalType": "struct BaseProperties.Ulke[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -873,6 +947,30 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "yabanciDilArray",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "id",
+						"type": "uint32"
+					},
+					{
+						"internalType": "string",
+						"name": "isim",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -903,19 +1001,27 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0x38129589d8792bf40443d7e9ee2b0440c19038feae63b05ad426b25aa3a34df8",
+			"keccak256": "0xdd0310ae5f1c78b31db06c338423d87c350d3ea42d98de704dc0048770e26353",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://b7a62b7d8911e6b051593dc85ad575a17fae170416265908a16fad32aa778002",
-				"dweb:/ipfs/QmfBNPRCR5aW7GjSRjYe7ctP29bb1gBUspFmNRmdgf1mSp"
+				"bzz-raw://c929dd50bf3e7d1e73bcf786d5948582bcb293a5680727c648f888811d00e66c",
+				"dweb:/ipfs/QmcrjoUsAf6Y2oLBuL31Z1VJH9Deinaf89kYqQv8ZLPauP"
+			]
+		},
+		"contracts/BaseProperties.sol": {
+			"keccak256": "0xa09633324ed69fa6fec97529331170944f0111a4e3a73ce0d83ac1b9a58c5156",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://4956b2d23ebb4c00cf2af40e5127a7ea08b22b086e543462d3e2f1635c1f0890",
+				"dweb:/ipfs/QmabXC2LXjnuH658bSVUeFcCTzeoLiNXjWumTbBBdMDxs8"
 			]
 		},
 		"contracts/Registration.sol": {
-			"keccak256": "0x09ddece3eb94b6556f671c972b46b3b79f108ad3ddf06a85cc3a6bc7fa7bae3c",
+			"keccak256": "0x9ed245cbe487fee9fc612f52d2d88c9d4be864bae7d150500f976a2134c86c9b",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://04bd6c6eb993b790fedc16498638f8d79100bb1097aa97f5e4ddf8a33651b4bf",
-				"dweb:/ipfs/QmTnT1cdiqjwQUgFPF8rKDrtjnfJZdXBQiJzatZAeq28AJ"
+				"bzz-raw://f65770edc7886ac552f77c1750fb7827495cc36aef87f4bc81fec7b60ea9fb43",
+				"dweb:/ipfs/QmPe4grgpiT3CNgEVRGgdkfEfFg1bFT96i33viTwZRqvAg"
 			]
 		}
 	},

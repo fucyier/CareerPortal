@@ -116,6 +116,11 @@ contract BaseContract {
         uint32 id;
         string isim;
     }
+    struct Ulke
+    {
+        uint8 id;
+        string isim;
+    }
     modifier sadeceYOK{
         require(msg.sender == YOK,
             "Sadece YOK bu islemi yapabilir."
@@ -227,6 +232,8 @@ contract BaseContract {
     
     mapping(uint32 => YabanciDil) public diller;
 
+ 
+
     address[] public kisiAdresleri  ;
     address[] public universiteAdresleri;
     address[] public firmaAdresleri;
@@ -326,7 +333,6 @@ contract BaseContract {
         }
         return result;
     }
-
 
     function ekleKisi(address _kisiAdres) public {
         require(!isKisi(_kisiAdres),

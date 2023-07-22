@@ -2,8 +2,9 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 import "./BaseContract.sol";
+import "./BaseProperties.sol";
 
-contract Registration {
+contract Registration is BaseProperties{
     BaseContract baseContract;
 
     event KisiEkleLog(address _kisiAdres);
@@ -33,6 +34,10 @@ contract Registration {
         baseContract = BaseContract(_baseContract);
         baseContract.paydasTanimla(_yok, _tobb, _cb);
     }
+
+     YabanciDil[] public yabanciDilArray;
+     Ulke[] public UlkeArray;
+
     modifier sadeceYOK{
         require(baseContract.isYOK(msg.sender),
             "Sadece YOK bu islemi yapabilir."
@@ -260,8 +265,23 @@ contract Registration {
     function silSertifikaMerkezi(address _smAdres)
     public sadeceTOBB {
         baseContract.silSertifikaMerkezi(_smAdres);
-
         emit SertifikaMerkeziSilLog(_smAdres);
+    }
+
+     function getDilListesi() public sadeceCB view returns(YabanciDil[] memory) {  
+        return yabanciDilArray;
+    }
+    function getUlkeListesi() public sadeceCB view returns(Ulke[] memory) {  
+        return UlkeArray;
+    }
+
+     function ekleYabanciDil(uint32  _dilId, string memory _dilAdi)
+    public sadeceCB {
+        yabanciDilArray.push(YabanciDil(_dilId,_dilAdi));
+    }
+     function ekleUlke(uint8  _ulkeId, string memory _ulkeAdi)
+    public sadeceCB {
+       UlkeArray.push(Ulke(_ulkeId,_ulkeAdi));
 
     }
 
