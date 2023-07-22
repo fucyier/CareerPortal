@@ -245,6 +245,25 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "firmaAdresleri",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
@@ -271,6 +290,191 @@
 						"internalType": "string",
 						"name": "isim",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getFirmaListesi",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "durum",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint8",
+								"name": "ulke",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint256",
+								"name": "vergiNo",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "isim",
+								"type": "string"
+							}
+						],
+						"internalType": "struct BaseContract.Firma[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getKamuKurumuListesi",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "durum",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "isim",
+								"type": "string"
+							},
+							{
+								"internalType": "uint8",
+								"name": "ulke",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct BaseContract.KamuKurumu[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getKursListesi",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "durum",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "isim",
+								"type": "string"
+							},
+							{
+								"internalType": "uint8",
+								"name": "ulke",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct BaseContract.Kurs[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getSmListesi",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "durum",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "isim",
+								"type": "string"
+							},
+							{
+								"internalType": "uint8",
+								"name": "ulke",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct BaseContract.SertifikaMerkezi[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getStkListesi",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "durum",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "isim",
+								"type": "string"
+							},
+							{
+								"internalType": "uint8",
+								"name": "ulke",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct BaseContract.STK[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getUniversiteListesi",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "bool",
+								"name": "durum",
+								"type": "bool"
+							},
+							{
+								"internalType": "string",
+								"name": "isim",
+								"type": "string"
+							},
+							{
+								"internalType": "uint8",
+								"name": "ulke",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct BaseContract.Universite[]",
+						"name": "",
+						"type": "tuple[]"
 					}
 				],
 				"stateMutability": "view",
@@ -630,6 +834,25 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "kamuKurumAdresleri",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
@@ -659,6 +882,25 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "kisiAdresleri",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
@@ -670,6 +912,25 @@
 						"internalType": "bool",
 						"name": "durum",
 						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "kursAdresleri",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -850,6 +1111,44 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "smAdresleri",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "stkAdresleri",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
@@ -871,6 +1170,25 @@
 						"internalType": "uint8",
 						"name": "ulke",
 						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "universiteAdresleri",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -934,11 +1252,11 @@
 	},
 	"sources": {
 		"contracts/BaseContract.sol": {
-			"keccak256": "0xbdff5b8f823e49f14832225670d70e1efb31135376b993306fae37685e9ea5c5",
+			"keccak256": "0xc89e5cf0bff981925d11c1e1e41686aa7a3227c6df1bc91e0f489a88e0396f48",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://a4d7646b7ffda133e833d4dca8e5e0499553b5caf30916c49639907772ad2b8a",
-				"dweb:/ipfs/QmUkf6vDyNwhyiYtTvonhQBPZwqDfQoXWh7Pmau7TcJMZK"
+				"bzz-raw://8f97fbc6e7b048ac78814dfed7be1d38e28d67943a00b099163d7707f6f4c837",
+				"dweb:/ipfs/QmV5L3kdDDcqQUgcSwXJGj8hERAG8p6YtdXySabkR9nujG"
 			]
 		}
 	},

@@ -224,9 +224,16 @@ contract BaseContract {
     mapping(address => KamuKurumu) public kamuKurumlari;
     mapping(address => STK) public stklar;
     mapping(address => SertifikaMerkezi) public sertifikaMerkezleri;
-
+    
     mapping(uint32 => YabanciDil) public diller;
 
+    address[] public kisiAdresleri  ;
+    address[] public universiteAdresleri;
+    address[] public firmaAdresleri;
+    address[] public kursAdresleri;
+    address[] public kamuKurumAdresleri;
+    address[] public stkAdresleri;
+    address[] public smAdresleri;
 
     function ekleUniversite(address _universiteAdres, string memory _isim, uint8 _ulke) public {
         require(!isUniversite(_universiteAdres),
@@ -236,7 +243,7 @@ contract BaseContract {
         universiteler[_universiteAdres].durum = true;
         universiteler[_universiteAdres].isim = _isim;
         universiteler[_universiteAdres].ulke = _ulke;
-
+        universiteAdresleri.push(_universiteAdres);
 
     }
 
@@ -262,13 +269,72 @@ contract BaseContract {
 
     }
 
+     function getUniversiteListesi() public sadeceYOK view returns(Universite[] memory){
+      
+        Universite [] memory result = new Universite[](universiteAdresleri.length);
+        uint index=0;
+        for(uint i = 0; i< universiteAdresleri.length; i++){
+           result[index++]=universiteler[universiteAdresleri[i]];
+        }
+        return result;
+    }
+
+    function getKamuKurumuListesi() public sadeceCB view  returns(KamuKurumu[] memory)  {
+      
+        KamuKurumu [] memory result = new KamuKurumu[](kamuKurumAdresleri.length);
+        uint index=0;
+        for(uint i = 0; i< kamuKurumAdresleri.length; i++){
+           result[index++]=kamuKurumlari[kamuKurumAdresleri[i]];
+        }
+        return result;
+    }
+
+     function getFirmaListesi() public sadeceTOBB view returns(Firma[] memory){
+      
+        Firma [] memory result = new Firma[](firmaAdresleri.length);
+        uint index=0;
+        for(uint i = 0; i< firmaAdresleri.length; i++){
+           result[index++]=firmalar[firmaAdresleri[i]];
+        }
+        return result;
+    }
+     function getStkListesi() public sadeceCB view returns(STK[] memory){
+      
+        STK [] memory result = new STK[](stkAdresleri.length);
+        uint index=0;
+        for(uint i = 0; i< stkAdresleri.length; i++){
+           result[index++]=stklar[stkAdresleri[i]];
+        }
+        return result;
+    }
+     function getSmListesi() public sadeceTOBB view returns(SertifikaMerkezi[] memory){
+      
+        SertifikaMerkezi [] memory result = new SertifikaMerkezi[](smAdresleri.length);
+        uint index=0;
+        for(uint i = 0; i< smAdresleri.length; i++){
+           result[index++]=sertifikaMerkezleri[smAdresleri[i]];
+        }
+        return result;
+    }
+
+      function getKursListesi() public view returns(Kurs[] memory){
+      
+        Kurs [] memory result = new Kurs[](kursAdresleri.length);
+        uint index=0;
+        for(uint i = 0; i< kursAdresleri.length; i++){
+           result[index++]=kurslar[kursAdresleri[i]];
+        }
+        return result;
+    }
+
+
     function ekleKisi(address _kisiAdres) public {
         require(!isKisi(_kisiAdres),
             "Kisi Zaten Mevcut"
         );
 
         kisiler[_kisiAdres].durum = true;
-
+        kisiAdresleri.push(_kisiAdres);
 
     }
 
@@ -303,7 +369,7 @@ contract BaseContract {
         firmalar[_firmaAdres].isim = _isim;
         firmalar[_firmaAdres].ulke = _ulke;
         firmalar[_firmaAdres].vergiNo = _vergiNo;
-
+        firmaAdresleri.push(_firmaAdres);
 
     }
 
@@ -341,7 +407,7 @@ contract BaseContract {
         kamuKurumlari[_kamuKurumuAdres].durum = true;
         kamuKurumlari[_kamuKurumuAdres].isim = _isim;
         kamuKurumlari[_kamuKurumuAdres].ulke = _ulke;
-
+        kamuKurumAdresleri.push(_kamuKurumuAdres);
 
     }
 
@@ -374,7 +440,7 @@ contract BaseContract {
         kurslar[_kursAdres].durum = true;
         kurslar[_kursAdres].isim = _isim;
         kurslar[_kursAdres].ulke = _ulke;
-
+        kursAdresleri.push(_kursAdres);
 
     }
 
@@ -411,7 +477,7 @@ contract BaseContract {
         stklar[_stkAdres].durum = true;
         stklar[_stkAdres].isim = _isim;
         stklar[_stkAdres].ulke = _ulke;
-
+        stkAdresleri.push(_stkAdres);
 
     }
 
@@ -446,7 +512,7 @@ contract BaseContract {
         sertifikaMerkezleri[_smAdres].durum = true;
         sertifikaMerkezleri[_smAdres].isim = _isim;
         sertifikaMerkezleri[_smAdres].ulke = _ulke;
-
+        smAdresleri.push(_smAdres);
     }
 
     function guncelleSertifikaMerkezi(address _smAdres, string memory _isim, uint8 _ulke)

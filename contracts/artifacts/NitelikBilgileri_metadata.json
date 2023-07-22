@@ -572,11 +572,11 @@
 			]
 		},
 		"contracts/NitelikBilgileri.sol": {
-			"keccak256": "0xe294e29be9a2fb43424d1a8808ae42875c85200072f569802e1f68698693aee5",
+			"keccak256": "0x9690ae66fe2da7b25bc760459bca40f91bb618d4b8cdff6e208246b7e48b5ed4",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://8cca861f39ffc7b68a2ad4fccff0745b3b503870b31ea1bdc1c1e3cc591beb9b",
-				"dweb:/ipfs/QmSZVWgpMzhwnf9C8bXgTKWUzEmkz4bXdxLWwo2PeuWDRv"
+				"bzz-raw://893465df0ce1d250c18f486e1a1c84ea9778da63c63686308e2080f905312919",
+				"dweb:/ipfs/QmaQx67XnMdCQyuz2fmXt4bqkgAgn8qZUp6NMFDAS415bz"
 			]
 		}
 	},
