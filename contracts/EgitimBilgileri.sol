@@ -55,7 +55,7 @@ contract EgitimBilgileri is BaseProperties {
         _;
     }
     function ekleEgitimBilgi(address _kisiAddress, EgitimDurumu egitimDurumu, uint basTarih, uint bitTarih, string memory diplomaBelge, string memory transcriptBelge, address universite, uint16 fakulte,
-        uint16 bolum, OgretimTipi ogretimTipi) external _yetkiliPaydas {
+        uint16 bolum, OgretimTipi ogretimTipi) public _yetkiliPaydas {
         require(baseContract.isKisi(_kisiAddress), "Kisi bulunamadi");
         uint yeniId = id++;
         egitimBilgiListesi[_kisiAddress][yeniId].egitimDurumu = egitimDurumu;
