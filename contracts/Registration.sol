@@ -268,10 +268,10 @@ contract Registration is BaseProperties{
         emit SertifikaMerkeziSilLog(_smAdres);
     }
 
-     function getDilListesi() public sadeceCB view returns(YabanciDil[] memory) {  
+     function getDilListesi() public  view returns(YabanciDil[] memory) {  
         return yabanciDilArray;
     }
-    function getUlkeListesi() public sadeceCB view returns(Ulke[] memory) {  
+    function getUlkeListesi() public  view returns(Ulke[] memory) {  
         return UlkeArray;
     }
 

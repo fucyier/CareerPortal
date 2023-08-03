@@ -65,7 +65,7 @@ contract BaseContract {
     enum Unvan {DR, AS_PROF, PROF, MD}
     enum Seviye {Temel, Orta, Iyi, Ileri}
     enum Cinsiyet{Erkek, Kadin}
-    enum AskerlikDurum{Yapildi, Tecilli, Yapiliyor}
+    enum AskerlikDurum{Yapildi, Tecilli, Muaf}
     enum EhliyetDurum{Yok, A, B, C, D, E}
     enum OnaylayanKurum {
         Universite,
