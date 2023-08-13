@@ -107,6 +107,11 @@ abstract contract BaseProperties{
         uint8 id;
         string isim;
     }
+        struct NitelikKodu
+    {
+        uint kod;
+        string isim;
+    }
 
     
 

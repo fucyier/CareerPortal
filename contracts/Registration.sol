@@ -36,7 +36,8 @@ contract Registration is BaseProperties{
     }
 
      YabanciDil[] public yabanciDilArray;
-     Ulke[] public UlkeArray;
+     Ulke[] public ulkeArray;
+     NitelikKodu[] public nitelikKoduArray;
 
     modifier sadeceYOK{
         require(baseContract.isYOK(msg.sender),
@@ -87,6 +88,12 @@ contract Registration is BaseProperties{
     modifier sadece_Uni_Firma_Kamu{
         require(baseContract.isUniversite(msg.sender) || baseContract.isFirma(msg.sender) || baseContract.isKamuKurumu(msg.sender),
             "Bu islemi Universiteler Kamu veya Ozel Kurumlar yapabilir."
+        );
+        _;
+    }
+        modifier sadece_SM_Kamu_Firma_Kurs{
+        require(baseContract.isSertifikaMerkezi(msg.sender) || baseContract.isFirma(msg.sender) || baseContract.isKamuKurumu(msg.sender)|| baseContract.isKurs(msg.sender),
+            "Bu islemi SM, Kurs,  Kamu veya Ozel Kurumlar yapabilir."
         );
         _;
     }
@@ -271,19 +278,32 @@ contract Registration is BaseProperties{
      function getDilListesi() public  view returns(YabanciDil[] memory) {  
         return yabanciDilArray;
     }
-    function getUlkeListesi() public  view returns(Ulke[] memory) {  
-        return UlkeArray;
-    }
 
-     function ekleYabanciDil(uint32  _dilId, string memory _dilAdi)
+
+    function ekleYabanciDil(uint32  _dilId, string memory _dilAdi)
     public sadeceCB {
         yabanciDilArray.push(YabanciDil(_dilId,_dilAdi));
     }
-     function ekleUlke(uint8  _ulkeId, string memory _ulkeAdi)
+
+        function getUlkeListesi() public  view returns(Ulke[] memory) {  
+        return ulkeArray;
+    }
+    
+    function ekleUlke(uint8  _ulkeId, string memory _ulkeAdi)
     public sadeceCB {
-       UlkeArray.push(Ulke(_ulkeId,_ulkeAdi));
+       ulkeArray.push(Ulke(_ulkeId,_ulkeAdi));
 
     }
+    
 
+        function getNitelikKoduListesi() public  view returns(NitelikKodu[] memory) {  
+        return nitelikKoduArray;
+    }
+    
+    function ekleNitelikKodu(uint  _kod, string memory _nitelikAdi)
+    public sadece_SM_Kamu_Firma_Kurs {
+       nitelikKoduArray.push(NitelikKodu(_kod,_nitelikAdi));
+
+    }
 }
 
