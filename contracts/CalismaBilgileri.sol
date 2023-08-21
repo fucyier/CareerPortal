@@ -11,8 +11,8 @@ contract CalismaBilgileri is BaseProperties {
     struct CalismaBilgi {
         uint id;
         address talepEdilenKurum;
-        uint32 pozisyon;
-        uint8 sektor;
+        string pozisyon;
+        string sektor;
         CalismaTipi calismaTipi;
         string isAciklama;
         uint basTarih;
@@ -28,9 +28,9 @@ contract CalismaBilgileri is BaseProperties {
     address[] public onayBekleyenKisiler;
     mapping(address => uint[]) public kisiCalismaIdListesi;
 
-    event CalismaBilgiEklendiLog(address _kisiAdres, uint8 _ulke, uint _pozisyon, uint _sektor);
-    event CalismaBilgiGuncellendiLog(address _kisiAdres, uint8 _ulke, uint _pozisyon, uint _sektor);
-    event CalismaBilgiTalepEdildiLog(address _talepEdilenKurum, uint8 _ulke, uint _pozisyon, uint _sektor);
+    event CalismaBilgiEklendiLog(address _kisiAdres, uint8 _ulke, string _pozisyon, string _sektor);
+    event CalismaBilgiGuncellendiLog(address _kisiAdres, uint8 _ulke, string _pozisyon, string _sektor);
+    event CalismaBilgiTalepEdildiLog(address _talepEdilenKurum, uint8 _ulke, string _pozisyon, string _sektor);
     event CalismaTalebiOnaylandiLog(address _onayKurumAdres, uint _tarih);
     constructor(address baseAddress)  {
         baseContract = BaseContract(baseAddress);
@@ -48,7 +48,8 @@ contract CalismaBilgileri is BaseProperties {
         );
         _;
     }
-    function ekleCalismaBilgi(address _kisiAddress, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir) public _yetkiliPaydas {
+    function ekleCalismaBilgi(address _kisiAddress,   string memory pozisyon,   string memory sektor, CalismaTipi calismaTipi, 
+    string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir) public _yetkiliPaydas {
         require(baseContract.isKisi(_kisiAddress), "Kisi bulunamadi");
         uint yeniId = id++;
 
@@ -68,7 +69,7 @@ contract CalismaBilgileri is BaseProperties {
         emit CalismaBilgiEklendiLog(_kisiAddress, ulke, pozisyon, sektor);
     }
 
-    function guncelleCalismaBilgi(address _kisiAddress, uint _calismaBilgiId, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir) public _yetkiliPaydas returns (uint){
+    function guncelleCalismaBilgi(address _kisiAddress, uint _calismaBilgiId, string memory pozisyon, string memory sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir) public _yetkiliPaydas returns (uint){
         require(baseContract.isKisi(_kisiAddress), "Kisi bulunamadi");
         require(calismaBilgiListesi[_kisiAddress][_calismaBilgiId].id > 1, "Kisinin bu adres ve calisma id degeri ile kaydi yoktur.");
         calismaBilgiListesi[_kisiAddress][_calismaBilgiId].pozisyon = pozisyon;
@@ -88,7 +89,7 @@ contract CalismaBilgileri is BaseProperties {
 
     }
 
-    function talepEtCalismaBilgi(address _kisiAddress, address _talepEdilenKurum, uint32 pozisyon, uint8 sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir) public {
+    function talepEtCalismaBilgi(address _kisiAddress, address _talepEdilenKurum, string memory pozisyon, string memory sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir) public {
         require(baseContract.isKisi(_kisiAddress), "Kisi Mevcut Degil");
         require(!onayBekliyorMu(_kisiAddress), "Kisinin daha onceden onay bekleyen bir talebi vardir.");
         uint yeniId = id++;
