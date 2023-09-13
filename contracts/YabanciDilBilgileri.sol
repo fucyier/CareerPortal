@@ -35,7 +35,8 @@ contract YabanciDilBilgileri is BaseProperties {
     }
 
     modifier _yetkiliPaydas{
-        require(baseContract.isUniversite(msg.sender) || baseContract.isFirma(msg.sender) || baseContract.isKamuKurumu(msg.sender) || baseContract.isKurs(msg.sender),
+        require(baseContract.isUniversite(msg.sender) || baseContract.isFirma(msg.sender) || baseContract.isKamuKurumu(msg.sender) 
+        || baseContract.isKurs(msg.sender)||baseContract.isSTK(msg.sender)||baseContract.isSertifikaMerkezi(msg.sender),
             "Sadece yetkili paydas bu islemi yapabilir."
         );
         _;
