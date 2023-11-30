@@ -9,7 +9,9 @@ contract IlanBilgileri is BaseProperties{
 BaseContract baseContract;
         uint public id;
         uint public basvuruId;
+        
         struct IlanBilgi {
+          uint id;
          address talepEdenKurum;
          uint32 pozisyon;
          uint8 sektor;
@@ -25,6 +27,7 @@ BaseContract baseContract;
        
         mapping(uint=>IlanBilgi) public ilanBilgileri;
         mapping(uint=>mapping(address=>Kisi)) public ilanBasvuruListesi;
+        uint[] public ilanAdresleri;
 
         event IlanBilgiEklendiLog(uint _id, address _talepEdenKurum, uint32 _pozisyon, uint8 _sektor);
         event IlanBilgiGuncellendiLog(uint _id, address _talepEdenKurum, uint32 _pozisyon, uint8 _sektor);
@@ -51,7 +54,7 @@ constructor(address baseAddress)  {
                         uint8 _ulke, uint32 _sehir, uint8 _tecrubeYili)  public _yetkiliPaydas{
             require(baseContract.isKamuKurumu(msg.sender)||baseContract.isFirma(msg.sender),"Ilan acan kurum kayitli degil");
              uint yeniId=id++;
-            
+               ilanBilgileri[yeniId].id=yeniId;
              ilanBilgileri[yeniId].talepEdenKurum=msg.sender;
              ilanBilgileri[yeniId].pozisyon=_pozisyon;
              ilanBilgileri[yeniId].sektor=_sektor;
@@ -64,7 +67,8 @@ constructor(address baseAddress)  {
              ilanBilgileri[yeniId].ulke=_ulke;
              ilanBilgileri[yeniId].sehir=_sehir;
 
-           
+             ilanAdresleri.push(id++);
+
              emit IlanBilgiEklendiLog( yeniId,msg.sender, _pozisyon,_sektor );
     }
        function guncelleIlanBilgi(uint _ilanId, uint32 _pozisyon, uint8 _sektor, CalismaTipi _calismaTipi, string memory _arananOzellikler, string memory _isTanimi, uint _ilanBasTarih, uint _ilanBitTarih, 
@@ -97,6 +101,14 @@ constructor(address baseAddress)  {
              return _ilanId;
 
     }
-
+     function getIlanListesi() public view returns(IlanBilgi[] memory){
+      
+        IlanBilgi [] memory result = new IlanBilgi[](ilanAdresleri.length);
+        uint index=0;
+        for(uint i = 0; i< ilanAdresleri.length; i++){
+           result[index++]=ilanBilgileri[ilanAdresleri[i]];
+        }
+        return result;
+    }
     
 }
