@@ -22,6 +22,7 @@ contract YabanciDilBilgileri is BaseProperties {
 
     mapping(address => mapping(uint => YabanciDilBilgi)) public yabanciDilBilgiListesi;
     address[] public onayBekleyenKisiler;
+    YabanciDilBilgi[] public yabanciDilBilgileri;
     mapping(address => uint[]) public kisiYabanciDilIdListesi;
 
     event YabanciDilEklendiLog(OnaylayanKurum _onaylayanKurumTipi, uint _basTarih, uint _bitTarih, OgretimTipi _ogretimTipi, uint32 _dilId);
@@ -132,6 +133,14 @@ contract YabanciDilBilgileri is BaseProperties {
         return yabanciDilBilgiListesi[_kisiAddress][_id];
     }
 
+    function getirKisininDilListesi(address _kisiAddress) public returns (YabanciDilBilgi[] memory){
+     uint[] memory idliste =  getirKisininYabanciDilIdListe(_kisiAddress);
+    
+        for (uint i = 0; i < idliste.length - 1; i++) {
+             yabanciDilBilgileri.push(getirKisininYabanciDilBilgisi(_kisiAddress,idliste[i]));
+            }
+        return yabanciDilBilgileri;
+    }
 
     function silOnayBekleyenListe(address _kisiAddress) private {
 

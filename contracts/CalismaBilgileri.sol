@@ -26,6 +26,7 @@ contract CalismaBilgileri is BaseProperties {
     mapping(address => mapping(uint => CalismaBilgi)) public calismaBilgiListesi;
     mapping(address => CalismaBilgi[]) public calismaBilgiListesi2;
     address[] public onayBekleyenKisiler;
+    CalismaBilgi[] public calismaBilgileri;
     mapping(address => uint[]) public kisiCalismaIdListesi;
 
     event CalismaBilgiEklendiLog(address _kisiAdres, uint8 _ulke, string _pozisyon, string _sektor);
@@ -136,7 +137,15 @@ contract CalismaBilgileri is BaseProperties {
     function getirKisininCalismaBilgisi(address _kisiAddress, uint _id) public view returns (CalismaBilgi memory){
         return calismaBilgiListesi[_kisiAddress][_id];
     }
-
+    
+    function getirKisininCalismaListesi(address _kisiAddress) public returns (CalismaBilgi[] memory){
+     uint[] memory idliste =  getirKisininCalismaIdListe(_kisiAddress);
+    
+        for (uint i = 0; i < idliste.length - 1; i++) {
+             calismaBilgileri.push(getirKisininCalismaBilgisi(_kisiAddress,idliste[i]));
+            }
+        return calismaBilgileri;
+    }
 
     function silOnayBekleyenListe(address _kisiAddress) private {
 

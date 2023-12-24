@@ -20,6 +20,7 @@ contract KursBilgileri is BaseProperties {
 
     mapping(address => mapping(uint => KursBilgi)) public kursBilgiListesi;
     address[] public onayBekleyenKisiler;
+    KursBilgi[] public kursBilgileri;
     mapping(address => uint[]) public kisiKursIdListesi;
 
 
@@ -124,7 +125,15 @@ contract KursBilgileri is BaseProperties {
     function getirKisininKursBilgisi(address _kisiAddress, uint _id) public view returns (KursBilgi memory){
         return kursBilgiListesi[_kisiAddress][_id];
     }
-
+    
+    function getirKisininKursListesi(address _kisiAddress) public returns (KursBilgi[] memory){
+     uint[] memory idliste =  getirKisininKursIdListe(_kisiAddress);
+    
+        for (uint i = 0; i < idliste.length - 1; i++) {
+             kursBilgileri.push(getirKisininKursBilgisi(_kisiAddress,idliste[i]));
+            }
+        return kursBilgileri;
+    }
 
     function silOnayBekleyenListe(address _kisiAddress) private {
 

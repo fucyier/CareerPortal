@@ -30,6 +30,7 @@ contract EgitimBilgileri is BaseProperties {
 
     mapping(address => mapping(uint => EgitimBilgi)) public egitimBilgiListesi;
     address[] public onayBekleyenKisiler;
+    EgitimBilgi[] public egitimBilgileri;
     mapping(address => uint[]) public kisiEgitimIdListesi;
 
     event EgitimBilgiEklendiLog(uint id, address _universite, uint basTarih, uint bitTarih);
@@ -146,6 +147,16 @@ contract EgitimBilgileri is BaseProperties {
     function getirKisininEgitimBilgisi(address _kisiAddress, uint _id) public view returns (EgitimBilgi memory){
         return egitimBilgiListesi[_kisiAddress][_id];
     }
+
+    function getirKisininEgitimListesi(address _kisiAddress) public returns (EgitimBilgi[] memory){
+     uint[] memory idliste =  getirKisininEgitimIdListe(_kisiAddress);
+    
+        for (uint i = 0; i < idliste.length - 1; i++) {
+             egitimBilgileri.push(getirKisininEgitimBilgisi(_kisiAddress,idliste[i]));
+            }
+        return egitimBilgileri;
+    }
+    
 
 
     function silOnayBekleyenListe(address _kisiAddress) private {

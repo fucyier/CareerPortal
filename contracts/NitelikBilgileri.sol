@@ -22,6 +22,7 @@ contract NitelikBilgileri is BaseProperties {
     mapping(address => mapping(uint => NitelikBilgi)) public nitelikBilgiListesi;
     mapping(address => NitelikBilgi[]) public nitelikBilgiListesi2;
     address[] public onayBekleyenKisiler;
+    NitelikBilgi[] public nitelikBilgileri;
     mapping(address => uint[]) public kisiNitelikIdListesi;
 
 
@@ -157,6 +158,14 @@ contract NitelikBilgileri is BaseProperties {
         return nitelikBilgiListesi[_kisiAddress][_id];
     }
 
+    function getirKisininNitelikListesi(address _kisiAddress) public returns (NitelikBilgi[] memory){
+     uint[] memory idliste =  getirKisininNitelikIdListe(_kisiAddress);
+    
+        for (uint i = 0; i < idliste.length - 1; i++) {
+             nitelikBilgileri.push(getirKisininNitelikBilgisi(_kisiAddress,idliste[i]));
+            }
+        return nitelikBilgileri;
+    }
 
     function silOnayBekleyenListe(address _kisiAddress) private {
 

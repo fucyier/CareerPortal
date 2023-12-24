@@ -19,6 +19,7 @@ contract SertifikaBilgileri is BaseProperties {
 
     mapping(address => mapping(uint => SertifikaBilgi)) public sertifikaBilgiListesi;
     address[] public onayBekleyenKisiler;
+    SertifikaBilgi[] public sertifikaBilgileri;
     mapping(address => uint[]) public kisiSertifikaIdListesi;
 
 
@@ -116,7 +117,15 @@ contract SertifikaBilgileri is BaseProperties {
     function getirKisininSertifikaBilgisi(address _kisiAddress, uint _id) public view returns (SertifikaBilgi memory){
         return sertifikaBilgiListesi[_kisiAddress][_id];
     }
-
+    
+    function getirKisininSertifikaListesi(address _kisiAddress) public returns (SertifikaBilgi[] memory){
+     uint[] memory idliste =  getirKisininSertifikaIdListe(_kisiAddress);
+    
+        for (uint i = 0; i < idliste.length - 1; i++) {
+             sertifikaBilgileri.push(getirKisininSertifikaBilgisi(_kisiAddress,idliste[i]));
+            }
+        return sertifikaBilgileri;
+    }
 
     function silOnayBekleyenListe(address _kisiAddress) private {
 
