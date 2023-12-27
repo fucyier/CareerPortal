@@ -151,7 +151,7 @@ contract EgitimBilgileri is BaseProperties {
     function getirKisininEgitimListesi(address _kisiAddress) public returns (EgitimBilgi[] memory){
      uint[] memory idliste =  getirKisininEgitimIdListe(_kisiAddress);
     
-        for (uint i = 0; i < idliste.length - 1; i++) {
+        for (uint i = 0; i < idliste.length; i++) {
              egitimBilgileri.push(getirKisininEgitimBilgisi(_kisiAddress,idliste[i]));
             }
         return egitimBilgileri;

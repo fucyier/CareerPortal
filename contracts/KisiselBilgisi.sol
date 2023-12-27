@@ -46,6 +46,9 @@ contract KisiselBilgisi is BaseProperties{
 
         }
 
+    function getirKisiselBilgi(address _kisiAddress) public view returns (KisiselBilgi memory){
+        return kisiselBilgisi[_kisiAddress];
+    }
 
 
 }

@@ -18,7 +18,8 @@ contract ReferansBilgileri is BaseProperties {
 
 
     mapping(address => mapping(uint => ReferansBilgi)) public referansBilgiListesi;
-
+  ReferansBilgi[] public referansBilgileri;
+    mapping(address => uint[]) public kisiReferansIdListesi;
 
     event ReferansTalepEtLog(uint id, address _kisiAdres, address _referansAdres, OnayDurum _durum);
     event ReferansOnayRedLog(uint referansId, address _kisiAddress, address _referansAdres, bool onayRed, uint zaman);
@@ -46,7 +47,7 @@ contract ReferansBilgileri is BaseProperties {
         referansBilgiListesi[_kisiAddress][yeniId].pozisyon = pozisyon;
         referansBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum = OnayDurum.OnayBekliyor;
 
-
+         kisiReferansIdListesi[_kisiAddress].push(yeniId);
         emit ReferansTalepEtLog(yeniId, _kisiAddress, referansAdres, OnayDurum.OnayBekliyor);
     }
 
@@ -76,4 +77,22 @@ contract ReferansBilgileri is BaseProperties {
         emit ReferansOnayRedLog(referansId, _kisiAddress, msg.sender, accepted, block.timestamp);
     }
 
+
+
+  function getirKisininReferansIdListe(address _kisiAddress) public view returns (uint[] memory){
+        return kisiReferansIdListesi[_kisiAddress];
+    }
+
+    function getirKisininReferansBilgisi(address _kisiAddress, uint _id) public view returns (ReferansBilgi memory){
+        return referansBilgiListesi[_kisiAddress][_id];
+    }
+    
+    function getirKisininReferansListesi(address _kisiAddress) public returns (ReferansBilgi[] memory){
+     uint[] memory idliste =  getirKisininReferansIdListe(_kisiAddress);
+    
+        for (uint i = 0; i < idliste.length ; i++) {
+             referansBilgileri.push(getirKisininReferansBilgisi(_kisiAddress,idliste[i]));
+            }
+        return referansBilgileri;
+    }
 }

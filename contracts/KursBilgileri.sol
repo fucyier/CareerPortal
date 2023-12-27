@@ -129,7 +129,7 @@ contract KursBilgileri is BaseProperties {
     function getirKisininKursListesi(address _kisiAddress) public returns (KursBilgi[] memory){
      uint[] memory idliste =  getirKisininKursIdListe(_kisiAddress);
     
-        for (uint i = 0; i < idliste.length - 1; i++) {
+        for (uint i = 0; i < idliste.length; i++) {
              kursBilgileri.push(getirKisininKursBilgisi(_kisiAddress,idliste[i]));
             }
         return kursBilgileri;

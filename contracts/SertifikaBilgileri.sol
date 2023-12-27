@@ -121,7 +121,7 @@ contract SertifikaBilgileri is BaseProperties {
     function getirKisininSertifikaListesi(address _kisiAddress) public returns (SertifikaBilgi[] memory){
      uint[] memory idliste =  getirKisininSertifikaIdListe(_kisiAddress);
     
-        for (uint i = 0; i < idliste.length - 1; i++) {
+        for (uint i = 0; i < idliste.length; i++) {
              sertifikaBilgileri.push(getirKisininSertifikaBilgisi(_kisiAddress,idliste[i]));
             }
         return sertifikaBilgileri;

@@ -136,7 +136,7 @@ contract YabanciDilBilgileri is BaseProperties {
     function getirKisininDilListesi(address _kisiAddress) public returns (YabanciDilBilgi[] memory){
      uint[] memory idliste =  getirKisininYabanciDilIdListe(_kisiAddress);
     
-        for (uint i = 0; i < idliste.length - 1; i++) {
+        for (uint i = 0; i < idliste.length ; i++) {
              yabanciDilBilgileri.push(getirKisininYabanciDilBilgisi(_kisiAddress,idliste[i]));
             }
         return yabanciDilBilgileri;

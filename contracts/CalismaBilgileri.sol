@@ -24,7 +24,7 @@ contract CalismaBilgileri is BaseProperties {
 
 
     mapping(address => mapping(uint => CalismaBilgi)) public calismaBilgiListesi;
-    mapping(address => CalismaBilgi[]) public calismaBilgiListesi2;
+  
     address[] public onayBekleyenKisiler;
     CalismaBilgi[] public calismaBilgileri;
     mapping(address => uint[]) public kisiCalismaIdListesi;
@@ -141,7 +141,7 @@ contract CalismaBilgileri is BaseProperties {
     function getirKisininCalismaListesi(address _kisiAddress) public returns (CalismaBilgi[] memory){
      uint[] memory idliste =  getirKisininCalismaIdListe(_kisiAddress);
     
-        for (uint i = 0; i < idliste.length - 1; i++) {
+        for (uint i = 0; i < idliste.length ; i++) {
              calismaBilgileri.push(getirKisininCalismaBilgisi(_kisiAddress,idliste[i]));
             }
         return calismaBilgileri;

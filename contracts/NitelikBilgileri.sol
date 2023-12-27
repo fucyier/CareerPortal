@@ -161,7 +161,7 @@ contract NitelikBilgileri is BaseProperties {
     function getirKisininNitelikListesi(address _kisiAddress) public returns (NitelikBilgi[] memory){
      uint[] memory idliste =  getirKisininNitelikIdListe(_kisiAddress);
     
-        for (uint i = 0; i < idliste.length - 1; i++) {
+        for (uint i = 0; i < idliste.length; i++) {
              nitelikBilgileri.push(getirKisininNitelikBilgisi(_kisiAddress,idliste[i]));
             }
         return nitelikBilgileri;
