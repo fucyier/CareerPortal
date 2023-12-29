@@ -42,8 +42,8 @@ SertifikaBilgileri sertifikaKontrati;
        function talepEtCalismaBilgi(address _talepEdilenKurum, string memory pozisyon, string memory sektor, CalismaTipi calismaTipi, string memory isAciklama, uint basTarih, uint bitTarih, uint8 ulke, uint32 sehir) public  _sadeceKisi{
              calismaKontrati.talepEtCalismaBilgi(msg.sender,_talepEdilenKurum, pozisyon, sektor, calismaTipi, isAciklama, basTarih, bitTarih, ulke, sehir);
        }
-        function talepEtYabanciDilBilgi(address _talepEdilenKurum, uint basTarih, uint bitTarih, EgitimBilgileri.OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye) public _sadeceKisi {
-            yabanciDilKontrati.talepEtYabanciDilBilgi(msg.sender,_talepEdilenKurum, basTarih, bitTarih, ogretimTipi, dilId, seviye);
+        function talepEtYabanciDilBilgi(address _talepEdilenKurum, OnaylayanKurum onayKurumTipi, uint basTarih, uint bitTarih, EgitimBilgileri.OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye) public _sadeceKisi {
+            yabanciDilKontrati.talepEtYabanciDilBilgi(msg.sender,_talepEdilenKurum,onayKurumTipi, basTarih, bitTarih, ogretimTipi, dilId, seviye);
         }
         function talepEtKursBilgi(address _talepEdilenKurum,  uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public _sadeceKisi{
             kursKontrati.talepEtKursBilgi(msg.sender,_talepEdilenKurum, basTarih, bitTarih, sure, egitimAdi);

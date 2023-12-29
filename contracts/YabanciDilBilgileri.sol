@@ -23,6 +23,7 @@ contract YabanciDilBilgileri is BaseProperties {
     mapping(address => mapping(uint => YabanciDilBilgi)) public yabanciDilBilgiListesi;
     address[] public onayBekleyenKisiler;
     YabanciDilBilgi[] public yabanciDilBilgileri;
+         YabanciDilBilgi[] public onayBekleyenler;
     mapping(address => uint[]) public kisiYabanciDilIdListesi;
 
     event YabanciDilEklendiLog(OnaylayanKurum _onaylayanKurumTipi, uint _basTarih, uint _bitTarih, OgretimTipi _ogretimTipi, uint32 _dilId);
@@ -61,7 +62,7 @@ contract YabanciDilBilgileri is BaseProperties {
         yabanciDilBilgiListesi[_kisiAddress][yeniId].seviye = seviye;
         yabanciDilBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum = OnayDurum.Onaylandi;
         yabanciDilBilgiListesi[_kisiAddress][yeniId].onayBilgi.zaman = block.timestamp;
-        yabanciDilBilgiListesi[_kisiAddress][yeniId].onayBilgi.adres = msg.sender;
+        yabanciDilBilgiListesi[_kisiAddress][yeniId].onayBilgi.onayAdres = msg.sender;
         kisiYabanciDilIdListesi[_kisiAddress].push(yeniId);
         emit YabanciDilEklendiLog(onayKurumTipi, basTarih, bitTarih, ogretimTipi, dilId);
     }
@@ -78,20 +79,21 @@ contract YabanciDilBilgileri is BaseProperties {
         yabanciDilBilgiListesi[_kisiAddress][ydBilgiId].seviye = seviye;
         yabanciDilBilgiListesi[_kisiAddress][ydBilgiId].onayBilgi.durum = OnayDurum.Onaylandi;
         yabanciDilBilgiListesi[_kisiAddress][ydBilgiId].onayBilgi.zaman = block.timestamp;
-        yabanciDilBilgiListesi[_kisiAddress][ydBilgiId].onayBilgi.adres = msg.sender;
+        yabanciDilBilgiListesi[_kisiAddress][ydBilgiId].onayBilgi.onayAdres = msg.sender;
 
         emit YabanciDilGuncellendiLog(onayKurumTipi, basTarih, bitTarih, ogretimTipi, dilId);
         return ydBilgiId;
 
     }
 
-    function talepEtYabanciDilBilgi(address _kisiAddress, address _talepEdilenKurum, uint basTarih, uint bitTarih, OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye) public {
+    function talepEtYabanciDilBilgi(address _kisiAddress, address _talepEdilenKurum,  OnaylayanKurum onayKurumTipi, uint basTarih, uint bitTarih, OgretimTipi ogretimTipi, uint32 dilId, Seviye seviye) public {
         require(baseContract.isKisi(_kisiAddress), "Kisi Mevcut Degil");
         require(!onayBekliyorMu(_kisiAddress), "Kisinin daha onceden onay bekleyen bir talebi vardir.");
         uint yeniId = id++;
 
         yabanciDilBilgiListesi[_kisiAddress][yeniId].id = yeniId;
         yabanciDilBilgiListesi[_kisiAddress][yeniId].talepEdilenKurum = _talepEdilenKurum;
+          yabanciDilBilgiListesi[_kisiAddress][yeniId].onayKurumTipi = onayKurumTipi;
         yabanciDilBilgiListesi[_kisiAddress][yeniId].basTarih = basTarih;
         yabanciDilBilgiListesi[_kisiAddress][yeniId].bitTarih = bitTarih;
         yabanciDilBilgiListesi[_kisiAddress][yeniId].ogretimTipi = ogretimTipi;
@@ -99,7 +101,7 @@ contract YabanciDilBilgileri is BaseProperties {
         yabanciDilBilgiListesi[_kisiAddress][yeniId].seviye = seviye;
         yabanciDilBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum = OnayDurum.OnayBekliyor;
         yabanciDilBilgiListesi[_kisiAddress][yeniId].onayBilgi.zaman = block.timestamp;
-        yabanciDilBilgiListesi[_kisiAddress][yeniId].onayBilgi.adres = msg.sender;
+        yabanciDilBilgiListesi[_kisiAddress][yeniId].onayBilgi.talepAdres = _kisiAddress;
 
         onayBekleyenKisiler.push(_kisiAddress);
         kisiYabanciDilIdListesi[_kisiAddress].push(yeniId);
@@ -113,7 +115,7 @@ contract YabanciDilBilgileri is BaseProperties {
         require(yabanciDilBilgiListesi[_kisiAddress][ydBilgiBilgiId].talepEdilenKurum == msg.sender, "Sadece Talep edilen kurum onaylayabilir.");
 
         yabanciDilBilgiListesi[_kisiAddress][ydBilgiBilgiId].onayBilgi.durum = OnayDurum.Onaylandi;
-        yabanciDilBilgiListesi[_kisiAddress][ydBilgiBilgiId].onayBilgi.adres = msg.sender;
+        yabanciDilBilgiListesi[_kisiAddress][ydBilgiBilgiId].onayBilgi.onayAdres = msg.sender;
         yabanciDilBilgiListesi[_kisiAddress][ydBilgiBilgiId].onayBilgi.zaman = block.timestamp;
         silOnayBekleyenListe(_kisiAddress);
         emit YabanciDilTalebiOnaylandiLog(msg.sender, block.timestamp);
@@ -191,5 +193,19 @@ contract YabanciDilBilgileri is BaseProperties {
         }
         return false;
     }
+ function getirOnayBekleyenListesi2() public  returns (YabanciDilBilgi[] memory){
 
+        for (uint i = 0; i < onayBekleyenKisiler.length; i++) {
+              uint[] memory idliste =  getirKisininYabanciDilIdListe(onayBekleyenKisiler[i]);
+             for (uint j = 0; j < idliste.length; j++){
+               
+         
+            if ( getirKisininYabanciDilBilgisi(onayBekleyenKisiler[i],idliste[j]).talepEdilenKurum==msg.sender){
+                onayBekleyenler.push(getirKisininYabanciDilBilgisi(onayBekleyenKisiler[i],idliste[j]));
+             }
+            }
+        }
+
+        return onayBekleyenler;
+    }
 }

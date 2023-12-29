@@ -27,7 +27,8 @@ abstract contract BaseProperties{
 
     struct Onay{
       uint zaman;
-      address adres;
+      address onayAdres;
+       address talepAdres;
       OnayDurum durum;
     }
      enum OnayDurum {

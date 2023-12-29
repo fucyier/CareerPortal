@@ -31,6 +31,7 @@ contract EgitimBilgileri is BaseProperties {
     mapping(address => mapping(uint => EgitimBilgi)) public egitimBilgiListesi;
     address[] public onayBekleyenKisiler;
     EgitimBilgi[] public egitimBilgileri;
+    EgitimBilgi[] public onayBekleyenler;
     mapping(address => uint[]) public kisiEgitimIdListesi;
 
     event EgitimBilgiEklendiLog(uint id, address _universite, uint basTarih, uint bitTarih);
@@ -69,7 +70,7 @@ contract EgitimBilgileri is BaseProperties {
         egitimBilgiListesi[_kisiAddress][yeniId].bolum = bolum;
         egitimBilgiListesi[_kisiAddress][yeniId].ogretimTipi = ogretimTipi;
         egitimBilgiListesi[_kisiAddress][yeniId].onayBilgi.zaman = block.timestamp;
-        egitimBilgiListesi[_kisiAddress][yeniId].onayBilgi.adres = msg.sender;
+        egitimBilgiListesi[_kisiAddress][yeniId].onayBilgi.onayAdres = msg.sender;
         egitimBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum = OnayDurum.Onaylandi;
         kisiEgitimIdListesi[_kisiAddress].push(yeniId);
         emit EgitimBilgiEklendiLog(yeniId, universite, basTarih, bitTarih);
@@ -89,7 +90,7 @@ contract EgitimBilgileri is BaseProperties {
         egitimBilgiListesi[_kisiAddress][_egitimBilgiId].bolum = bolum;
         egitimBilgiListesi[_kisiAddress][_egitimBilgiId].ogretimTipi = ogretimTipi;
         egitimBilgiListesi[_kisiAddress][_egitimBilgiId].onayBilgi.zaman = block.timestamp;
-        egitimBilgiListesi[_kisiAddress][_egitimBilgiId].onayBilgi.adres = msg.sender;
+        egitimBilgiListesi[_kisiAddress][_egitimBilgiId].onayBilgi.onayAdres = msg.sender;
         egitimBilgiListesi[_kisiAddress][_egitimBilgiId].onayBilgi.durum = OnayDurum.Onaylandi;
 
         emit EgitimBilgiGuncellendiLog(_egitimBilgiId, universite, basTarih, bitTarih);
@@ -115,7 +116,7 @@ contract EgitimBilgileri is BaseProperties {
         egitimBilgiListesi[_kisiAddress][yeniId].bolum = bolum;
         egitimBilgiListesi[_kisiAddress][yeniId].ogretimTipi = ogretimTipi;
         egitimBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum = OnayDurum.OnayBekliyor;
-
+        egitimBilgiListesi[_kisiAddress][yeniId].onayBilgi.talepAdres = _kisiAddress;
         onayBekleyenKisiler.push(_kisiAddress);
         kisiEgitimIdListesi[_kisiAddress].push(yeniId);
 
@@ -128,7 +129,7 @@ contract EgitimBilgileri is BaseProperties {
         require(egitimBilgiListesi[_kisiAddress][_egitimBilgiId].talepEdilenKurum == msg.sender, "Sadece Talep edilen kurum onaylayabilir.");
 
         egitimBilgiListesi[_kisiAddress][_egitimBilgiId].onayBilgi.durum = OnayDurum.Onaylandi;
-        egitimBilgiListesi[_kisiAddress][_egitimBilgiId].onayBilgi.adres = msg.sender;
+        egitimBilgiListesi[_kisiAddress][_egitimBilgiId].onayBilgi.onayAdres = msg.sender;
         egitimBilgiListesi[_kisiAddress][_egitimBilgiId].onayBilgi.zaman = block.timestamp;
         silOnayBekleyenListe(_kisiAddress);
         emit EgitimTalebiOnaylandiLog(msg.sender, block.timestamp);
@@ -208,5 +209,19 @@ contract EgitimBilgileri is BaseProperties {
         }
         return false;
     }
+ function getirOnayBekleyenListesi2() public  returns (EgitimBilgi[] memory){
 
+        for (uint i = 0; i < onayBekleyenKisiler.length; i++) {
+              uint[] memory idliste =  getirKisininEgitimIdListe(onayBekleyenKisiler[i]);
+             for (uint j = 0; j < idliste.length; j++){
+               
+         
+            if ( getirKisininEgitimBilgisi(onayBekleyenKisiler[i],idliste[j]).talepEdilenKurum==msg.sender){
+                onayBekleyenler.push(getirKisininEgitimBilgisi(onayBekleyenKisiler[i],idliste[j]));
+             }
+            }
+        }
+
+        return onayBekleyenler;
+    }
 }

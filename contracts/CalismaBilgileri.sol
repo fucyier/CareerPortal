@@ -27,6 +27,7 @@ contract CalismaBilgileri is BaseProperties {
   
     address[] public onayBekleyenKisiler;
     CalismaBilgi[] public calismaBilgileri;
+    CalismaBilgi[] public onayBekleyenler;
     mapping(address => uint[]) public kisiCalismaIdListesi;
 
     event CalismaBilgiEklendiLog(address _kisiAdres, uint8 _ulke, string _pozisyon, string _sektor);
@@ -65,7 +66,7 @@ contract CalismaBilgileri is BaseProperties {
         calismaBilgiListesi[_kisiAddress][yeniId].sehir = sehir;
         calismaBilgiListesi[_kisiAddress][yeniId].onayBilgi.zaman = block.timestamp;
         calismaBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum = OnayDurum.Onaylandi;
-        calismaBilgiListesi[_kisiAddress][yeniId].onayBilgi.adres = msg.sender;
+        calismaBilgiListesi[_kisiAddress][yeniId].onayBilgi.onayAdres = msg.sender;
         kisiCalismaIdListesi[_kisiAddress].push(yeniId);
         emit CalismaBilgiEklendiLog(_kisiAddress, ulke, pozisyon, sektor);
     }
@@ -83,7 +84,7 @@ contract CalismaBilgileri is BaseProperties {
         calismaBilgiListesi[_kisiAddress][_calismaBilgiId].sehir = sehir;
         calismaBilgiListesi[_kisiAddress][_calismaBilgiId].onayBilgi.zaman = block.timestamp;
         calismaBilgiListesi[_kisiAddress][_calismaBilgiId].onayBilgi.durum = OnayDurum.Onaylandi;
-        calismaBilgiListesi[_kisiAddress][_calismaBilgiId].onayBilgi.adres = msg.sender;
+        calismaBilgiListesi[_kisiAddress][_calismaBilgiId].onayBilgi.onayAdres = msg.sender;
 
         emit CalismaBilgiGuncellendiLog(_kisiAddress, ulke, pozisyon, sektor);
         return _calismaBilgiId;
@@ -106,6 +107,7 @@ contract CalismaBilgileri is BaseProperties {
         calismaBilgiListesi[_kisiAddress][yeniId].ulke = ulke;
         calismaBilgiListesi[_kisiAddress][yeniId].sehir = sehir;
         calismaBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum = OnayDurum.OnayBekliyor;
+        calismaBilgiListesi[_kisiAddress][yeniId].onayBilgi.talepAdres = _kisiAddress;
 
         onayBekleyenKisiler.push(_kisiAddress);
         kisiCalismaIdListesi[_kisiAddress].push(yeniId);
@@ -118,7 +120,7 @@ contract CalismaBilgileri is BaseProperties {
         require(calismaBilgiListesi[_kisiAddress][_calismaBilgiId].talepEdilenKurum == msg.sender, "Sadece Talep edilen kurum onaylayabilir.");
 
         calismaBilgiListesi[_kisiAddress][_calismaBilgiId].onayBilgi.durum = OnayDurum.Onaylandi;
-        calismaBilgiListesi[_kisiAddress][_calismaBilgiId].onayBilgi.adres = msg.sender;
+        calismaBilgiListesi[_kisiAddress][_calismaBilgiId].onayBilgi.onayAdres = msg.sender;
         calismaBilgiListesi[_kisiAddress][_calismaBilgiId].onayBilgi.zaman = block.timestamp;
         silOnayBekleyenListe(_kisiAddress);
         emit CalismaTalebiOnaylandiLog(msg.sender, block.timestamp);
@@ -195,5 +197,22 @@ contract CalismaBilgileri is BaseProperties {
             }
         }
         return false;
+    }
+
+
+     function getirOnayBekleyenListesi2() public  returns (CalismaBilgi[] memory){
+
+        for (uint i = 0; i < onayBekleyenKisiler.length; i++) {
+              uint[] memory idliste =  getirKisininCalismaIdListe(onayBekleyenKisiler[i]);
+             for (uint j = 0; j < idliste.length; j++){
+               
+         
+            if ( getirKisininCalismaBilgisi(onayBekleyenKisiler[i],idliste[j]).talepEdilenKurum==msg.sender){
+                onayBekleyenler.push(getirKisininCalismaBilgisi(onayBekleyenKisiler[i],idliste[j]));
+             }
+            }
+        }
+
+        return onayBekleyenler;
     }
 }

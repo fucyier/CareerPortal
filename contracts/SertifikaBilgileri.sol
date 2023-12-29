@@ -20,6 +20,7 @@ contract SertifikaBilgileri is BaseProperties {
     mapping(address => mapping(uint => SertifikaBilgi)) public sertifikaBilgiListesi;
     address[] public onayBekleyenKisiler;
     SertifikaBilgi[] public sertifikaBilgileri;
+       SertifikaBilgi[] public onayBekleyenler;
     mapping(address => uint[]) public kisiSertifikaIdListesi;
 
 
@@ -54,7 +55,7 @@ contract SertifikaBilgileri is BaseProperties {
         sertifikaBilgiListesi[_kisiAddress][yeniId].sertifikaAdi = _sertifikaAdi;
         sertifikaBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum = OnayDurum.Onaylandi;
         sertifikaBilgiListesi[_kisiAddress][yeniId].onayBilgi.zaman = block.timestamp;
-        sertifikaBilgiListesi[_kisiAddress][yeniId].onayBilgi.adres = msg.sender;
+        sertifikaBilgiListesi[_kisiAddress][yeniId].onayBilgi.onayAdres = msg.sender;
         kisiSertifikaIdListesi[_kisiAddress].push(yeniId);
         emit SertifikaEklendiLog(yeniId, _alinanTarih, _gecerlilikSuresi);
     }
@@ -69,7 +70,7 @@ contract SertifikaBilgileri is BaseProperties {
 
         sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].onayBilgi.durum = OnayDurum.Onaylandi;
         sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].onayBilgi.zaman = block.timestamp;
-        sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].onayBilgi.adres = msg.sender;
+        sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].onayBilgi.onayAdres = msg.sender;
 
         emit SertifikaGuncellendiLog(_sertifikaBilgiId, _alinanTarih, _gecerlilikSuresi);
         return _sertifikaBilgiId;
@@ -85,7 +86,7 @@ contract SertifikaBilgileri is BaseProperties {
         sertifikaBilgiListesi[_kisiAddress][yeniId].gecerlilikSuresi = _gecerlilikSuresi;
         sertifikaBilgiListesi[_kisiAddress][yeniId].sertifikaAdi = _sertifikaAdi;
         sertifikaBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum = OnayDurum.OnayBekliyor;
-
+        sertifikaBilgiListesi[_kisiAddress][yeniId].onayBilgi.talepAdres = _kisiAddress;
 
         onayBekleyenKisiler.push(_kisiAddress);
         kisiSertifikaIdListesi[_kisiAddress].push(yeniId);
@@ -98,7 +99,7 @@ contract SertifikaBilgileri is BaseProperties {
         require(sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].talepEdilenKurum == msg.sender, "Sadece Talep edilen kurum onaylayabilir.");
 
         sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].onayBilgi.durum = OnayDurum.Onaylandi;
-        sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].onayBilgi.adres = msg.sender;
+        sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].onayBilgi.onayAdres = msg.sender;
         sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].onayBilgi.zaman = block.timestamp;
         silOnayBekleyenListe(_kisiAddress);
         emit SertifikaTalebiOnaylandiLog(msg.sender, block.timestamp);
@@ -177,5 +178,19 @@ contract SertifikaBilgileri is BaseProperties {
         return false;
     }
 
+ function getirOnayBekleyenListesi2() public  returns (SertifikaBilgi[] memory){
 
+        for (uint i = 0; i < onayBekleyenKisiler.length; i++) {
+              uint[] memory idliste =  getirKisininSertifikaIdListe(onayBekleyenKisiler[i]);
+             for (uint j = 0; j < idliste.length; j++){
+               
+         
+            if ( getirKisininSertifikaBilgisi(onayBekleyenKisiler[i],idliste[j]).talepEdilenKurum==msg.sender){
+                onayBekleyenler.push(getirKisininSertifikaBilgisi(onayBekleyenKisiler[i],idliste[j]));
+             }
+            }
+        }
+
+        return onayBekleyenler;
+    }
 }

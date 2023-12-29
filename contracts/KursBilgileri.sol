@@ -21,6 +21,7 @@ contract KursBilgileri is BaseProperties {
     mapping(address => mapping(uint => KursBilgi)) public kursBilgiListesi;
     address[] public onayBekleyenKisiler;
     KursBilgi[] public kursBilgileri;
+     KursBilgi[] public onayBekleyenler;
     mapping(address => uint[]) public kisiKursIdListesi;
 
 
@@ -56,7 +57,7 @@ contract KursBilgileri is BaseProperties {
         kursBilgiListesi[_kisiAddress][yeniId].egitimAdi = egitimAdi;
         kursBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum = OnayDurum.Onaylandi;
         kursBilgiListesi[_kisiAddress][yeniId].onayBilgi.zaman = block.timestamp;
-        kursBilgiListesi[_kisiAddress][yeniId].onayBilgi.adres = msg.sender;
+        kursBilgiListesi[_kisiAddress][yeniId].onayBilgi.onayAdres = msg.sender;
 
         kisiKursIdListesi[_kisiAddress].push(yeniId);
         emit KursEklendiLog(_kisiAddress, basTarih, bitTarih, sure);
@@ -73,7 +74,7 @@ contract KursBilgileri is BaseProperties {
 
         kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.durum = OnayDurum.Onaylandi;
         kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.zaman = block.timestamp;
-        kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.adres = msg.sender;
+        kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.onayAdres = msg.sender;
 
         emit KursGuncellendiLog(_kisiAddress, basTarih, bitTarih, sure);
         return _kursBilgiId;
@@ -81,7 +82,7 @@ contract KursBilgileri is BaseProperties {
     }
 
     function talepEtKursBilgi(address _kisiAddress, address _talepEdilenKurum, uint basTarih, uint bitTarih, uint8 sure, string memory egitimAdi) public {
-        require(baseContract.isKisi(_kisiAddress), "Student not exists");
+        require(baseContract.isKisi(_kisiAddress), "Kisi bulunamadi");
         require(!onayBekliyorMu(_kisiAddress), "Kisinin daha onceden onay bekleyen bir talebi vardir.");
 
         uint yeniId = id++;
@@ -93,7 +94,8 @@ contract KursBilgileri is BaseProperties {
         kursBilgiListesi[_kisiAddress][yeniId].sure = sure;
         kursBilgiListesi[_kisiAddress][yeniId].egitimAdi = egitimAdi;
         kursBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum = OnayDurum.OnayBekliyor;
-
+        kursBilgiListesi[_kisiAddress][yeniId].onayBilgi.onayAdres = _kisiAddress;
+        
         onayBekleyenKisiler.push(_kisiAddress);
         kisiKursIdListesi[_kisiAddress].push(yeniId);
 
@@ -106,7 +108,7 @@ contract KursBilgileri is BaseProperties {
         require(kursBilgiListesi[_kisiAddress][_kursBilgiId].talepEdilenKurum == msg.sender, "Sadece Talep edilen kurum onaylayabilir.");
 
         kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.durum = OnayDurum.Onaylandi;
-        kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.adres = msg.sender;
+        kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.onayAdres = msg.sender;
         kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.zaman = block.timestamp;
         silOnayBekleyenListe(_kisiAddress);
         emit KursTalebiOnaylandiLog(msg.sender, block.timestamp);
@@ -184,5 +186,19 @@ contract KursBilgileri is BaseProperties {
         }
         return false;
     }
+ function getirOnayBekleyenListesi2() public  returns (KursBilgi[] memory){
 
+        for (uint i = 0; i < onayBekleyenKisiler.length; i++) {
+              uint[] memory idliste =  getirKisininKursIdListe(onayBekleyenKisiler[i]);
+             for (uint j = 0; j < idliste.length; j++){
+               
+         
+            if ( getirKisininKursBilgisi(onayBekleyenKisiler[i],idliste[j]).talepEdilenKurum==msg.sender){
+                onayBekleyenler.push(getirKisininKursBilgisi(onayBekleyenKisiler[i],idliste[j]));
+             }
+            }
+        }
+
+        return onayBekleyenler;
+    }
 }

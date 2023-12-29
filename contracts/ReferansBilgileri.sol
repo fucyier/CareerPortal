@@ -46,7 +46,8 @@ contract ReferansBilgileri is BaseProperties {
         referansBilgiListesi[_kisiAddress][yeniId].referansAdres = referansAdres;
         referansBilgiListesi[_kisiAddress][yeniId].pozisyon = pozisyon;
         referansBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum = OnayDurum.OnayBekliyor;
-
+        referansBilgiListesi[_kisiAddress][yeniId].onayBilgi.talepAdres = _kisiAddress;
+        
          kisiReferansIdListesi[_kisiAddress].push(yeniId);
         emit ReferansTalepEtLog(yeniId, _kisiAddress, referansAdres, OnayDurum.OnayBekliyor);
     }
@@ -66,7 +67,7 @@ contract ReferansBilgileri is BaseProperties {
         );
         referansBilgiListesi[_kisiAddress][referansId].aciklama = aciklama;
         referansBilgiListesi[_kisiAddress][referansId].onayBilgi.zaman = block.timestamp;
-        referansBilgiListesi[_kisiAddress][referansId].onayBilgi.adres = msg.sender;
+        referansBilgiListesi[_kisiAddress][referansId].onayBilgi.onayAdres = msg.sender;
         if (accepted) {
             referansBilgiListesi[_kisiAddress][referansId].onayBilgi.durum = OnayDurum.Onaylandi;
         }
