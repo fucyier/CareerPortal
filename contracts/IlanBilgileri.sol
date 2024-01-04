@@ -67,7 +67,7 @@ constructor(address baseAddress)  {
              ilanBilgileri[yeniId].ulke=_ulke;
              ilanBilgileri[yeniId].sehir=_sehir;
 
-             ilanAdresleri.push(id++);
+             ilanAdresleri.push(yeniId);
 
              emit IlanBilgiEklendiLog( yeniId,msg.sender, _pozisyon,_sektor );
     }
