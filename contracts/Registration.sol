@@ -285,7 +285,7 @@ contract Registration is BaseProperties{
         yabanciDilArray.push(YabanciDil(_dilId,_dilAdi));
     }
 
-        function getUlkeListesi() public  view returns(Ulke[] memory) {  
+    function getUlkeListesi() public  view returns(Ulke[] memory) {  
         return ulkeArray;
     }
     

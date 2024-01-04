@@ -100,7 +100,7 @@ contract YabanciDilBilgileri is BaseProperties {
         yabanciDilBilgiListesi[_kisiAddress][yeniId].dilId = dilId;
         yabanciDilBilgiListesi[_kisiAddress][yeniId].seviye = seviye;
         yabanciDilBilgiListesi[_kisiAddress][yeniId].onayBilgi.durum = OnayDurum.OnayBekliyor;
-        yabanciDilBilgiListesi[_kisiAddress][yeniId].onayBilgi.zaman = block.timestamp;
+      
         yabanciDilBilgiListesi[_kisiAddress][yeniId].onayBilgi.talepAdres = _kisiAddress;
 
         onayBekleyenKisiler.push(_kisiAddress);
