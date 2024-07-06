@@ -114,6 +114,20 @@ contract NitelikBilgileri is BaseProperties {
 
     }
 
+     function talepReddetNitelikBilgi(address _kisiAddress, uint nitelikBilgiId) public _yetkiliPaydas returns (uint){
+        require(baseContract.isKisi(_kisiAddress), "Kisi bulunamadi");
+        require(onayBekleyenKisiVeIdMevcutMu(_kisiAddress, nitelikBilgiId), "Kisinin onay bekleyen bir talebi yoktur.");
+        require(nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].talepEdilenKurum == msg.sender, "Sadece Talep edilen kurum reddedebilir.");
+
+        nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.durum = OnayDurum.Reddedildi;
+        nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.onayAdres = msg.sender;
+        nitelikBilgiListesi[_kisiAddress][nitelikBilgiId].onayBilgi.zaman = block.timestamp;
+        silOnayBekleyenListe(_kisiAddress);
+        emit NitelikTalebiOnaylandiLog(msg.sender, block.timestamp);
+        return nitelikBilgiId;
+
+    }
+
     function getirOnayBekleyenListe() public view returns (address[] memory){
         return onayBekleyenKisiler;
     }

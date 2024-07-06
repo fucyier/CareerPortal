@@ -106,7 +106,19 @@ contract SertifikaBilgileri is BaseProperties {
         return _sertifikaBilgiId;
 
     }
+    function talepReddetSertifikaBilgi(address _kisiAddress, uint _sertifikaBilgiId) public _yetkiliPaydas returns (uint){
+        require(baseContract.isKisi(_kisiAddress), "Kisi bulunamadi");
+        require(onayBekleyenKisiVeIdMevcutMu(_kisiAddress, _sertifikaBilgiId), "Kisinin onay bekleyen bir talebi yoktur.");
+        require(sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].talepEdilenKurum == msg.sender, "Sadece Talep edilen kurum reddedebilir.");
 
+        sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].onayBilgi.durum = OnayDurum.Reddedildi;
+        sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].onayBilgi.onayAdres = msg.sender;
+        sertifikaBilgiListesi[_kisiAddress][_sertifikaBilgiId].onayBilgi.zaman = block.timestamp;
+        silOnayBekleyenListe(_kisiAddress);
+        emit SertifikaTalebiOnaylandiLog(msg.sender, block.timestamp);
+        return _sertifikaBilgiId;
+
+    }
     function getirOnayBekleyenListe() public view returns (address[] memory){
         return onayBekleyenKisiler;
     }

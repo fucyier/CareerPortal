@@ -136,6 +136,7 @@ contract EgitimBilgileri is BaseProperties {
         return _egitimBilgiId;
 
     }
+    
 
     function getirOnayBekleyenListe() public view returns (address[] memory){
         return onayBekleyenKisiler;

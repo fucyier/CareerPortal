@@ -125,8 +125,9 @@ contract CalismaBilgileri is BaseProperties {
         silOnayBekleyenListe(_kisiAddress);
         emit CalismaTalebiOnaylandiLog(msg.sender, block.timestamp);
         return _calismaBilgiId;
-
     }
+
+    
 
     function getirOnayBekleyenListe() public view returns (address[] memory){
         return onayBekleyenKisiler;

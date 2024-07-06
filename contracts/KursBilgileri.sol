@@ -116,6 +116,20 @@ contract KursBilgileri is BaseProperties {
 
     }
 
+     function talepReddetKursBilgi(address _kisiAddress, uint _kursBilgiId) public _yetkiliPaydas returns (uint){
+        require(baseContract.isKisi(_kisiAddress), "Kisi bulunamadi");
+        require(onayBekleyenKisiVeIdMevcutMu(_kisiAddress, _kursBilgiId), "Kisinin onay bekleyen bir talebi yoktur.");
+        require(kursBilgiListesi[_kisiAddress][_kursBilgiId].talepEdilenKurum == msg.sender, "Sadece Talep edilen kurum reddedebilir.");
+
+        kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.durum = OnayDurum.Reddedildi;
+        kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.onayAdres = msg.sender;
+        kursBilgiListesi[_kisiAddress][_kursBilgiId].onayBilgi.zaman = block.timestamp;
+        silOnayBekleyenListe(_kisiAddress);
+        emit KursTalebiOnaylandiLog(msg.sender, block.timestamp);
+        return _kursBilgiId;
+
+    }
+
     function getirOnayBekleyenListe() public view returns (address[] memory){
         return onayBekleyenKisiler;
     }

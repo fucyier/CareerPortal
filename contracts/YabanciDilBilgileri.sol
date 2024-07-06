@@ -122,6 +122,19 @@ contract YabanciDilBilgileri is BaseProperties {
         return ydBilgiBilgiId;
 
     }
+    function talepReddetYabanciDilBilgi(address _kisiAddress, uint ydBilgiBilgiId) public _yetkiliPaydas returns (uint){
+        require(baseContract.isKisi(_kisiAddress), "Kisi bulunamadi");
+        require(onayBekleyenKisiVeIdMevcutMu(_kisiAddress, ydBilgiBilgiId), "Kisinin onay bekleyen bir talebi yoktur.");
+        require(yabanciDilBilgiListesi[_kisiAddress][ydBilgiBilgiId].talepEdilenKurum == msg.sender, "Sadece Talep edilen kurum reddedebilir.");
+
+        yabanciDilBilgiListesi[_kisiAddress][ydBilgiBilgiId].onayBilgi.durum = OnayDurum.Reddedildi;
+        yabanciDilBilgiListesi[_kisiAddress][ydBilgiBilgiId].onayBilgi.onayAdres = msg.sender;
+        yabanciDilBilgiListesi[_kisiAddress][ydBilgiBilgiId].onayBilgi.zaman = block.timestamp;
+        silOnayBekleyenListe(_kisiAddress);
+        emit YabanciDilTalebiOnaylandiLog(msg.sender, block.timestamp);
+        return ydBilgiBilgiId;
+
+    }
 
     function getirOnayBekleyenListe() public view returns (address[] memory){
         return onayBekleyenKisiler;
